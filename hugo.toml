@@ -4,13 +4,13 @@ title = 'Rushi Panchariya'
 
 [params]
   contentTypeName = "posts"
-  themeColor = "neongreen"
+  themeColor = "blue"
   showMenuItems = 4
-  centerTheme = false
+  centerTheme = true
   autoCover = true
   showLastUpdated = false
   readingTime = true
-  fullWidthTheme = true
+  fullWidthTheme = false
 
 [params.twitter]
   # set Twitter handles for Twitter cards
