@@ -1,6 +1,7 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Rushi Panchariya'
+googleAnalytics = 'G-P4ZXCNLZ0R'
 
 [params]
   contentTypeName = "posts"

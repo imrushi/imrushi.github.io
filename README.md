@@ -3,7 +3,7 @@
 - [ ] Social media handles
 - [ ] Category
 - [ ] tags
-- [ ] Google Analytics
+- [x] Google Analytics
 - [x] notes
 
 ##
