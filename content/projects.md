@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-draft: true
+draft: false
 ---
 
 ## [Shopey](https://play.google.com/store/apps/details?id=com.D2R2.shopey)
@@ -12,6 +12,8 @@ draft: true
 - Shopey makes it easy to capture a list for yourself, and share it with friends and family.
 - Developed using Flutter and Java, with Google Firebase utilized for the database, hosting, and Google functions.
 
+---
+
 ## [CLI VSCode Extension](https://github.com/vinckr/cli-vscode-extension)
 
 **_Open-Source Contributor_**
@@ -22,6 +24,8 @@ draft: true
 - Collaborating with a team of developers to ensure compatibility, functionality, and an optimal user experience.
 - Project is currently in progress, with no specific release date set at this stage.
 
+---
+
 ## [Datree](https://github.com/datreeio/datree/pulls?q=is%3Apr+is%3Aclosed+author%3Aimrushi)
 
 **_Open-Source Contributor_**
@@ -31,6 +35,8 @@ draft: true
 - Contributed two CLI commands: completion and Docs. The completion command enables auto‐completion of sub‐commands upon double‐
   tab, while the Docs command opens the documentation website in the user’s default browser.
 
+---
+
 ## [Pothole Detector Using IoT](https://github.com/imrushi/Pothole-detector)
 
 **_Collabortive Project_**
@@ -39,6 +45,8 @@ draft: true
 - The system locates the potholes and displays their locations on Maps.
 - The project was implemented using the ELK (Elasticsearch, Logstash, Kibana) stack and Python.
 - Raspberry Pi monitoring was achieved using Elastic Metricbeat.
+
+---
 
 ## [Geo DnD](https://github.com/imrushi/Geo-DnD)
 
