@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <h1 class="post-title">List of Notes</h1>
+  <ul>
+    {{ range .Site.RegularPages.ByTitle }} 
+      {{ if eq .Section "notes" }}
+        <li class="note-item">
+          <a href="{{ .Permalink }}" class="note-title">{{ .Title }}</a>
+          <span class="note-date">{{ .Date.Format "January 2, 2006" }}</span>
+        </li>
+        <hr>
+      {{ end }} 
+    {{ end }}
+  </ul>
+{{ end }}
