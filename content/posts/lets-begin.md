@@ -1,6 +1,6 @@
 ---
 title: "Let's Begin"
-date: "2023-07-14T15:39:45+05:30"
+date: "2023-08-25T09:05:10+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
 cover: "https://images.unsplash.com/photo-1612873003118-f0160ec93f4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80&h=640&w=960"
