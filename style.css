@@ -28,3 +28,24 @@ a {
 .note-date {
   color: gray;
 }
+
+/* Image Link Shortcode css */
+.image-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image-link {
+  flex: 0 0 auto;
+}
+
+.image-link a {
+  display: inline-block;
+}
+
+.image-link img {
+  max-width: 100px;
+  height: auto;
+  border: 0;
+}
