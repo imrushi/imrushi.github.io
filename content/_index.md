@@ -9,3 +9,7 @@ Hi, This is `Rushi`, and here on this page you will find various types of blogs 
 You can also find my [Notes]({{<ref "notes">}}). It is going to be mostly future topics or general notes, maybe more brain dumps 😁.
 
 Want to know more [About Me]({{<ref "about">}}).
+
+## Social Media
+
+{{< image-link "/img/github.svg~https://github.com/imrushi" "/img/linkedin.svg~https://www.linkedin.com/in/rushi-panchariya" "/img/twitter.svg~https://twitter.com/RushiPanchariya" "/img/stack-overflow.svg~https://stackoverflow.com/users/9128055/rex" "/img/youtube.svg~https://www.youtube.com/@rushipanchariya">}}

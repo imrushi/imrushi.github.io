@@ -1,0 +1,13 @@
+<div class="image-links-row">
+    <div class="image-link">
+          {{ range .Params }}
+              {{ $arg := split . "~" }}
+              {{ $imageURL := index $arg 0 }}
+              {{ $linkURL := index $arg 1 }}
+        <a href="{{ printf "%s" $linkURL }}" class="image-link" target="_blank" rel="noopener noreferrer">
+          <img src="{{ printf "%s" $imageURL }}" alt="Image" />
+        </a>
+        {{ end }}
+      </div>
+  </div>
+  
