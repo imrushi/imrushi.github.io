@@ -49,3 +49,14 @@ a {
   height: auto;
   border: 0;
 }
+
+.rss-link {
+  align-items: center;
+  justify-self: center;
+}
+
+.rss-link img {
+  max-width: 100px;
+  height: auto;
+  border: 0;
+}

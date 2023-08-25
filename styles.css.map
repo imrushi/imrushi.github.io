@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/runner/work/hugo-portfolio/hugo-portfolio",
+	"sourceRoot": "/home/runner/work/imrushi.github.io/imrushi.github.io",
 	"sources": [
 		"css/base.scss",
 		"../../../../../tmp/hugo_cache_runner/modules/filecache/modules/pkg/mod/github.com/panr/hugo-theme-terminal/v3@v3.1.2/assets/css/variables.scss",
