@@ -25,7 +25,7 @@ jobs:
         run: hugo --minify
 
       - name: insert CNAME
-        run: echo "new.ruship.dev" >> ./public/CNAME
+        run: echo "ruship.dev" >> ./public/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
