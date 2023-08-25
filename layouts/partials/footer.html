@@ -1,5 +1,8 @@
 <footer class="footer">
     <div class="footer__inner">
+      <a href="{{ $.Site.BaseURL }}index.xml" class="rss-link" target="_blank">
+        <img src="/img/svgs/rss.svg" alt="rss" height="30px" width="30px"/>
+      </a>
       {{ if $.Site.Copyright }}
         <div class="copyright copyright--user">
           <span>{{ $.Site.Copyright | safeHTML }}</span>
