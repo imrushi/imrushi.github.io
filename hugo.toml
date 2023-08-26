@@ -1,7 +1,9 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Rushi Panchariya'
-googleAnalytics = 'G-P4ZXCNLZ0R'
+# Google Analytics setup by enviroment variable
+# HUGO_GOOGLEANALYTICS
+# googleAnalytics = '' 
 
 [params]
   contentTypeName = "posts"
@@ -23,8 +25,8 @@ googleAnalytics = 'G-P4ZXCNLZ0R'
 [languages]
   [languages.en.params]
     languageName = "English"
-    title = "Terminal"
-    subtitle = "A simple, retro theme"
+    title = "RushiPanchariya"
+    subtitle = "Personal Insights, Blogs, and Notes"
     owner = "Rushi"
     keywords = ""
     copyright = ""
