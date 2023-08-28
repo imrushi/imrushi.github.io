@@ -60,3 +60,27 @@ a {
   height: auto;
   border: 0;
 }
+
+/* Style for custom checkboxes */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1px solid #23B0FF;
+  border-radius: 3px;
+  margin-right: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2714"; /* Unicode checkmark symbol */
+  position: absolute;
+  top: -1px;
+  left: 4px;
+  font-size: 16px;
+  color: #23B0FF;
+}
