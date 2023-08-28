@@ -14,6 +14,7 @@ title = 'Rushi Panchariya'
   showLastUpdated = false
   readingTime = true
   fullWidthTheme = false
+  hideComments = false
 
 [params.twitter]
   # set Twitter handles for Twitter cards
