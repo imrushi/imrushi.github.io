@@ -53,8 +53,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="431298657" type="checkbox" />
-&lt;label for="431298657">
+&lt;input id="768425913" type="checkbox" />
+&lt;label for="768425913">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -82,8 +82,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="574239681" type="checkbox" />
-&lt;label for="574239681">
+&lt;input id="653798421" type="checkbox" />
+&lt;label for="653798421">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -121,7 +121,9 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;a href="https://go.dev/doc/effective_go#semicolons">https://go.dev/doc/effective_go#semicolons&lt;/a>&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
 &lt;p>OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.&lt;/p>
-&lt;p>OAuth was originally designed for applications to get access to API&amp;rsquo;s (All they need to ability to access the API). OAuth doesn&amp;rsquo;t communicate with user information. OpenID communicate with user information.&lt;/p></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>Hi there Hello, I am Rushi Panchariya. I&amp;rsquo;m Software Engineer with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.
+&lt;p>OAuth was originally designed for applications to get access to API&amp;rsquo;s (All they need to ability to access the API). OAuth doesn&amp;rsquo;t communicate with user information. OpenID communicate with user information.&lt;/p>
+&lt;h2 id="oauth-20-actors">OAuth 2.0 Actors&lt;/h2>
+&lt;p>OAuth 2.0 has different actors defined in the authentication and authorization process. These actors work together to ensure that the user&amp;rsquo;s information is kept secure and that the application only accesses the information that the user has explicitly granted permission for.&lt;/p></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>Hi there Hello, I am Rushi Panchariya. I&amp;rsquo;m Software Engineer with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.
 I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.</description><content>&lt;h1 id="hi-there-hahahugoshortcode4s0hbhb">Hi there
 &lt;img src="/img/pikachu-running.gif" class="left" style="width: 50px;" />
 &lt;/h1>
