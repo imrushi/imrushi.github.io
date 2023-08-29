@@ -112,3 +112,25 @@ Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal 
 
 If you want to know more how it works you check Go's official doc
 https://go.dev/doc/effective_go#semicolons
+
+### Formatting
+
+Formatting issues are the most contentious but the least important. People may prefer different formatting styles, thus when another developer or person reads the same code it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents in the same way.
+
+With Go we take an unusual approch and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called `go fmt`. The `go fmt` program reads a Go program and emits the source in a **_standerd style of indentation and vertical alignment, retaining and if necessary reformatting comments._**
+
+Next time whenever you share your code, other Go developers will expect it to be in the standard Go format. _With Go all you have to do is run `go fmt`_.
+
+If you want to try its simple version, head over to the [Go playground](https://go.dev/play), write some buggy or unformatted code, and hit the `format` button.
+
+### Comments
+
+Go provides C style `/* */` block comments and C++ style `//` line comments. Most block comments appear as package comments but are useful within an expression or to disable large blocks of code; Otherwise usually line comments are used.
+
+Comments that appear before a top-level declaration, with no intervening newlines, are considered to document the declaration itself. For example: In the above `Hello World` programme with comments, all comments will be used in `Go Documents`. These `doc comments` are the primary documentation for given Go package or command.
+
+For more about doc comments, see [Go Doc Comments](https://go.dev/doc/comment).
+
+### Functions
+
+### Data Types
