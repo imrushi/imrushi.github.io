@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 25 Aug 2023 09:05:10 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Let's Begin</title><link>/posts/lets-begin/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-begin/</guid><description>Begin This is the new beginning and also my second blog, which is also a non-technical blog (first blog). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the Notes section.</description><content>&lt;h2 id="begin">Begin&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 25 Aug 2023 09:05:10 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>Begin This is the new beginning and also my second blog, which is also a non-technical blog (first blog). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the Notes section.</description><content>&lt;h2 id="begin">Begin&lt;/h2>
 &lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p>
 &lt;h2 id="plan-and-present">Plan and Present&lt;/h2>
 &lt;p>As of now, I don’t have a full plan for what I am going to write, which topics I will cover, or where it will go. But I remember a quote that says to &lt;code>go with the flow and be more concerned with the journey than the destination&lt;/code>.&lt;/p>
@@ -16,7 +16,7 @@
 &lt;li>Write blog&lt;/li>
 &lt;li>Make YouTube Videos&lt;/li>
 &lt;/ul>
-&lt;h2 id="let-go">Let Go&lt;/h2>
+&lt;h2 id="lets-go">Let&amp;rsquo;s Go&lt;/h2>
 &lt;p>Let us begin this journey and learn as we go. The start may not be great, but you have to start to be great.&lt;/p>
 &lt;hr>
 &lt;p>If you are interested, I created a track 7 years ago called &lt;a href="https://soundcloud.com/rex_official/lets-go-rex">Let&amp;rsquo;s Go&lt;/a>&lt;/p></content></item><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other langauges, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
@@ -53,8 +53,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="768425913" type="checkbox" />
-&lt;label for="768425913">
+&lt;input id="359264781" type="checkbox" />
+&lt;label for="359264781">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -82,8 +82,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="653798421" type="checkbox" />
-&lt;label for="653798421">
+&lt;input id="916247358" type="checkbox" />
+&lt;label for="916247358">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
