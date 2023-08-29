@@ -1,5 +1,5 @@
 ---
-title: "Let's Begin"
+title: "Let's Go"
 date: "2023-08-25T09:05:10+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
@@ -38,7 +38,7 @@ So my plan will be, in short:
 - Write blog
 - Make YouTube Videos
 
-## Let Go
+## Let's Go
 
 Let us begin this journey and learn as we go. The start may not be great, but you have to start to be great.
 
