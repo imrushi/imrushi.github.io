@@ -9,6 +9,7 @@ a {
   transition: background-position 120ms ease-in-out 0s,
     padding 120ms ease-in-out 0s;
   background-size: 100% 200%;
+  text-decoration: none;
 }
 
 /* Style for note list items */
