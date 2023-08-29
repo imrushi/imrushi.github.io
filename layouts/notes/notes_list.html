@@ -5,7 +5,7 @@
       {{ if eq .Section "notes" }}
         <li class="note-item">
           <a href="{{ .Permalink }}" class="note-title">{{ .Title }}</a>
-          <span class="note-date">{{ .Date.Format "January 2, 2006" }}</span>
+          <span class="note-date">{{ .Date.Format "January 2, 2006" }} :: [{{or $.Site.Params.updatedDatePrefix "Updated"}} : {{ .Lastmod.Format "January 2, 2006" }}]</span>
         </li>
         <hr>
       {{ end }} 

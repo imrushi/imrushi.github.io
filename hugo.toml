@@ -4,6 +4,7 @@ title = 'Rushi Panchariya'
 # Google Analytics setup by enviroment variable
 # HUGO_GOOGLEANALYTICS
 # googleAnalytics = '' 
+enableGitInfo = true
 
 [params]
   contentTypeName = "posts"
