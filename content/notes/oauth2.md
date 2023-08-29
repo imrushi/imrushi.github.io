@@ -19,3 +19,5 @@ OAuth was originally designed for applications to get access to API's (All they 
 ## OAuth 2.0 Actors
 
 OAuth 2.0 has different actors defined in the authentication and authorization process. These actors work together to ensure that the user's information is kept secure and that the application only accesses the information that the user has explicitly granted permission for.
+
+{{< figure src="https://images2.imgbox.com/4d/c6/rYoOV6yD_o.png" alt="actors" position="center" style="border-radius: 8px;" caption="OAuth2 Actors" captionPosition="center" >}}
