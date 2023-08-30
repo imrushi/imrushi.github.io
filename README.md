@@ -1,10 +1,11 @@
 # TODO
 
 - [x] Social media handles
-- [ ] Category
-- [ ] tags
+- [x] Category
+- [x] tags
 - [x] Google Analytics
 - [x] notes
 - [x] Comments
+- [x] Search bar
 
 ##
