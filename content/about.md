@@ -1,5 +1,6 @@
 ---
 title: "About"
+readingTime: false
 ---
 
 # Hi there {{<image src="/img/pikachu-running.gif" position="left" style="width: 50px;">}}
