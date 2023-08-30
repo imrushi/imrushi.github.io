@@ -4,8 +4,18 @@ date: 2023-08-24
 draft: false
 toc: true
 author: "Rushi"
-tags: ["Golang", "Notes"]
-keywords: ["programming", "Go", "Go Notes", "technincal", "Golang", "Google Go"]
+tags: ["golang", "notes"]
+keywords:
+  [
+    "programming",
+    "go",
+    "go notes",
+    "technincal",
+    "golang",
+    "golang notes",
+    "golang basics",
+  ]
+categories: ["Go"]
 enableGitInfo: true
 showLastUpdated: true
 ---

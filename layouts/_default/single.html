@@ -15,6 +15,19 @@
     {{ with .Params.Author }}
       <span class="post-author">{{ . }}</span>
     {{ end }}
+    {{- $taxo := "categories" -}}
+    {{ with .Params.Categories }}
+      :: &#x1F4C1; <span class="post-author">
+        {{- range $index, $category := . }}
+            {{- $url := urls.Parse ($category | urlize) -}}
+            {{- $path := $url.Path -}}
+            {{- with $.Site.GetPage (printf "/%s/%s" $taxo $path) }}
+                {{- if gt $index 0 }}, {{ end -}}
+                <a class="post-author" href="{{ .RelPermalink }}" rel="category">{{ .Title }}</a>
+            {{- end }}
+      {{- end }}
+      </span>
+    {{ end }}
     {{ if and (.Param "readingTime") (eq (.Param "readingTime") true) }}
       <span class="post-reading-time">:: {{ .ReadingTime }} min read ({{ .WordCount }} words)</span>
     {{ end }}
