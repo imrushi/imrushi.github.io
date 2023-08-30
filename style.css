@@ -104,3 +104,18 @@ input[type="checkbox"]:checked::before {
   background-image: linear-gradient(transparent 0%, transparent calc(50% - 9px), rgba(35, 176, 255, 0.2) calc(50% - 9px), rgba(35, 176, 255,0.5) 100%);
   background-position: 0px 100%;
 }
+
+.search-ul {
+  list-style-type: none;
+}
+
+.search-ul p {
+  margin: 0;
+}
+.search-ul li {
+  padding: 1em 0 1em 0;
+}
+
+#search-title.post-title {
+  margin-top: 5px;
+}

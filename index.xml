@@ -53,8 +53,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="743826591" type="checkbox" />
-&lt;label for="743826591">
+&lt;input id="926784135" type="checkbox" />
+&lt;label for="926784135">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -82,8 +82,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="274359168" type="checkbox" />
-&lt;label for="274359168">
+&lt;input id="134267859" type="checkbox" />
+&lt;label for="134267859">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -139,7 +139,7 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;img src="https://images2.imgbox.com/4d/c6/rYoOV6yD_o.png" alt="actors" style="border-radius: 8px;" />
 &lt;figcaption class="center" >OAuth2 Actors&lt;/figcaption>
 &lt;/figure></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>Hi there Hello, I am Rushi Panchariya. I&amp;rsquo;m Software Engineer with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.
-I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.</description><content>&lt;h1 id="hi-there-hahahugoshortcode4s0hbhb">Hi there
+I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.</description><content>&lt;h1 id="hi-there-hahahugoshortcode5s0hbhb">Hi there
 &lt;img src="/img/pikachu-running.gif" class="left" style="width: 50px;" />
 &lt;/h1>
 &lt;p>Hello, I am Rushi Panchariya. I&amp;rsquo;m &lt;strong>Software Engineer&lt;/strong> with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.&lt;/p>
