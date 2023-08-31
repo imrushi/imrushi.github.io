@@ -10,10 +10,11 @@ keywords:
     "programming",
     "go",
     "go notes",
-    "technincal",
+    "technical",
     "golang",
     "golang notes",
     "golang basics",
+    "golang syntax",
   ]
 categories: ["Go"]
 enableGitInfo: true

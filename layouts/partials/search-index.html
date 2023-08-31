@@ -18,6 +18,7 @@ window.store = {
         "title": "{{ .Title  }}",
         "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
         "categories": [{{ range .Params.Categories }}"{{ . }}",{{ end }}],
+        "keywords": [{{ range .Params.Keywords }}"{{ . }}",{{ end }}],
         "content": {{ .Content | plainify }}, // Strip out HTML tags
         "url": "{{ .Permalink }}"
     },

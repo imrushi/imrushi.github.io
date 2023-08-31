@@ -39,17 +39,27 @@ if (query) {
     this.field("title", {
       boost: 15,
     });
-    this.field("tags");
+    this.field("tags", {
+      boost: 12,
+    });
     this.field("content", {
       boost: 10,
+    });
+    this.field("categories", {
+      boost: 8,
+    });
+    this.field("keywords", {
+      boost: 13,
     });
 
     for (const key in window.store) {
       this.add({
         id: key,
         title: window.store[key].title,
-        tags: window.store[key].category,
+        tags: window.store[key].tags,
         content: window.store[key].content,
+        categories: window.store[key].categories,
+        keywords: window.store[key].keywords,
       });
     }
   });
