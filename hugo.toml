@@ -6,6 +6,12 @@ title = 'Rushi Panchariya'
 # googleAnalytics = '' 
 enableGitInfo = true
 
+[markup]
+  [markup.tableOfContents]
+    endLevel = 5
+    ordered = true
+    startLevel = 2
+
 [params]
   contentTypeName = "posts"
   themeColor = "blue"
