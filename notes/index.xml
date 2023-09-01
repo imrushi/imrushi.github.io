@@ -32,8 +32,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="385792164" type="checkbox" />
-&lt;label for="385792164">
+&lt;input id="523468197" type="checkbox" />
+&lt;label for="523468197">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -61,8 +61,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="985314762" type="checkbox" />
-&lt;label for="985314762">
+&lt;input id="597426831" type="checkbox" />
+&lt;label for="597426831">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -107,7 +107,105 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Go provides C style &lt;code>/* */&lt;/code> block comments and C++ style &lt;code>//&lt;/code> line comments. Most block comments appear as package comments but are useful within an expression or to disable large blocks of code; Otherwise usually line comments are used.&lt;/p>
 &lt;p>Comments that appear before a top-level declaration, with no intervening newlines, are considered to document the declaration itself. For example: In the above &lt;code>Hello World&lt;/code> programme with comments, all comments will be used in &lt;code>Go Documents&lt;/code>. These &lt;code>doc comments&lt;/code> are the primary documentation for given Go package or command.&lt;/p>
 &lt;p>For more about doc comments, see &lt;a href="https://go.dev/doc/comment">Go Doc Comments&lt;/a>.&lt;/p>
+&lt;h3 id="names">Names&lt;/h3>
+&lt;p>Names are as important in Go as in any other language. Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>A name must begin with letter, and can have any number of additional letters and numbers.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The visibility of a name outside a package is determined by below points:&lt;/p>
+&lt;ul>
+&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from packages outside the current one. &lt;code>Example&lt;/code> - As you have seen in above &lt;a href="#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
+&lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and only be accessed within the current package.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Above the only rules enforced by the language. But the &lt;code>Go community&lt;/code> follows some additional conventions as well:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>If a name consists of multiple words, each word after the first should be capitalized, and they should be attached together without spaces between them, like this: &lt;strong>&lt;em>topRank, RetryConnection&lt;/em>&lt;/strong>&amp;hellip; This style is often called &lt;a href="https://en.wikipedia.org/wiki/Camel_case">Camel Case&lt;/a> because the capitalized letter look like the humps of a camel.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>When the meaning of a name is obvious from the context, the Go community&amp;rsquo;s convention is to abbreviate it: to use &lt;code>i&lt;/code> instead of &lt;code>index&lt;/code>, &lt;code>max&lt;/code> instead of &lt;code>maximum&lt;/code>&amp;hellip;&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="mixedcaps">MixedCaps&lt;/h4>
+&lt;p>The convention in Go is to use &lt;code>MixedCaps&lt;/code> or &lt;code>mixedCaps&lt;/code> rather than underscores to write multiword names.&lt;/p>
+&lt;h4 id="package-names">Package Names&lt;/h4>
+&lt;p>Good pacakage names make code better. A package&amp;rsquo;s names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
+&lt;h5 id="guideline">Guideline&lt;/h5>
+&lt;p>It&amp;rsquo;s helpful if everyone using the package can the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for &lt;strong>&lt;em>under_scores&lt;/em>&lt;/strong> or &lt;strong>&lt;em>mixedCaps&lt;/em>&lt;/strong>. They are often simple nouns, such as:&lt;/p>
+&lt;ul>
+&lt;li>time (provides functionality for measuring and displaying time)&lt;/li>
+&lt;li>list (implements a doubly linked list)&lt;/li>
+&lt;li>http (provides HTTP client and server implementations)&lt;/li>
+&lt;/ul>
+&lt;p>Below are example for bad naming styles in Go:&lt;/p>
+&lt;ul>
+&lt;li>computeServiceClient&lt;/li>
+&lt;li>priority_queue&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Abbreviate judiciously&lt;/em>&lt;/strong>. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely-used packages often have compressed names:&lt;/p>
+&lt;ul>
+&lt;li>strconv (string conversion)&lt;/li>
+&lt;li>syscall (system call)&lt;/li>
+&lt;li>fmt (formatted I/O)&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p>
+&lt;/blockquote>
+&lt;p>Another convention is that the package name is the base name of its source directory; the package in &lt;code>src/encoding/base64&lt;/code> is imported as &lt;code>&amp;quot;encoding/base64&amp;quot;&lt;/code> but has name &lt;code>base64&lt;/code>, not &lt;code>encoding_base64&lt;/code> and not &lt;code>encodingBase64&lt;/code>.&lt;/p>
+&lt;p>Another short example is &lt;code>once.Do&lt;/code>; &lt;code>once.Do(setup)&lt;/code> reads well and would not be improved by writing &lt;code>once.DoOrWaitUntilDone(setup)&lt;/code>. &lt;em>Long names don&amp;rsquo;t automatically make things more readable.&lt;/em> A helpful doc comment can often be more valuable than an extra long name.&lt;/p>
+&lt;h4 id="interface-names">Interface Names&lt;/h4>
+&lt;p>By convention, one-method interfaces are named by the &lt;code>method name&lt;/code> plus and &lt;code>-er&lt;/code> suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p>
 &lt;h3 id="functions">Functions&lt;/h3>
+&lt;p>A function is a group of statements that together perfrom a task. Function can be used to:&lt;/p>
+&lt;ul>
+&lt;li>Resuse code in multiple places.&lt;/li>
+&lt;li>Make code more organized and readable.&lt;/li>
+&lt;li>Hide implementation details.&lt;/li>
+&lt;li>Improve code perfromance.&lt;/li>
+&lt;/ul>
+&lt;p>Functions are declared using the &lt;code>func&lt;/code> keyword, followed by the &lt;code>function name, a list of parameters, and a block of code&lt;/code>. The function body is enclosed in curly &lt;code>braces&lt;/code> (&lt;code>{&lt;/code> and &lt;code>}&lt;/code>). A function can take zero or more arguments.&lt;/p>
+&lt;p>Syntax for function in Go: &lt;code>func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code>&lt;/p>
+&lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
+&lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="563281749" type="checkbox" />
+&lt;label for="563281749">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Addition Function&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+package main
+import &amp;#34;fmt&amp;#34;
+func add(x, y int) int {
+return x &amp;#43; y
+}
+func main() {
+fmt.Println(add(15, 10))
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>In the above &lt;code>Addition Function&lt;/code> program we have two functions. The first is &lt;code>main()&lt;/code>, which doesn&amp;rsquo;t take any arguments (arguments are passed inside rounded brackets &lt;code>()&lt;/code>). The second function is our &lt;code>add&lt;/code> function, which you can see we have started with the &lt;code>func&lt;/code> keyword to declare a function, followed by the function name &lt;code>add()&lt;/code>, and we have passed two arguments &lt;code>x&lt;/code> and &lt;code>y&lt;/code>, which are type of &lt;code>int&lt;/code>. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.&lt;/p>
+&lt;p>In the above example, we shortend:&lt;/p>
+&lt;p>&lt;code>x int, y int&lt;/code> to &lt;code>x, y int&lt;/code>&lt;/p>
+&lt;p>The function is returning &lt;code>int&lt;/code> data type, which is single value, with &lt;code>return statement&lt;/code> statement of &lt;code>x + y&lt;/code>, which is an addition of numbers.&lt;/p>
+&lt;p>To call this function, we need to type the function name (&lt;code>add&lt;/code> in this case) and a pair of parentheses with argumearguments separated by a comma (,) in our case, which is &lt;code>15, 10&lt;/code>.&lt;/p>
+&lt;p>If you check the above program &lt;code>Println&lt;/code> is also a function. Let&amp;rsquo;s break down the structure of &lt;code>fmt.Println()&lt;/code> and see what is happening here.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>fmt.&lt;/code> :- It is an package which contain multiple function.&lt;/li>
+&lt;li>&lt;code>Println&lt;/code> :- &lt;code>Println&lt;/code> is function name which resides in &lt;code>fmt&lt;/code> package. To use &lt;code>Println&lt;/code> package should be imported then only we can access function it offers.&lt;/li>
+&lt;li>&lt;code>()&lt;/code> :- By using parentheses we are executing the function.&lt;/li>
+&lt;/ul>
+&lt;p>If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.&lt;/p>
+&lt;h4 id="multiple-return-value">Multiple Return Value&lt;/h4>
+&lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
+&lt;h4 id="defer">Defer&lt;/h4>
 &lt;h3 id="data-types">Data Types&lt;/h3></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
 &lt;p>OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.&lt;/p>
