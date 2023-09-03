@@ -195,6 +195,43 @@ Another short example is `once.Do`; `once.Do(setup)` reads well and would not be
 
 By convention, one-method interfaces are named by the `method name` plus and `-er` suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.
 
+### Declaration Variables
+
+In Go, a `variable` is a piece of storage containing a value. You can give a variable a name by using a `variable declaration`. Just use the `var` keyword followed by the desired name and the type of values the variable will hold.
+
+Variable declaration syntax:
+
+`var name string`
+
+- `var` :- It is a keyword.
+- `name` :- It will be a variable name that you want to access in your programme.
+- `string` :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)
+
+Once you declare a variable, you can assign any value of that type to it with `=` sign.
+
+`var name string = "Jerry"`
+
+You can assign values to multiple variables in the same statement. Just place mutiple varible names on the left side of `=`, and the same number of values on the right side, seprated with commas (`,`).
+
+Syntax for assign multiple variables at once:
+
+`var length, width float64 = 1.2, 2.4`
+
+You can assign new values to existing variables, but they need to be values of the same type like you can't assign `int` variable value to `string` type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.
+
+### Short Variable Declaration
+
+As we seen in the above section we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a `short variable declaration`. Instead of explicitly declaring the type of the variable and later assigning to it with `=`, you do both at once using `:=`.
+
+Here are our previous examples with short variable declaration :
+
+1. `name := jerry` instead of `var name string = "Jerry"`
+2. `length, width := 1.2, 2.4` instead of `var length, width float64 = 1.2, 2.4`
+
+There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.
+
+Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.
+
 ### Functions
 
 A function is a group of statements that together perfrom a task. Function can be used to:
@@ -248,8 +285,103 @@ If the function takes a number of arguments and we don’t pass any or provide t
 
 #### Multiple Return Value
 
+One of Go's unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary reuslt.
+
+Below is Division program which return multiple values like quotient, remainder :
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Division" expand="Show" collapse="Hide" isCollapsed="false" >}}
+package main
+
+import (
+	"fmt"
+)
+
+func divideAndRemainder(dividend, divisor int) (int, int) {
+	quotient := dividend / divisor
+	remainder := dividend % divisor
+	return quotient, remainder
+}
+
+func main() {
+	quotient, remainder := divideAndRemainder(10, 3)
+	fmt.Printf("Quotient: %d, Remainder: %d\n", quotient, remainder)
+}
+
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+In the above example, the `divideAndRemainder` function takes two integer parameters, `dividend` and `divisor`. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specifiy the return types in parentheses immediately after the function signature. In below declaration `(int, int)` is returning pair of integers in function return value.
+
+`func divideAndRemainder(dividend, divisor int) (int, int) {}`
+
+When you call the `divideAndRemainder` function in the `main` function, you can capture both return values `(quotient and remainder)` and use them as needed.
+
 #### Named Result Parameters
 
+Named Result Parameters allow us to declare names from the return values of a function in it's signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Division with Named Result Parameters" expand="Show" collapse="Hide" isCollapsed="false" >}}
+package main
+
+import "fmt"
+
+func divideAndRemainder(dividend, divisor int) (quotient int, remainder int) {
+	quotient = dividend / divisor
+	remainder = dividend % divisor
+	return
+}
+
+func main() {
+	q, r := divideAndRemainder(10, 3)
+	fmt.Printf("Quotient: %d, Remainder: %d\n", q, r)
+}
+
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+In this example, the `divideAndRemainder` function has named result parameters `quotient` and `remainder` (`(quotient int, remainder int)`). Inside the function body, you assign values to these variables, and you don't need to use the `return` statement explicitly. Go will automatically return the values of `quotient` and `remainder` when the function exits.
+
+Benefits of using named result parameters:
+
+1. `**_Documentation and clarity_**`: It provide self-documentation for the function, making it clear what each return value represents. This can improve code readability and maintainability.
+2. `**_Simplify return statement_**`: You don't need to explicitly list the `return` values in the return statement. This simplifies the code and reduces redundancy.
+3. `**_Avoid variable shadowing_**`: When you use named result parameters, you can avoid variable shadowing issues that may occur if you redeclare the same variable names in a nested block.
+4. `**_Facilitate readability in complex function _**`: In functions with many return values or complex logic, using named result parameters can make it easier to understand the meaning of each return value.
+
+> `Note`:- Named result parameters are implicitly declared as local variables within the function. You can assign values to them directly, and they will be returned when the function exits. However,you cannot use the `:=` short declaration operator to declare and assign values to named result parameters withing the same line; you should use the `=` assignment operator.
+
 #### Defer
+
+In Go, the `defer` statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it's due to noraml execution or an error.
+
+How `defer` statement works in Go:
+
+1. `**_Deferred functions are executed in reverse order_**`: When you use `defer` to schedule a function call, Go adds it to a stack. The deferred functions are executed in reverse order, meaning the last scheduled function will be executed first, and so on. This behavior is useful when you need to reverse some action or cleanup resources.
+2. `**_Deferred functions capture their arguments at the time of the defer statement_**`: If you pass arguments to a deferred function, those arguments are evaluated immediately, and their values are captured at the time of the `defer` statement, not at the time the function is executed. This can lead to some interesting behavior in cases where the values of variables change before the function executes.
+
+A simple example to illustrate how `defer` works:
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Defer working" expand="Show" collapse="Hide" isCollapsed="false" >}}
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	defer fmt.Println("This will be executed last")
+	defer fmt.Println("This will be executed second")
+	fmt.Println("This will be executed first")
+}
+
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+In this example, when the `main` function is executed, it first prints "This will be executed first," then schedules the two `fmt.Println` functions using `defer`. These deferred functions will be executed in reverse order when the `main` function is about to return.
+
+In practice, you often use `defer` for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there's an early return or an error condition.
 
 ### Data Types
