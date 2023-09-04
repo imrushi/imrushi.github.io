@@ -3,7 +3,7 @@ title: "Go: Basics and a Dash of Clean Code"
 date: "2023-09-03T19:31:57+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
-cover: "https://github.com/ashleymcnamara/gophers/blob/master/TEACHING_GOPHER.png?raw=true"
+cover: "https://lh3.googleusercontent.com/pw/AIL4fc-rdeIvGqTbEDBw1djh_G8Dy1FpAUZe5kduMkdC3UH50QrQF7R3Pf4F2spL2B1Tap24ONzdohkhnRHjiGpNSivtkIEd3Q69gFQmWJlqy3ogJiitNdD9o56W9JR06yy4rSqiASmOFaGnKMByPLiVOks=w1280-h720-s-no?authuser=0"
 tags: ["go", "basics", "clean code"]
 keywords:
   [
@@ -17,12 +17,18 @@ keywords:
     "learning go",
     "go programming",
     "writing clean code in go",
+    "history of go",
+    "no semicolon",
+    "formatting",
+    "comments",
+    "names",
+    "variables",
   ]
 description: "Welcome to guide on Go programming! Wheter you're beginner looking to grasp the basics of the language or an experience developer seeking to enhance your clean code skills, our blog has you covered. Explore the fundamentals of Go syntax and discover how to elevate your coding style with a touch of clean code principles."
 showFullContent: false
 readingTime: true
 hideComments: false
-draft: true
+draft: false
 toc: true
 ---
 
@@ -34,11 +40,11 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 
 Let's find the answer's:
 
-<!-- {{< image src="https://media.giphy.com/media/18JYFP4HONtyNUmYSN/giphy.gif" alt="lets find out" position="center" style="border-radius: 8px; width: 480px; height: 270px;" >}} -->
+{{< image src="https://media.giphy.com/media/18JYFP4HONtyNUmYSN/giphy.gif" alt="lets find out" position="center" style="border-radius: 8px; width: 480px; height: 270px;" >}}
 
 ## History of Go
 
-The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a functioning program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
+The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
 
 So Google engineers [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) sketeched out some goals for a new language:
 
@@ -115,7 +121,7 @@ func main() {
 
 ## No Semicolons
 
-As you can see in our programme, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.
+As you can see in our program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.
 
 Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal grammar uses semicolons to terminate statements, but unlike in [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), those semicolons do not appear in the source. Instead, the [lexer](https://en.wikipedia.org/wiki/Lexical_analysis) uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.
 
@@ -125,11 +131,11 @@ The rule is this: If a line ends with an identifier (like words such as `int` or
 
 `break continue fallthrough return ++ -- ) }`
 
-The Go lexer then adds a semicolon after that token when it encounters a newline.
+The Go lexer then adds a semicolon after that token when it encounters a newline, which is `\n`.
 
 To put it simply, when there's a chance that a newline could end a statement, Go automatically inserts a semicolon.
 
-One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like `if`, `for`, `switch`, or `select` on the new line. If you do, a semicolon will inserted before the brace, which could cause unwanted effects. So write them like below:
+One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like `if`, `for`, `switch`, or `select` on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them like below:
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="if statement" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -152,9 +158,9 @@ if i < f()  // wrong!
 
 ## Formatting
 
-Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.
+Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.
 
-Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a Go programme and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
+Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a Go programe and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
 
 Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With **_Go, all you have to do is run `go fmt`_**.
 
@@ -162,11 +168,11 @@ If you want to try its simple version, head over to the [Go playground](https://
 
 ## Comments
 
-In Go, developers write text annotations within the source code as comments. These annotations are not executed by the programme but serve as notes, explanations, or documentation. Comments are essential for providing context, making code more understandable, and documenting code for future reference.
+In Go, developers write text annotations within the source code as comments. These annotations are not executed by the program but serve as notes, explanations, or documentation. Comments are essential for providing context, making code more understandable, and documenting code for future reference.
 
-Go provides C-style `/**/` block comments and C++-style `//` line comments.
+Go provides C-style `/* */` block comments and C++-style `//` line comments.
 
-1. Single-line comments: Single-line comments start with two slashes `//` and continue until the end of the line. They are used for adding brief explanations or clarifications to a specific line of code.
+1. **Single-line comments**: Single-line comments start with two slashes `//` and continue until the end of the line. They are used for adding brief explanations or clarifications to a specific line of code.
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="Single-line comment" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -177,7 +183,7 @@ var x int // This comment explains the purpose of the variable.
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-2. Multi-line comments: Multi-line comments are enclosed within `/*` and `*/` and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.
+2. **Multi-line comments**: Multi-line comments are enclosed within `/*` and `*/` and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="Multi-line comment" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -228,6 +234,8 @@ To generate documentation from these comments, you can use the godoc command-lin
 
 ## Names
 
+{{< image src="https://media0.giphy.com/media/3orieQcuSiWouzdHq0/giphy.webp" alt="names" position="center" style="border-radius: 8px; width: 320px; height: 230px;" >}}
+
 Names are as important in Go as in any other language. When coding, we should consider naming variables, functions, arguments, classes, packages, source files, and directories that contain those source files.
 
 > According to the book `Clean Code` by `Robert C. Martin`, there are some standards for naming:
@@ -244,14 +252,14 @@ Names are as important in Go as in any other language. When coding, we should co
 Go has one simple set of rules that apply to the names of variables, functions, and types:
 
 - A name must begin with a letter and can have any number of additional letters and numbers.
-- The visibility of a name (variable, function, and type names) outside a package is determined by the following points:
+- The following points determine the visibility of a name (variable, function, and type names) outside a package:
   - If the name of a variable, function, or type begins with a **_Capital letter_**, it is considered as **_Exported_** and can be accessed from a package outside the current one. Example - As you have seen in the above [hello world program](#go-file-layout). The `P` in `fmt.Println` is capitalized: so it can be used from the main package or any other.
   - If the name begins with a **_Lowercase letter_**, it is considered **_Unexported_** and can only be accessed within the current package.
 
-Above are the only rules that are enforced but the Go language. But `Go Community` follows some additional conventions as well:
+Above are the only rules that are enforced in Go language. But `Go Community` follows some additional conventions as well:
 
 - When naming something in Go, like a variable or function, use [CamelCase](https://en.wikipedia.org/wiki/Camel_case). This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces. For example, `topRank` and `RetryConnection` are in CamelCase, which looks like camel humps.
-- If a name's meaning is clear from the context, it's common to use abbreviations like ` i` for `index` or `max` for `maximum` to keep code concise and easy to read.
+- If a name's meaning is clear from the context, it's common to use abbreviations like ` i` for `index` or `max` for `maximum` to keep the code concise and easy to read.
 
 ### MixedCaps
 
@@ -269,12 +277,12 @@ To make a Go package easy to use, it's best to give it a short, clear, and meani
 - list (implements a doubly linked list)
 - http (provides HTTP client and server implementations)
 
-Below are example for bad naming styles in Go:
+Below are examples of bad naming styles in Go:
 
 - computeServiceClient
 - priority_queue
 
-**_Abbreviate judiciously_**. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely-used packages often have compressed names:
+**_Abbreviate judiciously_**. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely used packages often have compressed names:
 
 - strconv (string conversion)
 - syscall (system call)
@@ -282,17 +290,17 @@ Below are example for bad naming styles in Go:
 
 > Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.
 
-Another convention is that the package name is the base name of its source directory; the package in `src/encoding/base64` is imported as `"encoding/base64"` but has name `base64`, not `encoding_base64` and not `encodingBase64`.
+Another convention is that the package name is the base name of its source directory; the package in `src/encoding/base64` is imported as `"encoding/base64"` but has the name `base64`, not `encoding_base64` and not `encodingBase64`.
 
-Another short example is `once.Do`; `once.Do(setup)` reads well and would not be improved by writing `once.DoOrWaitUntilDone(setup)`. _Long names don't automatically make things more readable._ A helpful doc comment can often be more valuable than an extra long name.
+Another short example is `once.Do`; `once.Do(setup)` reads well and would not be improved by writing `once.DoOrWaitUntilDone(setup)`. _Long names don't automatically make things more readable._ A helpful doc comment can often be more valuable than an extra-long name.
 
 ### Interface Names
 
-By convention, one-method interfaces are named by the `method name` plus and `-er` suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.
+By convention, one-method interfaces are named by the `method name` plus an `-er` suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.
 
 ## Variable Declaration
 
-In Go, a `variable` is a piece of storage containing a value. You can give a variable a name by using a `variable declaration`. Just use the `var` keyword followed by the desired name and the type of values the variable will hold.
+In Go, a `variable` is a piece of storage containing a value. You can give a variable a name by using a `variable declaration`. Just use the `var` keyword, followed by the desired name and the type of values the variable will hold.
 
 Variable declaration syntax:
 
@@ -302,7 +310,7 @@ Variable declaration syntax:
 - `name` :- It will be a variable name that you want to access in your program.
 - `string` :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)
 
-Once you declare a variable, you can assign any value of that type to it with `=` sign.
+Once you declare a variable, you can assign any value of that type to it with the `=` sign.
 
 `var name string = "Jerry"`
 
@@ -312,7 +320,7 @@ Syntax for assigning multiple variables at once:
 
 `var length, width float64 = 1.2, 2.4`
 
-You can assign new values to existing variables, but they need to be values of the same type, like when you assign `int` variable value to `string` type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.
+You can assign new values to existing variables, but they need to be values of the same type, like when you assign an `int` variable value to a `string` type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.
 
 ## Short Variable Declaration
 
@@ -327,11 +335,17 @@ There’s no need to explicitly declare the variable’s type; the type of the v
 
 Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.
 
-## What next!!!
+## Thanks!!!
 
-In my next blog, I will try to cover functions and all Go datatypes with examples.
+In this blog, we've delved into Go's intriguing history, exploring its origins and essential conventions like formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.
 
-In this blog, if I have made any mistakes, please correct me in the below comment section. From this, we can all learn.
+If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you've spotted any errors or have additional insights, please don't hesitate to leave a comment below. Let's engage in discussions and learn together.
+
+In my upcoming blog post, I'll dive deeper into functions and explore various Go datatypes with practical examples.
+
+Once again, a big thank you for joining me on this journey. 🥳
+
+{{< image src="https://media1.giphy.com/media/xuAq1gW0hwlREbbMU7/giphy.webp" alt="names" position="center" style="border-radius: 8px; width: 320px; height: 230px;" >}}
 
 ## References
 
