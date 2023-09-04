@@ -41,8 +41,6 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 
 Let's find the answer's:
 
-{{< image src="https://media.giphy.com/media/18JYFP4HONtyNUmYSN/giphy.gif" alt="lets find out" position="center" style="border-radius: 8px; width: 480px; height: 270px;" >}}
-
 ## History of Go
 
 The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
