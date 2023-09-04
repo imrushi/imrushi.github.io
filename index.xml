@@ -1,4 +1,314 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>Begin This is the new beginning and also my second blog, which is also a non-technical blog (first blog). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the Notes section.</description><content>&lt;h2 id="begin">Begin&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
+As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code.</description><content>&lt;hr>
+&lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
+&lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
+&lt;p>Let&amp;rsquo;s find the answer&amp;rsquo;s:&lt;/p>
+&lt;img src="https://media.giphy.com/media/18JYFP4HONtyNUmYSN/giphy.gif" alt="lets find out" class="center" style="border-radius: 8px; width: 480px; height: 270px;" />
+&lt;h2 id="history-of-go">History of Go&lt;/h2>
+&lt;p>The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google&amp;rsquo;s additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.&lt;/p>
+&lt;p>So Google engineers &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, and &lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a> sketeched out some goals for a new language:&lt;/p>
+&lt;ul>
+&lt;li>Fast Compilation (Efficiency)&lt;/li>
+&lt;li>Less cumbersome code (Simplicity)&lt;/li>
+&lt;li>Unused memory freed automatically (Grabage Collection)&lt;/li>
+&lt;li>Easy-to-write software that does several oeprations simultaneously (Concurrency)&lt;/li>
+&lt;li>Good support for processor with multiple cores&lt;/li>
+&lt;/ul>
+&lt;p>After a couple years of work, Google had created Go: a lanaguage that was fast to write code and produced programs that were fast to compile and run. Google built a rich library of string functions into Go, Grabage Collecting makes strings in Go simple to think about, and efficinet in ways some other string libraries are not. The project switched to an open source license in 2009. It’s now free for anyone to use.&lt;/p>
+&lt;p>If you&amp;rsquo;re developing a command-line tool in Go, you can generate executable files for Windows, MacOS, and Linux using the same source code. If you&amp;rsquo;re building a web server, Go can assist you in efficiently managing multiple simultaneous user connections. Regardless of your project&amp;rsquo;s nature, Go will aid you in making your code easier to maintain.&lt;/p>
+&lt;hr>
+&lt;p>Let&amp;rsquo;s start with sytanx and clean code principles :&lt;/p>
+&lt;h2 id="go-file-layout">Go file layout&lt;/h2>
+&lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="531824967" type="checkbox" />
+&lt;label for="531824967">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Hello World&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+package main
+import &amp;#34;fmt&amp;#34;
+func main() {
+fmt.Println(&amp;#34;Hello, World&amp;#34;)
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Every Go file has three sections:&lt;/p>
+&lt;ol>
+&lt;li>The &lt;code>package&lt;/code> clause&lt;/li>
+&lt;li>Any &lt;code>import&lt;/code> statements&lt;/li>
+&lt;li>The actual &lt;code>code&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>Package&lt;/code> : A package in Go is a way to organize and structure code into meaningful units, helping with code organization and reusability. It allows control over visibility, promoting encapsulation and dependency management. The &lt;code>main&lt;/code> package serves as the entry point for Go programs.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>import&lt;/code> : Go files almost always have one or more &lt;code>import&lt;/code> statements. In Go, the &lt;code>import&lt;/code> statement is used to bring in external packages that your code relies on. It ensures that your program loads only the necessary packages, making it faster and more efficient than loading everything at once.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>actual code&lt;/code> : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code>function&lt;/code> is a group of code that you &lt;code>call (run)&lt;/code> from other places in your program. When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first, which is why we need this function &lt;code>main&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Below is the code with what it does in comments:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="916238574" type="checkbox" />
+&lt;label for="916238574">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Hello World&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// This line says the rest of the code in
+// this file belongs to the &amp;#34;main&amp;#34; package
+package main
+// This says we will be using text-formatting
+// code from the &amp;#34;fmt&amp;#34; package
+import &amp;#34;fmt&amp;#34;
+// The &amp;#34;main&amp;#34; function is special; it gets run
+// first when your program runs.
+func main() {
+// This line diplays (&amp;#34;print&amp;#34;) &amp;#34;Hello, World&amp;#34; in
+// your terminal (or web browser, if you&amp;#39;re using the Go Playground)
+//
+// It does this by calling the &amp;#34;Println&amp;#34; function
+// from the &amp;#34;fmt&amp;#34; package
+fmt.Println(&amp;#34;Hello, World&amp;#34;)
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>&lt;code>Function&lt;/code> : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Note: When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="no-semicolons">No Semicolons&lt;/h2>
+&lt;p>As you can see in our program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.&lt;/p>
+&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, those semicolons do not appear in the source. Instead, the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
+&lt;h3 id="how-does-it-know-when-to-add-semicolons">How does it know when to add semicolons?&lt;/h3>
+&lt;p>The rule is this: If a line ends with an identifier (like words such as &lt;code>int&lt;/code> or &lt;code>float64&lt;/code>), a basic value such as a number or a string, or certain specific tokens like&lt;/p>
+&lt;p>&lt;code>break continue fallthrough return ++ -- ) }&lt;/code>&lt;/p>
+&lt;p>The Go lexer then adds a semicolon after that token when it encounters a newline, which is &lt;code>\n&lt;/code>.&lt;/p>
+&lt;p>To put it simply, when there&amp;rsquo;s a chance that a newline could end a statement, Go automatically inserts a semicolon.&lt;/p>
+&lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them like below:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="297431856" type="checkbox" />
+&lt;label for="297431856">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">if statement&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+if i &amp;lt; f() {
+g()
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>not like this:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="159764238" type="checkbox" />
+&lt;label for="159764238">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">bad if statement&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+if i &amp;lt; f() // wrong!
+{ // wrong!
+g()
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="formatting">Formatting&lt;/h2>
+&lt;p>Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.&lt;/p>
+&lt;p>Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called &lt;code>go fmt&lt;/code>. This tool reads a Go programe and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.&lt;/p>
+&lt;p>Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With &lt;strong>&lt;em>Go, all you have to do is run &lt;code>go fmt&lt;/code>&lt;/em>&lt;/strong>.&lt;/p>
+&lt;p>If you want to try its simple version, head over to the &lt;a href="https://go.dev/play">Go playground&lt;/a>, write some unformatted code, and hit the &lt;code>format&lt;/code> button.&lt;/p>
+&lt;h2 id="comments">Comments&lt;/h2>
+&lt;p>In Go, developers write text annotations within the source code as comments. These annotations are not executed by the program but serve as notes, explanations, or documentation. Comments are essential for providing context, making code more understandable, and documenting code for future reference.&lt;/p>
+&lt;p>Go provides C-style &lt;code>/* */&lt;/code> block comments and C++-style &lt;code>//&lt;/code> line comments.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Single-line comments&lt;/strong>: Single-line comments start with two slashes &lt;code>//&lt;/code> and continue until the end of the line. They are used for adding brief explanations or clarifications to a specific line of code.&lt;/li>
+&lt;/ol>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="287139465" type="checkbox" />
+&lt;label for="287139465">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Single-line comment&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// This is a single-line comment in Go.
+var x int // This comment explains the purpose of the variable.
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;ol start="2">
+&lt;li>&lt;strong>Multi-line comments&lt;/strong>: Multi-line comments are enclosed within &lt;code>/*&lt;/code> and &lt;code>*/&lt;/code> and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.&lt;/li>
+&lt;/ol>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="513968724" type="checkbox" />
+&lt;label for="513968724">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+/*
+This is a multi-line comment in Go.
+It can span multiple lines and is useful for providing
+detailed explanations or comments for larger code blocks.
+*/
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Go also has a convention for documenting exported (public) identifiers and packages using special comments, often referred to as &amp;ldquo;comment annotations&amp;rdquo; or &amp;ldquo;comments for the &lt;code>godoc&lt;/code> tool&amp;rdquo;. These comments are structured in a way that allows the godoc tool to automatically generate documentation based on them.&lt;/p>
+&lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="612587943" type="checkbox" />
+&lt;label for="612587943">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// MyFunction is a public function that performs a specific task.
+func MyFunction() {
+// Function implementation...
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="741395628" type="checkbox" />
+&lt;label for="741395628">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// Package mypackage provides functionality for...
+package mypackage
+import &amp;#34;fmt&amp;#34;
+// ExportedFunction is a function that...
+func ExportedFunction() {
+// Function implementation...
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>To generate documentation from these comments, you can use the godoc command-line tool. Running godoc on your Go code will produce documentation that includes your comments, making it easier for others to understand and use your code. Properly documented code is not only more understandable but also encourages collaboration and code maintenance.&lt;/p>
+&lt;h2 id="names">Names&lt;/h2>
+&lt;img src="https://media0.giphy.com/media/3orieQcuSiWouzdHq0/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" />
+&lt;p>Names are as important in Go as in any other language. When coding, we should consider naming variables, functions, arguments, classes, packages, source files, and directories that contain those source files.&lt;/p>
+&lt;blockquote>
+&lt;p>According to the book &lt;code>Clean Code&lt;/code> by &lt;code>Robert C. Martin&lt;/code>, there are some standards for naming:&lt;/p>
+&lt;ol>
+&lt;li>Choose descriptive and unambiguous names.&lt;/li>
+&lt;li>Make a meaningful distinction.&lt;/li>
+&lt;li>Use pronounceable names.&lt;/li>
+&lt;li>Use searchable names.&lt;/li>
+&lt;li>Replace magic numbers with named constants.&lt;/li>
+&lt;li>Avoid encodings. Don&amp;rsquo;t append prefixes or type information.&lt;/li>
+&lt;/ol>
+&lt;p>You can check this points in detail in this &lt;a href="https://medium.com/@pabashani.herath/clean-code-naming-conventions-4cac223de3c6">blog&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p>
+&lt;ul>
+&lt;li>A name must begin with a letter and can have any number of additional letters and numbers.&lt;/li>
+&lt;li>The following points determine the visibility of a name (variable, function, and type names) outside a package:
+&lt;ul>
+&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered as &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from a package outside the current one. Example - As you have seen in the above &lt;a href="#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
+&lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and can only be accessed within the current package.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Above are the only rules that are enforced in Go language. But &lt;code>Go Community&lt;/code> follows some additional conventions as well:&lt;/p>
+&lt;ul>
+&lt;li>When naming something in Go, like a variable or function, use &lt;a href="https://en.wikipedia.org/wiki/Camel_case">CamelCase&lt;/a>. This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces. For example, &lt;code>topRank&lt;/code> and &lt;code>RetryConnection&lt;/code> are in CamelCase, which looks like camel humps.&lt;/li>
+&lt;li>If a name&amp;rsquo;s meaning is clear from the context, it&amp;rsquo;s common to use abbreviations like &lt;code> i&lt;/code> for &lt;code>index&lt;/code> or &lt;code>max&lt;/code> for &lt;code>maximum&lt;/code> to keep the code concise and easy to read.&lt;/li>
+&lt;/ul>
+&lt;h3 id="mixedcaps">MixedCaps&lt;/h3>
+&lt;p>The convention in Go is to use &lt;code>MixedCaps&lt;/code> or &lt;code>mixedCaps&lt;/code> rather than underscores to write multiword names.&lt;/p>
+&lt;h3 id="package-name">Package Name&lt;/h3>
+&lt;p>Good package names make code better. A package’s name provides context for its contents, making it easier for the developer or user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
+&lt;h4 id="package-name-guideline">Package Name Guideline&lt;/h4>
+&lt;p>To make a Go package easy to use, it&amp;rsquo;s best to give it a short, clear, and meaningful single-word name. Go packages typically have lowercase names without &lt;code>under_scores&lt;/code> or &lt;code>mixed capital&lt;/code> letters. These names are often simple nouns, like:&lt;/p>
+&lt;ul>
+&lt;li>time (provides functionality for measuring and displaying time)&lt;/li>
+&lt;li>list (implements a doubly linked list)&lt;/li>
+&lt;li>http (provides HTTP client and server implementations)&lt;/li>
+&lt;/ul>
+&lt;p>Below are examples of bad naming styles in Go:&lt;/p>
+&lt;ul>
+&lt;li>computeServiceClient&lt;/li>
+&lt;li>priority_queue&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Abbreviate judiciously&lt;/em>&lt;/strong>. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely used packages often have compressed names:&lt;/p>
+&lt;ul>
+&lt;li>strconv (string conversion)&lt;/li>
+&lt;li>syscall (system call)&lt;/li>
+&lt;li>fmt (formatted I/O)&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p>
+&lt;/blockquote>
+&lt;p>Another convention is that the package name is the base name of its source directory; the package in &lt;code>src/encoding/base64&lt;/code> is imported as &lt;code>&amp;quot;encoding/base64&amp;quot;&lt;/code> but has the name &lt;code>base64&lt;/code>, not &lt;code>encoding_base64&lt;/code> and not &lt;code>encodingBase64&lt;/code>.&lt;/p>
+&lt;p>Another short example is &lt;code>once.Do&lt;/code>; &lt;code>once.Do(setup)&lt;/code> reads well and would not be improved by writing &lt;code>once.DoOrWaitUntilDone(setup)&lt;/code>. &lt;em>Long names don&amp;rsquo;t automatically make things more readable.&lt;/em> A helpful doc comment can often be more valuable than an extra-long name.&lt;/p>
+&lt;h3 id="interface-names">Interface Names&lt;/h3>
+&lt;p>By convention, one-method interfaces are named by the &lt;code>method name&lt;/code> plus an &lt;code>-er&lt;/code> suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p>
+&lt;h2 id="variable-declaration">Variable Declaration&lt;/h2>
+&lt;p>In Go, a &lt;code>variable&lt;/code> is a piece of storage containing a value. You can give a variable a name by using a &lt;code>variable declaration&lt;/code>. Just use the &lt;code>var&lt;/code> keyword, followed by the desired name and the type of values the variable will hold.&lt;/p>
+&lt;p>Variable declaration syntax:&lt;/p>
+&lt;p>&lt;code>var name string&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>var&lt;/code> :- It is a keyword.&lt;/li>
+&lt;li>&lt;code>name&lt;/code> :- It will be a variable name that you want to access in your program.&lt;/li>
+&lt;li>&lt;code>string&lt;/code> :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)&lt;/li>
+&lt;/ul>
+&lt;p>Once you declare a variable, you can assign any value of that type to it with the &lt;code>=&lt;/code> sign.&lt;/p>
+&lt;p>&lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/p>
+&lt;p>You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code>=&lt;/code>, and the same number of values on the right side, separated with commas (&lt;code>,&lt;/code>).&lt;/p>
+&lt;p>Syntax for assigning multiple variables at once:&lt;/p>
+&lt;p>&lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/p>
+&lt;p>You can assign new values to existing variables, but they need to be values of the same type, like when you assign an &lt;code>int&lt;/code> variable value to a &lt;code>string&lt;/code> type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p>
+&lt;h2 id="short-variable-declaration">Short Variable Declaration&lt;/h2>
+&lt;p>As we saw in the above section, we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a &lt;code>short variable declaration&lt;/code>. Instead of explicitly declaring the type of the variable and later assigning it with &lt;code>=&lt;/code>, you do both at once using &lt;code>:=&lt;/code>.&lt;/p>
+&lt;p>Here are our previous examples with short variable declarations :&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>name := jerry&lt;/code> instead of &lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/li>
+&lt;li>&lt;code>length, width := 1.2, 2.4&lt;/code> instead of &lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p>
+&lt;p>Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p>
+&lt;h2 id="thanks">Thanks!!!&lt;/h2>
+&lt;p>In this blog, we&amp;rsquo;ve delved into Go&amp;rsquo;s intriguing history, exploring its origins and essential conventions like formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.&lt;/p>
+&lt;p>If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you&amp;rsquo;ve spotted any errors or have additional insights, please don&amp;rsquo;t hesitate to leave a comment below. Let&amp;rsquo;s engage in discussions and learn together.&lt;/p>
+&lt;p>In my upcoming blog post, I&amp;rsquo;ll dive deeper into functions and explore various Go datatypes with practical examples.&lt;/p>
+&lt;p>Once again, a big thank you for joining me on this journey. 🥳&lt;/p>
+&lt;img src="https://media1.giphy.com/media/xuAq1gW0hwlREbbMU7/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" />
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.oreilly.com/library/view/head-first-go/9781491969540/">Head First GO&lt;/a> - Jay McGavren&lt;/li>
+&lt;li>&lt;a href="https://go.dev/doc/effective_go">Effective Go&lt;/a> - Go Doc&lt;/li>
+&lt;li>&lt;a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/">Clean Code&lt;/a> - Robert C. Martin&lt;/li>
+&lt;/ul></content></item><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>Begin This is the new beginning and also my second blog, which is also a non-technical blog (first blog). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the Notes section.</description><content>&lt;h2 id="begin">Begin&lt;/h2>
 &lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p>
 &lt;h2 id="plan-and-present">Plan and Present&lt;/h2>
 &lt;p>As of now, I don’t have a full plan for what I am going to write, which topics I will cover, or where it will go. But I remember a quote that says to &lt;code>go with the flow and be more concerned with the journey than the destination&lt;/code>.&lt;/p>
@@ -53,8 +363,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="751943682" type="checkbox" />
-&lt;label for="751943682">
+&lt;input id="789135642" type="checkbox" />
+&lt;label for="789135642">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -82,8 +392,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="378516942" type="checkbox" />
-&lt;label for="378516942">
+&lt;input id="312896547" type="checkbox" />
+&lt;label for="312896547">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -218,8 +528,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="238917546" type="checkbox" />
-&lt;label for="238917546">
+&lt;input id="726859413" type="checkbox" />
+&lt;label for="726859413">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -253,8 +563,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="137485962" type="checkbox" />
-&lt;label for="137485962">
+&lt;input id="749586312" type="checkbox" />
+&lt;label for="749586312">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -283,8 +593,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="792184365" type="checkbox" />
-&lt;label for="792184365">
+&lt;input id="742358196" type="checkbox" />
+&lt;label for="742358196">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -325,8 +635,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="925786314" type="checkbox" />
-&lt;label for="925786314">
+&lt;input id="176932854" type="checkbox" />
+&lt;label for="176932854">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
