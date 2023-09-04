@@ -3,7 +3,7 @@ title: "Go: Basics and a Dash of Clean Code"
 date: "2023-09-03T19:31:57+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
-cover: ""
+cover: "https://github.com/ashleymcnamara/gophers/blob/master/TEACHING_GOPHER.png?raw=true"
 tags: ["go", "basics", "clean code"]
 keywords:
   [
@@ -38,7 +38,7 @@ Let's find the answer's:
 
 ## History of Go
 
-Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of lines of code. Before they could try out any new changes, they had to turn this code into a working program, a process that at that time took almost an hour. Google's other problem is string processing. Google reads and analyzes a lot of web pages, which are text files. This was obviously not good for the developers because it made them less productive.
+The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a functioning program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
 
 So Google engineers [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) sketeched out some goals for a new language:
 
