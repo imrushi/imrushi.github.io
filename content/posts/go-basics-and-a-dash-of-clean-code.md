@@ -25,7 +25,7 @@ keywords:
     "names",
     "variables",
   ]
-description: "Welcome to guide on Go programming! Wheter you're beginner looking to grasp the basics of the language or an experience developer seeking to enhance your clean code skills, our blog has you covered. Explore the fundamentals of Go syntax and discover how to elevate your coding style with a touch of clean code principles."
+description: "Welcome to guide on Go programming! Whether you're beginner looking to grasp the basics of the language or an experience developer seeking to enhance your clean code skills, our blog has you covered. Explore the fundamentals of Go syntax and discover how to elevate your coding style with a touch of clean code principles."
 showFullContent: false
 readingTime: true
 hideComments: false
@@ -43,23 +43,23 @@ Let's find the answer's:
 
 ## History of Go
 
-The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
+The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runnable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
 
-So Google engineers [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) sketeched out some goals for a new language:
+So Google engineers [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) sketched out some goals for a new language:
 
 - Fast Compilation (Efficiency)
 - Less cumbersome code (Simplicity)
-- Unused memory freed automatically (Grabage Collection)
-- Easy-to-write software that does several oeprations simultaneously (Concurrency)
+- Unused memory freed automatically (Garbage Collection)
+- Easy-to-write software that does several operations simultaneously (Concurrency)
 - Good support for processor with multiple cores
 
-After a couple years of work, Google had created Go: a lanaguage that was fast to write code and produced programs that were fast to compile and run. Google built a rich library of string functions into Go, Grabage Collecting makes strings in Go simple to think about, and efficinet in ways some other string libraries are not. The project switched to an open source license in 2009. It’s now free for anyone to use.
+After a couple years of work, Google had created Go: a language that was fast to write code and produced programs that were fast to compile and run. Google built a rich library of string functions into Go, Garbage Collecting makes strings in Go simple to think about, and efficient in ways some other string libraries are not. The project switched to an open source license in 2009. It’s now free for anyone to use.
 
 If you're developing a command-line tool in Go, you can generate executable files for Windows, MacOS, and Linux using the same source code. If you're building a web server, Go can assist you in efficiently managing multiple simultaneous user connections. Regardless of your project's nature, Go will aid you in making your code easier to maintain.
 
 ---
 
-Let's start with sytanx and clean code principles :
+Let's start with syntax and clean code principles :
 
 ## Go file layout
 
@@ -157,9 +157,9 @@ if i < f()  // wrong!
 
 ## Formatting
 
-Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.
+Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if they are not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.
 
-Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a Go programe and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
+Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a Go program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
 
 Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With **_Go, all you have to do is run `go fmt`_**.
 
@@ -339,8 +339,6 @@ Because short variable declarations are so convenient and concise, they’re use
 In this blog, we've delved into Go's intriguing history, exploring its origins and essential conventions like formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.
 
 If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you've spotted any errors or have additional insights, please don't hesitate to leave a comment below. Let's engage in discussions and learn together.
-
-In my upcoming blog post, I'll dive deeper into functions and explore various Go datatypes with practical examples.
 
 Once again, a big thank you for joining me on this journey. 🥳
 
