@@ -44,7 +44,14 @@ Let's find the answer's:
 
 ## History of Go
 
-The Google search engine experienced an issue back in 2007. Programs containing millions of lines of code needed to be maintained. They had to make this code into a runnable program first, which took them about an hour at the time, before they could experiment with any fresh changes. String processing is Google's additional issue. Numerous text files, or web pages, are read and analyzed by Google. This was obviously not good for the developers because it made them less productive.
+The Google search engine experienced an issue back in 2007.
+
+- Programs containing millions of lines of code needed to be maintained.
+- Before they could experiment with any new code changes, they had to compile the program, which took them about an hour at that time.
+- String processing is Google's additional issue.
+- Numerous text files, or web pages, are read and analyzed by Google.
+
+This was obviously not good for the developers because it made them less productive.
 
 So Google engineers [Robert Griesemer](https://en.wikipedia.org/wiki/Robert_Griesemer), [Rob Pike](https://en.wikipedia.org/wiki/Rob_Pike), and [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) sketched out some goals for a new language:
 
@@ -86,9 +93,11 @@ Every Go file has three sections:
 
 - `Package` : A package in Go is a way to organize and structure code into meaningful units, helping with code organization and reusability. It allows control over visibility, promoting encapsulation and dependency management. The `main` package serves as the entry point for Go programs.
 
-- `import` : Go files almost always have one or more `import` statements. In Go, the `import` statement is used to bring in external packages that your code relies on. It ensures that your program loads only the necessary packages, making it faster and more efficient than loading everything at once.
+- `import` : Go files almost always have one or more `import` statements. The `import` statement is used to bring in external packages that your code relies on. It ensures that your program loads only the necessary packages, making it faster and more efficient than loading everything at once.
 
 - `actual code` : The last part of every Go file is the actual code, which is often split up into one or more functions. A `function` is a group of code that you `call (run)` from other places in your program. When a Go program is run, it looks for a function named `main` and runs that first, which is why we need this function `main`.
+
+- `Function` : A function is a group of one or more lines of code that you can call (run) from other places in your program.
 
 Below is the code with what it does in comments:
 
@@ -105,7 +114,7 @@ import "fmt"
 // The "main" function is special; it gets run
 // first when your program runs.
 func main() {
-    // This line diplays ("print") "Hello, World" in
+    // This line displays ("print") "Hello, World" in
     // your terminal (or web browser, if you're using the Go Playground)
     //
     // It does this by calling the "Println" function
@@ -115,19 +124,17 @@ func main() {
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-- `Function` : A function is a group of one or more lines of code that you can call (run) from other places in your program.
-
 > Note: When a Go program is run, it looks for a function named `main` and runs that first.
 
 ## No Semicolons
 
-As you can see in our program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.
+As you can see in our previous program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.
 
-Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal grammar uses semicolons to terminate statements, but unlike in [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), those semicolons do not appear in the source. Instead, the [lexer](https://en.wikipedia.org/wiki/Lexical_analysis) uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.
+Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal grammar uses semicolons to terminate statements, but unlike [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), those semicolons do not appear in the source. Instead, the [lexer](https://en.wikipedia.org/wiki/Lexical_analysis) uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.
 
 ### How does it know when to add semicolons?
 
-The rule is this: If a line ends with an identifier (like words such as `int` or `float64`), a basic value such as a number or a string, or certain specific tokens like
+The rule is: If a line ends with an identifier (for example: words such as `int` or `float64`), a basic value such as a number or a string, or certain specific tokens such as
 
 `break continue fallthrough return ++ -- ) }`
 
@@ -135,7 +142,7 @@ The Go lexer then adds a semicolon after that token when it encounters a newline
 
 To put it simply, when there's a chance that a newline could end a statement, Go automatically inserts a semicolon.
 
-One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like `if`, `for`, `switch`, or `select` on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them like below:
+One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like `if`, `for`, `switch`, or `select` on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="if statement" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -160,7 +167,7 @@ if i < f()  // wrong!
 
 Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if they are not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.
 
-Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a Go program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
+Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called `go fmt`. This tool reads a program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.
 
 Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With **_Go, all you have to do is run `go fmt`_**.
 
@@ -172,7 +179,7 @@ In Go, developers write text annotations within the source code as comments. The
 
 Go provides C-style `/* */` block comments and C++-style `//` line comments.
 
-1. **Single-line comments**: Single-line comments start with two slashes `//` and continue until the end of the line. They are used for adding brief explanations or clarifications to a specific line of code.
+1. **Single-line comments**: Single-line comments start with two slashes `//` and continue until the end of the line. They are used for adding brief explanations or clarity to a specific line of code.
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="Single-line comment" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -253,17 +260,19 @@ Go has one simple set of rules that apply to the names of variables, functions, 
 
 - A name must begin with a letter and can have any number of additional letters and numbers.
 - The following points determine the visibility of a name (variable, function, and type names) outside a package:
-  - If the name of a variable, function, or type begins with a **_Capital letter_**, it is considered as **_Exported_** and can be accessed from a package outside the current one. Example - As you have seen in the above [hello world program](#go-file-layout). The `P` in `fmt.Println` is capitalized: so it can be used from the main package or any other.
+  - If the name of a variable, function, or type begins with a **_Capital letter_**, it is considered as **_Exported_** and can be accessed from a package outside the current one.
+  - Example - As you have seen in the above [hello world program](#go-file-layout). The `P` in `fmt.Println` is capitalized: so it can be used from the main package or any other.
   - If the name begins with a **_Lowercase letter_**, it is considered **_Unexported_** and can only be accessed within the current package.
 
 Above are the only rules that are enforced in Go language. But `Go Community` follows some additional conventions as well:
 
-- When naming something in Go, like a variable or function, use [CamelCase](https://en.wikipedia.org/wiki/Camel_case). This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces. For example, `topRank` and `RetryConnection` are in CamelCase, which looks like camel humps.
-- If a name's meaning is clear from the context, it's common to use abbreviations like ` i` for `index` or `max` for `maximum` to keep the code concise and easy to read.
+- When naming something in Go, for instance a variable or a function, use [CamelCase](https://en.wikipedia.org/wiki/Camel_case). This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces.
+- For example, `topRank` and `RetryConnection` are in CamelCase, which looks like camel humps.
+- If a name's meaning is clear from the context, it's common to use abbreviations such as ` i` for `index` or `max` for `maximum` to keep the code concise and easy to read.
 
 ### MixedCaps
 
-The convention in Go is to use `MixedCaps` or `mixedCaps` rather than underscores to write multiword names.
+The convention in Go is to use `MixedCaps` or `mixedCaps` rather than underscores to write multi-word names.
 
 ### Package Name
 
@@ -271,7 +280,7 @@ Good package names make code better. A package’s name provides context for its
 
 #### Package Name Guideline
 
-To make a Go package easy to use, it's best to give it a short, clear, and meaningful single-word name. Go packages typically have lowercase names without `under_scores` or `mixed capital` letters. These names are often simple nouns, like:
+To make a Go package easy to use, it's best to give it a short, clear, and meaningful single-word name. Packages typically have lowercase names without `under_scores` or `mixed capital` letters. These names are often simple nouns, for example:
 
 - time (provides functionality for measuring and displaying time)
 - list (implements a doubly linked list)
@@ -306,9 +315,9 @@ Variable declaration syntax:
 
 `var name string`
 
-- `var` :- It is a keyword.
-- `name` :- It will be a variable name that you want to access in your program.
-- `string` :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)
+- `var` :- A keyword.
+- `name` :- A variable name that you want to access in your program.
+- `string` :- Any datatype that the variable will hold data for. (Go-supported datatype)
 
 Once you declare a variable, you can assign any value of that type to it with the `=` sign.
 
@@ -320,7 +329,7 @@ Syntax for assigning multiple variables at once:
 
 `var length, width float64 = 1.2, 2.4`
 
-You can assign new values to existing variables, but they need to be values of the same type, like when you assign an `int` variable value to a `string` type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.
+You can assign new values to existing variables, but they need to be values of the same type, for example: when you assign an `int` variable value to a `string` type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.
 
 ## Short Variable Declaration
 
@@ -337,7 +346,7 @@ Because short variable declarations are so convenient and concise, they’re use
 
 ## Thanks!!!
 
-In this blog, we've delved into Go's intriguing history, exploring its origins and essential conventions like formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.
+In this blog, we've delved into Go's intriguing history, exploring its origins and essential conventions such as formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.
 
 If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you've spotted any errors or have additional insights, please don't hesitate to leave a comment below. Let's engage in discussions and learn together.
 
