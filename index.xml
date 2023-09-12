@@ -28,8 +28,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="342916785" type="checkbox" />
-&lt;label for="342916785">
+&lt;input id="576429831" type="checkbox" />
+&lt;label for="576429831">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -66,8 +66,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="821367459" type="checkbox" />
-&lt;label for="821367459">
+&lt;input id="651983724" type="checkbox" />
+&lt;label for="651983724">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -106,8 +106,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="268319475" type="checkbox" />
-&lt;label for="268319475">
+&lt;input id="291764385" type="checkbox" />
+&lt;label for="291764385">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -122,8 +122,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="482375961" type="checkbox" />
-&lt;label for="482375961">
+&lt;input id="519247863" type="checkbox" />
+&lt;label for="519247863">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -149,8 +149,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="935124786" type="checkbox" />
-&lt;label for="935124786">
+&lt;input id="174859236" type="checkbox" />
+&lt;label for="174859236">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -166,8 +166,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="513769248" type="checkbox" />
-&lt;label for="513769248">
+&lt;input id="469317582" type="checkbox" />
+&lt;label for="469317582">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -185,8 +185,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="971368452" type="checkbox" />
-&lt;label for="971368452">
+&lt;input id="526731948" type="checkbox" />
+&lt;label for="526731948">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -202,8 +202,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="514769238" type="checkbox" />
-&lt;label for="514769238">
+&lt;input id="984217356" type="checkbox" />
+&lt;label for="984217356">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -336,26 +336,26 @@ func ExportedFunction() {
 &lt;h2 id="lets-go">Let&amp;rsquo;s Go&lt;/h2>
 &lt;p>Let us begin this journey and learn as we go. The start may not be great, but you have to start to be great.&lt;/p>
 &lt;hr>
-&lt;p>If you are interested, I created a track 7 years ago called &lt;a href="https://soundcloud.com/rex_official/lets-go-rex">Let&amp;rsquo;s Go&lt;/a>&lt;/p></content></item><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other langauges, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
-History of Go Back in 2007, the serach engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour.</description><content>&lt;hr>
-&lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other langauges, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
+&lt;p>If you are interested, I created a track 7 years ago called &lt;a href="https://soundcloud.com/rex_official/lets-go-rex">Let&amp;rsquo;s Go&lt;/a>&lt;/p></content></item><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
+History of Go Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour.</description><content>&lt;hr>
+&lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
 &lt;h2 id="history-of-go">History of Go&lt;/h2>
-&lt;p>Back in 2007, the serach engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p>
-&lt;p>So Google engineers &lt;strong>Robert Griesemer, Rob Pike, and Ken Thompson&lt;/strong> sketeched out some goals for a new language:&lt;/p>
+&lt;p>Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p>
+&lt;p>So Google engineers &lt;strong>Robert Griesemer, Rob Pike, and Ken Thompson&lt;/strong> sketched out some goals for a new language:&lt;/p>
 &lt;ul>
 &lt;li>Fast Compilation&lt;/li>
 &lt;li>Less cumbersome code&lt;/li>
 &lt;li>Unused memory freed automatically (garbage collection)&lt;/li>
-&lt;li>Easy-to-write software that does serveal operations simultaneously (concurrency)&lt;/li>
+&lt;li>Easy-to-write software that does serval operations simultaneously (concurrency)&lt;/li>
 &lt;li>Good support for processor with multiple cores&lt;/li>
 &lt;/ul>
-&lt;p>After a couple years of work, Google had created Go: a lanaguage that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It&amp;rsquo;s now free for anyone to use.&lt;/p>
-&lt;p>If you&amp;rsquo;re writing a command-line tool, Go can produce executeable files for Windows, MacOS, and Linux, all from the same source code. If you&amp;rsquo;re writing a web server, it can help you handle many users connecting at once. And no matter what you&amp;rsquo;re what you&amp;rsquo;re writing, it will help you ensure that your code is easir to maintain.&lt;/p>
+&lt;p>After a couple years of work, Google had created Go: a language that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It&amp;rsquo;s now free for anyone to use.&lt;/p>
+&lt;p>If you&amp;rsquo;re writing a command-line tool, Go can produce executable files for Windows, MacOS, and Linux, all from the same source code. If you&amp;rsquo;re writing a web server, it can help you handle many users connecting at once. And no matter what you&amp;rsquo;re what you&amp;rsquo;re writing, it will help you ensure that your code is easier to maintain.&lt;/p>
 &lt;h2 id="syntax-basics">Syntax Basics&lt;/h2>
 &lt;h3 id="go-playground">Go Playground&lt;/h3>
 &lt;p>The easiest way to try Go is to visit &lt;a href="https://go.dev/play">Go Playground&lt;/a> in your web browser. It is simple editor where you can enter Go code and run it on their servers. The result is displayed right there in your browser.&lt;/p>
 &lt;blockquote>
-&lt;p>Note: Go Playground requires stable internet connection. If you don&amp;rsquo;t, see &lt;a href="https://go.dev/doc/install">Intall Go&lt;/a> on your system.&lt;/p>
+&lt;p>Note: Go Playground requires stable internet connection. If you don&amp;rsquo;t, see &lt;a href="https://go.dev/doc/install">Install Go&lt;/a> on your system.&lt;/p>
 &lt;/blockquote>
 &lt;p>Let&amp;rsquo;s try out play ground:&lt;/p>
 &lt;ol>
@@ -370,8 +370,8 @@ History of Go Back in 2007, the serach engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="617249853" type="checkbox" />
-&lt;label for="617249853">
+&lt;input id="143598276" type="checkbox" />
+&lt;label for="143598276">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -392,15 +392,15 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;li>The actual code&lt;/li>
 &lt;/ol>
 &lt;ul>
-&lt;li>&lt;code>Package&lt;/code> : A package is a collection of code that all does similar things, like fomatting strings or drawing images. The package clause gives the name of the package that this file&amp;rsquo;s code will become a part of. In this case, we use the special package &lt;code>main&lt;/code>, which is required if this code is going to be run directly (usually from the terminal).&lt;/li>
+&lt;li>&lt;code>Package&lt;/code> : A package is a collection of code that all does similar things, like formatting strings or drawing images. The package clause gives the name of the package that this file&amp;rsquo;s code will become a part of. In this case, we use the special package &lt;code>main&lt;/code>, which is required if this code is going to be run directly (usually from the terminal).&lt;/li>
 &lt;li>&lt;code>import&lt;/code> : Go files almost always have one or more &lt;code>import&lt;/code> statements. Each file needs to &lt;code>import&lt;/code> other packages before its code can use the code those other packages contain. Loading all the Go code on your computer at once would result in a big, slow program, so instead you specify only the package you need by importing them.&lt;/li>
 &lt;li>&lt;code>actual code&lt;/code> : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code>function&lt;/code> is a group of code that you &lt;code>call (run)&lt;/code> from other places in your program. When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first, which is why we need this function &lt;code>main&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="285674931" type="checkbox" />
-&lt;label for="285674931">
+&lt;input id="364782195" type="checkbox" />
+&lt;label for="364782195">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -415,7 +415,7 @@ import &amp;#34;fmt&amp;#34;
 // The &amp;#34;main&amp;#34; function is special; it gets run
 // first when your program runs.
 func main() {
-// This line diplays (&amp;#34;print&amp;#34;) &amp;#34;Hello, World&amp;#34; in
+// This line displays (&amp;#34;print&amp;#34;) &amp;#34;Hello, World&amp;#34; in
 // your terminal (or web browser, if you&amp;#39;re using the Go Playground)
 //
 // It does this by calling the &amp;#34;Println&amp;#34; function
@@ -432,13 +432,13 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Note: When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="no-semicolons">No Semicolons&lt;/h3>
-&lt;p>As you can see in our program ther are no semicolons to seperate statements in Go, we can use semicolons but it&amp;rsquo;s not required (in fact, it&amp;rsquo;s generally frowned upon).&lt;/p>
-&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, Go&amp;rsquo;s formal grammer uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
+&lt;p>As you can see in our program there are no semicolons to separate statements in Go, we can use semicolons but it&amp;rsquo;s not required (in fact, it&amp;rsquo;s generally frowned upon).&lt;/p>
+&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
 &lt;p>If you want to know more how it works you check Go&amp;rsquo;s official doc
 &lt;a href="https://go.dev/doc/effective_go#semicolons">https://go.dev/doc/effective_go#semicolons&lt;/a>&lt;/p>
 &lt;h3 id="formatting">Formatting&lt;/h3>
 &lt;p>Formatting issues are the most contentious but the least important. People may prefer different formatting styles, thus when another developer or person reads the same code it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents in the same way.&lt;/p>
-&lt;p>With Go we take an unusual approch and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called &lt;code>go fmt&lt;/code>. The &lt;code>go fmt&lt;/code> program reads a Go program and emits the source in a &lt;strong>&lt;em>standerd style of indentation and vertical alignment, retaining and if necessary reformatting comments.&lt;/em>&lt;/strong>&lt;/p>
+&lt;p>With Go we take an unusual approach and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called &lt;code>go fmt&lt;/code>. The &lt;code>go fmt&lt;/code> program reads a Go program and emits the source in a &lt;strong>&lt;em>standard style of indentation and vertical alignment, retaining and if necessary reformatting comments.&lt;/em>&lt;/strong>&lt;/p>
 &lt;p>Next time whenever you share your code, other Go developers will expect it to be in the standard Go format. &lt;em>With Go all you have to do is run &lt;code>go fmt&lt;/code>&lt;/em>.&lt;/p>
 &lt;p>If you want to try its simple version, head over to the &lt;a href="https://go.dev/play">Go playground&lt;/a>, write some buggy or unformatted code, and hit the &lt;code>format&lt;/code> button.&lt;/p>
 &lt;h3 id="comments">Comments&lt;/h3>
@@ -504,11 +504,11 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;ul>
 &lt;li>&lt;code>var&lt;/code> :- It is a keyword.&lt;/li>
 &lt;li>&lt;code>name&lt;/code> :- It will be a variable name that you want to access in your programme.&lt;/li>
-&lt;li>&lt;code>string&lt;/code> :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)&lt;/li>
+&lt;li>&lt;code>string&lt;/code> :- It will be any datatype that the variable will hold data for. (Go-supported datatype)&lt;/li>
 &lt;/ul>
 &lt;p>Once you declare a variable, you can assign any value of that type to it with &lt;code>=&lt;/code> sign.&lt;/p>
 &lt;p>&lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/p>
-&lt;p>You can assign values to multiple variables in the same statement. Just place mutiple varible names on the left side of &lt;code>=&lt;/code>, and the same number of values on the right side, seprated with commas (&lt;code>,&lt;/code>).&lt;/p>
+&lt;p>You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code>=&lt;/code>, and the same number of values on the right side, separated with commas (&lt;code>,&lt;/code>).&lt;/p>
 &lt;p>Syntax for assign multiple variables at once:&lt;/p>
 &lt;p>&lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/p>
 &lt;p>You can assign new values to existing variables, but they need to be values of the same type like you can&amp;rsquo;t assign &lt;code>int&lt;/code> variable value to &lt;code>string&lt;/code> type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p>
@@ -522,12 +522,12 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p>
 &lt;p>Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p>
 &lt;h3 id="functions">Functions&lt;/h3>
-&lt;p>A function is a group of statements that together perfrom a task. Function can be used to:&lt;/p>
+&lt;p>A function is a group of statements that together perform a task. Function can be used to:&lt;/p>
 &lt;ul>
-&lt;li>Resuse code in multiple places.&lt;/li>
+&lt;li>Reuse code in multiple places.&lt;/li>
 &lt;li>Make code more organized and readable.&lt;/li>
 &lt;li>Hide implementation details.&lt;/li>
-&lt;li>Improve code perfromance.&lt;/li>
+&lt;li>Improve code performance.&lt;/li>
 &lt;/ul>
 &lt;p>Functions are declared using the &lt;code>func&lt;/code> keyword, followed by the &lt;code>function name, a list of parameters, and a block of code&lt;/code>. The function body is enclosed in curly &lt;code>braces&lt;/code> (&lt;code>{&lt;/code> and &lt;code>}&lt;/code>). A function can take zero or more arguments.&lt;/p>
 &lt;p>Syntax for function in Go: &lt;code>func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code>&lt;/p>
@@ -535,8 +535,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="673948512" type="checkbox" />
-&lt;label for="673948512">
+&lt;input id="287934615" type="checkbox" />
+&lt;label for="287934615">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -554,10 +554,10 @@ fmt.Println(add(15, 10))
 &lt;/div>
 &lt;!-- raw HTML omitted -->
 &lt;p>In the above &lt;code>Addition Function&lt;/code> program we have two functions. The first is &lt;code>main()&lt;/code>, which doesn&amp;rsquo;t take any arguments (arguments are passed inside rounded brackets &lt;code>()&lt;/code>). The second function is our &lt;code>add&lt;/code> function, which you can see we have started with the &lt;code>func&lt;/code> keyword to declare a function, followed by the function name &lt;code>add()&lt;/code>, and we have passed two arguments &lt;code>x&lt;/code> and &lt;code>y&lt;/code>, which are type of &lt;code>int&lt;/code>. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.&lt;/p>
-&lt;p>In the above example, we shortend:&lt;/p>
+&lt;p>In the above example, we shortened:&lt;/p>
 &lt;p>&lt;code>x int, y int&lt;/code> to &lt;code>x, y int&lt;/code>&lt;/p>
 &lt;p>The function is returning &lt;code>int&lt;/code> data type, which is single value, with &lt;code>return statement&lt;/code> statement of &lt;code>x + y&lt;/code>, which is an addition of numbers.&lt;/p>
-&lt;p>To call this function, we need to type the function name (&lt;code>add&lt;/code> in this case) and a pair of parentheses with argumearguments separated by a comma (,) in our case, which is &lt;code>15, 10&lt;/code>.&lt;/p>
+&lt;p>To call this function, we need to type the function name (&lt;code>add&lt;/code> in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is &lt;code>15, 10&lt;/code>.&lt;/p>
 &lt;p>If you check the above program &lt;code>Println&lt;/code> is also a function. Let&amp;rsquo;s break down the structure of &lt;code>fmt.Println()&lt;/code> and see what is happening here.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>fmt.&lt;/code> :- It is an package which contain multiple function.&lt;/li>
@@ -566,12 +566,12 @@ fmt.Println(add(15, 10))
 &lt;/ul>
 &lt;p>If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.&lt;/p>
 &lt;h4 id="multiple-return-value">Multiple Return Value&lt;/h4>
-&lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary reuslt.&lt;/p>
+&lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="948273165" type="checkbox" />
-&lt;label for="948273165">
+&lt;input id="598146237" type="checkbox" />
+&lt;label for="598146237">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -593,15 +593,15 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;/code>&lt;/pre>
 &lt;/div>
 &lt;!-- raw HTML omitted -->
-&lt;p>In the above example, the &lt;code>divideAndRemainder&lt;/code> function takes two integer parameters, &lt;code>dividend&lt;/code> and &lt;code>divisor&lt;/code>. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specifiy the return types in parentheses immediately after the function signature. In below declaration &lt;code>(int, int)&lt;/code> is returning pair of integers in function return value.&lt;/p>
+&lt;p>In the above example, the &lt;code>divideAndRemainder&lt;/code> function takes two integer parameters, &lt;code>dividend&lt;/code> and &lt;code>divisor&lt;/code>. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specify the return types in parentheses immediately after the function signature. In below declaration &lt;code>(int, int)&lt;/code> is returning pair of integers in function return value.&lt;/p>
 &lt;p>&lt;code>func divideAndRemainder(dividend, divisor int) (int, int) {}&lt;/code>&lt;/p>
 &lt;p>When you call the &lt;code>divideAndRemainder&lt;/code> function in the &lt;code>main&lt;/code> function, you can capture both return values &lt;code>(quotient and remainder)&lt;/code> and use them as needed.&lt;/p>
 &lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="567812439" type="checkbox" />
-&lt;label for="567812439">
+&lt;input id="583471692" type="checkbox" />
+&lt;label for="583471692">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -633,7 +633,7 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>&lt;code>Note&lt;/code>:- Named result parameters are implicitly declared as local variables within the function. You can assign values to them directly, and they will be returned when the function exits. However,you cannot use the &lt;code>:=&lt;/code> short declaration operator to declare and assign values to named result parameters withing the same line; you should use the &lt;code>=&lt;/code> assignment operator.&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="defer">Defer&lt;/h4>
-&lt;p>In Go, the &lt;code>defer&lt;/code> statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it&amp;rsquo;s due to noraml execution or an error.&lt;/p>
+&lt;p>In Go, the &lt;code>defer&lt;/code> statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it&amp;rsquo;s due to normal execution or an error.&lt;/p>
 &lt;p>How &lt;code>defer&lt;/code> statement works in Go:&lt;/p>
 &lt;ol>
 &lt;li>&lt;code>**_Deferred functions are executed in reverse order_**&lt;/code>: When you use &lt;code>defer&lt;/code> to schedule a function call, Go adds it to a stack. The deferred functions are executed in reverse order, meaning the last scheduled function will be executed first, and so on. This behavior is useful when you need to reverse some action or cleanup resources.&lt;/li>
@@ -642,8 +642,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="783962541" type="checkbox" />
-&lt;label for="783962541">
+&lt;input id="276349815" type="checkbox" />
+&lt;label for="276349815">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
