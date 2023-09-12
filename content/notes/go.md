@@ -23,23 +23,23 @@ showLastUpdated: true
 
 ---
 
-Go is a programming language that focuses on simplicity and speed. It's simpler than other langauges, so it's quicker to learn. And it lets you harness the power of today's multicore computer processor, so your programs run faster.
+Go is a programming language that focuses on simplicity and speed. It's simpler than other languages, so it's quicker to learn. And it lets you harness the power of today's multicore computer processor, so your programs run faster.
 
 ## History of Go
 
-Back in 2007, the serach engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.
+Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.
 
-So Google engineers **Robert Griesemer, Rob Pike, and Ken Thompson** sketeched out some goals for a new language:
+So Google engineers **Robert Griesemer, Rob Pike, and Ken Thompson** sketched out some goals for a new language:
 
 - Fast Compilation
 - Less cumbersome code
 - Unused memory freed automatically (garbage collection)
-- Easy-to-write software that does serveal operations simultaneously (concurrency)
+- Easy-to-write software that does serval operations simultaneously (concurrency)
 - Good support for processor with multiple cores
 
-After a couple years of work, Google had created Go: a lanaguage that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It's now free for anyone to use.
+After a couple years of work, Google had created Go: a language that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It's now free for anyone to use.
 
-If you're writing a command-line tool, Go can produce executeable files for Windows, MacOS, and Linux, all from the same source code. If you're writing a web server, it can help you handle many users connecting at once. And no matter what you're what you're writing, it will help you ensure that your code is easir to maintain.
+If you're writing a command-line tool, Go can produce executable files for Windows, MacOS, and Linux, all from the same source code. If you're writing a web server, it can help you handle many users connecting at once. And no matter what you're what you're writing, it will help you ensure that your code is easier to maintain.
 
 ## Syntax Basics
 
@@ -47,7 +47,7 @@ If you're writing a command-line tool, Go can produce executeable files for Wind
 
 The easiest way to try Go is to visit [Go Playground](https://go.dev/play) in your web browser. It is simple editor where you can enter Go code and run it on their servers. The result is displayed right there in your browser.
 
-> Note: Go Playground requires stable internet connection. If you don't, see [Intall Go](https://go.dev/doc/install) on your system.
+> Note: Go Playground requires stable internet connection. If you don't, see [Install Go](https://go.dev/doc/install) on your system.
 
 Let's try out play ground:
 
@@ -82,7 +82,7 @@ Every Go file has three sections:
 2. Any `import` statements
 3. The actual code
 
-- `Package` : A package is a collection of code that all does similar things, like fomatting strings or drawing images. The package clause gives the name of the package that this file's code will become a part of. In this case, we use the special package `main`, which is required if this code is going to be run directly (usually from the terminal).
+- `Package` : A package is a collection of code that all does similar things, like formatting strings or drawing images. The package clause gives the name of the package that this file's code will become a part of. In this case, we use the special package `main`, which is required if this code is going to be run directly (usually from the terminal).
 - `import` : Go files almost always have one or more `import` statements. Each file needs to `import` other packages before its code can use the code those other packages contain. Loading all the Go code on your computer at once would result in a big, slow program, so instead you specify only the package you need by importing them.
 - `actual code` : The last part of every Go file is the actual code, which is often split up into one or more functions. A `function` is a group of code that you `call (run)` from other places in your program. When a Go program is run, it looks for a function named `main` and runs that first, which is why we need this function `main`.
 
@@ -101,7 +101,7 @@ import "fmt"
 // The "main" function is special; it gets run
 // first when your program runs.
 func main() {
-    // This line diplays ("print") "Hello, World" in
+    // This line displays ("print") "Hello, World" in
     // your terminal (or web browser, if you're using the Go Playground)
     //
     // It does this by calling the "Println" function
@@ -117,9 +117,9 @@ func main() {
 
 ### No Semicolons
 
-As you can see in our program ther are no semicolons to seperate statements in Go, we can use semicolons but it's not required (in fact, it's generally frowned upon).
+As you can see in our program there are no semicolons to separate statements in Go, we can use semicolons but it's not required (in fact, it's generally frowned upon).
 
-Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal grammer uses semicolons to terminate statements, but unlike in [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), those semicolons do not appear in the source. Instead the [lexer](https://en.wikipedia.org/wiki/Lexical_analysis) uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.
+Like [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), Go's formal grammar uses semicolons to terminate statements, but unlike in [C](<https://en.wikipedia.org/wiki/C_(programming_language)>), those semicolons do not appear in the source. Instead the [lexer](https://en.wikipedia.org/wiki/Lexical_analysis) uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.
 
 If you want to know more how it works you check Go's official doc
 https://go.dev/doc/effective_go#semicolons
@@ -128,7 +128,7 @@ https://go.dev/doc/effective_go#semicolons
 
 Formatting issues are the most contentious but the least important. People may prefer different formatting styles, thus when another developer or person reads the same code it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents in the same way.
 
-With Go we take an unusual approch and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called `go fmt`. The `go fmt` program reads a Go program and emits the source in a **_standerd style of indentation and vertical alignment, retaining and if necessary reformatting comments._**
+With Go we take an unusual approach and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called `go fmt`. The `go fmt` program reads a Go program and emits the source in a **_standard style of indentation and vertical alignment, retaining and if necessary reformatting comments._**
 
 Next time whenever you share your code, other Go developers will expect it to be in the standard Go format. _With Go all you have to do is run `go fmt`_.
 
@@ -205,13 +205,13 @@ Variable declaration syntax:
 
 - `var` :- It is a keyword.
 - `name` :- It will be a variable name that you want to access in your programme.
-- `string` :- It will be any datatype that the variable will hold data for. (Go-supported datatypes)
+- `string` :- It will be any datatype that the variable will hold data for. (Go-supported datatype)
 
 Once you declare a variable, you can assign any value of that type to it with `=` sign.
 
 `var name string = "Jerry"`
 
-You can assign values to multiple variables in the same statement. Just place mutiple varible names on the left side of `=`, and the same number of values on the right side, seprated with commas (`,`).
+You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of `=`, and the same number of values on the right side, separated with commas (`,`).
 
 Syntax for assign multiple variables at once:
 
@@ -234,12 +234,12 @@ Because short variable declarations are so convenient and concise, they’re use
 
 ### Functions
 
-A function is a group of statements that together perfrom a task. Function can be used to:
+A function is a group of statements that together perform a task. Function can be used to:
 
-- Resuse code in multiple places.
+- Reuse code in multiple places.
 - Make code more organized and readable.
 - Hide implementation details.
-- Improve code perfromance.
+- Improve code performance.
 
 Functions are declared using the `func` keyword, followed by the `function name, a list of parameters, and a block of code`. The function body is enclosed in curly `braces` (`{` and `}`). A function can take zero or more arguments.
 
@@ -267,13 +267,13 @@ func main() {
 
 In the above `Addition Function` program we have two functions. The first is `main()`, which doesn't take any arguments (arguments are passed inside rounded brackets `()`). The second function is our `add` function, which you can see we have started with the `func` keyword to declare a function, followed by the function name `add()`, and we have passed two arguments `x` and `y`, which are type of `int`. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.
 
-In the above example, we shortend:
+In the above example, we shortened:
 
 `x int, y int` to `x, y int`
 
 The function is returning `int` data type, which is single value, with `return statement` statement of `x + y`, which is an addition of numbers.
 
-To call this function, we need to type the function name (`add` in this case) and a pair of parentheses with argumearguments separated by a comma (,) in our case, which is `15, 10`.
+To call this function, we need to type the function name (`add` in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is `15, 10`.
 
 If you check the above program `Println` is also a function. Let's break down the structure of `fmt.Println()` and see what is happening here.
 
@@ -285,7 +285,7 @@ If the function takes a number of arguments and we don’t pass any or provide t
 
 #### Multiple Return Value
 
-One of Go's unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary reuslt.
+One of Go's unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.
 
 Below is Division program which return multiple values like quotient, remainder :
 
@@ -311,7 +311,7 @@ func main() {
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-In the above example, the `divideAndRemainder` function takes two integer parameters, `dividend` and `divisor`. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specifiy the return types in parentheses immediately after the function signature. In below declaration `(int, int)` is returning pair of integers in function return value.
+In the above example, the `divideAndRemainder` function takes two integer parameters, `dividend` and `divisor`. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specify the return types in parentheses immediately after the function signature. In below declaration `(int, int)` is returning pair of integers in function return value.
 
 `func divideAndRemainder(dividend, divisor int) (int, int) {}`
 
@@ -354,7 +354,7 @@ Benefits of using named result parameters:
 
 #### Defer
 
-In Go, the `defer` statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it's due to noraml execution or an error.
+In Go, the `defer` statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it's due to normal execution or an error.
 
 How `defer` statement works in Go:
 
