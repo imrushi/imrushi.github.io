@@ -32,8 +32,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="287634951" type="checkbox" />
-&lt;label for="287634951">
+&lt;input id="671952384" type="checkbox" />
+&lt;label for="671952384">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -61,8 +61,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="295371684" type="checkbox" />
-&lt;label for="295371684">
+&lt;input id="869427351" type="checkbox" />
+&lt;label for="869427351">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -197,8 +197,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="623794158" type="checkbox" />
-&lt;label for="623794158">
+&lt;input id="851467293" type="checkbox" />
+&lt;label for="851467293">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -232,8 +232,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="647852193" type="checkbox" />
-&lt;label for="647852193">
+&lt;input id="325648719" type="checkbox" />
+&lt;label for="325648719">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -262,8 +262,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="854621397" type="checkbox" />
-&lt;label for="854621397">
+&lt;input id="381472659" type="checkbox" />
+&lt;label for="381472659">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -304,8 +304,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="374219865" type="checkbox" />
-&lt;label for="374219865">
+&lt;input id="782534916" type="checkbox" />
+&lt;label for="782534916">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -325,4 +325,6 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;!-- raw HTML omitted -->
 &lt;p>In this example, when the &lt;code>main&lt;/code> function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code>fmt.Println&lt;/code> functions using &lt;code>defer&lt;/code>. These deferred functions will be executed in reverse order when the &lt;code>main&lt;/code> function is about to return.&lt;/p>
 &lt;p>In practice, you often use &lt;code>defer&lt;/code> for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p>
-&lt;h3 id="data-types">Data Types&lt;/h3></content></item></channel></rss>
+&lt;h3 id="methods">Methods&lt;/h3>
+&lt;h3 id="data-types">Data Types&lt;/h3>
+&lt;h3 id="conditionals-and-loops">Conditionals and Loops&lt;/h3></content></item></channel></rss>
