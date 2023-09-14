@@ -384,4 +384,8 @@ In this example, when the `main` function is executed, it first prints "This wil
 
 In practice, you often use `defer` for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there's an early return or an error condition.
 
+### Methods
+
 ### Data Types
+
+### Conditionals and Loops
