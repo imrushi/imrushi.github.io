@@ -164,7 +164,7 @@ The convention in Go is to use `MixedCaps` or `mixedCaps` rather than underscore
 
 #### Package Names
 
-Good pacakage names make code better. A package's names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.
+Good package names make code better. A package's names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.
 
 ##### Guideline
 
@@ -232,6 +232,8 @@ There’s no need to explicitly declare the variable’s type; the type of the v
 
 Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.
 
+#### Pointers
+
 ### Functions
 
 A function is a group of statements that together perform a task. Function can be used to:
@@ -241,7 +243,7 @@ A function is a group of statements that together perform a task. Function can b
 - Hide implementation details.
 - Improve code performance.
 
-Functions are declared using the `func` keyword, followed by the `function name, a list of parameters, and a block of code`. The function body is enclosed in curly `braces` (`{` and `}`). A function can take zero or more arguments.
+Functions are declared using the `func` keyword, followed by the `function name, a list of parameters in parentheses (), and a block of code`. The function body is enclosed in curly `braces` (`{` and `}`). A function can take zero or more arguments.
 
 Syntax for function in Go: `func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}`
 
@@ -275,6 +277,8 @@ The function is returning `int` data type, which is single value, with `return s
 
 To call this function, we need to type the function name (`add` in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is `15, 10`.
 
+> A parameter is a variable, local to a function, whose value is set when the function is called. When the function is run, each parameter will be se to a copy of the value in the corresponding arguments.
+
 If you check the above program `Println` is also a function. Let's break down the structure of `fmt.Println()` and see what is happening here.
 
 - `fmt.` :- It is an package which contain multiple function.
@@ -282,6 +286,24 @@ If you check the above program `Println` is also a function. Let's break down th
 - `()` :- By using parentheses we are executing the function.
 
 If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.
+
+#### Function parameters receive copies of the arguments
+
+As we mentioned, when you call a function that has parameters declared, you need to provide arguments to the call. The value in each argument is copied to the corresponding parameter variable. It is also called `pass-by-value`.
+
+> Go is a "pass-by-value" language; function parameters receive a **_copy_** of the arguments from the function call.
+
+This is fine in most cases. But if you want to pass a variable's value to a function and have it change the value in some way, you'll run into trouble. The function can only change the copy of the value in it's parameter, not the original. So any changes you make within the function won't be visible outside it!
+
+For example:
+
+{{< figure src="/img/notes/pass-by-value.png" alt="actors" position="center" style="border-radius: 8px;" caption="Pass-by-value" captionPosition="center" >}}
+
+Now, we wanted to move the statement that prints the addition value from the `add` function back to the function that calls it (in this case `main`). It won't work, because `add` function only alters its **_copy_** of the value. In the calling function, when we try to print, we'll get the original value, not the addition one!
+
+{{< figure src="/img/notes/pass-by-value-2.png" alt="actors" position="center" style="border-radius: 8px;" caption="Pass-by-value Printing outside add function" captionPosition="center" >}}
+
+There is a way to allow a function to alter the original value of variable holds, rather than a copy. We do this using pointers which also called as "pass-by-reference".
 
 #### Multiple Return Value
 
@@ -385,6 +407,41 @@ In this example, when the `main` function is executed, it first prints "This wil
 In practice, you often use `defer` for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there's an early return or an error condition.
 
 ### Methods
+
+A function is a standalone piece of code that can be called by other parts of your program.
+
+A method is a function that is associated with a specific type or struct.
+
+The term `method` came up with object-oriented programming. In an OOP language (like C++ for example) you can define a `class` which encapsulates data and functions which belongs together. Those functions inside a class are called `methods` and you need an instance of that class to call such a method.
+
+In Go, the terminology it is basically the same, although Go isn't an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).
+
+So, For example:
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Function" expand="Show" collapse="Hide" isCollapsed="false" >}}
+func MyFunction(a, b int) int {
+  return a + b
+}
+// Usage:
+// MyFunction(1, 2)
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+but
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Method" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type MyInteger int
+
+func (a MyInteger) MyMethod(b int) int {
+  return a + b
+}
+// Usage:
+// var x MyInteger = 1
+// x.MyMethod(2)
+{{< /code >}}
+<!-- prettier-ignore-end -->
 
 ### Data Types
 
