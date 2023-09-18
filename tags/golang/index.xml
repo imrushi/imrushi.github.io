@@ -32,8 +32,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="671952384" type="checkbox" />
-&lt;label for="671952384">
+&lt;input id="714628953" type="checkbox" />
+&lt;label for="714628953">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -61,8 +61,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="869427351" type="checkbox" />
-&lt;label for="869427351">
+&lt;input id="628315497" type="checkbox" />
+&lt;label for="628315497">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -133,7 +133,7 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;h4 id="mixedcaps">MixedCaps&lt;/h4>
 &lt;p>The convention in Go is to use &lt;code>MixedCaps&lt;/code> or &lt;code>mixedCaps&lt;/code> rather than underscores to write multiword names.&lt;/p>
 &lt;h4 id="package-names">Package Names&lt;/h4>
-&lt;p>Good pacakage names make code better. A package&amp;rsquo;s names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
+&lt;p>Good package names make code better. A package&amp;rsquo;s names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
 &lt;h5 id="guideline">Guideline&lt;/h5>
 &lt;p>It&amp;rsquo;s helpful if everyone using the package can the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for &lt;strong>&lt;em>under_scores&lt;/em>&lt;/strong> or &lt;strong>&lt;em>mixedCaps&lt;/em>&lt;/strong>. They are often simple nouns, such as:&lt;/p>
 &lt;ul>
@@ -183,6 +183,7 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/ol>
 &lt;p>There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p>
 &lt;p>Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p>
+&lt;h4 id="pointers">Pointers&lt;/h4>
 &lt;h3 id="functions">Functions&lt;/h3>
 &lt;p>A function is a group of statements that together perform a task. Function can be used to:&lt;/p>
 &lt;ul>
@@ -191,14 +192,14 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;li>Hide implementation details.&lt;/li>
 &lt;li>Improve code performance.&lt;/li>
 &lt;/ul>
-&lt;p>Functions are declared using the &lt;code>func&lt;/code> keyword, followed by the &lt;code>function name, a list of parameters, and a block of code&lt;/code>. The function body is enclosed in curly &lt;code>braces&lt;/code> (&lt;code>{&lt;/code> and &lt;code>}&lt;/code>). A function can take zero or more arguments.&lt;/p>
+&lt;p>Functions are declared using the &lt;code>func&lt;/code> keyword, followed by the &lt;code>function name, a list of parameters in parentheses (), and a block of code&lt;/code>. The function body is enclosed in curly &lt;code>braces&lt;/code> (&lt;code>{&lt;/code> and &lt;code>}&lt;/code>). A function can take zero or more arguments.&lt;/p>
 &lt;p>Syntax for function in Go: &lt;code>func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code>&lt;/p>
 &lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="851467293" type="checkbox" />
-&lt;label for="851467293">
+&lt;input id="836251749" type="checkbox" />
+&lt;label for="836251749">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -220,6 +221,9 @@ fmt.Println(add(15, 10))
 &lt;p>&lt;code>x int, y int&lt;/code> to &lt;code>x, y int&lt;/code>&lt;/p>
 &lt;p>The function is returning &lt;code>int&lt;/code> data type, which is single value, with &lt;code>return statement&lt;/code> statement of &lt;code>x + y&lt;/code>, which is an addition of numbers.&lt;/p>
 &lt;p>To call this function, we need to type the function name (&lt;code>add&lt;/code> in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is &lt;code>15, 10&lt;/code>.&lt;/p>
+&lt;blockquote>
+&lt;p>A parameter is a variable, local to a function, whose value is set when the function is called. When the function is run, each parameter will be se to a copy of the value in the corresponding arguments.&lt;/p>
+&lt;/blockquote>
 &lt;p>If you check the above program &lt;code>Println&lt;/code> is also a function. Let&amp;rsquo;s break down the structure of &lt;code>fmt.Println()&lt;/code> and see what is happening here.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>fmt.&lt;/code> :- It is an package which contain multiple function.&lt;/li>
@@ -227,13 +231,30 @@ fmt.Println(add(15, 10))
 &lt;li>&lt;code>()&lt;/code> :- By using parentheses we are executing the function.&lt;/li>
 &lt;/ul>
 &lt;p>If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.&lt;/p>
+&lt;h4 id="function-parameters-receive-copies-of-the-arguments">Function parameters receive copies of the arguments&lt;/h4>
+&lt;p>As we mentioned, when you call a function that has parameters declared, you need to provide arguments to the call. The value in each argument is copied to the corresponding parameter variable. It is also called &lt;code>pass-by-value&lt;/code>.&lt;/p>
+&lt;blockquote>
+&lt;p>Go is a &amp;ldquo;pass-by-value&amp;rdquo; language; function parameters receive a &lt;strong>&lt;em>copy&lt;/em>&lt;/strong> of the arguments from the function call.&lt;/p>
+&lt;/blockquote>
+&lt;p>This is fine in most cases. But if you want to pass a variable&amp;rsquo;s value to a function and have it change the value in some way, you&amp;rsquo;ll run into trouble. The function can only change the copy of the value in it&amp;rsquo;s parameter, not the original. So any changes you make within the function won&amp;rsquo;t be visible outside it!&lt;/p>
+&lt;p>For example:&lt;/p>
+&lt;figure class="center" >
+&lt;img src="/img/notes/pass-by-value.png" alt="actors" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Pass-by-value&lt;/figcaption>
+&lt;/figure>
+&lt;p>Now, we wanted to move the statement that prints the addition value from the &lt;code>add&lt;/code> function back to the function that calls it (in this case &lt;code>main&lt;/code>). It won&amp;rsquo;t work, because &lt;code>add&lt;/code> function only alters its &lt;strong>&lt;em>copy&lt;/em>&lt;/strong> of the value. In the calling function, when we try to print, we&amp;rsquo;ll get the original value, not the addition one!&lt;/p>
+&lt;figure class="center" >
+&lt;img src="/img/notes/pass-by-value-2.png" alt="actors" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Pass-by-value Printing outside add function&lt;/figcaption>
+&lt;/figure>
+&lt;p>There is a way to allow a function to alter the original value of variable holds, rather than a copy. We do this using pointers which also called as &amp;ldquo;pass-by-reference&amp;rdquo;.&lt;/p>
 &lt;h4 id="multiple-return-value">Multiple Return Value&lt;/h4>
 &lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="325648719" type="checkbox" />
-&lt;label for="325648719">
+&lt;input id="341789256" type="checkbox" />
+&lt;label for="341789256">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -262,8 +283,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="381472659" type="checkbox" />
-&lt;label for="381472659">
+&lt;input id="576318294" type="checkbox" />
+&lt;label for="576318294">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -304,8 +325,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="782534916" type="checkbox" />
-&lt;label for="782534916">
+&lt;input id="581927436" type="checkbox" />
+&lt;label for="581927436">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -326,5 +347,47 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>In this example, when the &lt;code>main&lt;/code> function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code>fmt.Println&lt;/code> functions using &lt;code>defer&lt;/code>. These deferred functions will be executed in reverse order when the &lt;code>main&lt;/code> function is about to return.&lt;/p>
 &lt;p>In practice, you often use &lt;code>defer&lt;/code> for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p>
 &lt;h3 id="methods">Methods&lt;/h3>
+&lt;p>A function is a standalone piece of code that can be called by other parts of your program.&lt;/p>
+&lt;p>A method is a function that is associated with a specific type or struct.&lt;/p>
+&lt;p>The term &lt;code>method&lt;/code> came up with object-oriented programming. In an OOP language (like C++ for example) you can define a &lt;code>class&lt;/code> which encapsulates data and functions which belongs together. Those functions inside a class are called &lt;code>methods&lt;/code> and you need an instance of that class to call such a method.&lt;/p>
+&lt;p>In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p>
+&lt;p>So, For example:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="963751284" type="checkbox" />
+&lt;label for="963751284">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Function&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+func MyFunction(a, b int) int {
+return a &amp;#43; b
+}
+// Usage:
+// MyFunction(1, 2)
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>but&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="163598427" type="checkbox" />
+&lt;label for="163598427">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Method&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+type MyInteger int
+func (a MyInteger) MyMethod(b int) int {
+return a &amp;#43; b
+}
+// Usage:
+// var x MyInteger = 1
+// x.MyMethod(2)
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
 &lt;h3 id="data-types">Data Types&lt;/h3>
 &lt;h3 id="conditionals-and-loops">Conditionals and Loops&lt;/h3></content></item></channel></rss>
