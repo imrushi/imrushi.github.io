@@ -28,8 +28,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="493286715" type="checkbox" />
-&lt;label for="493286715">
+&lt;input id="724635189" type="checkbox" />
+&lt;label for="724635189">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -66,8 +66,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="594281763" type="checkbox" />
-&lt;label for="594281763">
+&lt;input id="935426718" type="checkbox" />
+&lt;label for="935426718">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -106,8 +106,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="125963784" type="checkbox" />
-&lt;label for="125963784">
+&lt;input id="786192534" type="checkbox" />
+&lt;label for="786192534">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -122,8 +122,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="823746915" type="checkbox" />
-&lt;label for="823746915">
+&lt;input id="298546173" type="checkbox" />
+&lt;label for="298546173">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -149,8 +149,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="148327659" type="checkbox" />
-&lt;label for="148327659">
+&lt;input id="582763419" type="checkbox" />
+&lt;label for="582763419">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -166,8 +166,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="831275496" type="checkbox" />
-&lt;label for="831275496">
+&lt;input id="674192835" type="checkbox" />
+&lt;label for="674192835">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -185,8 +185,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="426837195" type="checkbox" />
-&lt;label for="426837195">
+&lt;input id="389412657" type="checkbox" />
+&lt;label for="389412657">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -202,8 +202,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="512387946" type="checkbox" />
-&lt;label for="512387946">
+&lt;input id="548367912" type="checkbox" />
+&lt;label for="548367912">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -370,8 +370,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="714628953" type="checkbox" />
-&lt;label for="714628953">
+&lt;input id="978652431" type="checkbox" />
+&lt;label for="978652431">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -399,8 +399,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="628315497" type="checkbox" />
-&lt;label for="628315497">
+&lt;input id="871593426" type="checkbox" />
+&lt;label for="871593426">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -536,8 +536,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="836251749" type="checkbox" />
-&lt;label for="836251749">
+&lt;input id="819275364" type="checkbox" />
+&lt;label for="819275364">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -591,8 +591,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="341789256" type="checkbox" />
-&lt;label for="341789256">
+&lt;input id="259648173" type="checkbox" />
+&lt;label for="259648173">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -621,8 +621,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="576318294" type="checkbox" />
-&lt;label for="576318294">
+&lt;input id="812764935" type="checkbox" />
+&lt;label for="812764935">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -663,8 +663,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="581927436" type="checkbox" />
-&lt;label for="581927436">
+&lt;input id="948231567" type="checkbox" />
+&lt;label for="948231567">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -692,8 +692,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="963751284" type="checkbox" />
-&lt;label for="963751284">
+&lt;input id="625948371" type="checkbox" />
+&lt;label for="625948371">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -710,8 +710,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="163598427" type="checkbox" />
-&lt;label for="163598427">
+&lt;input id="857234196" type="checkbox" />
+&lt;label for="857234196">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -727,6 +727,97 @@ return a &amp;#43; b
 &lt;/code>&lt;/pre>
 &lt;/div>
 &lt;!-- raw HTML omitted -->
+&lt;h3 id="data-structures">Data Structures&lt;/h3>
+&lt;h4 id="array">Array&lt;/h4>
+&lt;p>An array is a collection of values that all share the same type. Think of it like one of those pill boxes with compartments &amp;ndash; you can store and retrieve pills from each compartment separately, but it&amp;rsquo;s also easy to transport the container as a whole.&lt;/p>
+&lt;p>The values an array holds are called its &lt;strong>elements&lt;/strong>. You can have an array of string, booleans, or an array of any other Go type (even an array of array). You can store an entire array in a single variable, and then access any element within the array that you need.&lt;/p>
+&lt;p>An array holds a specific number of elements, and it cannot grow or shrink. To declare a variable that holds an array you need to follow below syntax:&lt;/p>
+&lt;p>&lt;code>var myArray [4]string&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>var&lt;/code>: Keyword to declare variable.&lt;/li>
+&lt;li>&lt;code>myArray&lt;/code>: Variable name which holds array.&lt;/li>
+&lt;li>&lt;code>[4]string&lt;/code>:
+&lt;ul>
+&lt;li>&lt;code>[]&lt;/code>: In this brackets you specify how much data array should hold. Like in above example &lt;code>[4]&lt;/code> it will hold 4 elements.&lt;/li>
+&lt;li>&lt;code>datatype&lt;/code>: Which type of data it will store is mentioned here. for example &lt;code>string&lt;/code> or &lt;code>int&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Elements in an array are numbered, starting with &lt;code>0&lt;/code>. An element&amp;rsquo;s number is called its &lt;code>index&lt;/code>.&lt;/p>
+&lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="639584217" type="checkbox" />
+&lt;label for="639584217">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+var names [5]string // Create an array of five strings.
+names[0] = &amp;#34;Goku&amp;#34; // Assign a value to the first element.
+names[1] = &amp;#34;Vegeta&amp;#34; // Assign a value to the second element.
+names[2] = &amp;#34;Gohan&amp;#34; // Assign a value to the third element.
+fmt.Println(names[0]) // Print the first element.
+fmt.Println(names[1]) // Print the second element.
+// Output:
+Goku
+Vegeta
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>If you doesn&amp;rsquo;t assign a value to &lt;code>names[0]&lt;/code> and try to print. It will show empty string lets see why.&lt;/p>
+&lt;h5 id="default-values-in-arrays">Default values in arrays&lt;/h5>
+&lt;p>As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code>int&lt;/code> values is filled with zeros by default and same will be for &lt;code>string&lt;/code> but instead of zeros it will be empty string.&lt;/p>
+&lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="291638475" type="checkbox" />
+&lt;label for="291638475">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+var counters [3]int
+counters[0]&amp;#43;&amp;#43; // Increment the first element from 0 to 1.
+counters[0]&amp;#43;&amp;#43; // Increment the first element from 1 to 2.
+counters[1]&amp;#43;&amp;#43; // Increment the third element from 0 to 1.
+fmt.Println(counters[0], counters[1], counters[2])
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;pre>&lt;code> 2 0 1
+/ | \
+/ | Has been incremented once
+/ Still at its zero value
+Has been incremented twice
+&lt;/code>&lt;/pre>
+&lt;blockquote>
+&lt;p>Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.&lt;/p>
+&lt;/blockquote>
+&lt;p>Okay, but how can assign default values like we do in python and other languages?&lt;/p>
+&lt;h5 id="array-literals">Array literals&lt;/h5>
+&lt;p>If you know in advance what values an array should hold, you can initialize the array with those values using an &lt;code>array literal&lt;/code>. An array literal starts just like an array type, with the number of elements it will hold in square brackets, followed by the type of its elements. This is followed by a list in curly braces of the initial values each element should have. The element values should be separated by commas &lt;code>,&lt;/code>.&lt;/p>
+&lt;p>&lt;code>[3]int{7, 21, 5}&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>[3]&lt;/code>: Number of elements array will hold.&lt;/li>
+&lt;li>&lt;code>int&lt;/code>: Type of elements array will hold.&lt;/li>
+&lt;li>&lt;code>{data, comma, separated}&lt;/code> : Comma-separated list of array values.&lt;/li>
+&lt;/ul>
+&lt;p>Let&amp;rsquo;s our previous example using array literals, instead of assigning values to the array elements one by one:&lt;/p>
+&lt;p>&lt;code>var names [4]string = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code>&lt;/p>
+&lt;p>Using an array literal also allows you to do short variable declaration with &lt;code>:=&lt;/code>.&lt;/p>
+&lt;p>&lt;code>names = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code>&lt;/p>
+&lt;p>If you have array string with sentences as value:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">text&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> [&lt;span style="color:#ae81ff">3&lt;/span>]&lt;span style="color:#66d9ef">string&lt;/span>{&lt;span style="color:#e6db74">&amp;#34;This is a series of long strings&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;which would be awkward to place&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;together on a single line&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you see above it will be hard to read if item grow it will be in single line to make it more readable we can break this in multiline as shown below:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">text&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> [&lt;span style="color:#ae81ff">3&lt;/span>]&lt;span style="color:#66d9ef">string&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;This is a series of long strings&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;which would be awkward to place&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;together on a single line&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But here is catch which you will have to keep in mind when you break it in multiline it should end with &lt;code>,&lt;/code> else you will get error/run it problems.&lt;/p>
 &lt;h3 id="data-types">Data Types&lt;/h3>
 &lt;h3 id="conditionals-and-loops">Conditionals and Loops&lt;/h3></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
