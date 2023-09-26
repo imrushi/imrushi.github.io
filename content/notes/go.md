@@ -443,6 +443,106 @@ func (a MyInteger) MyMethod(b int) int {
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
+### Data Structures
+
+#### Array
+
+An array is a collection of values that all share the same type. Think of it like one of those pill boxes with compartments -- you can store and retrieve pills from each compartment separately, but it's also easy to transport the container as a whole.
+
+The values an array holds are called its **elements**. You can have an array of string, booleans, or an array of any other Go type (even an array of array). You can store an entire array in a single variable, and then access any element within the array that you need.
+
+An array holds a specific number of elements, and it cannot grow or shrink. To declare a variable that holds an array you need to follow below syntax:
+
+`var myArray [4]string`
+
+- `var`: Keyword to declare variable.
+- `myArray`: Variable name which holds array.
+- `[4]string`:
+  - `[]`: In this brackets you specify how much data array should hold. Like in above example `[4]` it will hold 4 elements.
+  - `datatype`: Which type of data it will store is mentioned here. for example `string` or `int`.
+
+Elements in an array are numbered, starting with `0`. An element's number is called its `index`.
+
+If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Create Array of Names" expand="Show" collapse="Hide" isCollapsed="false" >}}
+var names [5]string   // Create an array of five strings.
+names[0] = "Goku"     // Assign a value to the first element.
+names[1] = "Vegeta"   // Assign a value to the second element.
+names[2] = "Gohan"    // Assign a value to the third element.
+fmt.Println(names[0]) // Print the first element.
+fmt.Println(names[1]) // Print the second element.
+
+// Output:
+Goku
+Vegeta
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+If you doesn't assign a value to `names[0]` and try to print. It will show empty string lets see why.
+
+##### Default values in arrays
+
+As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of `int` values is filled with zeros by default and same will be for `string` but instead of zeros it will be empty string.
+
+Zero/default values can make it safe to manipulate an array element even if you haven't explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Zero value manipulation" expand="Show" collapse="Hide" isCollapsed="false" >}}
+var counters [3]int
+counters[0]++ // Increment the first element from 0 to 1.
+counters[0]++ // Increment the first element from 1 to 2.
+counters[1]++ // Increment the third element from 0 to 1.
+fmt.Println(counters[0], counters[1], counters[2])
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+          2 0 1
+         /  |  \
+        /   |   Has been incremented once
+       /    Still at its zero value
+      Has been incremented twice
+
+>Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.
+
+Okay, but how can assign default values like we do in python and other languages?
+
+##### Array literals
+
+If you know in advance what values an array should hold, you can initialize the array with those values using an `array literal`. An array literal starts just like an array type, with the number of elements it will hold in square brackets, followed by the type of its elements. This is followed by a list in curly braces of the initial values each element should have. The element values should be separated by commas `,`.
+
+`[3]int{7, 21, 5}`
+
+- `[3]`: Number of elements array will hold.
+- `int`: Type of elements array will hold.
+- `{data, comma, separated}` : Comma-separated list of array values.
+
+Let's our previous example using array literals, instead of assigning values to the array elements one by one:
+
+`var names [4]string = [4]string{"Goku", "Vegeta", "Gohan"}`
+
+Using an array literal also allows you to do short variable declaration with `:=`.
+
+`names = [4]string{"Goku", "Vegeta", "Gohan"}`
+
+If you have array string with sentences as value:
+
+```go
+text := [3]string{"This is a series of long strings", "which would be awkward to place", "together on a single line"}
+```
+As you see above it will be hard to read if item grow it will be in single line to make it more readable we can break this in multiline as shown below:
+
+```go
+text := [3]string{
+  "This is a series of long strings",
+  "which would be awkward to place",
+  "together on a single line",
+}
+```
+
+But here is catch which you will have to keep in mind when you break it in multiline it should end with `,` else you will get error/run it problems. 
+
 ### Data Types
 
 ### Conditionals and Loops
