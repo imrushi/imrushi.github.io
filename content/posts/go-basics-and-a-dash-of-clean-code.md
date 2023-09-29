@@ -25,6 +25,7 @@ keywords:
     "comments",
     "names",
     "variables",
+    "go tips",
   ]
 description: "Welcome to guide on Go programming! Whether you're beginner looking to grasp the basics of the language or an experience developer seeking to enhance your clean code skills, our blog has you covered. Explore the fundamentals of Go syntax and discover how to elevate your coding style with a touch of clean code principles."
 showFullContent: false
