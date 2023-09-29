@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-to-medium:
+    runs-on: ubuntu-latest
+    env:
+      POST_DIR: "content/posts"
+      ACCESS_TOKEN: ${{ secrets.MEDIUM_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Markdown Or Hugo To Medium
+        uses: imrushi/markdown-or-hugo-to-medium@v1.0.0
+        with:
+          markdownOrHugo: "hugo"
+          shortcodes: "./shortcodes.json"
+          replaceHyperlinkToLink: false
+          frontmatterFormat: "yaml"
+          draft: true
