@@ -1,5 +1,5 @@
 ---
-title: "Create Github Action"
+title: "Create Github Actions"
 date: 2023-10-03T09:44:47+05:30
 draft: true
 author: "Rushi Panchariya"
@@ -14,10 +14,54 @@ hideComments: false
 toc: false
 ---
 
-After writing my Go Dash blog, I got an idea what if I can push same blog to Medium. I started looking for way to automate this thing. I started looking for GitHub action which can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
+After writing my Go Dash blog, I got an idea what if I can push same blog to Medium. I started looking for way to automate this thing. I have checked on GitHub Marketplace for actions which can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
 
-This GitHub action was perfect but there was one issue. In hugo I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes and images. There was no way from which I can remove this in publishing process. So this issue inspired me create my own GitHub action which allows:
+This GitHub action was good but there was some issues. In hugo I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes, figures and images. Another one is it doesn't remove any shortcodes. There was no way from which I can remove this in publishing process. So this issue inspired me create my own GitHub action which allows:
+
 - Select and replace shortcodes using regex
 - Removes frontmatter of YAML, TOML, or JSON formats from post.
 - Extract title and tag from frontmatter
 - Support both Markdown and Hugo Markdown formats.
+
+---
+
+While I was doing research how to create own/custom GitHub Actions. I started with GitHub [documentation](https://docs.github.com/en/actions/creating-actions) of create GitHub Action. Documentation were straight forward there were few steps, but there are three ways to create GitHub Actions:
+
+- **Docker container action\_**:
+
+  - It packages the entire environment needed for GitHub Actions.
+  - They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.
+  - This packaging approach ensures consistency and reliability because the consumers of your action don't need to worry about installing the necessary tools or dependencies themselves.
+  - It is tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.
+  - It can only execute on runners[^1] with a Linux operating system. If you're using self-hosted runners[^1], they must also be running a Linux operating system and have Docker installed to execute Docker container actions.
+
+- **_JavaScript action_**:
+
+  - It runs directly on the runner[^1] machine.
+  - These actions separate your action's code from the environment used to run that code.
+  - Ensure compatibility with all GitHub-hosted runners[^1] (including Ubuntu, Windows, and macOS).
+  - Use pure JavaScript and existing runner binaries.
+  - GitHub Actions Toolkit offers Node.js packages for faster development.
+
+- **_Composite action_**:
+
+  - Composite actions combine multiple workflow steps into one action.
+  - Imagine you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.
+  - It simplifies workflows by creating reusable actions.
+  - Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.
+  - It is great for organizing complex workflows efficiently.
+
+Before we start lets check what mistakes I have made. So, you can avoid these mistakes.
+
+## Mistakes were made
+
+Be clear what you want to achieve. When I read the doc I was not clear about which action type I should use. I thought `composite action` would be perfect option for me. Let me explain what want to achieve
+
+- what inspired me to create custom github action
+- mistakes were made while creating custom github actions
+- process of creating github action
+- testing github action
+  - problem faced while testing
+- publishing github action
+
+[^1]: "Runner" refers to a virtual machine or container environment where your GitHub Action workflows are executed.
