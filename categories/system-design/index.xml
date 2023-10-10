@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Design on Rushi Panchariya</title><link>/categories/system-design/</link><description>Recent content in System Design on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/system-design/index.xml" rel="self" type="application/rss+xml"/><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>Scale From Zero To Millions of Users In this we will see that system that support single user and gradually scale it up to serve millions of users.
+Single Server Setup Whatever we are developing/building alway start with a single basic step and this also goes same for complex systems. To start with something single, we will be running everything on a single server. below is figure of single server setup where it will be running: web, app, database, cache, etc.</description><content>&lt;hr>
+&lt;h2 id="scale-from-zero-to-millions-of-users">Scale From Zero To Millions of Users&lt;/h2>
+&lt;p>In this we will see that system that support single user and gradually scale it up to serve millions of users.&lt;/p>
+&lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>
+&lt;p>Whatever we are developing/building alway start with a single basic step and this also goes same for complex systems. To start with something single, we will be running everything on a single server. below is figure of single server setup where it will be running: web, app, database, cache, etc.&lt;/p>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Single Web Server Working&lt;/figcaption>
+&lt;/figure></content></item></channel></rss>
