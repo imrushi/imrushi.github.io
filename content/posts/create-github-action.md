@@ -14,30 +14,30 @@ hideComments: false
 toc: false
 ---
 
-After writing my Go Dash blog, I got an idea what if I can push same blog to Medium. I started looking for way to automate this thing. I have checked on GitHub Marketplace for actions which can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
+After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I have checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
 
-This GitHub action was good but there was some issues. In hugo I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes, figures and images. Another one is it doesn't remove any shortcodes. There was no way from which I can remove this in publishing process. So this issue inspired me create my own GitHub action which allows:
+This GitHub action was good, but there were some issues. In Hugo, I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows:
 
-- Select and replace shortcodes using regex
-- Removes frontmatter of YAML, TOML, or JSON formats from post.
-- Extract title and tag from frontmatter
+- Select and replace shortcodes using a regex.
+- Removes the frontmatter of YAML, TOML, or JSON formats from the post.
+- Extract the title and tag from the frontmatter.
 - Support both Markdown and Hugo Markdown formats.
 
 ---
 
-**TL;DR** If you want start Creating GitHub Action without backstory head over to [Creating a GitHub Action](#creating-a-github-action) section.
+**TL;DR** If you want to start creating a GitHub action without a backstory, head over to the [Creating a GitHub Action](#creating-a-github-action) section.
 
 ---
 
-While I was doing research how to create own/custom GitHub Actions. I started with GitHub [documentation](https://docs.github.com/en/actions/creating-actions) of create GitHub Action. Documentation were straight forward there were few steps, but there are three ways to create GitHub Actions:
+While I was doing research on how to create my own or custom GitHub actions, I started with the GitHub [documentation](https://docs.github.com/en/actions/creating-actions) for creating a GitHub action. Documentation was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:
 
 - **Docker container action\_**:
 
   - It packages the entire environment needed for GitHub Actions.
   - They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.
   - This packaging approach ensures consistency and reliability because the consumers of your action don't need to worry about installing the necessary tools or dependencies themselves.
-  - It is tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.
-  - It can only execute on runners[^1] with a Linux operating system. If you're using self-hosted runners[^1], they must also be running a Linux operating system and have Docker installed to execute Docker container actions.
+  - It tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.
+  - It can only execute on a Linux operating system. If you're using self-hosted runners[^1], they must also be running a Linux operating system and have Docker installed to execute Docker container actions.
 
 - **_JavaScript action_**:
 
@@ -55,26 +55,26 @@ While I was doing research how to create own/custom GitHub Actions. I started wi
   - Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.
   - It is great for organizing complex workflows efficiently.
 
-Before we start lets check what mistakes I have made. So, you can avoid these mistakes.
+Before we start, let's check what mistakes I have made. So, you can avoid these mistakes.
 
 ## Mistakes were made
 
 {{< image src="https://media.tenor.com/uWx_Y53J7gEAAAAC/arrested-development-huge-mistake.gif" alt="mistake" position="center" style="border-radius: 8px; width: 420px; height: 230px;" >}}
 
-Be clear what you want to achieve. When I read the documentations I was not clear about which action type I should use. I thought `composite action` would be perfect option for me. Let me explain why?
+Be clear about what you want to achieve. When I read the documentation, I was not clear about which action type I should use. I thought `composite action` would be the perfect option for me. Let me explain why.
 
 I am thinking it will be straight forward that:
 
-- I will write code/logic in [Go](https://go.dev)
-- Build the program binary with linux amd64 option
-- At the time of release add it in Assets of GitHub Releases
-- When action runs it will fetch binary from Assets
-- Using that binary I will pass the required arguments
-- Program will handle everything and post content to Medium
+- I will write code or logic in [Go](https://go.dev)
+- Build the program binary with the Linux AMD64 option.
+- At the time of release, add it to the Assets of GitHub Releases.
+- When action runs, it will fetch a binary from assets.
+- Using that binary, I will pass the required arguments.
+- The program will handle everything and post content to Medium.
 
-But when I have written everything for actions. Program working as expected and passing unit test cases. I thought it will be now just create `action.yml` with `composite action` and take all inputs and pass it to binary. I am happy and excited to test it 😁.
+But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create `action.yml` with `composite action` and take all inputs and pass it to binary. I am happy and excited to test it 😁.
 
-As expected it is not going to run on first try. I got some errors; actions were not able to fetch the binary (I have written script for that). To solve this issue I have removed the script and place the `Go action` which will directly install `Go` in system then I can build binary and execute it. It sounds simple so written below actions:
+As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I have written a script for that). To solve this issue, I have removed the script and placed the `Go action` step, which will directly install `Go` in the system. Then I can build a binary and execute it. It sounds simple, so the below actions are:
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title="action.yml" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -136,26 +136,26 @@ branding:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-This time I thought everything looks good. But I was getting this error `FATA[2023-09-29T11:17:24Z] repository does not exist`. This error was generating from binary because it is not able to find `.git` directory because I was using it to take latest commit message.
+This time, I thought everything looked good. But I was getting this error: `FATA[2023-09-29T11:17:24Z] repository does not exist`. This error was generated from binary because it was not able to find the `.git` directory because I was using it to take the latest commit message.
 
-Conclusion for me was I am not going to use the `composite actions`. Now I have two option:
+The conclusion for me was that I was not going to use the `composite actions`. Now I have two options:
 
 1. `JavaScript actions`
 2. `Docker actions`
 
-If I use `JavaScript actions` I will have to write my logic again in JavaScript which I have written in `Go`. So I decided to use `Docker action` which was easy to implement.
+If I use `JavaScript actions`, I will have to write my logic again in JavaScript, which I have written in `Go`. So I decided to use `Docker Action', which was easy to implement.
 
 Just need to write `Dockerfile` and update `action.yml`.
 
-What I learn form this mistake is that I will have to do proper planning next time 🤞.
+What I learn from this mistake is that I will have to do proper planning next time 🤞.
 
 ---
 
-Let check how to create custom GitHub Actions. In this I am going to create `Docker actions` but action.yml will have the almost similar syntax.
+Let's check out how to create custom GitHub actions. In this, I am going to create `Docker actions`, but action.yml will have an almost similar syntax.
 
 ## Creating a GitHub Action
 
-As we are creating `Docker actions` we need to write `Dockerfile`. In your projects root directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly `D` should be capital like shown above. We will be writing `Dockerfile` for my [markdown-or-hugo-to-medium](https://github.com/imrushi/markdown-or-hugo-to-medium).
+As we are creating `Docker actions`, we need to write a `Dockerfile`. In your project root directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly. `D` should be capitalized, as shown above. We will be writing a `Dockerfile` for my [markdown-or-hugo-to-medium](https://github.com/imrushi/markdown-or-hugo-to-medium).
 
 <!-- prettier-ignore-start -->
 {{< code language="docker" title="Dockerfile" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -175,39 +175,39 @@ ENTRYPOINT [ "/home/src/HugoToMedium" ]
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-What is going on in above Dockerfile:
+What is going on in the above Dockerfile:
 
 - We are pulling golang:1.21.1 alpine image
-- Installing git because if program required
-- Copying all the required local file in to /home/src folder of container
+- Installing git because if a program is required
+- Copying all the required local files into the /home/src folder of the container
 - Changing Working Directory
-- In this golang:1.21.1 alpine image golang is already installed. We will use that to build out binary for linux OS with amd64 architecture.
-- Update the file permission to execute.
-- After building image when it runs it should directly run the binary so we have added the ENTRYPOINT for that.
+- In this golang:1.21.1 alpine image, golang is already installed. We will use that to build out a binary for the Linux OS with the AMD64 architecture.
+- Update the file permissions to execute.
+- After building the image, when it runs, it should directly run the binary, so we have added the ENTRYPOINT for that.
 
-If you want to know more about the Dockerfile instructions for GitHub Action check this [Document](https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions#about-dockerfile-instructions).
+If you want to know more about the Dockerfile instructions for GitHub Action, check out this [Document](https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions#about-dockerfile-instructions).
 
 ## Creating Action File
 
-Create a new `action.yml` file in the root directory of your project. This action file will contains what inputs should we get, what should be the output and what it should run.
+Create a new `action.yml` file in the root directory of your project. This action file will contain what inputs we should get, what the output should be, and what it should run
 
 There are 7 basic parameters:
 
 - `name`\* : It will be used to display the name in the Actions tab.
 - `author`: Name of the action's author.
 - `description`\* : A short description of the action.
-- `input`: It allow you to specify data that the action expects to use during runtime.
-  - `input.<input_id>`\* : A string identifier to associate with the input. It should be unique identifier.
+- `input`: It allows you to specify the data that the action expects to use during runtime.
+  - `input.<input_id>`\* : A string identifier to associate with the input. It should be a unique identifier.
   - `description`\* : A string description of the input parameter.
   - `required`: A boolean to indicate whether the action requires the input parameter.
   - `default`: A string representing the default value.
   - `deprecationMessage`: If the input parameter is used, this string is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
-- `output`: It allows you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.
+- `output`: It allows you to declare data that an action sets. Actions that run later in a workflow can use the output data set of previously run actions.
 - `runs`\*: It specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
 
-This just overview of the parameter what are they for you can check these parameters in details on [GitHub Docs](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions).
+This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on [GitHub Docs](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions).
 
-Below is sample `action.yml` for `Docker actions`:
+Below is a sample `action.yml` for `Docker actions`:
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title="action.yml" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -251,11 +251,11 @@ branding:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-In above `action.yml` file I have specified `name` which will be used to show in Actions tab. On next line short `description` what it does. I am taking five inputs each where each on starts with variable name where input will be stored. For instance `markdown-or-hugo` and it has own description what is variable for along with if this variable should be `required` or optional and also set the `default` value to it. Same done for other four inputs.
+In the above `action.yml` file, I have specified `name` which will be used to show in the Actions tab. On the next line, `description` what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, `markdown-or-hugo` has its own description of what the variable is or, along with whether this variable should be `required` or optional, and also sets the `default` value to it. The same is done for the other four inputs.
 
-In `runs` section with `using` parameters we specifies which type of actions we are using in this using `docker` and we also have to configure which `image` to use if you specify `Dockerfile` as value it will build docker image and then use it. You can also directly use public Docker registry containers by specifying `docker://image-name:tag`. If your program takes arguments you can pass it with `args` parameter and if you want to pass the above taken input you can use `${{ inputs.input_variable_name }}`.
+In the `runs` section with `using` parameter, we specify which type of actions we are using `docker`, and we also have to configure which `image` to use. If you specify `Dockerfile` as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying `docker://image-name:tag`. If your program takes arguments, you can pass them with the `args` parameter, and if you want to pass the above-taken input you can use `${{ inputs.input_variable_name }}`.
 
-I don't want to store anything for output variable. So, I haven't used the output parameter but if you want to show something you can do something like this:
+I don't want to store anything for the output variable. So, I haven't used the output parameter, but if you want to show something you can do something, like this:
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title="" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -265,7 +265,7 @@ outputs:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-Note that if we want to use this approach we need to update Dockerfile and Entrypoint will be shell script from that shell script we can set output variable.
+Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.
 
 <!-- prettier-ignore-start -->
 {{< code language="bash" title="entrypoint.sh" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -279,21 +279,21 @@ echo "output_parameter=$program_input" >> $GITHUB_OUTPUT
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-you can checkout more about output [here](https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs).
+You can check out more about the output [here](https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs).
 
-`branding` uses icon and color to create a badge to personalize and distinguish your action. Badges are shown next to your action name in GitHub Marketplace. You can find icon [here](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons).
+`branding` uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon [here](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons).
 
-Here you have written you first custom github action.
+Here you have written your first custom github action.
 
 ## Testing the GitHub Action
 
-Before we publish our GitHub Action we need to test it first. It is strange there is no way to test this GitHub action I think GitHub should have provide something from which we can easily test this.
+Before we publish our GitHub Action, we need to test it first. It is strange that there is no way to test this GitHub action. I think GitHub should have provided something from which we can easily test this.
 
-At the time of testing faced some problem I am not able to understand [testing document](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow) properly. So I took wrong way I have published the action and then tested. Please avoid this mistakes.
+At the time of testing, I faced some problems and am not able to understand the [testing document](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow) properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.
 
-There are the two ways to test it:
+There are two ways to test it:
 
-- If your repository public you can test it by assign `uses` with `<username>/<repo-name>@<branch-name>` in `steps`. with this method you can test action in other repositories also. This workflow YAML should be located at `.github/workflows/filename.yml`
+- If your repository is public, you can test it by assigning `uses` with `<username>/<repo-name>@<branch-name>` in `steps`. With this method, you can test actions in other repositories as well. This workflow YAML should be located at `.github/workflows/filename.yml`.
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title=".github/workflows/publish-medium.yml" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -315,7 +315,7 @@ jobs:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-- If you want to test it in current repository you can use `./` in `uses`. `./` syntax to use an action available in the same repository. This option will works on both public and private repository.
+- If you want to test it in the current repository, you can use `./` in `uses`. `./` syntax to use an action available in the same repository. This option will work on both public and private repositories.
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title=".github/workflows/publish-medium.yml" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -337,27 +337,27 @@ jobs:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-Once you satisfied with you testing. It is time for deploy.
+Once you are satisfied with your testing, It is time to deploy.
 
 ## Publishing the GitHub Action
 
-To publish GitHub Action to GitHub Marketplace your action repository should be public. Follow below steps to make it public:
+To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:
 
-- First create [git tag](https://git-scm.com/docs/git-tag) with version as per [semver](https://semver.org/). `git tag -a v1.0.0 -m "release message"`
-- Push tag to GitHub repo. `git push origin v1.0.0`
-- On GitHub Repository go to Releases -> Create/Draft a new release
+- First, create a [git tag](https://git-scm.com/docs/git-tag) with the version as per [semver](https://semver.org/). `git tag -a v1.0.0 -m "release message"`
+- Push the tag to the GitHub repo. `git push origin v1.0.0`
+- On the GitHub repository, go to Releases -> Create/Draft a new release.
 
-  - Mark with ✔️ Publish this Action to the GitHub Marketplace
-  - It also show required things are done or not
-  - Select Primary category and Another Category
+  - Mark with ✔️ Publish this Action to the GitHub Marketplace.
+  - It also shows if the required things are done or not.
+  - Select the primary category and another category.
   - Choose a tag -> select v1.0.0
   - Give Release title -> v1.0.0
-  - Provide Release Notes
-  - If you want to provide any assets drag and drop in box
-  - If your action is not production ready mark ✔️ Set as a pre-release
+  - Provide Release Notes.
+  - If you want to provide any assets, drag and drop in the box.
+  - If your action is not production-ready, mark ✔️ Set as a pre-release.
   - ✔️ Set as the latest release
-  - If everything looks good Hit **Publish release** button.
+  - If everything looks good, Hit the **Publish release** button.
 
-Congratulations your action is now available in GitHub Marketplace!
+Congratulations! Your action is now available in the GitHub Marketplace!
 
 [^1]: "Runner" refers to a virtual machine or container environment where your GitHub Action workflows are executed.
