@@ -55,7 +55,23 @@ Before we start lets check what mistakes I have made. So, you can avoid these mi
 
 ## Mistakes were made
 
-Be clear what you want to achieve. When I read the doc I was not clear about which action type I should use. I thought `composite action` would be perfect option for me. Let me explain what want to achieve
+{{< image src="https://media.tenor.com/uWx_Y53J7gEAAAAC/arrested-development-huge-mistake.gif" alt="mistake" position="center" style="border-radius: 8px; width: 420px; height: 230px;" >}}
+
+Be clear what you want to achieve. When I read the documentations I was not clear about which action type I should use. I thought `composite action` would be perfect option for me. Let me explain why?
+
+I am thinking it will be straight forward that:
+
+- I will write code/logic in [Go](https://go.dev)
+- Build the program binary with linux amd64 option
+- At the time of release add it in Assets of GitHub Releases
+- When action runs it will fetch binary from Assets
+- Using that binary I will pass the required arguments
+
+
+
+- Want to create something that would publish Markdown/Hugo content to Medium
+- Create this application in [Go](https://go.dev)
+-
 
 - what inspired me to create custom github action
 - mistakes were made while creating custom github actions
