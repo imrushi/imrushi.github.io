@@ -1,9 +1,9 @@
 ---
-title: "Important Links"
-date: 2023-10-23
+title: "Imp Links"
+date: 2023-08-24
 draft: false
 toc: false
-author: "Rushi"
+author: "Rushi Panchariya"
 tags: ["notes"]
 keywords: ["links"]
 categories: []
