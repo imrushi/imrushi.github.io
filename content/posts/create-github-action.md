@@ -26,12 +26,12 @@ hideComments: false
 toc: false
 ---
 
-After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I have checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
+After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action [hugo-to-medium](https://github.com/pr4k/hugo-to-medium) by [Prakhar Kaushik](https://github.com/pr4k).
 
-This GitHub action was good, but there were some issues. In Hugo, I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows:
+This GitHub action was good, but there were some issues. In Hugo, I mostly use [shortcodes](https://gohugo.io/content-management/shortcodes/) to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:
 
-- Select and replace shortcodes using a regex.
-- Removes the frontmatter of YAML, TOML, or JSON formats from the post.
+- Select and replace shortcodes using regex.
+- Remove the frontmatter of YAML, TOML, or JSON formats from the post.
 - Extract the title and tag from the frontmatter.
 - Support both Markdown and Hugo Markdown formats.
 
@@ -41,7 +41,7 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use [
 
 ---
 
-While I was doing research on how to create my own or custom GitHub actions, I started with the GitHub [documentation](https://docs.github.com/en/actions/creating-actions) for creating a GitHub action. Documentation was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:
+While I was researching on how to create my own or custom GitHub actions, I started with the GitHub [documentation](https://docs.github.com/en/actions/creating-actions) - it was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:
 
 - **_Docker container action_**:
 
@@ -49,20 +49,20 @@ While I was doing research on how to create my own or custom GitHub actions, I s
   - They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.
   - This packaging approach ensures consistency and reliability because the consumers of your action don't need to worry about installing the necessary tools or dependencies themselves.
   - It tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.
-  - It can only execute on a Linux operating system. If you're using self-hosted runners[^1], they must also be running a Linux operating system and have Docker installed to execute Docker container actions.
+  - It can only execute on a Linux based operating system. If you're using self-hosted runners[^1], they must also be running a Linux based operating system and have Docker installed to execute Docker container actions.
 
 - **_JavaScript action_**:
 
   - It runs directly on the runner[^1] machine.
   - These actions separate your action's code from the environment used to run that code.
-  - Ensure compatibility with all GitHub-hosted runners[^1] (including Ubuntu, Windows, and macOS).
-  - Use pure JavaScript and existing runner binaries.
+  - It ensure compatibility with all GitHub-hosted runners[^1] (including Ubuntu, Windows, and macOS).
+  - It uses pure JavaScript and existing runner binaries.
   - GitHub Actions Toolkit offers Node.js packages for faster development.
 
 - **_Composite action_**:
 
   - Composite actions combine multiple workflow steps into one action.
-  - Imagine you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.
+  - Say you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.
   - It simplifies workflows by creating reusable actions.
   - Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.
   - It is great for organizing complex workflows efficiently.
@@ -86,13 +86,14 @@ I am thinking it will be straight forward that:
 
 But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create `action.yml` with `composite action` and take all inputs and pass them to the binary. I am happy and excited to test it 😁.
 
-As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I have written a script for that). To solve this issue, I have removed the script and placed the `Go action` step, which will directly install `Go` in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:
+As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the `Go action` step, which will directly install `Go` in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:
 
 <!-- prettier-ignore-start -->
 {{< code language="yaml" title="action.yml" expand="Show" collapse="Hide" isCollapsed="false" >}}
 name: "Markdown Or Hugo To Medium"
 description: "Push hugo markdown post to medium"
 
+# declaring input variables for workflow
 inputs:
   markdownOrHugo:
     description: "Specify is it Markdown or Hugo Markdown"
@@ -114,6 +115,7 @@ inputs:
     required: false
     default: false
 
+# running steps
 runs:
   using: "composite"
   steps:
@@ -142,13 +144,14 @@ runs:
         -draft=${{ inputs.draft }}
       shell: bash
 
+# it will be used in GitHub Marketplace next to action name
 branding:
   icon: "book-open"
   color: "blue"
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-This time, I thought everything looked good. But I was getting this error: `FATA[2023-09-29T11:17:24Z] repository does not exist`. This error was generated from binary; it was not able to find the `.git` directory. I was using it to take the latest commit message.
+This time, I thought everything looked good. But I was getting this error: `FATA[2023-09-29T11:17:24Z] repository does not exist` - it was generated from binary; it was not able to find the `.git` directory. I was using it to take the latest commit message.
 
 The conclusion for me was that I was not going to use the `composite actions`. Now I have two options:
 
@@ -167,7 +170,7 @@ Let's check out how to create custom GitHub actions. In this, I am going to crea
 
 ## Creating a GitHub Action
 
-As we are creating `Docker actions`, we need to write a `Dockerfile`. In your project root directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly. `D` should be capitalized, as shown above. We will be writing a `Dockerfile` for my [markdown-or-hugo-to-medium](https://github.com/imrushi/markdown-or-hugo-to-medium).
+As we are creating `Docker actions`, we need to write a `Dockerfile`. In your project root directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly. `D` should be capitalized, as shown above. We will be writing it for my [markdown-or-hugo-to-medium](https://github.com/imrushi/markdown-or-hugo-to-medium).
 
 <!-- prettier-ignore-start -->
 {{< code language="docker" title="Dockerfile" expand="Show" collapse="Hide" isCollapsed="false" >}}
@@ -226,6 +229,7 @@ Below is a sample `action.yml` for `Docker actions`:
 name: "Markdown Or Hugo To Medium"
 description: "Push hugo markdown post to medium"
 
+# input variables for data that the action expects at runtime
 inputs:
   markdownOrHugo:
     description: "Specify is it Markdown or Hugo Markdown"
@@ -247,9 +251,11 @@ inputs:
     required: false
     default: false
 
+# configuration to run action
 runs:
   using: "docker"
   image: "Dockerfile"
+  # passing above inputs as argument to program
   args:
     - -markdown-or-hugo=${{ inputs.markdownOrHugo }}
     - -shortcodes-config-file=${{ inputs.shortcodes }}
@@ -299,9 +305,9 @@ Here you have written your first custom github action.
 
 ## Testing the GitHub Action
 
-Before we publish our GitHub Action, we need to test it first. It is strange that there is no way to test this GitHub action locally. I think GitHub should have provided something from which we can easily test this.
+Before we publish our GitHub Action, we need to test it. It is strange that there is no way to test this GitHub action locally. I think GitHub should have provided something from which we can easily test this.
 
-At the time of testing, I faced some problems and am not able to understand the [testing document](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow) properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.
+At the time of testing, I faced some problems and wasn't able to understand the [testing document](https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow) properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.
 
 There are two ways to test it:
 
@@ -317,7 +323,8 @@ jobs:
     name: A job to say hello
     steps:
       - name: test action step
-        uses: imrushi/markdown-or-hugo-to-medium@main # uses an action from given repo
+        # uses an action from given repo
+        uses: imrushi/markdown-or-hugo-to-medium@main 
         with:
           markdown-or-hugo: 'hugo'
           shortcodes: "./shortcodes.json"
@@ -339,7 +346,8 @@ jobs:
     name: A job to say hello
     steps:
       - name: test action step
-        uses: ./ # Uses an action in the root directory
+        # Uses an action in the root directory
+        uses: ./ 
         with:
           markdown-or-hugo: 'hugo'
           shortcodes: "./shortcodes.json"
@@ -370,7 +378,7 @@ To publish GitHub Action to the GitHub Marketplace, your action repository shoul
   - ✔️ Set as the latest release
   - If everything looks good, Hit the **Publish release** button.
 
-Congratulations! 🎉 Your action is now available in the GitHub Marketplace!
+Congratulations! 🎉 Your action is now available on the GitHub Marketplace!
 
 ## How to Use the GitHub Action
 
@@ -394,8 +402,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      # using published GitHub Actions
       - name: Markdown Or Hugo To Medium
         uses: imrushi/markdown-or-hugo-to-medium@v1.0.0
+        # providing inputs to the actions
         with:
           markdownOrHugo: "hugo"
           shortcodes: "./shortcodes.json"
@@ -414,7 +424,7 @@ That's it! You've successfully created, published, and used your custom GitHub A
 
 ## Conclusion
 
-In this blog post, we saw how to create a GitHub action using Docker containers. It covers how to prepare a Dockerfile, action.yml for GitHub actions. Also, I have shown how to use it.
+In this blog post, we saw how to create a GitHub action using Docker containers. It covers how to prepare and use a Dockerfile and action.yml for GitHub actions.
 
 This blog is about my experience, the mistakes I have made while creating my first GitHub action. I will be creating more GitHub actions for my use cases. You can check them out on my GitHub profile here.
 
