@@ -1,4 +1,418 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I have checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action hugo-to-medium by Prakhar Kaushik.
+This GitHub action was good, but there were some issues. In Hugo, I mostly use shortcodes to showcase the sample codes, figures, and images.</description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I have checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
+&lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows:&lt;/p>
+&lt;ul>
+&lt;li>Select and replace shortcodes using a regex.&lt;/li>
+&lt;li>Removes the frontmatter of YAML, TOML, or JSON formats from the post.&lt;/li>
+&lt;li>Extract the title and tag from the frontmatter.&lt;/li>
+&lt;li>Support both Markdown and Hugo Markdown formats.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>TL;DR&lt;/strong>: If you want to start creating a GitHub action without a backstory, head over to the &lt;a href="#creating-a-github-action">Creating a GitHub Action&lt;/a> section.&lt;/p>
+&lt;hr>
+&lt;p>While I was doing research on how to create my own or custom GitHub actions, I started with the GitHub &lt;a href="https://docs.github.com/en/actions/creating-actions">documentation&lt;/a> for creating a GitHub action. Documentation was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;em>Docker container action&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It packages the entire environment needed for GitHub Actions.&lt;/li>
+&lt;li>They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.&lt;/li>
+&lt;li>This packaging approach ensures consistency and reliability because the consumers of your action don&amp;rsquo;t need to worry about installing the necessary tools or dependencies themselves.&lt;/li>
+&lt;li>It tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.&lt;/li>
+&lt;li>It can only execute on a Linux operating system. If you&amp;rsquo;re using self-hosted runners&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, they must also be running a Linux operating system and have Docker installed to execute Docker container actions.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;em>JavaScript action&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It runs directly on the runner&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> machine.&lt;/li>
+&lt;li>These actions separate your action&amp;rsquo;s code from the environment used to run that code.&lt;/li>
+&lt;li>Ensure compatibility with all GitHub-hosted runners&lt;sup id="fnref2:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> (including Ubuntu, Windows, and macOS).&lt;/li>
+&lt;li>Use pure JavaScript and existing runner binaries.&lt;/li>
+&lt;li>GitHub Actions Toolkit offers Node.js packages for faster development.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;em>Composite action&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Composite actions combine multiple workflow steps into one action.&lt;/li>
+&lt;li>Imagine you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.&lt;/li>
+&lt;li>It simplifies workflows by creating reusable actions.&lt;/li>
+&lt;li>Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.&lt;/li>
+&lt;li>It is great for organizing complex workflows efficiently.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Before we start, let&amp;rsquo;s check what mistakes I have made so you can avoid these mistakes.&lt;/p>
+&lt;h2 id="mistakes-were-made">Mistakes were made&lt;/h2>
+&lt;img src="https://media.tenor.com/uWx_Y53J7gEAAAAC/arrested-development-huge-mistake.gif" alt="mistake" class="center" style="border-radius: 8px; width: 420px; height: 230px;" />
+&lt;p>Be clear about what you want to achieve. When I read the documentation, I was not clear about which action type I should use. I thought &lt;code>composite action&lt;/code> would be the perfect option for me. Let me explain why.&lt;/p>
+&lt;p>I am thinking it will be straight forward that:&lt;/p>
+&lt;ul>
+&lt;li>I will write code or logic in &lt;a href="https://go.dev">Go&lt;/a>&lt;/li>
+&lt;li>Build the program binary with the Linux AMD64 option.&lt;/li>
+&lt;li>At the time of release, add it to the Assets of GitHub Releases.&lt;/li>
+&lt;li>When action runs, it will fetch a binary from assets.&lt;/li>
+&lt;li>Using that binary, I will pass the required arguments.&lt;/li>
+&lt;li>The program will handle everything and post content to Medium.&lt;/li>
+&lt;/ul>
+&lt;p>But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code>action.yml&lt;/code> with &lt;code>composite action&lt;/code> and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p>
+&lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I have written a script for that). To solve this issue, I have removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="562978341" type="checkbox" />
+&lt;label for="562978341">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">action.yml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+name: &amp;#34;Markdown Or Hugo To Medium&amp;#34;
+description: &amp;#34;Push hugo markdown post to medium&amp;#34;
+inputs:
+markdownOrHugo:
+description: &amp;#34;Specify is it Markdown or Hugo Markdown&amp;#34;
+required: true
+default: markdown
+shortcodes:
+description: &amp;#34;Shortcodes JSON config file location&amp;#34;
+required: false
+replaceHyperlinkToLink:
+description: &amp;#34;Replace hyperlink to link for medium cards&amp;#34;
+required: false
+default: false
+frontmatterFormat:
+description: &amp;#34;Select frontmatter format [yaml, toml]&amp;#34;
+required: false
+default: &amp;#34;yaml&amp;#34;
+draft:
+description: &amp;#34;Publish as a draft on Medium&amp;#34;
+required: false
+default: false
+runs:
+using: &amp;#34;composite&amp;#34;
+steps:
+- name: Install jq
+run: sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y jq
+shell: bash
+- name: Check out the repository to the runner
+uses: actions/checkout@v4
+- name: Setup Go 1.21.x
+uses: actions/setup-go@v4
+with:
+go-version: &amp;#39;1.21.x&amp;#39;
+- name: Install dependencies and Build
+run: |
+cd ${{ github.action_path }} &amp;amp;&amp;amp; \
+go get . &amp;amp;&amp;amp; \
+go build -o HugoToMedium main.go &amp;amp;&amp;amp; \
+./HugoToMedium \
+-markdown-or-hugo=${{ inputs.markdownOrHugo }} \
+-shortcodes-config-file=${{ inputs.shortcodes }} \
+-replace-hyperlink-to-link=${{ inputs.replaceHyperlinkToLink }} \
+-frontmatter=${{ inputs.frontmatterFormat }} \
+-draft=${{ inputs.draft }}
+shell: bash
+branding:
+icon: &amp;#34;book-open&amp;#34;
+color: &amp;#34;blue&amp;#34;
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>This time, I thought everything looked good. But I was getting this error: &lt;code>FATA[2023-09-29T11:17:24Z] repository does not exist&lt;/code>. This error was generated from binary; it was not able to find the &lt;code>.git&lt;/code> directory. I was using it to take the latest commit message.&lt;/p>
+&lt;p>The conclusion for me was that I was not going to use the &lt;code>composite actions&lt;/code>. Now I have two options:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>JavaScript actions&lt;/code>&lt;/li>
+&lt;li>&lt;code>Docker actions&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>If I use &lt;code>JavaScript actions&lt;/code>, I will have to write my logic again in JavaScript, which I have written in &lt;code>Go&lt;/code>. So I decided to use &lt;code>Docker Action&lt;/code>, which was easy to implement.&lt;/p>
+&lt;p>Just need to write &lt;code>Dockerfile&lt;/code> and update &lt;code>action.yml&lt;/code>.&lt;/p>
+&lt;p>What I learn from this mistake is that I will have to do proper planning next time 🤞.&lt;/p>
+&lt;hr>
+&lt;p>Let&amp;rsquo;s check out how to create custom GitHub actions. In this, I am going to create &lt;code>Docker actions&lt;/code>, but action.yml will have an almost similar syntax.&lt;/p>
+&lt;h2 id="creating-a-github-action">Creating a GitHub Action&lt;/h2>
+&lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing a &lt;code>Dockerfile&lt;/code> for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="975324816" type="checkbox" />
+&lt;label for="975324816">
+&lt;span class="collapsable-code__language">docker&lt;/span>
+&lt;span class="collapsable-code__title">Dockerfile&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-docker" >&lt;code>
+FROM golang:1.21.1-alpine3.18
+RUN apk add git
+COPY . /home/src
+WORKDIR /home/src
+RUN GOOS=linux GOARCH=amd64 go build -o HugoToMedium main.go
+RUN chmod &amp;#43;x HugoToMedium
+ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>What is going on in the above Dockerfile:&lt;/p>
+&lt;ul>
+&lt;li>We are pulling golang:1.21.1 alpine image&lt;/li>
+&lt;li>Installing git because if a program is required&lt;/li>
+&lt;li>Copying all the required local files into the /home/src folder of the container&lt;/li>
+&lt;li>Changing Working Directory&lt;/li>
+&lt;li>In this golang:1.21.1 alpine image, golang is already installed. We will use that to build out a binary for the Linux OS with the AMD64 architecture.&lt;/li>
+&lt;li>Update the file permissions to execute.&lt;/li>
+&lt;li>After building the image, when it runs, it should directly run the binary, so we have added the ENTRYPOINT for that.&lt;/li>
+&lt;/ul>
+&lt;p>If you want to know more about the Dockerfile instructions for GitHub Action, check out this &lt;a href="https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions#about-dockerfile-instructions">Document&lt;/a>.&lt;/p>
+&lt;h2 id="creating-action-file">Creating Action File&lt;/h2>
+&lt;p>Create a new &lt;code>action.yml&lt;/code> file in the root directory of your project. This action file will contain what inputs we should get, what the output should be, and what it should run&lt;/p>
+&lt;p>There are 7 basic parameters:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>name&lt;/code>* : It will be used to display the name in the Actions tab.&lt;/li>
+&lt;li>&lt;code>author&lt;/code>: Name of the action&amp;rsquo;s author.&lt;/li>
+&lt;li>&lt;code>description&lt;/code>* : A short description of the action.&lt;/li>
+&lt;li>&lt;code>input&lt;/code>: It allows you to specify the data that the action expects to use during runtime.
+&lt;ul>
+&lt;li>&lt;code>input.&amp;lt;input_id&amp;gt;&lt;/code>* : A string identifier to associate with the input. It should be a unique identifier.&lt;/li>
+&lt;li>&lt;code>description&lt;/code>* : A string description of the input parameter.&lt;/li>
+&lt;li>&lt;code>required&lt;/code>: A boolean to indicate whether the action requires the input parameter.&lt;/li>
+&lt;li>&lt;code>default&lt;/code>: A string representing the default value.&lt;/li>
+&lt;li>&lt;code>deprecationMessage&lt;/code>: If the input parameter is used, this string is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>output&lt;/code>: It allows you to declare data that an action sets. Actions that run later in a workflow can use the output data set of previously run actions.&lt;/li>
+&lt;li>&lt;code>runs&lt;/code>*: It specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.&lt;/li>
+&lt;/ul>
+&lt;p>This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions">GitHub Docs&lt;/a>.&lt;/p>
+&lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="135764982" type="checkbox" />
+&lt;label for="135764982">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">action.yml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+name: &amp;#34;Markdown Or Hugo To Medium&amp;#34;
+description: &amp;#34;Push hugo markdown post to medium&amp;#34;
+inputs:
+markdownOrHugo:
+description: &amp;#34;Specify is it Markdown or Hugo Markdown&amp;#34;
+required: true
+default: markdown
+shortcodes:
+description: &amp;#34;Shortcodes JSON config file location&amp;#34;
+required: false
+replaceHyperlinkToLink:
+description: &amp;#34;Replace hyperlink to link for medium cards&amp;#34;
+required: false
+default: false
+frontmatterFormat:
+description: &amp;#34;Select frontmatter format [yaml, toml]&amp;#34;
+required: false
+default: &amp;#34;yaml&amp;#34;
+draft:
+description: &amp;#34;Publish as a draft on Medium&amp;#34;
+required: false
+default: false
+runs:
+using: &amp;#34;docker&amp;#34;
+image: &amp;#34;Dockerfile&amp;#34;
+args:
+- -markdown-or-hugo=${{ inputs.markdownOrHugo }}
+- -shortcodes-config-file=${{ inputs.shortcodes }}
+- -replace-hyperlink-to-link=${{ inputs.replaceHyperlinkToLink }}
+- -frontmatter=${{ inputs.frontmatterFormat }}
+- -draft=${{ inputs.draft }}
+branding:
+icon: &amp;#34;book-open&amp;#34;
+color: &amp;#34;blue&amp;#34;
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>In the above &lt;code>action.yml&lt;/code> file, I have specified &lt;code>name&lt;/code> which will be used to show in the Actions tab. On the next line, &lt;code>description&lt;/code> what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, &lt;code>markdown-or-hugo&lt;/code> has its own description of what the variable is or, along with whether this variable should be &lt;code>required&lt;/code> or optional, and also sets the &lt;code>default&lt;/code> value to it. The same is done for the other four inputs.&lt;/p>
+&lt;p>In the &lt;code>runs&lt;/code> section with &lt;code>using&lt;/code> parameter, we specify which type of actions we are using &lt;code>docker&lt;/code>, and we also have to configure which &lt;code>image&lt;/code> to use. If you specify &lt;code>Dockerfile&lt;/code> as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code>docker://image-name:tag&lt;/code>. If your program takes arguments, you can pass them with the &lt;code>args&lt;/code> parameter, and if you want to pass the above-taken input you can use &lt;code>${{ inputs.input_variable_name }}&lt;/code>.&lt;/p>
+&lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="265187439" type="checkbox" />
+&lt;label for="265187439">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+outputs:
+output_parameter:
+description: &amp;#39;This will show the output which will be set from container&amp;#39;
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="845623917" type="checkbox" />
+&lt;label for="845623917">
+&lt;span class="collapsable-code__language">bash&lt;/span>
+&lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-bash" >&lt;code>
+#!/bin/sh
+# Run your Go program and set GITHUB_OUTPUT
+program_input=$(your_go_program)
+# Set the output variable
+echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>You can check out more about the output &lt;a href="https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs">here&lt;/a>.&lt;/p>
+&lt;p>&lt;code>branding&lt;/code> uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons">here&lt;/a>.&lt;/p>
+&lt;p>Here you have written your first custom github action.&lt;/p>
+&lt;h2 id="testing-the-github-action">Testing the GitHub Action&lt;/h2>
+&lt;p>Before we publish our GitHub Action, we need to test it first. It is strange that there is no way to test this GitHub action locally. I think GitHub should have provided something from which we can easily test this.&lt;/p>
+&lt;p>At the time of testing, I faced some problems and am not able to understand the &lt;a href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow">testing document&lt;/a> properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.&lt;/p>
+&lt;p>There are two ways to test it:&lt;/p>
+&lt;ul>
+&lt;li>If your repository is public, you can test it by assigning &lt;code>uses&lt;/code> with &lt;code>&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code> in &lt;code>steps&lt;/code>. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code>.github/workflows/filename.yml&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="526178934" type="checkbox" />
+&lt;label for="526178934">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+on: [push]
+jobs:
+hello_world_job:
+runs-on: ubuntu-latest
+name: A job to say hello
+steps:
+- name: test action step
+uses: imrushi/markdown-or-hugo-to-medium@main # uses an action from given repo
+with:
+markdown-or-hugo: &amp;#39;hugo&amp;#39;
+shortcodes: &amp;#34;./shortcodes.json&amp;#34;
+replaceHyperlinkToLink: false
+frontmatterFormat: &amp;#34;yaml&amp;#34;
+draft: true
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>Second way is to test it in the current repository, you can use &lt;code>./&lt;/code> in &lt;code>uses&lt;/code>. &lt;code>./&lt;/code> syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="196574283" type="checkbox" />
+&lt;label for="196574283">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+on: [push]
+jobs:
+hello_world_job:
+runs-on: ubuntu-latest
+name: A job to say hello
+steps:
+- name: test action step
+uses: ./ # Uses an action in the root directory
+with:
+markdown-or-hugo: &amp;#39;hugo&amp;#39;
+shortcodes: &amp;#34;./shortcodes.json&amp;#34;
+replaceHyperlinkToLink: false
+frontmatterFormat: &amp;#34;yaml&amp;#34;
+draft: true
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="publishing-the-github-action">Publishing the GitHub Action&lt;/h2>
+&lt;p>As soon as our action has been tested, it&amp;rsquo;s time to publish it. Let&amp;rsquo;s see how we can do that.&lt;/p>
+&lt;p>To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>First, create a &lt;a href="https://git-scm.com/docs/git-tag">git tag&lt;/a> with the version as per &lt;a href="https://semver.org/">semver&lt;/a>. &lt;code>git tag -a v1.0.0 -m &amp;quot;release message&amp;quot;&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Push the tag to the GitHub repo. &lt;code>git push origin v1.0.0&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>On the GitHub repository, go to Releases -&amp;gt; Create/Draft a new release.&lt;/p>
+&lt;ul>
+&lt;li>Mark with ✔️ Publish this Action to the GitHub Marketplace.&lt;/li>
+&lt;li>It also shows if the required things are done or not.&lt;/li>
+&lt;li>Select the primary category and another category.&lt;/li>
+&lt;li>Choose a tag -&amp;gt; select v1.0.0&lt;/li>
+&lt;li>Give Release title -&amp;gt; v1.0.0&lt;/li>
+&lt;li>Provide Release Notes.&lt;/li>
+&lt;li>If you want to provide any assets, drag and drop in the box.&lt;/li>
+&lt;li>If your action is not production-ready, mark ✔️ Set as a pre-release.&lt;/li>
+&lt;li>✔️ Set as the latest release&lt;/li>
+&lt;li>If everything looks good, Hit the &lt;strong>Publish release&lt;/strong> button.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Congratulations! 🎉 Your action is now available in the GitHub Marketplace!&lt;/p>
+&lt;h2 id="how-to-use-the-github-action">How to Use the GitHub Action&lt;/h2>
+&lt;ul>
+&lt;li>Start by creating a workflow in the .github/workflows directory of your repository (or create the directory if it doesn&amp;rsquo;t exist).&lt;/li>
+&lt;li>Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="479258163" type="checkbox" />
+&lt;label for="479258163">
+&lt;span class="collapsable-code__language">yaml&lt;/span>
+&lt;span class="collapsable-code__title">main.yml&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-yaml" >&lt;code>
+on:
+push:
+branches:
+- main
+jobs:
+publish-to-medium:
+runs-on: ubuntu-latest
+env:
+POST_DIR: &amp;#34;content/posts&amp;#34;
+ACCESS_TOKEN: ${{ secrets.MEDIUM_ACCESS_TOKEN }}
+steps:
+- name: Checkout Code
+uses: actions/checkout@v2
+- name: Markdown Or Hugo To Medium
+uses: imrushi/markdown-or-hugo-to-medium@v1.0.0
+with:
+markdownOrHugo: &amp;#34;hugo&amp;#34;
+shortcodes: &amp;#34;./shortcodes.json&amp;#34;
+replaceHyperlinkToLink: false
+frontmatterFormat: &amp;#34;yaml&amp;#34;
+draft: true
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>This workflow is configured to run when changes are pushed to the main branch. It checks out your code, and then it uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action, passing the necessary inputs as specified in the with section.&lt;/p>
+&lt;ul>
+&lt;li>Commit this workflow YAML file to your repository.&lt;/li>
+&lt;li>Your workflow will now be automatically triggered when you push changes to the main branch.&lt;/li>
+&lt;/ul>
+&lt;p>That&amp;rsquo;s it! You&amp;rsquo;ve successfully created, published, and used your custom GitHub Action.&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>In this blog post, we saw how to create a GitHub action using Docker containers. It covers how to prepare a Dockerfile, action.yml for GitHub actions. Also, I have shown how to use it.&lt;/p>
+&lt;p>This blog is about my experience, the mistakes I have made while creating my first GitHub action. I will be creating more GitHub actions for my use cases. You can check them out on my GitHub profile here.&lt;/p>
+&lt;p>I hope this blog will help you in making your first GitHub action. If you have any questions, please let me know in the comment section. If you find anything new in this blog, share it with others, and if you find any mistakes in it, please let me know and help me make it better. I will definitely fix it.&lt;/p>
+&lt;p>Thanks for reading! 😊&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&amp;ldquo;Runner&amp;rdquo; refers to a virtual machine or container environment where your GitHub Action workflows are executed.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
 As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code.</description><content>&lt;hr>
 &lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
 &lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
@@ -28,8 +442,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="728615349" type="checkbox" />
-&lt;label for="728615349">
+&lt;input id="379145268" type="checkbox" />
+&lt;label for="379145268">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -66,8 +480,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="593284617" type="checkbox" />
-&lt;label for="593284617">
+&lt;input id="217568394" type="checkbox" />
+&lt;label for="217568394">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -106,8 +520,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="952184673" type="checkbox" />
-&lt;label for="952184673">
+&lt;input id="238615497" type="checkbox" />
+&lt;label for="238615497">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -122,8 +536,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="537492861" type="checkbox" />
-&lt;label for="537492861">
+&lt;input id="198674532" type="checkbox" />
+&lt;label for="198674532">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -149,8 +563,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="425317986" type="checkbox" />
-&lt;label for="425317986">
+&lt;input id="156793842" type="checkbox" />
+&lt;label for="156793842">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -166,8 +580,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="562137489" type="checkbox" />
-&lt;label for="562137489">
+&lt;input id="952184673" type="checkbox" />
+&lt;label for="952184673">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -185,8 +599,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="784925631" type="checkbox" />
-&lt;label for="784925631">
+&lt;input id="915638472" type="checkbox" />
+&lt;label for="915638472">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -202,8 +616,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="918236754" type="checkbox" />
-&lt;label for="918236754">
+&lt;input id="236148957" type="checkbox" />
+&lt;label for="236148957">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -370,8 +784,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="293784156" type="checkbox" />
-&lt;label for="293784156">
+&lt;input id="516374289" type="checkbox" />
+&lt;label for="516374289">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -399,8 +813,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="927645138" type="checkbox" />
-&lt;label for="927645138">
+&lt;input id="648719523" type="checkbox" />
+&lt;label for="648719523">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -536,8 +950,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="895173246" type="checkbox" />
-&lt;label for="895173246">
+&lt;input id="615327489" type="checkbox" />
+&lt;label for="615327489">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -591,8 +1005,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="382159764" type="checkbox" />
-&lt;label for="382159764">
+&lt;input id="852693741" type="checkbox" />
+&lt;label for="852693741">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -621,8 +1035,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="295364718" type="checkbox" />
-&lt;label for="295364718">
+&lt;input id="564971832" type="checkbox" />
+&lt;label for="564971832">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -663,8 +1077,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="698423715" type="checkbox" />
-&lt;label for="698423715">
+&lt;input id="684321975" type="checkbox" />
+&lt;label for="684321975">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -692,8 +1106,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="653497182" type="checkbox" />
-&lt;label for="653497182">
+&lt;input id="412738569" type="checkbox" />
+&lt;label for="412738569">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -710,8 +1124,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="852173694" type="checkbox" />
-&lt;label for="852173694">
+&lt;input id="432815967" type="checkbox" />
+&lt;label for="432815967">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -747,8 +1161,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="613274958" type="checkbox" />
-&lt;label for="613274958">
+&lt;input id="184657239" type="checkbox" />
+&lt;label for="184657239">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -772,8 +1186,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="682731495" type="checkbox" />
-&lt;label for="682731495">
+&lt;input id="493265187" type="checkbox" />
+&lt;label for="493265187">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
