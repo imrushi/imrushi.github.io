@@ -60,8 +60,8 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="187943526" type="checkbox" />
-&lt;label for="187943526">
+&lt;input id="941852763" type="checkbox" />
+&lt;label for="941852763">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -137,8 +137,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="157284639" type="checkbox" />
-&lt;label for="157284639">
+&lt;input id="351276894" type="checkbox" />
+&lt;label for="351276894">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -188,8 +188,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="152973486" type="checkbox" />
-&lt;label for="152973486">
+&lt;input id="129745863" type="checkbox" />
+&lt;label for="129745863">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -240,8 +240,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="583179264" type="checkbox" />
-&lt;label for="583179264">
+&lt;input id="759182346" type="checkbox" />
+&lt;label for="759182346">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -255,8 +255,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="349256817" type="checkbox" />
-&lt;label for="349256817">
+&lt;input id="345216897" type="checkbox" />
+&lt;label for="345216897">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -282,8 +282,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="317549628" type="checkbox" />
-&lt;label for="317549628">
+&lt;input id="869745213" type="checkbox" />
+&lt;label for="869745213">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -312,8 +312,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="791284653" type="checkbox" />
-&lt;label for="791284653">
+&lt;input id="378964251" type="checkbox" />
+&lt;label for="378964251">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -371,8 +371,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="128345697" type="checkbox" />
-&lt;label for="128345697">
+&lt;input id="397245816" type="checkbox" />
+&lt;label for="397245816">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -422,7 +422,230 @@ draft: true
 &lt;p>&amp;ldquo;Runner&amp;rdquo; refers to a virtual machine or container environment where your GitHub Action workflows are executed.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
+&lt;/div></content></item><item><title>Regex Cheatsheet</title><link>/notes/regex/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>/notes/regex/</guid><description>We can use regular expression for regular find operations as well as replace.
+Symbol Description Sample Text Regex Output Letters \w Matches any latin letter or digit Sample \w S a m p l e \W Matches any non-alphanumeric character Digits \d Matches any decimal digit Numbers: 1, 2, 3, 100, 200 \d Numbers: 1, 2, 3, 1 0 0, 2 0 0 \D Matches any non decimal digit character. Repetition + Matches one or more repetition of symbol (select whole word or digit) Sample Text.</description><content>&lt;p>We can use regular expression for regular find operations as well as replace.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Symbol&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Sample Text&lt;/th>
+&lt;th>Regex&lt;/th>
+&lt;th>Output&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Letters&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>Matches any latin letter or digit&lt;/td>
+&lt;td>Sample&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>&lt;code>S&lt;/code> &lt;code>a&lt;/code> &lt;code>m&lt;/code> &lt;code>p&lt;/code> &lt;code>l&lt;/code> &lt;code>e&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\W&lt;/td>
+&lt;td>Matches any non-alphanumeric character&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Digits&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Matches any decimal digit&lt;/td>
+&lt;td>Numbers: 1, 2, 3, 100, 200&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Numbers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>, &lt;code>2&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\D&lt;/td>
+&lt;td>Matches any non decimal digit character.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>Matches one or more repetition of symbol (select whole word or digit)&lt;/td>
+&lt;td>Sample Text.&lt;/td>
+&lt;td>\w+&lt;/td>
+&lt;td>&lt;code>Sample&lt;/code> &lt;code>Text&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>*&lt;/td>
+&lt;td>Matches Zero or more occurrences of the symbol&lt;/td>
+&lt;td>1 , 2, 3, 10, 20, 100, 200&lt;/td>
+&lt;td>\d\d*&lt;/td>
+&lt;td>&lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>10&lt;/code>, &lt;code>20&lt;/code>, &lt;code>100&lt;/code>, &lt;code>200&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Set&lt;/td>
+&lt;td>[]&lt;/td>
+&lt;td>Matches set of characters&lt;/td>
+&lt;td>All symbols inside the braces.&lt;/td>
+&lt;td>[abc] will match a,b or c&lt;/td>
+&lt;td>&lt;code>A&lt;/code>ll sym&lt;code>b&lt;/code>ols inside the &lt;code>b&lt;/code>r&lt;code>ac&lt;/code>es.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[a-c]&lt;/td>
+&lt;td>Works similarly to &lt;code>[abc]&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>Match any character except a,b or c&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>A&lt;code>ll&lt;/code> &lt;code>sym&lt;/code>b&lt;code>ols&lt;/code> &lt;code>inside&lt;/code> &lt;code>the&lt;/code> b&lt;code>r&lt;/code>ac&lt;code>es&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Special Symbols&lt;/td>
+&lt;td>\. \[ \+&lt;/td>
+&lt;td>Match symbols that bear special meaning for regex. need to escape with &lt;code>\&lt;/code>&lt;/td>
+&lt;td>2+2&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>2&lt;code>+&lt;/code>2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alteration&lt;/td>
+&lt;td>a|b&lt;/td>
+&lt;td>Will match &lt;code>a&lt;/code> or &lt;code>b&lt;/code>&lt;/td>
+&lt;td>numbers: 1, 2, 3, 100&lt;/td>
+&lt;td>[a-f]|\d&lt;/td>
+&lt;td>num&lt;code>b&lt;/code>ers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single Character&lt;/td>
+&lt;td>.&lt;/td>
+&lt;td>Matches any character other than newline&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>.*&lt;/td>
+&lt;td>&lt;code>This is test.&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Optional&lt;/td>
+&lt;td>?&lt;/td>
+&lt;td>Makes the symbol optional&lt;/td>
+&lt;td>he and she&lt;/td>
+&lt;td>s?he&lt;/td>
+&lt;td>&lt;code>he&lt;/code> and &lt;code>she&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Start Of string&lt;/td>
+&lt;td>^&lt;/td>
+&lt;td>Matches the start of a string without consuming characters&lt;/td>
+&lt;td>start of string&lt;/td>
+&lt;td>^\w+&lt;/td>
+&lt;td>&lt;code>start&lt;/code> of string&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>End Of string&lt;/td>
+&lt;td>$&lt;/td>
+&lt;td>Matches the end of string without consuming characters&lt;/td>
+&lt;td>end of string&lt;/td>
+&lt;td>\w+$&lt;/td>
+&lt;td>end of &lt;code>string&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Word Boundary&lt;/td>
+&lt;td>\b&lt;/td>
+&lt;td>Matches boundaries of word. \b\w and \w\b will match first and last letter in word.&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\b\w&lt;/td>
+&lt;td>&lt;code>I&lt;/code>mmortal &lt;code>G&lt;/code>ods&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\w\b&lt;/td>
+&lt;td>Immorta&lt;code>l&lt;/code> God&lt;code>s&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Space Symbol&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>Match any space symbols&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>This&lt;code> &lt;/code>is&lt;code> &lt;/code>test.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\S&lt;/td>
+&lt;td>Matches a single character which is not white space.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Number of Repetitions&lt;/td>
+&lt;td>{min_num, max_num}&lt;/td>
+&lt;td>Number of repetitions for an expression.&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,5}&lt;/td>
+&lt;td>I &lt;code>remem&lt;/code>-&lt;code>ber&lt;/code>, &lt;code>Nick&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n}&lt;/td>
+&lt;td>Exactly n receptions&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3}&lt;/td>
+&lt;td>I &lt;code>rem&lt;/code>-&lt;code>mem&lt;/code>ber, &lt;code>Nic&lt;/code>k.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n,}&lt;/td>
+&lt;td>N or more&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,}&lt;/td>
+&lt;td>I &lt;code>remember&lt;/code>, &lt;code>Nick&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Grouping&lt;/td>
+&lt;td>()&lt;/td>
+&lt;td>Group of the match by putting them in braces.&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+)&lt;/td>
+&lt;td>&lt;code>John&lt;/code> &lt;code>Smith&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Replacing&lt;/td>
+&lt;td>$1 $2&lt;/td>
+&lt;td>We can use groups for replacing, referencing by numbers: $1 $2 (selecting group 1 and group 2 using $1 $2)&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+) replace with $2 $1&lt;/td>
+&lt;td>Smith John&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Backreferenace (Contents In Capture Group)&lt;/td>
+&lt;td>\1&lt;/td>
+&lt;td>It will return a string with the content from the first capture group. 1 can be any number as long as it corresponds to a valid capture group.&lt;/td>
+&lt;td>6362888232275296622&lt;/td>
+&lt;td>(\d)\1&lt;/td>
+&lt;td>6362&lt;code>88&lt;/code>823&lt;code>22&lt;/code>7529&lt;code>66&lt;/code> &lt;code>22&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lookeaheads&lt;/td>
+&lt;td>(?=)&lt;/td>
+&lt;td>abc(?=d) will match abc only if it is followed by d.&lt;/td>
+&lt;td>abcd&lt;/td>
+&lt;td>abc(?=d)&lt;/td>
+&lt;td>&lt;code>abc&lt;/code>d&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
 As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code.</description><content>&lt;hr>
 &lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
 &lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
@@ -452,8 +675,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="679851234" type="checkbox" />
-&lt;label for="679851234">
+&lt;input id="615932784" type="checkbox" />
+&lt;label for="615932784">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -490,8 +713,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="764938152" type="checkbox" />
-&lt;label for="764938152">
+&lt;input id="193465728" type="checkbox" />
+&lt;label for="193465728">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -530,8 +753,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="241753986" type="checkbox" />
-&lt;label for="241753986">
+&lt;input id="821976453" type="checkbox" />
+&lt;label for="821976453">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -546,8 +769,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="735624198" type="checkbox" />
-&lt;label for="735624198">
+&lt;input id="614723598" type="checkbox" />
+&lt;label for="614723598">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -573,8 +796,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="451673892" type="checkbox" />
-&lt;label for="451673892">
+&lt;input id="486152397" type="checkbox" />
+&lt;label for="486152397">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -590,8 +813,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="671329548" type="checkbox" />
-&lt;label for="671329548">
+&lt;input id="469253178" type="checkbox" />
+&lt;label for="469253178">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -609,8 +832,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="719562834" type="checkbox" />
-&lt;label for="719562834">
+&lt;input id="215869437" type="checkbox" />
+&lt;label for="215869437">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -626,8 +849,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="571943826" type="checkbox" />
-&lt;label for="571943826">
+&lt;input id="682359471" type="checkbox" />
+&lt;label for="682359471">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -794,8 +1017,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="637241589" type="checkbox" />
-&lt;label for="637241589">
+&lt;input id="694785321" type="checkbox" />
+&lt;label for="694785321">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -823,8 +1046,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="253986714" type="checkbox" />
-&lt;label for="253986714">
+&lt;input id="738192645" type="checkbox" />
+&lt;label for="738192645">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -960,8 +1183,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="897521436" type="checkbox" />
-&lt;label for="897521436">
+&lt;input id="938715642" type="checkbox" />
+&lt;label for="938715642">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1015,8 +1238,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="386125479" type="checkbox" />
-&lt;label for="386125479">
+&lt;input id="978614325" type="checkbox" />
+&lt;label for="978614325">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1045,8 +1268,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="913862547" type="checkbox" />
-&lt;label for="913862547">
+&lt;input id="956174382" type="checkbox" />
+&lt;label for="956174382">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1087,8 +1310,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="327591684" type="checkbox" />
-&lt;label for="327591684">
+&lt;input id="154986273" type="checkbox" />
+&lt;label for="154986273">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1116,8 +1339,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="681745329" type="checkbox" />
-&lt;label for="681745329">
+&lt;input id="213875964" type="checkbox" />
+&lt;label for="213875964">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1134,8 +1357,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="681375492" type="checkbox" />
-&lt;label for="681375492">
+&lt;input id="376815429" type="checkbox" />
+&lt;label for="376815429">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1171,8 +1394,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="341726598" type="checkbox" />
-&lt;label for="341726598">
+&lt;input id="765834912" type="checkbox" />
+&lt;label for="765834912">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1196,8 +1419,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="861493572" type="checkbox" />
-&lt;label for="861493572">
+&lt;input id="917823564" type="checkbox" />
+&lt;label for="917823564">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>

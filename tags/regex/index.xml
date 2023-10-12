@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>regex on Rushi Panchariya</title><link>/tags/regex/</link><description>Recent content in regex on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/regex/index.xml" rel="self" type="application/rss+xml"/><item><title>Regex Cheatsheet</title><link>/notes/regex/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>/notes/regex/</guid><description>We can use regular expression for regular find operations as well as replace.
+Symbol Description Sample Text Regex Output Letters \w Matches any latin letter or digit Sample \w S a m p l e \W Matches any non-alphanumeric character Digits \d Matches any decimal digit Numbers: 1, 2, 3, 100, 200 \d Numbers: 1, 2, 3, 1 0 0, 2 0 0 \D Matches any non decimal digit character. Repetition + Matches one or more repetition of symbol (select whole word or digit) Sample Text.</description><content>&lt;p>We can use regular expression for regular find operations as well as replace.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Symbol&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Sample Text&lt;/th>
+&lt;th>Regex&lt;/th>
+&lt;th>Output&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Letters&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>Matches any latin letter or digit&lt;/td>
+&lt;td>Sample&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>&lt;code>S&lt;/code> &lt;code>a&lt;/code> &lt;code>m&lt;/code> &lt;code>p&lt;/code> &lt;code>l&lt;/code> &lt;code>e&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\W&lt;/td>
+&lt;td>Matches any non-alphanumeric character&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Digits&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Matches any decimal digit&lt;/td>
+&lt;td>Numbers: 1, 2, 3, 100, 200&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Numbers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>, &lt;code>2&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\D&lt;/td>
+&lt;td>Matches any non decimal digit character.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>Matches one or more repetition of symbol (select whole word or digit)&lt;/td>
+&lt;td>Sample Text.&lt;/td>
+&lt;td>\w+&lt;/td>
+&lt;td>&lt;code>Sample&lt;/code> &lt;code>Text&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>*&lt;/td>
+&lt;td>Matches Zero or more occurrences of the symbol&lt;/td>
+&lt;td>1 , 2, 3, 10, 20, 100, 200&lt;/td>
+&lt;td>\d\d*&lt;/td>
+&lt;td>&lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>10&lt;/code>, &lt;code>20&lt;/code>, &lt;code>100&lt;/code>, &lt;code>200&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Set&lt;/td>
+&lt;td>[]&lt;/td>
+&lt;td>Matches set of characters&lt;/td>
+&lt;td>All symbols inside the braces.&lt;/td>
+&lt;td>[abc] will match a,b or c&lt;/td>
+&lt;td>&lt;code>A&lt;/code>ll sym&lt;code>b&lt;/code>ols inside the &lt;code>b&lt;/code>r&lt;code>ac&lt;/code>es.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[a-c]&lt;/td>
+&lt;td>Works similarly to &lt;code>[abc]&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>Match any character except a,b or c&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>A&lt;code>ll&lt;/code> &lt;code>sym&lt;/code>b&lt;code>ols&lt;/code> &lt;code>inside&lt;/code> &lt;code>the&lt;/code> b&lt;code>r&lt;/code>ac&lt;code>es&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Special Symbols&lt;/td>
+&lt;td>\. \[ \+&lt;/td>
+&lt;td>Match symbols that bear special meaning for regex. need to escape with &lt;code>\&lt;/code>&lt;/td>
+&lt;td>2+2&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>2&lt;code>+&lt;/code>2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alteration&lt;/td>
+&lt;td>a|b&lt;/td>
+&lt;td>Will match &lt;code>a&lt;/code> or &lt;code>b&lt;/code>&lt;/td>
+&lt;td>numbers: 1, 2, 3, 100&lt;/td>
+&lt;td>[a-f]|\d&lt;/td>
+&lt;td>num&lt;code>b&lt;/code>ers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single Character&lt;/td>
+&lt;td>.&lt;/td>
+&lt;td>Matches any character other than newline&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>.*&lt;/td>
+&lt;td>&lt;code>This is test.&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Optional&lt;/td>
+&lt;td>?&lt;/td>
+&lt;td>Makes the symbol optional&lt;/td>
+&lt;td>he and she&lt;/td>
+&lt;td>s?he&lt;/td>
+&lt;td>&lt;code>he&lt;/code> and &lt;code>she&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Start Of string&lt;/td>
+&lt;td>^&lt;/td>
+&lt;td>Matches the start of a string without consuming characters&lt;/td>
+&lt;td>start of string&lt;/td>
+&lt;td>^\w+&lt;/td>
+&lt;td>&lt;code>start&lt;/code> of string&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>End Of string&lt;/td>
+&lt;td>$&lt;/td>
+&lt;td>Matches the end of string without consuming characters&lt;/td>
+&lt;td>end of string&lt;/td>
+&lt;td>\w+$&lt;/td>
+&lt;td>end of &lt;code>string&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Word Boundary&lt;/td>
+&lt;td>\b&lt;/td>
+&lt;td>Matches boundaries of word. \b\w and \w\b will match first and last letter in word.&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\b\w&lt;/td>
+&lt;td>&lt;code>I&lt;/code>mmortal &lt;code>G&lt;/code>ods&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\w\b&lt;/td>
+&lt;td>Immorta&lt;code>l&lt;/code> God&lt;code>s&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Space Symbol&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>Match any space symbols&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>This&lt;code> &lt;/code>is&lt;code> &lt;/code>test.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\S&lt;/td>
+&lt;td>Matches a single character which is not white space.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Number of Repetitions&lt;/td>
+&lt;td>{min_num, max_num}&lt;/td>
+&lt;td>Number of repetitions for an expression.&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,5}&lt;/td>
+&lt;td>I &lt;code>remem&lt;/code>-&lt;code>ber&lt;/code>, &lt;code>Nick&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n}&lt;/td>
+&lt;td>Exactly n receptions&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3}&lt;/td>
+&lt;td>I &lt;code>rem&lt;/code>-&lt;code>mem&lt;/code>ber, &lt;code>Nic&lt;/code>k.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n,}&lt;/td>
+&lt;td>N or more&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,}&lt;/td>
+&lt;td>I &lt;code>remember&lt;/code>, &lt;code>Nick&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Grouping&lt;/td>
+&lt;td>()&lt;/td>
+&lt;td>Group of the match by putting them in braces.&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+)&lt;/td>
+&lt;td>&lt;code>John&lt;/code> &lt;code>Smith&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Replacing&lt;/td>
+&lt;td>$1 $2&lt;/td>
+&lt;td>We can use groups for replacing, referencing by numbers: $1 $2 (selecting group 1 and group 2 using $1 $2)&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+) replace with $2 $1&lt;/td>
+&lt;td>Smith John&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Backreferenace (Contents In Capture Group)&lt;/td>
+&lt;td>\1&lt;/td>
+&lt;td>It will return a string with the content from the first capture group. 1 can be any number as long as it corresponds to a valid capture group.&lt;/td>
+&lt;td>6362888232275296622&lt;/td>
+&lt;td>(\d)\1&lt;/td>
+&lt;td>6362&lt;code>88&lt;/code>823&lt;code>22&lt;/code>7529&lt;code>66&lt;/code> &lt;code>22&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lookeaheads&lt;/td>
+&lt;td>(?=)&lt;/td>
+&lt;td>abc(?=d) will match abc only if it is followed by d.&lt;/td>
+&lt;td>abcd&lt;/td>
+&lt;td>abc(?=d)&lt;/td>
+&lt;td>&lt;code>abc&lt;/code>d&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></content></item></channel></rss>
