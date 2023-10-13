@@ -255,8 +255,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="694785321" type="checkbox" />
-&lt;label for="694785321">
+&lt;input id="841967352" type="checkbox" />
+&lt;label for="841967352">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -284,8 +284,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="738192645" type="checkbox" />
-&lt;label for="738192645">
+&lt;input id="169324758" type="checkbox" />
+&lt;label for="169324758">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -421,8 +421,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="938715642" type="checkbox" />
-&lt;label for="938715642">
+&lt;input id="748693152" type="checkbox" />
+&lt;label for="748693152">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -476,8 +476,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="978614325" type="checkbox" />
-&lt;label for="978614325">
+&lt;input id="172865493" type="checkbox" />
+&lt;label for="172865493">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -506,8 +506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="956174382" type="checkbox" />
-&lt;label for="956174382">
+&lt;input id="285614397" type="checkbox" />
+&lt;label for="285614397">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -548,8 +548,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="154986273" type="checkbox" />
-&lt;label for="154986273">
+&lt;input id="781256943" type="checkbox" />
+&lt;label for="781256943">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -577,8 +577,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="213875964" type="checkbox" />
-&lt;label for="213875964">
+&lt;input id="619758423" type="checkbox" />
+&lt;label for="619758423">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -595,8 +595,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="376815429" type="checkbox" />
-&lt;label for="376815429">
+&lt;input id="493678125" type="checkbox" />
+&lt;label for="493678125">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -632,8 +632,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="765834912" type="checkbox" />
-&lt;label for="765834912">
+&lt;input id="178649352" type="checkbox" />
+&lt;label for="178649352">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -657,8 +657,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="917823564" type="checkbox" />
-&lt;label for="917823564">
+&lt;input id="369275814" type="checkbox" />
+&lt;label for="369275814">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -717,13 +717,122 @@ Has been incremented twice
 &lt;td>&lt;a href="http://regextutorials.com/">http://regextutorials.com/&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></content></item><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>Scale From Zero To Millions of Users In this we will see that system that support single user and gradually scale it up to serve millions of users.
+&lt;/table></content></item><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>Zero To Millions of Users In this we will see that system that support single user and gradually scale it up to serve millions of users.
 Single Server Setup Whatever we are developing/building alway start with a single basic step and this also goes same for complex systems. To start with something single, we will be running everything on a single server. below is figure of single server setup where it will be running: web, app, database, cache, etc.</description><content>&lt;hr>
-&lt;h2 id="scale-from-zero-to-millions-of-users">Scale From Zero To Millions of Users&lt;/h2>
+&lt;h2 id="zero-to-millions-of-users">Zero To Millions of Users&lt;/h2>
 &lt;p>In this we will see that system that support single user and gradually scale it up to serve millions of users.&lt;/p>
 &lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>
 &lt;p>Whatever we are developing/building alway start with a single basic step and this also goes same for complex systems. To start with something single, we will be running everything on a single server. below is figure of single server setup where it will be running: web, app, database, cache, etc.&lt;/p>
 &lt;figure class="center" >
 &lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" />
 &lt;figcaption class="center" >Single Web Server Working&lt;/figcaption>
-&lt;/figure></content></item></channel></rss>
+&lt;/figure>
+&lt;ol>
+&lt;li>User access websites through domain names, such as mysite.dev. Domain Name System (DNS) is paid service provided by 3rd parties and not hosted by our system.&lt;/li>
+&lt;li>DNS returns the IP address to the browser or mobile app. For example, In above figure DNS returning IP address 10.43.23.18.&lt;/li>
+&lt;li>Once the IP address is obtained, HTTP requests are sent directly to the web server.&lt;/li>
+&lt;li>The web server returns HTML pages or JSON response for rendering.&lt;/li>
+&lt;/ol>
+&lt;p>The traffic source coming from two sources:&lt;/p>
+&lt;ul>
+&lt;li>Web App: It uses a combination of server-side languages like Java, Go, Python, etc. to handle business logic, storage, etc., and client-side languages HTML and JavaScript for presentation.&lt;/li>
+&lt;li>Mobile Application: Http protocol is used to communicate between mobile app and web server. JSON is commonly used for API response format to transfer data due to its simplicity.&lt;/li>
+&lt;/ul>
+&lt;h3 id="database">Database&lt;/h3>
+&lt;p>With the growth of the user base, one server is not enough, and we need multiple servers: one for web/mobile traffic, the other for the database. Separating web/mobile traffic (web tire) and database (data tire) servers allows them to be scaled independently.&lt;/p>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Single Web Server with DB&lt;/figcaption>
+&lt;/figure>
+&lt;h4 id="database-to-use">Database to use&lt;/h4>
+&lt;p>We can choose between relational database and a non-relational database.&lt;/p>
+&lt;p>&lt;strong>&lt;em>Relational Databases&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It also called as relational database management system (RDBMS) or SQL database.&lt;/li>
+&lt;li>It represent and store data in tables and rows.&lt;/li>
+&lt;li>We can perform join operations using SQL across different database tables.&lt;/li>
+&lt;li>Popular databases: MySQL, PostgresSQL, Oracle database, MSSQL, etc.&lt;/li>
+&lt;li>It has been around for over 40 years.&lt;/li>
+&lt;li>If relational databases are not suitable for your specific use case, It is critical to explore beyond relational databases.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Non-Relational Databases&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It is also called as NoSQL databases.&lt;/li>
+&lt;li>These databases are grouped into four categories:
+&lt;ol>
+&lt;li>Key-value stores&lt;/li>
+&lt;li>Graph stores&lt;/li>
+&lt;li>Column stores&lt;/li>
+&lt;li>Document stores&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Join Operations are generally not supported in non-relational databases.&lt;/li>
+&lt;li>Popular databases: CouchDB, Neo4j, Cassandra, MongoDB, Amazon DynamoDB, etc.&lt;/li>
+&lt;li>Non-relational databases might be the right choice if:
+&lt;ul>
+&lt;li>Your application requires super-low latency.&lt;/li>
+&lt;li>Your data are unstructured, or you do not have any relational data.&lt;/li>
+&lt;li>You only need to serialize and deserialize data (JSON, XML, YAML, etc.).&lt;/li>
+&lt;li>You need to store a massive amount of data.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="database-scaling">Database Scaling&lt;/h4>
+&lt;p>There are two ways to scale database: Vertical Scaling and Horizontal Scaling&lt;/p>
+&lt;p>&lt;strong>&lt;em>Vertical Scaling&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It is the process of adding more power (CPU, RAM, etc.) to your servers.&lt;/li>
+&lt;li>When traffic is low, vertical scaling is great option, and the simplicity of vertical scaling is main advantage.&lt;/li>
+&lt;li>Limitation of Vertical Scaling:
+&lt;ul>
+&lt;li>It has a hard limit. It is impossible to add unlimited CPU and memory to a single server.&lt;/li>
+&lt;li>It doesn&amp;rsquo;t have failover and redundancy. If one server goes down, the website/app goes down with it completely.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Horizontal Scaling&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>It allow you to scale by adding more servers into your pool of resources.&lt;/li>
+&lt;li>It is more desirable for large scale applications due to the limitations of vertical scaling.&lt;/li>
+&lt;/ul>
+&lt;p>In the pervious design, users are connected to the web server directly. If web server is offline user will unable to access the website. What if many users access the web server simultaneously and it reaches the web servers load limit, users generally experience slower response or fail to connect to the server. So how should to we should address this issue? with load balancer.&lt;/p>
+&lt;h3 id="load-balancer">Load Balancer&lt;/h3>
+&lt;p>A load balancer evenly distributes incoming traffic among web servers that are defined in a load-balanced set.&lt;/p>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/load-balancer.png" alt="Single Server Setup" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Single Web Server Working&lt;/figcaption>
+&lt;/figure>
+&lt;p>As shown in above diagram:&lt;/p>
+&lt;ul>
+&lt;li>Users connect to the public IP of the load balancer directly.&lt;/li>
+&lt;li>Now web server will be unreachable directly by clients.&lt;/li>
+&lt;li>When request reaches to the load balancer it will pass request to one of the web server over private IP.&lt;/li>
+&lt;li>For better security, private IP are used for communication between servers.&lt;/li>
+&lt;li>A private IP is only reachable between servers in the same network.&lt;/li>
+&lt;li>Private IP is unreachable over the internet.&lt;/li>
+&lt;li>Load balancer is connected over private network with web servers.&lt;/li>
+&lt;/ul>
+&lt;p>This solves the no failover issue and improve the availability of of the web tier. For instance:&lt;/p>
+&lt;ul>
+&lt;li>If sever 1 goes offline, all the traffic will be routed to server 2. This prevents the website from going offline. We will also add a new healthy web server to the server pool to balance the load.&lt;/li>
+&lt;li>If the website traffic grows rapidly, and two servers are not enough to handle the traffic, the load balancer can handle this problem gracefully. We only need to add more servers to the web server pool, and the load balancer automatically starts to send requests to them.&lt;/li>
+&lt;/ul>
+&lt;p>The current design has one database, so it does not support failover and redundancy. To solve this problem we need to look at Database replication.&lt;/p>
+&lt;h3 id="database-replication">Database replication&lt;/h3>
+&lt;p>Database replication can be used with a master/slave relationship between the master and the slaves.&lt;/p>
+&lt;ul>
+&lt;li>Master database generally only supports write operations.&lt;/li>
+&lt;li>Slave database get copies of the data from the master db and only support read operations.&lt;/li>
+&lt;li>All the data-modifying commands such as insert, delete, or update must be sent to the master db.&lt;/li>
+&lt;li>Most application requires a much higher ratio of reads to writes; thus, the number of slave db in system usually larger than the number of master db.&lt;/li>
+&lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/db-replication.png" alt="Database Replication" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Database Replication&lt;/figcaption>
+&lt;/figure>
+&lt;p>Advantages of database replication:&lt;/p>
+&lt;ul>
+&lt;li>Enhanced Performance: In master-slave model, the master node exclusively handle write and update operations, while read tasks are efficiently spread across slave nodes. This approach enhances performance by enabling a higher degree of parallelism in query processing, which translates into the ability handle more query simultaneously.&lt;/li>
+&lt;li>Reliability: In the event of a natural disaster, like a typhoon or earthquake, data still preserved. You do not need to worry about data loss because data is replicated across multiple locations.&lt;/li>
+&lt;li>High availability: Even if one of the server is broken, your website still works. It can use the data from another server. So, your website keeps running smoothly.&lt;/li>
+&lt;/ul></content></item></channel></rss>
