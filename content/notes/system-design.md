@@ -15,114 +15,108 @@ showLastUpdated: true
 
 ## Zero To Millions of Users
 
-In this we will see that system that support single user and gradually scale it up to serve millions of users.
+In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.
 
 ### Single Server Setup
 
-Whatever we are developing/building alway start with a single basic step and this also goes same for complex systems. To start with something single, we will be running everything on a single server. below is figure of single server setup where it will be running: web, app, database, cache, etc.
+In any system development journey, it's best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.
 
 {{< figure src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" position="center" style="border-radius: 8px;" caption="Single Web Server Working" captionPosition="center" >}}
 
-1. User access websites through domain names, such as mysite.dev. Domain Name System (DNS) is paid service provided by 3rd parties and not hosted by our system.
-2. DNS returns the IP address to the browser or mobile app. For example, In above figure DNS returning IP address 10.43.23.18.
+1. User access websites through domain names, such as mysite.dev. Domain Name System (DNS) is a third-party paid service not hosted by our system.
+2. DNS translates the domain name into an IP address, such as 10.43.23.18 in the figure.
 3. Once the IP address is obtained, HTTP requests are sent directly to the web server.
 4. The web server returns HTML pages or JSON response for rendering.
 
-The traffic source coming from two sources:
+The traffic to this single server comes from two primary sources:
 
-- Web App: It uses a combination of server-side languages like Java, Go, Python, etc. to handle business logic, storage, etc., and client-side languages HTML and JavaScript for presentation.
-- Mobile Application: Http protocol is used to communicate between mobile app and web server. JSON is commonly used for API response format to transfer data due to its simplicity.
+- **Web App**: It utilizes server-side languages (e.g., Java, Go, Python) for business logic and storage, along with client-side languages like HTML and JavaScript for presentation.
+- **Mobile App**: HTTP protocol facilitates communication between the mobile app and the web server. JSON is commonly used for API responses due to its simplicity.
 
-### Database
+### Scaling with Multiple Servers
 
-With the growth of the user base, one server is not enough, and we need multiple servers: one for web/mobile traffic, the other for the database. Separating web/mobile traffic (web tire) and database (data tire) servers allows them to be scaled independently.
+As the user base grows, relying on a single server is no longer sufficient. We need to move to a multi-server setup, separating web/mobile traffic from the database. This separation allows for independent scaling of web/mobile traffic servers and database servers.
 
 {{< figure src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" position="center" style="border-radius: 8px;" caption="Single Web Server with DB" captionPosition="center" >}}
 
-#### Database to use
+#### Choosing the Right Database
 
-We can choose between relational database and a non-relational database.
+When it comes to databases, there are two main categories to consider: Relational Database and Non-Relational Database.
 
 **_Relational Databases_**:
 
-- It also called as relational database management system (RDBMS) or SQL database.
-- It represent and store data in tables and rows.
-- We can perform join operations using SQL across different database tables.
-- Popular databases: MySQL, PostgresSQL, Oracle database, MSSQL, etc.
-- It has been around for over 40 years.
-- If relational databases are not suitable for your specific use case, It is critical to explore beyond relational databases.
+- These are often referred to as relational database management system (RDBMS) or SQL database.
+- Data is structured in tables and rows.
+- SQL is used for joining data from different tables.
+- Popular databases options: MySQL, PostgresSQL, Oracle database, MSSQL, etc.
+- This technology has been around for more than 40 years.
+
+If relational databases doesn't suit your specific use case, it's essential to explore beyond relational databases.
 
 **_Non-Relational Databases_**:
 
-- It is also called as NoSQL databases.
-- These databases are grouped into four categories:
+- Also known as NoSQL databases.
+- Categorized into:
   1. Key-value stores
   2. Graph stores
   3. Column stores
   4. Document stores
-- Join Operations are generally not supported in non-relational databases.
-- Popular databases: CouchDB, Neo4j, Cassandra, MongoDB, Amazon DynamoDB, etc.
+- Typically, non-relational databases do not support join operations.
+- Popular databases options: CouchDB, Neo4j, Cassandra, MongoDB, Amazon DynamoDB, etc.
 - Non-relational databases might be the right choice if:
-  - Your application requires super-low latency.
-  - Your data are unstructured, or you do not have any relational data.
-  - You only need to serialize and deserialize data (JSON, XML, YAML, etc.).
-  - You need to store a massive amount of data.
+  - Requires super-low latency.
+  - Deal with unstructured data.
+  - Need to store a massive amount of data.
 
-#### Database Scaling
+#### Scaling the Database
 
 There are two ways to scale database: Vertical Scaling and Horizontal Scaling
 
 **_Vertical Scaling_**:
 
-- It is the process of adding more power (CPU, RAM, etc.) to your servers.
-- When traffic is low, vertical scaling is great option, and the simplicity of vertical scaling is main advantage.
-- Limitation of Vertical Scaling:
-  - It has a hard limit. It is impossible to add unlimited CPU and memory to a single server.
-  - It doesn't have failover and redundancy. If one server goes down, the website/app goes down with it completely.
+- This involves adding more power (CPU, RAM, etc.) to your existing servers.
+- Vertical scaling is suitable when traffic is low, and its simplicity is an advantage.
+- However, it has limitations, including a hard limit on resources and a lack of failover and redundancy.
 
 **_Horizontal Scaling_**:
 
-- It allow you to scale by adding more servers into your pool of resources.
-- It is more desirable for large scale applications due to the limitations of vertical scaling.
+- This approach involves adding more servers to your resource pool.
+- It is more suitable for large-scale applications, addressing the limitations of vertical scaling.
 
-In the pervious design, users are connected to the web server directly. If web server is offline user will unable to access the website. What if many users access the web server simultaneously and it reaches the web servers load limit, users generally experience slower response or fail to connect to the server. So how should to we should address this issue? with load balancer.
+In the previous design, users connected directly to the web server, leading to potential issues like server unavailability or slow responses during high traffic. To address these challenges, load balancing comes into play.
 
 ### Load Balancer
 
-A load balancer evenly distributes incoming traffic among web servers that are defined in a load-balanced set.
+Load balancers distribute incoming traffic evenly among a set of web servers defined in a load-balanced configuration.
 
 {{< figure src="/img/notes/system-design/load-balancer.png" alt="Single Server Setup" position="center" style="border-radius: 8px;" caption="Single Web Server Working" captionPosition="center" >}}
 
 As shown in above diagram:
 
 - Users connect to the public IP of the load balancer directly.
-- Now web server will be unreachable directly by clients.
-- When request reaches to the load balancer it will pass request to one of the web server over private IP.
-- For better security, private IP are used for communication between servers.
-- A private IP is only reachable between servers in the same network.
-- Private IP is unreachable over the internet.
-- Load balancer is connected over private network with web servers.
+- The load balancer then directs the request to one of the web servers via a private IP for enhanced security.
+- Private IPs are used for server-to-server communication within the same network.
 
-This solves the no failover issue and improve the availability of of the web tier. For instance:
+This setup resolves the issue of server unavailability and enhances web tier availability. For instance:
 
-- If sever 1 goes offline, all the traffic will be routed to server 2. This prevents the website from going offline. We will also add a new healthy web server to the server pool to balance the load.
-- If the website traffic grows rapidly, and two servers are not enough to handle the traffic, the load balancer can handle this problem gracefully. We only need to add more servers to the web server pool, and the load balancer automatically starts to send requests to them.
+- If one server goes offline, traffic is automatically redirected to another server, preventing downtime.
+- As website traffic grows, additional servers can be added to the pool, and the load balancer will distribute requests accordingly.
 
-The current design has one database, so it does not support failover and redundancy. To solve this problem we need to look at Database replication.
+The current design includes a single database, which lacks failover and redundancy. To address this, let's explore database replication.
 
-### Database replication
+### Database Replication
 
-Database replication can be used with a master/slave relationship between the master and the slaves.
+Database replication involves establishing a master-slave relationship between the master and the slave databases.
 
-- Master database generally only supports write operations.
-- Slave database get copies of the data from the master db and only support read operations.
-- All the data-modifying commands such as insert, delete, or update must be sent to the master db.
+- The master database primarily handles write operations.
+- Slave databases replicate data from the master but are typically reserved for read operations.
+- Any data-modifying commands, such as insertions, deletions, or updates, are directed to the master database.
 - Most application requires a much higher ratio of reads to writes; thus, the number of slave db in system usually larger than the number of master db.
 
 {{< figure src="/img/notes/system-design/db-replication.png" alt="Database Replication" position="center" style="border-radius: 8px;" caption="Database Replication" captionPosition="center" >}}
 
 Advantages of database replication:
 
-- Enhanced Performance: In master-slave model, the master node exclusively handle write and update operations, while read tasks are efficiently spread across slave nodes. This approach enhances performance by enabling a higher degree of parallelism in query processing, which translates into the ability handle more query simultaneously.
-- Reliability: In the event of a natural disaster, like a typhoon or earthquake, data still preserved. You do not need to worry about data loss because data is replicated across multiple locations.
-- High availability: Even if one of the server is broken, your website still works. It can use the data from another server. So, your website keeps running smoothly.
+- Enhanced Performance: In a master-slave model, the master handles write and update operations, while read tasks are efficiently distributed to slave nodes, improving query processing performance.
+- Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.
+- High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.
