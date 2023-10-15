@@ -2,5 +2,15 @@
     {
         "name": "code",
         "replace": "```"
+    },
+    {
+        "name": "image",
+        "replace": "$1",
+        "regex": "{{< image src=\"([^\"]+)\"[^>]*>}}"
+    },
+    {
+        "name": "figure",
+        "replace": "$1",
+        "regex": "{{< figure src=\"([^\"]+)\"[^>]*>}}"
     }
 ]
