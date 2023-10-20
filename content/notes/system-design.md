@@ -120,3 +120,34 @@ Advantages of database replication:
 - Enhanced Performance: In a master-slave model, the master handles write and update operations, while read tasks are efficiently distributed to slave nodes, improving query processing performance.
 - Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.
 - High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.
+
+# Cache
+
+A cache is a temporary storage. It stores frequently accessed data in memory so that requests are served more quickly. Whenever web page loads, one or more database call are executed to fetch data. It highly impact the performance of the application by calling the database repeatedly. The cache can mitigate this problem.
+
+Cache tier is a temporary data store layer, much faster that the database. Having a separate cache tier benefits the:
+
+- System Performance
+- Reduce Database Workloads
+- Scale the Cache Tire Independently
+
+{{< figure src="/img/notes/system-design/cache-tier.png" alt="Cache tier" position="center" style="border-radius: 8px;" caption="Setup of cache server" captionPosition="center" >}}
+
+After receiving a request:
+
+1. Web server checks if data exists in cache.
+2. If exists it returns the data.
+3. If not exists, it queries database for data, and save the response data in cache and send it back to client.
+4. This caching strategy is called a read-through cache.
+
+Caching strategy depends on the data and **_data access patterns_**.
+
+Below are Caching Strategies:
+
+## Cache-Aside
+
+- Application directly talks to both the cache and the database.
+- No connection between the cache and the database.
+- All operations to cache and database are handled by the application.
+
+We can read Cache strategy here: https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
