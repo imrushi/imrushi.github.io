@@ -107,7 +107,22 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;li>Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.&lt;/li>
 &lt;li>High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.&lt;/li>
 &lt;/ul>
-&lt;h1 id="cache">Cache&lt;/h1>
+&lt;h4 id="what-if-one-of-the-databases-goes-offline">What if one of the databases goes offline?&lt;/h4>
+&lt;ul>
+&lt;li>If there&amp;rsquo;s only one slave database available, and it experiences an outage, read operations will temporarily shift to the master database. As soon as the issue is detected, a new slave database will replace the faulty one. In cases where multiple slave databases are in operations, read operations are rerouted to other healthy slave databases. A new database server will promptly replace the problematic one.&lt;/li>
+&lt;li>In the event of the master database going offline, one of the slave databases will be promoted to assume the role of the new master. All database operations will be temporarily executed on this newly appointed master database. Simultaneously, a new slave database will be introduced to ensure data replication continues seamlessly.&lt;/li>
+&lt;/ul>
+&lt;p>In practical production systems, promoting a new master is more intricate, as the data in a slave database may not be up-to-date. This necessitates the execution of data recovery script to reconcile the missing data. Although alternative replication methods such as multi-master and circular replication exist, they tend to be more intricate in nature.&lt;/p>
+&lt;p>Let&amp;rsquo;s examine the system design:&lt;/p>
+&lt;ul>
+&lt;li>When a user wants to access the system, they obtain the IP address of the load balancer via DNS.&lt;/li>
+&lt;li>Using this IP address, the user establishes a connection with the load balancer.&lt;/li>
+&lt;li>The load balancer routes the HTTP request to either Server 1 or Server 2.&lt;/li>
+&lt;li>A web server retrieves user data from slave database.&lt;/li>
+&lt;li>Any data-modifying operations, such as write, update, or delete actions, are directed to the master database.&lt;/li>
+&lt;/ul>
+&lt;p>With understanding of the web and data tiers, the next step is to enhance the systems&amp;rsquo;s response time. This can be achieved by introducing a cache layer and transferring static content like JavaScript, CSS, Images, and Video files to a content delivery network (CDN).&lt;/p>
+&lt;h2 id="cache">Cache&lt;/h2>
 &lt;p>A cache is a temporary storage. It stores frequently accessed data in memory so that requests are served more quickly. Whenever web page loads, one or more database call are executed to fetch data. It highly impact the performance of the application by calling the database repeatedly. The cache can mitigate this problem.&lt;/p>
 &lt;p>Cache tier is a temporary data store layer, much faster that the database. Having a separate cache tier benefits the:&lt;/p>
 &lt;ul>
@@ -128,10 +143,34 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;/ol>
 &lt;p>Caching strategy depends on the data and &lt;strong>&lt;em>data access patterns&lt;/em>&lt;/strong>.&lt;/p>
 &lt;p>Below are Caching Strategies:&lt;/p>
-&lt;h2 id="cache-aside">Cache-Aside&lt;/h2>
+&lt;h3 id="cache-aside">Cache-Aside&lt;/h3>
 &lt;ul>
 &lt;li>Application directly talks to both the cache and the database.&lt;/li>
 &lt;li>No connection between the cache and the database.&lt;/li>
 &lt;li>All operations to cache and database are handled by the application.&lt;/li>
 &lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/cache-aside.png" alt="Cache Aside" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Cache Aside&lt;/figcaption>
+&lt;/figure>
+&lt;p>Here is what happing:&lt;/p>
+&lt;ol>
+&lt;li>When the application need data, it first checks the cache for the data.&lt;/li>
+&lt;li>If the data is not found in the cache (a cache miss), the application fetches the data from the primary data store (eg. a database).&lt;/li>
+&lt;li>After fetching the data, the application insert or updates it in the cache, associating it with a specific key. The update can be synchronous or asynchronous, depending on the design.&lt;/li>
+&lt;li>The application uses the data from the cache for subsequent read requests until the data expires or is invalidated.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Read-Heavy Workloads&lt;/strong>: Cache-Aside is well-suited for read-heavy workloads, efficiently reducing the load on the primary database.&lt;/li>
+&lt;li>&lt;strong>Resilience to Cache Failures&lt;/strong>: Systems using Cache-Aside remain operational even if the cache cluster fails since they can directly access the database. This provide resilience and ensure system availability.&lt;/li>
+&lt;li>&lt;strong>Flexible Data Models&lt;/strong>: Cache-Aside allows for different data models in the cache compared to the database. It&amp;rsquo;s versatile for storing responses resulting from multiple queries against a request ID.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Data Inconsistency&lt;/strong>: When data is written to the database, the cache may become inconsistent. Developers often rely on Time to Live (TTL) to serve stale data, but this can lead to inconsistencies and issues with data freshness.&lt;/li>
+&lt;li>&lt;strong>Stale Data&lt;/strong>: In cases where TTL is used, there&amp;rsquo;s a risk of serving stale data until the expiration, which might not be suitable for applications requiring up-to-date information.&lt;/li>
+&lt;li>&lt;strong>Lack of Cache Consistency&lt;/strong>: Cache-Aside doesn&amp;rsquo;t guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.&lt;/li>
+&lt;li>&lt;strong>Peak Load Issues&lt;/strong>: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.&lt;/li>
+&lt;/ol>
 &lt;p>We can read Cache strategy here: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p></content></item></channel></rss>
