@@ -28,8 +28,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="648273951" type="checkbox" />
-&lt;label for="648273951">
+&lt;input id="962153487" type="checkbox" />
+&lt;label for="962153487">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -66,8 +66,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="693157482" type="checkbox" />
-&lt;label for="693157482">
+&lt;input id="329748561" type="checkbox" />
+&lt;label for="329748561">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -106,8 +106,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="128649753" type="checkbox" />
-&lt;label for="128649753">
+&lt;input id="317946258" type="checkbox" />
+&lt;label for="317946258">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -122,8 +122,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="845627391" type="checkbox" />
-&lt;label for="845627391">
+&lt;input id="182439567" type="checkbox" />
+&lt;label for="182439567">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -149,8 +149,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="758269431" type="checkbox" />
-&lt;label for="758269431">
+&lt;input id="163245789" type="checkbox" />
+&lt;label for="163245789">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -166,8 +166,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="352941867" type="checkbox" />
-&lt;label for="352941867">
+&lt;input id="985167234" type="checkbox" />
+&lt;label for="985167234">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -185,8 +185,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="159874326" type="checkbox" />
-&lt;label for="159874326">
+&lt;input id="379812654" type="checkbox" />
+&lt;label for="379812654">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -202,8 +202,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="319725648" type="checkbox" />
-&lt;label for="319725648">
+&lt;input id="164873259" type="checkbox" />
+&lt;label for="164873259">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
