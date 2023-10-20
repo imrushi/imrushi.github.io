@@ -121,7 +121,24 @@ Advantages of database replication:
 - Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.
 - High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.
 
-# Cache
+#### What if one of the databases goes offline?
+
+- If there's only one slave database available, and it experiences an outage, read operations will temporarily shift to the master database. As soon as the issue is detected, a new slave database will replace the faulty one. In cases where multiple slave databases are in operations, read operations are rerouted to other healthy slave databases. A new database server will promptly replace the problematic one.
+- In the event of the master database going offline, one of the slave databases will be promoted to assume the role of the new master. All database operations will be temporarily executed on this newly appointed master database. Simultaneously, a new slave database will be introduced to ensure data replication continues seamlessly.
+
+In practical production systems, promoting a new master is more intricate, as the data in a slave database may not be up-to-date. This necessitates the execution of data recovery script to reconcile the missing data. Although alternative replication methods such as multi-master and circular replication exist, they tend to be more intricate in nature.
+
+Let's examine the system design:
+
+- When a user wants to access the system, they obtain the IP address of the load balancer via DNS.
+- Using this IP address, the user establishes a connection with the load balancer.
+- The load balancer routes the HTTP request to either Server 1 or Server 2.
+- A web server retrieves user data from slave database.
+- Any data-modifying operations, such as write, update, or delete actions, are directed to the master database.
+
+With understanding of the web and data tiers, the next step is to enhance the systems's response time. This can be achieved by introducing a cache layer and transferring static content like JavaScript, CSS, Images, and Video files to a content delivery network (CDN).
+
+## Cache
 
 A cache is a temporary storage. It stores frequently accessed data in memory so that requests are served more quickly. Whenever web page loads, one or more database call are executed to fetch data. It highly impact the performance of the application by calling the database repeatedly. The cache can mitigate this problem.
 
@@ -144,10 +161,32 @@ Caching strategy depends on the data and **_data access patterns_**.
 
 Below are Caching Strategies:
 
-## Cache-Aside
+### Cache-Aside
 
 - Application directly talks to both the cache and the database.
 - No connection between the cache and the database.
 - All operations to cache and database are handled by the application.
+
+{{< figure src="/img/notes/system-design/cache-aside.png" alt="Cache Aside" position="center" style="border-radius: 8px;" caption="Cache Aside" captionPosition="center" >}}
+
+Here is what happing:
+
+1. When the application need data, it first checks the cache for the data.
+2. If the data is not found in the cache (a cache miss), the application fetches the data from the primary data store (eg. a database).
+3. After fetching the data, the application insert or updates it in the cache, associating it with a specific key. The update can be synchronous or asynchronous, depending on the design.
+4. The application uses the data from the cache for subsequent read requests until the data expires or is invalidated.
+
+**_Pros_**:
+
+1. **Read-Heavy Workloads**: Cache-Aside is well-suited for read-heavy workloads, efficiently reducing the load on the primary database.
+2. **Resilience to Cache Failures**: Systems using Cache-Aside remain operational even if the cache cluster fails since they can directly access the database. This provide resilience and ensure system availability.
+3. **Flexible Data Models**: Cache-Aside allows for different data models in the cache compared to the database. It's versatile for storing responses resulting from multiple queries against a request ID.
+
+**_Cons_**:
+
+1. **Data Inconsistency**: When data is written to the database, the cache may become inconsistent. Developers often rely on Time to Live (TTL) to serve stale data, but this can lead to inconsistencies and issues with data freshness.
+2. **Stale Data**: In cases where TTL is used, there's a risk of serving stale data until the expiration, which might not be suitable for applications requiring up-to-date information.
+3. **Lack of Cache Consistency**: Cache-Aside doesn't guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.
+4. **Peak Load Issues**: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.
 
 We can read Cache strategy here: https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
