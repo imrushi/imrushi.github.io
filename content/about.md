@@ -11,4 +11,22 @@ I'm always excited to work on new technologies and learn more about them. I am e
 
 Feel free to visit my [GitHub](https://github.com/imrushi).
 
-So, there you have it... enjoy!
+---
+
+## Bucket List
+
+- [ ] Sky Diving
+- [ ] Scuba Diving
+- [ ] Ice Skiing
+- [ ] Paragliding
+- [ ] Travel World
+- [ ] Learn Piano
+- [ ] Learn Guitar
+- [ ] Complete Ironman Triathlon
+- [ ] Backflip on ground
+- [ ] Go To Tomorrowland
+- [ ] Create EDM with Lyrics
+
+And ultimate goal is to Seek Discomfort.
+
+So, This is me...
