@@ -255,8 +255,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="798125463" type="checkbox" />
-&lt;label for="798125463">
+&lt;input id="745183692" type="checkbox" />
+&lt;label for="745183692">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -284,8 +284,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="351426789" type="checkbox" />
-&lt;label for="351426789">
+&lt;input id="128469375" type="checkbox" />
+&lt;label for="128469375">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -421,8 +421,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="175842963" type="checkbox" />
-&lt;label for="175842963">
+&lt;input id="691374582" type="checkbox" />
+&lt;label for="691374582">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -476,8 +476,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="761293458" type="checkbox" />
-&lt;label for="761293458">
+&lt;input id="531267984" type="checkbox" />
+&lt;label for="531267984">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -506,8 +506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="857963142" type="checkbox" />
-&lt;label for="857963142">
+&lt;input id="341829675" type="checkbox" />
+&lt;label for="341829675">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -548,8 +548,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="526473198" type="checkbox" />
-&lt;label for="526473198">
+&lt;input id="531674892" type="checkbox" />
+&lt;label for="531674892">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -577,8 +577,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="296583471" type="checkbox" />
-&lt;label for="296583471">
+&lt;input id="487912536" type="checkbox" />
+&lt;label for="487912536">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -595,8 +595,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="198532476" type="checkbox" />
-&lt;label for="198532476">
+&lt;input id="326714859" type="checkbox" />
+&lt;label for="326714859">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -632,8 +632,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="369125784" type="checkbox" />
-&lt;label for="369125784">
+&lt;input id="765423891" type="checkbox" />
+&lt;label for="765423891">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -657,8 +657,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="316849257" type="checkbox" />
-&lt;label for="316849257">
+&lt;input id="261794385" type="checkbox" />
+&lt;label for="261794385">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -849,6 +849,9 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;li>Reduce Database Workloads&lt;/li>
 &lt;li>Scale the Cache Tire Independently&lt;/li>
 &lt;/ul>
+&lt;p>Caching strategy depends on the data and &lt;strong>&lt;em>data access patterns&lt;/em>&lt;/strong>.&lt;/p>
+&lt;p>Below are Caching Strategies:&lt;/p>
+&lt;h3 id="read-through-cache">Read-Through Cache&lt;/h3>
 &lt;figure class="center" >
 &lt;img src="/img/notes/system-design/cache-tier.png" alt="Cache tier" style="border-radius: 8px;" />
 &lt;figcaption class="center" >Setup of cache server&lt;/figcaption>
@@ -860,8 +863,18 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;li>If not exists, it queries database for data, and save the response data in cache and send it back to client.&lt;/li>
 &lt;li>This caching strategy is called a read-through cache.&lt;/li>
 &lt;/ol>
-&lt;p>Caching strategy depends on the data and &lt;strong>&lt;em>data access patterns&lt;/em>&lt;/strong>.&lt;/p>
-&lt;p>Below are Caching Strategies:&lt;/p>
+&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Automated Data Fetching&lt;/strong>: Read-through caches automate the process of fetching data from database and populating the cache, reducing the burden on application logic and developers. This can simplify application code and improve maintainability.&lt;/li>
+&lt;li>&lt;strong>Data Consistency&lt;/strong>: Since data is fetched and populated by the cache provider, there&amp;rsquo;s a higher likelihood of data consistency between and the database, reducing the risk of serving stale data.&lt;/li>
+&lt;li>&lt;strong>Optimal for Read-Heavy Workloads&lt;/strong>: Read-through caches are particularly well-suited for read-heavy workloads where the same data is requested frequently. They minimize the load on the primary data store(database) and improve response times for commonly accessed data, such as news stories.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Cache Miss Penalty&lt;/strong>: The first request for data in a read-through cache always results in a cache miss, incurring the extra penalty of loading data to the cache. This can introduce latency for the initial requests.&lt;/li>
+&lt;li>&lt;strong>Warming or pre-heating&lt;/strong>: To mitigate the cache miss penalty, developers often need to manually warm or pre-heat the cache by issuing queries in advance. This adds complexity and requires careful management.&lt;/li>
+&lt;li>&lt;strong>Lack of Flexibility&lt;/strong>: Unlike Cache-aside, where the data model in the cache can differ from that in the database, read-through caches typically do not allow for different data models. This limitation may be a drawback in some scenarios.&lt;/li>
+&lt;/ol>
 &lt;h3 id="cache-aside">Cache-Aside&lt;/h3>
 &lt;ul>
 &lt;li>Application directly talks to both the cache and the database.&lt;/li>
@@ -892,7 +905,67 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;li>&lt;strong>Lack of Cache Consistency&lt;/strong>: Cache-Aside doesn&amp;rsquo;t guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.&lt;/li>
 &lt;li>&lt;strong>Peak Load Issues&lt;/strong>: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.&lt;/li>
 &lt;/ol>
-&lt;p>We can read Cache strategy here: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
+&lt;h3 id="write-through-cache">Write-Through Cache&lt;/h3>
+&lt;ul>
+&lt;li>In this strategy data is written both to the cache and to the underlying data store, such as a database, simultaneously.&lt;/li>
+&lt;li>This ensure that the cache and the data store always have consistent data.&lt;/li>
+&lt;li>When a write operation is performed, it is first written to the cache and then immediately written to the data store.&lt;/li>
+&lt;li>This approach is often used in scenarios where data consistency is critical, but it can introduce higher latency for write operations due to the additional write to the data store.&lt;/li>
+&lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/write-through.png" alt="Write-Through Cache" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Write-Through Cache&lt;/figcaption>
+&lt;/figure>
+&lt;ul>
+&lt;li>When the application performs a write operation(eg., update, insert,etc.), the data is first written to the write-through cache.&lt;/li>
+&lt;li>The Cache immediately forwards the write operation to the underlying database to ensure data consistency.&lt;/li>
+&lt;li>The Cache always reflects the most up-to-date data in the database, maintaining data consistency.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Data Consistency Guarantee&lt;/strong>: Ensures strong data consistency without cache invalidation.&lt;/li>
+&lt;li>&lt;strong>Seamless Integration with Read-Through Cache&lt;/strong>: Works well with read-through caching for comprehensive performance and consistency.&lt;/li>
+&lt;li>&lt;strong>Simplified Cache Management&lt;/strong>: Eliminates the need for complex cache invalidation strategies. Ensures that the cache remains synchronized with the data store.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Write Latency&lt;/strong>: Introduces extra write latency due to dual write operations.&lt;/li>
+&lt;li>&lt;strong>Storage Overhead&lt;/strong>: May required increased storage, leading to higher infrastructure costs.&lt;/li>
+&lt;/ol>
+&lt;h3 id="write-around-cache">Write-Around Cache&lt;/h3>
+&lt;ul>
+&lt;li>Data is written directly to the data store(database) and only the data that is read makes it way into cache.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>When it combine with read-through it provides good performance in situations where data is written once and read less frequently or never.&lt;/li>
+&lt;/ol>
+&lt;h3 id="write-back-cache-write-behind">Write-Back Cache (Write-Behind)&lt;/h3>
+&lt;ul>
+&lt;li>In this write operations are initially written to the cache and subsequently asynchronously written to the underlying data store (database).&lt;/li>
+&lt;li>It is used to optimize write operations, reduce write latency, and improve application performance by acknowledging writes quickly, without waiting for the data to be written to the data store (database) immediately.&lt;/li>
+&lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/write-back.png" alt="Write-Back (or Behind) Cache" style="border-radius: 8px;" />
+&lt;figcaption class="center" >Write-Back (or Behind) Cache&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Reduce Write Latency&lt;/strong>: Improves application responsiveness by acknowledging writes quickly.&lt;/li>
+&lt;li>&lt;strong>Optimized Write Throughput&lt;/strong>: Allows the application to continue processing without write delay.&lt;/li>
+&lt;li>&lt;strong>Improved Application Performance&lt;/strong>: Allows the application to continue processing without write delays.&lt;/li>
+&lt;li>&lt;strong>Mitigation of Write Spikes&lt;/strong>: Smooth out the load on the data store during write bursts.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Data Inconsistency Risk&lt;/strong>: Potential data inconsistency between the cache and the data store.&lt;/li>
+&lt;li>&lt;strong>Data Loss Risk&lt;/strong>: Risk of data loss in case of cache or system failures.&lt;/li>
+&lt;li>&lt;strong>Complex Cache Management&lt;/strong>: Requires additional mechanisms for data consistency.&lt;/li>
+&lt;li>&lt;strong>Storage and Infrastructure Costs&lt;/strong>: Increase operational costs due to added storage and resources.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it&amp;rsquo;s not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it&amp;rsquo;s crucial to store critical data in durable data repositories.&lt;/p>
+&lt;p>Reference: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
 &lt;p>OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.&lt;/p>
 &lt;p>OAuth was originally designed for applications to get access to API&amp;rsquo;s (All they need to ability to access the API). OAuth doesn&amp;rsquo;t communicate with user information. OpenID communicate with user information.&lt;/p>
