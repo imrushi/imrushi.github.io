@@ -148,6 +148,12 @@ Cache tier is a temporary data store layer, much faster that the database. Havin
 - Reduce Database Workloads
 - Scale the Cache Tire Independently
 
+Caching strategy depends on the data and **_data access patterns_**.
+
+Below are Caching Strategies:
+
+### Read-Through Cache
+
 {{< figure src="/img/notes/system-design/cache-tier.png" alt="Cache tier" position="center" style="border-radius: 8px;" caption="Setup of cache server" captionPosition="center" >}}
 
 After receiving a request:
@@ -157,9 +163,17 @@ After receiving a request:
 3. If not exists, it queries database for data, and save the response data in cache and send it back to client.
 4. This caching strategy is called a read-through cache.
 
-Caching strategy depends on the data and **_data access patterns_**.
+**_Pros_**:
 
-Below are Caching Strategies:
+1. **Automated Data Fetching**: Read-through caches automate the process of fetching data from database and populating the cache, reducing the burden on application logic and developers. This can simplify application code and improve maintainability.
+2. **Data Consistency**: Since data is fetched and populated by the cache provider, there's a higher likelihood of data consistency between and the database, reducing the risk of serving stale data.
+3. **Optimal for Read-Heavy Workloads**: Read-through caches are particularly well-suited for read-heavy workloads where the same data is requested frequently. They minimize the load on the primary data store(database) and improve response times for commonly accessed data, such as news stories.
+
+**_Cons_**:
+
+1. **Cache Miss Penalty**: The first request for data in a read-through cache always results in a cache miss, incurring the extra penalty of loading data to the cache. This can introduce latency for the initial requests.
+2. **Warming or pre-heating**: To mitigate the cache miss penalty, developers often need to manually warm or pre-heat the cache by issuing queries in advance. This adds complexity and requires careful management.
+3. **Lack of Flexibility**: Unlike Cache-aside, where the data model in the cache can differ from that in the database, read-through caches typically do not allow for different data models. This limitation may be a drawback in some scenarios.
 
 ### Cache-Aside
 
@@ -189,4 +203,61 @@ Here is what happing:
 3. **Lack of Cache Consistency**: Cache-Aside doesn't guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.
 4. **Peak Load Issues**: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.
 
-We can read Cache strategy here: https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
+### Write-Through Cache
+
+- In this strategy data is written both to the cache and to the underlying data store, such as a database, simultaneously.
+- This ensure that the cache and the data store always have consistent data.
+- When a write operation is performed, it is first written to the cache and then immediately written to the data store.
+- This approach is often used in scenarios where data consistency is critical, but it can introduce higher latency for write operations due to the additional write to the data store.
+
+{{< figure src="/img/notes/system-design/write-through.png" alt="Write-Through Cache" position="center" style="border-radius: 8px;" caption="Write-Through Cache" captionPosition="center" >}}
+
+- When the application performs a write operation(eg., update, insert,etc.), the data is first written to the write-through cache.
+- The Cache immediately forwards the write operation to the underlying database to ensure data consistency.
+- The Cache always reflects the most up-to-date data in the database, maintaining data consistency.
+
+**_Pros_**:
+
+1. **Data Consistency Guarantee**: Ensures strong data consistency without cache invalidation.
+2. **Seamless Integration with Read-Through Cache**: Works well with read-through caching for comprehensive performance and consistency.
+3. **Simplified Cache Management**: Eliminates the need for complex cache invalidation strategies. Ensures that the cache remains synchronized with the data store.
+
+**_Cons_**:
+
+1. **Write Latency**: Introduces extra write latency due to dual write operations.
+2. **Storage Overhead**: May required increased storage, leading to higher infrastructure costs.
+
+### Write-Around Cache
+
+- Data is written directly to the data store(database) and only the data that is read makes it way into cache.
+
+**_Pros_**:
+
+1. When it combine with read-through it provides good performance in situations where data is written once and read less frequently or never.
+
+### Write-Back Cache (Write-Behind)
+
+- In this write operations are initially written to the cache and subsequently asynchronously written to the underlying data store (database).
+- It is used to optimize write operations, reduce write latency, and improve application performance by acknowledging writes quickly, without waiting for the data to be written to the data store (database) immediately.
+
+{{< figure src="/img/notes/system-design/write-back.png" alt="Write-Back (or Behind) Cache" position="center" style="border-radius: 8px;" caption="Write-Back (or Behind) Cache" captionPosition="center" >}}
+
+**_Pros_**:
+
+1. **Reduce Write Latency**: Improves application responsiveness by acknowledging writes quickly.
+2. **Optimized Write Throughput**: Allows the application to continue processing without write delay.
+3. **Improved Application Performance**: Allows the application to continue processing without write delays.
+4. **Mitigation of Write Spikes**: Smooth out the load on the data store during write bursts.
+
+**_Cons_**:
+
+1. **Data Inconsistency Risk**: Potential data inconsistency between the cache and the data store.
+2. **Data Loss Risk**: Risk of data loss in case of cache or system failures.
+3. **Complex Cache Management**: Requires additional mechanisms for data consistency.
+4. **Storage and Infrastructure Costs**: Increase operational costs due to added storage and resources.
+
+---
+
+Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it's not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it's crucial to store critical data in durable data repositories.
+
+Reference: https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
