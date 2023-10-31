@@ -261,3 +261,29 @@ Here is what happing:
 Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it's not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it's crucial to store critical data in durable data repositories.
 
 Reference: https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/
+
+## CDN (Content Delivery Network)
+
+A Content Delivery Network (CDN) is geographically distributed network of proxy servers and their data centers that provide high availability and performance by distributing the service to end-users.
+
+CDNs cache content like web pages, images, and video (static contents) in proxy servers near to the physical location of the user, allowing them to access internet content from a web-enabled device or browser more quickly through a server near them.
+
+Benefits of CDNs:
+
+- It reduces latency in communication created by a network design.
+- It improves website performance.
+- It support core network infrastructure, such as:
+  - Reducing page load time
+  - Reducing Bandwidth costs
+  - Increasing protection against security attacks and downtime.
+
+{{< figure src="/img/notes/system-design/CDN-workflow.png" alt="CDN Workflow" position="center" style="border-radius: 8px;" caption="CDN Workflow" captionPosition="center" >}}
+
+1. User A access the image.png through application. In application embedded image.png url is CDN url. (request will go to nearest CDN server for client.)
+2. If image.png is not in CDN server, it requests to origin server.
+3. Origin server stores content in CDN Cache.
+4. It returns the loaded content (image.png) to User A.
+5. User B is accesses same image.png.
+6. CDN returns the content faster than User A. As Content is already present in CDN server.
+
+The Content will be present in CDN cache as long as the TTL has not expired.
