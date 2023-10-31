@@ -60,8 +60,8 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="394751268" type="checkbox" />
-&lt;label for="394751268">
+&lt;input id="953168247" type="checkbox" />
+&lt;label for="953168247">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -137,8 +137,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="482176359" type="checkbox" />
-&lt;label for="482176359">
+&lt;input id="173425968" type="checkbox" />
+&lt;label for="173425968">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -188,8 +188,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="679352481" type="checkbox" />
-&lt;label for="679352481">
+&lt;input id="713598642" type="checkbox" />
+&lt;label for="713598642">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -240,8 +240,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="498762531" type="checkbox" />
-&lt;label for="498762531">
+&lt;input id="615239784" type="checkbox" />
+&lt;label for="615239784">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -255,8 +255,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="398754612" type="checkbox" />
-&lt;label for="398754612">
+&lt;input id="984527316" type="checkbox" />
+&lt;label for="984527316">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -282,8 +282,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="126458379" type="checkbox" />
-&lt;label for="126458379">
+&lt;input id="695412738" type="checkbox" />
+&lt;label for="695412738">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -312,8 +312,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="736845921" type="checkbox" />
-&lt;label for="736845921">
+&lt;input id="596842137" type="checkbox" />
+&lt;label for="596842137">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -371,8 +371,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="491563728" type="checkbox" />
-&lt;label for="491563728">
+&lt;input id="394762851" type="checkbox" />
+&lt;label for="394762851">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -675,8 +675,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="435917682" type="checkbox" />
-&lt;label for="435917682">
+&lt;input id="962453871" type="checkbox" />
+&lt;label for="962453871">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -713,8 +713,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="253618794" type="checkbox" />
-&lt;label for="253618794">
+&lt;input id="753419628" type="checkbox" />
+&lt;label for="753419628">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -753,8 +753,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="579824361" type="checkbox" />
-&lt;label for="579824361">
+&lt;input id="982135647" type="checkbox" />
+&lt;label for="982135647">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -769,8 +769,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="745693182" type="checkbox" />
-&lt;label for="745693182">
+&lt;input id="751236984" type="checkbox" />
+&lt;label for="751236984">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -796,8 +796,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="913284657" type="checkbox" />
-&lt;label for="913284657">
+&lt;input id="734986125" type="checkbox" />
+&lt;label for="734986125">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -813,8 +813,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="397416852" type="checkbox" />
-&lt;label for="397416852">
+&lt;input id="378295146" type="checkbox" />
+&lt;label for="378295146">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -832,8 +832,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="137258946" type="checkbox" />
-&lt;label for="137258946">
+&lt;input id="764591823" type="checkbox" />
+&lt;label for="764591823">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -849,8 +849,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="938276415" type="checkbox" />
-&lt;label for="938276415">
+&lt;input id="268571439" type="checkbox" />
+&lt;label for="268571439">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1017,8 +1017,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="183524769" type="checkbox" />
-&lt;label for="183524769">
+&lt;input id="921856347" type="checkbox" />
+&lt;label for="921856347">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1046,8 +1046,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="784615329" type="checkbox" />
-&lt;label for="784615329">
+&lt;input id="145368792" type="checkbox" />
+&lt;label for="145368792">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1183,8 +1183,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="982473651" type="checkbox" />
-&lt;label for="982473651">
+&lt;input id="369574218" type="checkbox" />
+&lt;label for="369574218">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1238,8 +1238,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="413576289" type="checkbox" />
-&lt;label for="413576289">
+&lt;input id="125687934" type="checkbox" />
+&lt;label for="125687934">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1268,8 +1268,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="719462835" type="checkbox" />
-&lt;label for="719462835">
+&lt;input id="685419732" type="checkbox" />
+&lt;label for="685419732">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1310,8 +1310,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="541328697" type="checkbox" />
-&lt;label for="541328697">
+&lt;input id="945836217" type="checkbox" />
+&lt;label for="945836217">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1339,8 +1339,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="734681952" type="checkbox" />
-&lt;label for="734681952">
+&lt;input id="792356481" type="checkbox" />
+&lt;label for="792356481">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1357,8 +1357,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="738951462" type="checkbox" />
-&lt;label for="738951462">
+&lt;input id="173968542" type="checkbox" />
+&lt;label for="173968542">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1394,8 +1394,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="285476319" type="checkbox" />
-&lt;label for="285476319">
+&lt;input id="697231584" type="checkbox" />
+&lt;label for="697231584">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1419,8 +1419,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="123764958" type="checkbox" />
-&lt;label for="123764958">
+&lt;input id="713492856" type="checkbox" />
+&lt;label for="713492856">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1727,7 +1727,35 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;/ol>
 &lt;hr>
 &lt;p>Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it&amp;rsquo;s not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it&amp;rsquo;s crucial to store critical data in durable data repositories.&lt;/p>
-&lt;p>Reference: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
+&lt;p>Reference: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p>
+&lt;h2 id="cdn-content-delivery-network">CDN (Content Delivery Network)&lt;/h2>
+&lt;p>A Content Delivery Network (CDN) is geographically distributed network of proxy servers and their data centers that provide high availability and performance by distributing the service to end-users.&lt;/p>
+&lt;p>CDNs cache content like web pages, images, and video (static contents) in proxy servers near to the physical location of the user, allowing them to access internet content from a web-enabled device or browser more quickly through a server near them.&lt;/p>
+&lt;p>Benefits of CDNs:&lt;/p>
+&lt;ul>
+&lt;li>It reduces latency in communication created by a network design.&lt;/li>
+&lt;li>It improves website performance.&lt;/li>
+&lt;li>It support core network infrastructure, such as:
+&lt;ul>
+&lt;li>Reducing page load time&lt;/li>
+&lt;li>Reducing Bandwidth costs&lt;/li>
+&lt;li>Increasing protection against security attacks and downtime.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/system-design/CDN-workflow.png" alt="CDN Workflow" style="border-radius: 8px;" />
+&lt;figcaption class="center" >CDN Workflow&lt;/figcaption>
+&lt;/figure>
+&lt;ol>
+&lt;li>User A access the image.png through application. In application embedded image.png url is CDN url. (request will go to nearest CDN server for client.)&lt;/li>
+&lt;li>If image.png is not in CDN server, it requests to origin server.&lt;/li>
+&lt;li>Origin server stores content in CDN Cache.&lt;/li>
+&lt;li>It returns the loaded content (image.png) to User A.&lt;/li>
+&lt;li>User B is accesses same image.png.&lt;/li>
+&lt;li>CDN returns the content faster than User A. As Content is already present in CDN server.&lt;/li>
+&lt;/ol>
+&lt;p>The Content will be present in CDN cache as long as the TTL has not expired.&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
 &lt;p>OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.&lt;/p>
 &lt;p>OAuth was originally designed for applications to get access to API&amp;rsquo;s (All they need to ability to access the API). OAuth doesn&amp;rsquo;t communicate with user information. OpenID communicate with user information.&lt;/p>
