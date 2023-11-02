@@ -7,5 +7,3 @@
 - [x] notes
 - [x] Comments
 - [x] Search bar
-
-##
