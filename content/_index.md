@@ -12,4 +12,4 @@ Want to know more [About Me]({{<ref "about">}}).
 
 ## Social Media
 
-{{< image-link "/img/svgs/github.svg~https://github.com/imrushi" "/img/svgs/linkedin.svg~https://www.linkedin.com/in/rushi-panchariya" "/img/svgs/twitter.svg~https://twitter.com/RushiPanchariya" "/img/svgs/stack-overflow.svg~https://stackoverflow.com/users/9128055/rex" "/img/svgs/youtube.svg~https://www.youtube.com/@rushipanchariya">}}
+{{< image-link "/img/svgs/github.svg~https://github.com/imrushi" "/img/svgs/linkedin.svg~https://www.linkedin.com/in/rushi-panchariya" "/img/svgs/twitter.svg~https://twitter.com/RushiPanchariya" "/img/svgs/stack-overflow.svg~https://stackoverflow.com/users/9128055/rex" "/img/svgs/medium.svg~https://medium.com/@rushipanchariya" "/img/svgs/youtube.svg~https://www.youtube.com/@rushipanchariya">}}
