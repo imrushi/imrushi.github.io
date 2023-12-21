@@ -406,6 +406,13 @@ In this example, when the `main` function is executed, it first prints "This wil
 
 In practice, you often use `defer` for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there's an early return or an error condition.
 
+#### Bullet Points
+
+- When a function returns multiple values, the last value usually has a type of `error`. Error values have an `Error()` method that returns a string describing the error.
+- By convention, functions return an error value of nil to indicate there are no errors.
+- You can access the value a pointer holds by putting a * right before it: *myPointer.
+- If a function receives a pointer as a parameter, and it updates the value at that pointer, then the updated value will still be visible outside the function.
+
 ### Methods
 
 A function is a standalone piece of code that can be called by other parts of your program.
@@ -442,6 +449,81 @@ func (a MyInteger) MyMethod(b int) int {
 // x.MyMethod(2)
 {{< /code >}}
 <!-- prettier-ignore-end -->
+
+### Formatting Verbs
+
+| General |                                                     |
+| ------- | --------------------------------------------------- |
+| %v      | the value in a default format                       |
+| %+v     | when printing structs, adds field names             |
+| %#v     | a Go-syntax representation of the value             |
+| %T      | a Go-syntax representation of the type of the value |
+| %%      | a literal percent sign; consumes no values          |
+
+| Boolean |                        |
+| ------- | ---------------------- |
+| %t      | the word true or false |
+
+| Integer |                                                                   |
+| ------- | ----------------------------------------------------------------- |
+| %b      | base 2 (binary)                                                   |
+| %c      | the character represented by the corresponding Unicode code point |
+| %d      | base 10 (decimal)                                                 |
+| %o      | base 8 (octal- uses number between 0 - 7)                         |
+| %O      | base 8 with 0o prefix                                             |
+| %q      | a single-quoted character literal safely escaped with Go syntax   |
+| %x      | base 16 (hexadecimal), with lowercase letters for a-f             |
+| %X      | base 16 (hexadecimal), with uppercase letters for A-F             |
+| %U      | Unicode format: U+1234; same as "U+%04X"                          |
+
+| Floting-point and complex constituents |                                                                                |
+| -------------------------------------- | ------------------------------------------------------------------------------ |
+| %b                                     | decimalless scientific notation with exponent a power of two                   |
+| %e                                     | scientific notation, e.g. -1.234456e+78                                        |
+| %E                                     | scientific notation, e.g. -1.234456E+78                                        |
+| %f                                     | decimal point but exponent, e.g. 123.456                                       |
+| %F                                     | synonym for %f                                                                 |
+| %9f                                    | width 9, default precision                                                     |
+| %.2f                                   | default width, precision 2                                                     |
+| %9.2f                                  | width 9, precision 2                                                           |
+| %9.f                                   | width 9, precision 0                                                           |
+| %g                                     | %e for large exponents, %f otherwise                                           |
+| %G                                     | %E for large exponents, %F otherwise                                           |
+| %x                                     | hexadecimal notation (with decimal power of two exponent), e.g. -0x1.23abcp+20 |
+| %X                                     | upper-case hexadecimal notation, e.g. -0X1.23ABCP+20                           |
+
+| String and slice of bytes |                                                      |
+| ------------------------- | ---------------------------------------------------- |
+| %s                        | the uninterpreted bytes of the string or slice       |
+| %q                        | a double-quoted string safely escaped with Go syntax |
+| %x                        | base 16, lower-case, two characters per byte         |
+| %X                        | base 16, upper-case, two characters per byte         |
+
+| Slice |                                                             |
+| ----- | ----------------------------------------------------------- |
+| %p    | address of 0th element in base 16 notation, with leading 0x |
+
+| Pointer |                                   |
+| ------- | --------------------------------- |
+| %p      | base 16 notation, with leading 0x |
+
+| The default format for %v is |                             |
+| ---------------------------- | --------------------------- |
+| bool                         | %t                          |
+| int, int8 etc.               | %d                          |
+| uint, uint8 etc.             | %d, %#x if printed with %#v |
+| float32, complex64, etc      | %g                          |
+| string                       | %s                          |
+| chan                         | %p                          |
+| pointer                      | %p                          |
+
+| flags       |                                                                                                                       |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| +           | always print a sign for numeric values; guarantee ASCII-only output for %q (%+q)                                      |
+| -           | pad with spaces on the right rather than the left (left-justify the field)                                            |
+| #           | alternate format: add leading 0b for binary (%#b), 0 for octal (%#o)                                                  |
+| ' ' (space) | leave a space for elided sign in numbers (% d); put spaces between bytes printing strings or slices in hex (% x, % X) |
+| 0           | pad with leading zeros rather than spaces                                                                             |
 
 ### Data Structures
 
@@ -504,7 +586,7 @@ fmt.Println(counters[0], counters[1], counters[2])
        /    Still at its zero value
       Has been incremented twice
 
->Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.
+> Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.
 
 Okay, but how can assign default values like we do in python and other languages?
 
@@ -531,6 +613,7 @@ If you have array string with sentences as value:
 ```go
 text := [3]string{"This is a series of long strings", "which would be awkward to place", "together on a single line"}
 ```
+
 As you see above it will be hard to read if item grow it will be in single line to make it more readable we can break this in multiline as shown below:
 
 ```go
@@ -541,8 +624,134 @@ text := [3]string{
 }
 ```
 
-But here is catch which you will have to keep in mind when you break it in multiline it should end with `,` else you will get error/run it problems. 
+But here is catch which you will have to keep in mind when you break it in multiline it should end with `,` else you will get error/run it problems.
 
-### Data Types
+#### Slices
 
-### Conditionals and Loops
+It is a Go data structure that we can add more values to--it's called slice. A slice is also a list of elements of a particular type, but unlike arrays, tools are available to add or remove elements. Slice don't hold any data themselves. A slice is merely a view into the elements of an underlying array.
+
+To declare the type for a variable that holds a slice, you use an empty pair of square brackets, followed by the type of elements the slice will hold.
+
+`var mySlice []string`
+
+This is just like the syntax for declaring an array variable, except that you don’t specify the size.
+
+Unlike with array variables, declaring a slice variable doesn't automatically create a slice. For that, we can call the built-in make function. We pass `make` the type of the slice we want to create which should be the same as the type of the variable we're going to assign it to, and the length of slice it should create.
+
+```
+// Declare a slice variable
+var notes []string
+// Create a slice with seven strings
+notes = make([]string, 7)
+```
+
+Once the slice is created, you assign and retrieve its elements using the
+same syntax you would for an array.
+
+```
+notes[0] = "go" // Assign a value to the first element
+notes[1] = "ts" // ... to the second element
+fmt.Println(notes[0]) // prints the first element
+fmt.Println(notes[1]) // prints the second element
+
+---Output---
+go
+ts
+```
+
+Here, we can prefer a [short variable declaration](#short-variable-declaration) with `make`. A [short variable declaration](#short-variable-declaration) will infer the variable's type for you.
+
+```
+// Create a slice with five integers, and set up a variable to hold it.
+numbers := make([]int, 5)
+numbers[0] = 2
+numbers[1] = 3
+fmt.Println(numbers[0])
+
+---Output---
+2
+```
+
+The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for...range loops work just the same with slices as they do with arrays, too.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="For loop" expand="Show" collapse="Hide" isCollapsed="false" >}}
+letters := []string{"a","b","c"}
+// Regular for loop
+for i := 0; i < len(letters); i++ {
+  fmt.Println(letters[i])
+}
+
+// For loop using range
+
+for _, letter := range letters {
+  fmt.Println(letter)
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+##### Slice literals
+
+Create slices with initial values directly using slice literals:
+
+- Syntax: `[]type{values}` (e.g., `[]int{1,2,3}`)
+- No need for `make` function.
+- Resembles array literals, but without length in square brackets.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Slice Literals" expand="Show" collapse="Hide" isCollapsed="false" >}}
+// Assign values using a slice literal.
+notes := []string{"go","bot", "cool", "car", "ninja", "turtle"}
+fmt.Println(notes[2], notes[4], notes[5])
+
+// output
+cool ninja turtle
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+##### The Slice Operator
+
+Every slice is built on top of an **underlying array**. It's the underlying array that actually holds the slice's data; the slice is merely a view into some (or all) of the array's elements.
+
+When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can't access it, expect through the slice. But we can also create a slice from array with the **slice operator**.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Array to Slice" expand="Show" collapse="Hide" isCollapsed="false" >}}
+underlyingArray := [6]string{"go","bot", "cool", "car", "ninja", "turtle"}
+slice1 := underlyingArray[0:3]
+fmt.Println(slice1)
+
+// Output
+[go bot cool]
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+In tha above program `underlyingArray[0:3]` is creating slice using slice operator where it `0` is index of array where the slice should start, and the `3` index of the array that the slice should stop **before**. In above output we can see that the second index is the index the slice will stop **before**. That is, the slice should include the elements up to, but not including, the second index. If you use `underlyingArray[i:j]` as a slice operator, the resulting slice will actually contain the elements `underlyingArray[i]` through `underlyingArray[j-1]`.
+
+If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="print with last element" expand="Show" collapse="Hide" isCollapsed="false" >}}
+underlyingArray := [6]string{"go","bot", "cool", "car", "ninja", "turtle"}
+slice1 := underlyingArray[3:6]
+fmt.Println(slice1)
+
+// Output
+[car ninja turtle]
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+Make sure you don’t go any further than that, though, or you’ll get an error:
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Error access" expand="Show" collapse="Hide" isCollapsed="false" >}}
+underlyingArray := [6]string{"go","bot", "cool", "car", "ninja", "turtle"}
+slice1 := underlyingArray[3:7]
+fmt.Println(slice1)
+
+// Output
+invalid argument: index 7 out of bounds [0:7]
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+##### Underlying arrays
