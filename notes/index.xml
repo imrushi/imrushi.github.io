@@ -255,8 +255,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="157896234" type="checkbox" />
-&lt;label for="157896234">
+&lt;input id="621873495" type="checkbox" />
+&lt;label for="621873495">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -284,8 +284,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="951372846" type="checkbox" />
-&lt;label for="951372846">
+&lt;input id="546238791" type="checkbox" />
+&lt;label for="546238791">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -421,8 +421,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="846927531" type="checkbox" />
-&lt;label for="846927531">
+&lt;input id="187463529" type="checkbox" />
+&lt;label for="187463529">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -476,8 +476,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="834275169" type="checkbox" />
-&lt;label for="834275169">
+&lt;input id="254738916" type="checkbox" />
+&lt;label for="254738916">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -506,8 +506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="526981734" type="checkbox" />
-&lt;label for="526981734">
+&lt;input id="394216578" type="checkbox" />
+&lt;label for="394216578">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -548,8 +548,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="762398514" type="checkbox" />
-&lt;label for="762398514">
+&lt;input id="973218564" type="checkbox" />
+&lt;label for="973218564">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -569,6 +569,13 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;!-- raw HTML omitted -->
 &lt;p>In this example, when the &lt;code>main&lt;/code> function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code>fmt.Println&lt;/code> functions using &lt;code>defer&lt;/code>. These deferred functions will be executed in reverse order when the &lt;code>main&lt;/code> function is about to return.&lt;/p>
 &lt;p>In practice, you often use &lt;code>defer&lt;/code> for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p>
+&lt;h4 id="bullet-points">Bullet Points&lt;/h4>
+&lt;ul>
+&lt;li>When a function returns multiple values, the last value usually has a type of &lt;code>error&lt;/code>. Error values have an &lt;code>Error()&lt;/code> method that returns a string describing the error.&lt;/li>
+&lt;li>By convention, functions return an error value of nil to indicate there are no errors.&lt;/li>
+&lt;li>You can access the value a pointer holds by putting a * right before it: *myPointer.&lt;/li>
+&lt;li>If a function receives a pointer as a parameter, and it updates the value at that pointer, then the updated value will still be visible outside the function.&lt;/li>
+&lt;/ul>
 &lt;h3 id="methods">Methods&lt;/h3>
 &lt;p>A function is a standalone piece of code that can be called by other parts of your program.&lt;/p>
 &lt;p>A method is a function that is associated with a specific type or struct.&lt;/p>
@@ -577,8 +584,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="381497562" type="checkbox" />
-&lt;label for="381497562">
+&lt;input id="823564791" type="checkbox" />
+&lt;label for="823564791">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -595,8 +602,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="537169482" type="checkbox" />
-&lt;label for="537169482">
+&lt;input id="758342196" type="checkbox" />
+&lt;label for="758342196">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -612,6 +619,281 @@ return a &amp;#43; b
 &lt;/code>&lt;/pre>
 &lt;/div>
 &lt;!-- raw HTML omitted -->
+&lt;h3 id="formatting-verbs">Formatting Verbs&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>General&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%v&lt;/td>
+&lt;td>the value in a default format&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%+v&lt;/td>
+&lt;td>when printing structs, adds field names&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%#v&lt;/td>
+&lt;td>a Go-syntax representation of the value&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%T&lt;/td>
+&lt;td>a Go-syntax representation of the type of the value&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%%&lt;/td>
+&lt;td>a literal percent sign; consumes no values&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Boolean&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%t&lt;/td>
+&lt;td>the word true or false&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Integer&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%b&lt;/td>
+&lt;td>base 2 (binary)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%c&lt;/td>
+&lt;td>the character represented by the corresponding Unicode code point&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%d&lt;/td>
+&lt;td>base 10 (decimal)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%o&lt;/td>
+&lt;td>base 8 (octal- uses number between 0 - 7)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%O&lt;/td>
+&lt;td>base 8 with 0o prefix&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%q&lt;/td>
+&lt;td>a single-quoted character literal safely escaped with Go syntax&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%x&lt;/td>
+&lt;td>base 16 (hexadecimal), with lowercase letters for a-f&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%X&lt;/td>
+&lt;td>base 16 (hexadecimal), with uppercase letters for A-F&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%U&lt;/td>
+&lt;td>Unicode format: U+1234; same as &amp;ldquo;U+%04X&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Floting-point and complex constituents&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%b&lt;/td>
+&lt;td>decimalless scientific notation with exponent a power of two&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%e&lt;/td>
+&lt;td>scientific notation, e.g. -1.234456e+78&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%E&lt;/td>
+&lt;td>scientific notation, e.g. -1.234456E+78&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%f&lt;/td>
+&lt;td>decimal point but exponent, e.g. 123.456&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%F&lt;/td>
+&lt;td>synonym for %f&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%9f&lt;/td>
+&lt;td>width 9, default precision&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%.2f&lt;/td>
+&lt;td>default width, precision 2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%9.2f&lt;/td>
+&lt;td>width 9, precision 2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%9.f&lt;/td>
+&lt;td>width 9, precision 0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%g&lt;/td>
+&lt;td>%e for large exponents, %f otherwise&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%G&lt;/td>
+&lt;td>%E for large exponents, %F otherwise&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%x&lt;/td>
+&lt;td>hexadecimal notation (with decimal power of two exponent), e.g. -0x1.23abcp+20&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%X&lt;/td>
+&lt;td>upper-case hexadecimal notation, e.g. -0X1.23ABCP+20&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>String and slice of bytes&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%s&lt;/td>
+&lt;td>the uninterpreted bytes of the string or slice&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%q&lt;/td>
+&lt;td>a double-quoted string safely escaped with Go syntax&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%x&lt;/td>
+&lt;td>base 16, lower-case, two characters per byte&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>%X&lt;/td>
+&lt;td>base 16, upper-case, two characters per byte&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Slice&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%p&lt;/td>
+&lt;td>address of 0th element in base 16 notation, with leading 0x&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Pointer&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>%p&lt;/td>
+&lt;td>base 16 notation, with leading 0x&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>The default format for %v is&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>bool&lt;/td>
+&lt;td>%t&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int, int8 etc.&lt;/td>
+&lt;td>%d&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uint, uint8 etc.&lt;/td>
+&lt;td>%d, %#x if printed with %#v&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>float32, complex64, etc&lt;/td>
+&lt;td>%g&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>string&lt;/td>
+&lt;td>%s&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chan&lt;/td>
+&lt;td>%p&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pointer&lt;/td>
+&lt;td>%p&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>flags&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>+&lt;/td>
+&lt;td>always print a sign for numeric values; guarantee ASCII-only output for %q (%+q)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-&lt;/td>
+&lt;td>pad with spaces on the right rather than the left (left-justify the field)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>#&lt;/td>
+&lt;td>alternate format: add leading 0b for binary (%#b), 0 for octal (%#o)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;rsquo; &amp;rsquo; (space)&lt;/td>
+&lt;td>leave a space for elided sign in numbers (% d); put spaces between bytes printing strings or slices in hex (% x, % X)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>0&lt;/td>
+&lt;td>pad with leading zeros rather than spaces&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h3 id="data-structures">Data Structures&lt;/h3>
 &lt;h4 id="array">Array&lt;/h4>
 &lt;p>An array is a collection of values that all share the same type. Think of it like one of those pill boxes with compartments &amp;ndash; you can store and retrieve pills from each compartment separately, but it&amp;rsquo;s also easy to transport the container as a whole.&lt;/p>
@@ -632,8 +914,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="398721465" type="checkbox" />
-&lt;label for="398721465">
+&lt;input id="837461592" type="checkbox" />
+&lt;label for="837461592">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -657,8 +939,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="325941786" type="checkbox" />
-&lt;label for="325941786">
+&lt;input id="398156472" type="checkbox" />
+&lt;label for="398156472">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -703,8 +985,137 @@ Has been incremented twice
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;together on a single line&amp;#34;&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But here is catch which you will have to keep in mind when you break it in multiline it should end with &lt;code>,&lt;/code> else you will get error/run it problems.&lt;/p>
-&lt;h3 id="data-types">Data Types&lt;/h3>
-&lt;h3 id="conditionals-and-loops">Conditionals and Loops&lt;/h3></content></item><item><title>Imp Links</title><link>/notes/imp-links/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/imp-links/</guid><description> Name Links Regex http://regextutorials.com/</description><content>&lt;table>
+&lt;h4 id="slices">Slices&lt;/h4>
+&lt;p>It is a Go data structure that we can add more values to&amp;ndash;it&amp;rsquo;s called slice. A slice is also a list of elements of a particular type, but unlike arrays, tools are available to add or remove elements. Slice don&amp;rsquo;t hold any data themselves. A slice is merely a view into the elements of an underlying array.&lt;/p>
+&lt;p>To declare the type for a variable that holds a slice, you use an empty pair of square brackets, followed by the type of elements the slice will hold.&lt;/p>
+&lt;p>&lt;code>var mySlice []string&lt;/code>&lt;/p>
+&lt;p>This is just like the syntax for declaring an array variable, except that you don’t specify the size.&lt;/p>
+&lt;p>Unlike with array variables, declaring a slice variable doesn&amp;rsquo;t automatically create a slice. For that, we can call the built-in make function. We pass &lt;code>make&lt;/code> the type of the slice we want to create which should be the same as the type of the variable we&amp;rsquo;re going to assign it to, and the length of slice it should create.&lt;/p>
+&lt;pre tabindex="0">&lt;code>// Declare a slice variable
+var notes []string
+// Create a slice with seven strings
+notes = make([]string, 7)
+&lt;/code>&lt;/pre>&lt;p>Once the slice is created, you assign and retrieve its elements using the
+same syntax you would for an array.&lt;/p>
+&lt;pre tabindex="0">&lt;code>notes[0] = &amp;#34;go&amp;#34; // Assign a value to the first element
+notes[1] = &amp;#34;ts&amp;#34; // ... to the second element
+fmt.Println(notes[0]) // prints the first element
+fmt.Println(notes[1]) // prints the second element
+---Output---
+go
+ts
+&lt;/code>&lt;/pre>&lt;p>Here, we can prefer a &lt;a href="#short-variable-declaration">short variable declaration&lt;/a> with &lt;code>make&lt;/code>. A &lt;a href="#short-variable-declaration">short variable declaration&lt;/a> will infer the variable&amp;rsquo;s type for you.&lt;/p>
+&lt;pre tabindex="0">&lt;code>// Create a slice with five integers, and set up a variable to hold it.
+numbers := make([]int, 5)
+numbers[0] = 2
+numbers[1] = 3
+fmt.Println(numbers[0])
+---Output---
+2
+&lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="925861437" type="checkbox" />
+&lt;label for="925861437">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">For loop&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+letters := []string{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;,&amp;#34;c&amp;#34;}
+// Regular for loop
+for i := 0; i &amp;lt; len(letters); i&amp;#43;&amp;#43; {
+fmt.Println(letters[i])
+}
+// For loop using range
+for _, letter := range letters {
+fmt.Println(letter)
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h5 id="slice-literals">Slice literals&lt;/h5>
+&lt;p>Create slices with initial values directly using slice literals:&lt;/p>
+&lt;ul>
+&lt;li>Syntax: &lt;code>[]type{values}&lt;/code> (e.g., &lt;code>[]int{1,2,3}&lt;/code>)&lt;/li>
+&lt;li>No need for &lt;code>make&lt;/code> function.&lt;/li>
+&lt;li>Resembles array literals, but without length in square brackets.&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="429867135" type="checkbox" />
+&lt;label for="429867135">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Slice Literals&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// Assign values using a slice literal.
+notes := []string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
+fmt.Println(notes[2], notes[4], notes[5])
+// output
+cool ninja turtle
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h5 id="the-slice-operator">The Slice Operator&lt;/h5>
+&lt;p>Every slice is built on top of an &lt;strong>underlying array&lt;/strong>. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p>
+&lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="923186475" type="checkbox" />
+&lt;label for="923186475">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Array to Slice&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
+slice1 := underlyingArray[0:3]
+fmt.Println(slice1)
+// Output
+[go bot cool]
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>In tha above program &lt;code>underlyingArray[0:3]&lt;/code> is creating slice using slice operator where it &lt;code>0&lt;/code> is index of array where the slice should start, and the &lt;code>3&lt;/code> index of the array that the slice should stop &lt;strong>before&lt;/strong>. In above output we can see that the second index is the index the slice will stop &lt;strong>before&lt;/strong>. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code>underlyingArray[i:j]&lt;/code> as a slice operator, the resulting slice will actually contain the elements &lt;code>underlyingArray[i]&lt;/code> through &lt;code>underlyingArray[j-1]&lt;/code>.&lt;/p>
+&lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="173259846" type="checkbox" />
+&lt;label for="173259846">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">print with last element&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
+slice1 := underlyingArray[3:6]
+fmt.Println(slice1)
+// Output
+[car ninja turtle]
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="769285413" type="checkbox" />
+&lt;label for="769285413">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">Error access&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
+slice1 := underlyingArray[3:7]
+fmt.Println(slice1)
+// Output
+invalid argument: index 7 out of bounds [0:7]
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h5 id="underlying-arrays">Underlying arrays&lt;/h5></content></item><item><title>Imp Links</title><link>/notes/imp-links/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/imp-links/</guid><description> Name Links Regex http://regextutorials.com/</description><content>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
