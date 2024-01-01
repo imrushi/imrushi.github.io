@@ -255,8 +255,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="621873495" type="checkbox" />
-&lt;label for="621873495">
+&lt;input id="165239748" type="checkbox" />
+&lt;label for="165239748">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -284,8 +284,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="546238791" type="checkbox" />
-&lt;label for="546238791">
+&lt;input id="715639248" type="checkbox" />
+&lt;label for="715639248">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -421,8 +421,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="187463529" type="checkbox" />
-&lt;label for="187463529">
+&lt;input id="347812965" type="checkbox" />
+&lt;label for="347812965">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -476,8 +476,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="254738916" type="checkbox" />
-&lt;label for="254738916">
+&lt;input id="413278659" type="checkbox" />
+&lt;label for="413278659">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -506,8 +506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="394216578" type="checkbox" />
-&lt;label for="394216578">
+&lt;input id="973854216" type="checkbox" />
+&lt;label for="973854216">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -548,8 +548,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="973218564" type="checkbox" />
-&lt;label for="973218564">
+&lt;input id="648792513" type="checkbox" />
+&lt;label for="648792513">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -584,8 +584,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="823564791" type="checkbox" />
-&lt;label for="823564791">
+&lt;input id="289615473" type="checkbox" />
+&lt;label for="289615473">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -602,8 +602,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="758342196" type="checkbox" />
-&lt;label for="758342196">
+&lt;input id="758329416" type="checkbox" />
+&lt;label for="758329416">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -914,8 +914,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="837461592" type="checkbox" />
-&lt;label for="837461592">
+&lt;input id="715823649" type="checkbox" />
+&lt;label for="715823649">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -939,8 +939,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="398156472" type="checkbox" />
-&lt;label for="398156472">
+&lt;input id="169357248" type="checkbox" />
+&lt;label for="169357248">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1015,8 +1015,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="925861437" type="checkbox" />
-&lt;label for="925861437">
+&lt;input id="154936278" type="checkbox" />
+&lt;label for="154936278">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1043,8 +1043,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="429867135" type="checkbox" />
-&lt;label for="429867135">
+&lt;input id="415876392" type="checkbox" />
+&lt;label for="415876392">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1063,8 +1063,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="923186475" type="checkbox" />
-&lt;label for="923186475">
+&lt;input id="135274689" type="checkbox" />
+&lt;label for="135274689">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1082,8 +1082,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="173259846" type="checkbox" />
-&lt;label for="173259846">
+&lt;input id="762914538" type="checkbox" />
+&lt;label for="762914538">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1100,8 +1100,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="769285413" type="checkbox" />
-&lt;label for="769285413">
+&lt;input id="485693721" type="checkbox" />
+&lt;label for="485693721">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1404,7 +1404,17 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;li>User B is accesses same image.png.&lt;/li>
 &lt;li>CDN returns the content faster than User A. As Content is already present in CDN server.&lt;/li>
 &lt;/ol>
-&lt;p>The Content will be present in CDN cache as long as the TTL has not expired.&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 2.0 OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.</description><content>&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
+&lt;p>The Content will be present in CDN cache as long as the TTL has not expired.&lt;/p></content></item><item><title>OAuth2 and OpenID Connect</title><link>/notes/oauth2/</link><pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/oauth2/</guid><description>OAuth 1.0 In 2006, when several web services companies, including Twitter and Ma.Gnolia, had complementary applications and wanted their users to be able to connect them together. At the time, this type of connection was typically accomplished by asking the user for their credentials on the remote system and sending those credentials to the API. These websites let people log in using a shared login system called OpenID, so they didn&amp;rsquo;t need to create separate accounts for each site.</description><content>&lt;h2 id="oauth-10">OAuth 1.0&lt;/h2>
+&lt;p>In 2006, when several web services companies, including Twitter and Ma.Gnolia, had complementary applications and wanted their users to be able to connect them together. At the time, this type of connection was typically accomplished by asking the user for their credentials on the remote system and sending those credentials to the API. These websites let people log in using a shared login system called OpenID, so they didn&amp;rsquo;t need to create separate accounts for each site. As a consequence, there were no username or passwords that could be used for the API.&lt;/p>
+&lt;p>To overcome this, the developers sought to create a protocol that would allow their users to delegate access to the API. They based their new protocol on several proprietary implementation of this same concept, including Google&amp;rsquo;s AuthSub and Yahoo!&amp;rsquo;s BBAuth. In all of these, a client application is authorized by a user and receives a token that can then be used to access a remote API. These tokens were all issued with a public and private portion, and this protocol used a novel cryptographic singing mechanism so that it could be used over non-TLS HTTP connections. They called their protocol OAuth 1.0 and published it as an open standard on the web.&lt;/p>
+&lt;p>OAuth 1.0 was a monolithic protocol designed to provide one mechanism to solve all use cases, and it was venturing into uncomfortable territory. Soon after the publication of &lt;a href="https://datatracker.ietf.org/doc/html/rfc5849">RFC 5849&lt;/a>, the Web Resource Access Protocol (WRAP) was published. WRAP did away with many of OAuth 1.0&amp;rsquo;s more confusing and problem-prone aspects, such as its custom signature calculation mechanism. After much debate in the community, WRAP was decided on as the basis for the new OAuth 2.0 protocol. Where OAuth 1.0 was monolithic, OAuth 2.0 was modular. The modularity in OAuth 2.0 allowed it to be a framework that could be deployed and used in all of the ways that OAuth 1.0 had been in practice, but without twisting core aspects of the protocol.&lt;/p>
+&lt;p>In 2012, the core OAuth 2.0 specifications were ratified by the IETF, but the community was far from done with it. This modularity was further codified by splitting the specification into two complementary pieces:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://datatracker.ietf.org/doc/html/rfc6749">RFC 6749&lt;/a> :- details how to get a token&lt;/li>
+&lt;li>&lt;a href="https://datatracker.ietf.org/doc/html/rfc6750">RFC 6750&lt;/a> :- details how to use a particular type of token (the Bearer token) at a protected resource.&lt;/li>
+&lt;/ul>
+&lt;p>The core of &lt;a href="https://datatracker.ietf.org/doc/html/rfc6749">RFC 6749&lt;/a> details multiple ways to get a token and provides an extension mechanism. Instead of defining one complex method to fit different deployment models, OAuth 2.0 defines four different grant types, each suited to a different application type.&lt;/p>
+&lt;h2 id="oauth-20">OAuth 2.0&lt;/h2>
 &lt;p>OAuth 2.0 is an open authorization protocol, which enables application to access each other&amp;rsquo;s data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you&amp;rsquo;re logged into Google and used those credntials for any app (Sign with Google), you&amp;rsquo;ve used OAuth.&lt;/p>
 &lt;p>OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.&lt;/p>
 &lt;p>OAuth was originally designed for applications to get access to API&amp;rsquo;s (All they need to ability to access the API). OAuth doesn&amp;rsquo;t communicate with user information. OpenID communicate with user information.&lt;/p>
