@@ -25,11 +25,27 @@ The core of [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749) details mu
 
 ## OAuth 2.0
 
-OAuth 2.0 is an open authorization protocol, which enables application to access each other's data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you're logged into Google and used those credntials for any app (Sign with Google), you've used OAuth.
+OAuth 2.0 is an open authorization protocol, which enables application to access each other's data. OAuth 2.0 does not share password data but instead uses authorization tokens to prove an identity between consumers and service providers. In simple term it uses authorization process to jump from one service to another without tapping in a new username and password. If you're logged into Google and used those credentials for any app (Sign with Google), you've used OAuth.
 
 OAuth2 is the industry-standard protocol that enables secure machine-to-machine communication and grants limited access to data and services on behalf of users. The specification also covers delegated access to client types such as browser-based, server-side web, native/mobile apps, and connected devices.
 
 OAuth was originally designed for applications to get access to API's (All they need to ability to access the API). OAuth doesn't communicate with user information. OpenID communicate with user information.
+
+### What exactly OAuth 2.0 do?
+
+According to the [specification](https://datatracker.ietf.org/doc/html/rfc6749) that defines it:
+
+> The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource owner an the HTTP service, or by allowing the third-party application to obtain access on its own behalf.
+
+OAuth is all about getting the right of access from one component of a system to another. In the OAuth world, a client application wants to gain access to a protected resources on behalf of a resource owner (usually an end user).
+
+Components of OAuth:
+
+- **_Resource Owner_** - It has access to an API and can delegate access to that API. The resource owner is usually a person and is generally assumed to have access to a web browser.
+
+- **_Protected Resource_** - This is the component that the resource owner has access to. The communication can be of any form, but for the most part it's a web API of some kind. Even the name "resource" makes it sounds like this is something to be downloaded, these APIs can allow read, write, and other operations just as well.
+
+- **_Client_** - This is the piece of software that accesses the protected resources on behalf of the resource owner. The name "client" might make you think this is the web browser, but that's not how the term is used here. If you take "client" in business terms you might think of person who's paying for your services, but that's not what it is. In OAuth, the **Client** is whatever software consumes the API that makes up the protected resource. 
 
 ## OAuth 2.0 Actors
 
