@@ -255,8 +255,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="936147582" type="checkbox" />
-&lt;label for="936147582">
+&lt;input id="923465178" type="checkbox" />
+&lt;label for="923465178">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -284,8 +284,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="856923714" type="checkbox" />
-&lt;label for="856923714">
+&lt;input id="182739645" type="checkbox" />
+&lt;label for="182739645">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -421,8 +421,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="578341962" type="checkbox" />
-&lt;label for="578341962">
+&lt;input id="387521469" type="checkbox" />
+&lt;label for="387521469">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -476,8 +476,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="835214967" type="checkbox" />
-&lt;label for="835214967">
+&lt;input id="548613297" type="checkbox" />
+&lt;label for="548613297">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -506,8 +506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="574831296" type="checkbox" />
-&lt;label for="574831296">
+&lt;input id="973865241" type="checkbox" />
+&lt;label for="973865241">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -548,8 +548,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="239168745" type="checkbox" />
-&lt;label for="239168745">
+&lt;input id="697453218" type="checkbox" />
+&lt;label for="697453218">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -584,8 +584,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="968257341" type="checkbox" />
-&lt;label for="968257341">
+&lt;input id="465273981" type="checkbox" />
+&lt;label for="465273981">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -602,8 +602,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="815649372" type="checkbox" />
-&lt;label for="815649372">
+&lt;input id="769421385" type="checkbox" />
+&lt;label for="769421385">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -914,8 +914,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="237854961" type="checkbox" />
-&lt;label for="237854961">
+&lt;input id="481967253" type="checkbox" />
+&lt;label for="481967253">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -939,8 +939,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="981624735" type="checkbox" />
-&lt;label for="981624735">
+&lt;input id="936754128" type="checkbox" />
+&lt;label for="936754128">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1015,8 +1015,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="672391854" type="checkbox" />
-&lt;label for="672391854">
+&lt;input id="268943157" type="checkbox" />
+&lt;label for="268943157">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1043,8 +1043,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="528493617" type="checkbox" />
-&lt;label for="528493617">
+&lt;input id="537824691" type="checkbox" />
+&lt;label for="537824691">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1063,8 +1063,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="138765942" type="checkbox" />
-&lt;label for="138765942">
+&lt;input id="291438675" type="checkbox" />
+&lt;label for="291438675">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1082,8 +1082,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="142789563" type="checkbox" />
-&lt;label for="142789563">
+&lt;input id="629547831" type="checkbox" />
+&lt;label for="629547831">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1100,8 +1100,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="342978165" type="checkbox" />
-&lt;label for="342978165">
+&lt;input id="129754836" type="checkbox" />
+&lt;label for="129754836">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1436,6 +1436,18 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;p>&lt;strong>&lt;em>Client&lt;/em>&lt;/strong> - This is the piece of software that accesses the protected resources on behalf of the resource owner. The name &amp;ldquo;client&amp;rdquo; might make you think this is the web browser, but that&amp;rsquo;s not how the term is used here. If you take &amp;ldquo;client&amp;rdquo; in business terms you might think of person who&amp;rsquo;s paying for your services, but that&amp;rsquo;s not what it is. In OAuth, the &lt;strong>Client&lt;/strong> is whatever software consumes the API that makes up the protected resource.&lt;/p>
 &lt;/li>
 &lt;/ul>
+&lt;h3 id="credential-sharing-credential-theft">Credential Sharing (Credential Theft)&lt;/h3>
+&lt;ul>
+&lt;li>One approach, popular in the enterprise space, is to copy the user’s credentials and replay them on another service.&lt;/li>
+&lt;li>Users uses the same credentials at both the client application (eg. Photo printer) and the protected resource (eg. storage site).&lt;/li>
+&lt;li>When the user logs into the printer, the printer replays the user&amp;rsquo;s username and password at the storage site, mimicking the user&amp;rsquo;s authentication.&lt;/li>
+&lt;li>User authenticates to the client using centrally controlled credentials eg. username/password, domain session cookie.&lt;/li>
+&lt;li>Client replays the obtained credentials to the protected resource, acting as the user.&lt;/li>
+&lt;li>The protected resource assumes direct user authentication, establishing the connection between the client and the resource.&lt;/li>
+&lt;li>This approach requires that the user have the same credentials at the client application and the protected resource, which limits the effectiveness of this credential-theft technique to a single security domain.&lt;/li>
+&lt;li>Successful if the printing and storage services are offered by the same company, and the user has the same account credentials on both services.&lt;/li>
+&lt;/ul>
+&lt;h3 id="delegating-access">Delegating access&lt;/h3>
 &lt;h2 id="oauth-20-actors">OAuth 2.0 Actors&lt;/h2>
 &lt;p>OAuth 2.0 has different actors defined in the authentication and authorization process. These actors work together to ensure that the user&amp;rsquo;s information is kept secure and that the application only accesses the information that the user has explicitly granted permission for.&lt;/p>
 &lt;figure class="center" >
