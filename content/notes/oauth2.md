@@ -45,7 +45,22 @@ Components of OAuth:
 
 - **_Protected Resource_** - This is the component that the resource owner has access to. The communication can be of any form, but for the most part it's a web API of some kind. Even the name "resource" makes it sounds like this is something to be downloaded, these APIs can allow read, write, and other operations just as well.
 
-- **_Client_** - This is the piece of software that accesses the protected resources on behalf of the resource owner. The name "client" might make you think this is the web browser, but that's not how the term is used here. If you take "client" in business terms you might think of person who's paying for your services, but that's not what it is. In OAuth, the **Client** is whatever software consumes the API that makes up the protected resource. 
+- **_Client_** - This is the piece of software that accesses the protected resources on behalf of the resource owner. The name "client" might make you think this is the web browser, but that's not how the term is used here. If you take "client" in business terms you might think of person who's paying for your services, but that's not what it is. In OAuth, the **Client** is whatever software consumes the API that makes up the protected resource.
+
+### Credential Sharing (Credential Theft)
+
+- One approach, popular in the enterprise space, is to copy the user’s credentials and replay them on another service.
+- Users uses the same credentials at both the client application (eg. Photo printer) and the protected resource (eg. storage site).
+- When the user logs into the printer, the printer replays the user's username and password at the storage site, mimicking the user's authentication.
+- User authenticates to the client using centrally controlled credentials eg. username/password, domain session cookie.
+- Client replays the obtained credentials to the protected resource, acting as the user.
+- The protected resource assumes direct user authentication, establishing the connection between the client and the resource.
+- This approach requires that the user have the same credentials at the client application and the protected resource, which limits the effectiveness of this credential-theft technique to a single security domain.
+- Successful if the printing and storage services are offered by the same company, and the user has the same account credentials on both services.
+
+### Delegating access
+
+
 
 ## OAuth 2.0 Actors
 
