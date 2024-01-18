@@ -58,9 +58,26 @@ Components of OAuth:
 - This approach requires that the user have the same credentials at the client application and the protected resource, which limits the effectiveness of this credential-theft technique to a single security domain.
 - Successful if the printing and storage services are offered by the same company, and the user has the same account credentials on both services.
 
+Can't we do better than this?
+
+- Limited credential, issued separately for each client and each user combination to be used at protected resources.
+- Then we can tie limited rights to each of these limited credentials.
+- Network based protocol that allowed the generation and secure distribution of these limited credentials across security boundaries.
+- In a way that's both user-friendly and scalable to the internet as a whole?
+
 ### Delegating access
 
+OAuth is a protocol designed to do exactly above thing: in OAuth, the end user delegates some part of their authority to access the protected resources to the client application to act on their behalf.
 
+To make that happen, OAuth introduces another component into the system: **Authorization serve**
+
+**Authorization Server (AS)** :- The authorization server is trusted by the protected resources to issue special purpose security credential `called OAuth Access Token` to clients.
+
+- To get the token, the client first sends the resource owner to the authorization server in order to request that the resource owner authorize this client.
+- The resource owner authenticates to the authorization server and presented with a choice of whether to authorize the client making the request.
+- Instead of giving full access to the functionality, or scopes, resource owner can limit access.
+- Once the authorization grant has been made, then client can then request an access token from the authorization server.
+- This access token can be used at the protected resource to access the API, as granted by the resource owner.
 
 ## OAuth 2.0 Actors
 
