@@ -79,6 +79,19 @@ To make that happen, OAuth introduces another component into the system: **Autho
 - Once the authorization grant has been made, then client can then request an access token from the authorization server.
 - This access token can be used at the protected resource to access the API, as granted by the resource owner.
 
+In this process resource owner's credentials never exposed to the client. The resource owner authenticates to the authorization server separately from anything used to communicate with the client. Client doesn't have any type of high-powered developer key from which it can access the resources instead it must be authorized by a valid resource owner before it can access any protected resources.
+
+{{< figure src="/img/notes/oauth2/oauth-process-high-level.png" alt="OAuth process at a high level" position="center" style="border-radius: 8px;" caption="OAuth process at a high level" captionPosition="center" >}}
+
+- User never has to see or deal with the access token directly.
+- Instead of requiring the user to generate tokens and past them into clients, the OAuth protocol make this process easier.
+- It simple for the client to request a token and the user to authorize the client.
+- Clients can then manage the tokens, and user can manage the client application.
+
+There are several ways to get an access token using OAuth.
+
+#### Beyond HTTP Basic and the password-sharing antipattern
+
 ## OAuth 2.0 Actors
 
 OAuth 2.0 has different actors defined in the authentication and authorization process. These actors work together to ensure that the user's information is kept secure and that the application only accesses the information that the user has explicitly granted permission for.
