@@ -755,3 +755,17 @@ invalid argument: index 7 out of bounds [0:7]
 <!-- prettier-ignore-end -->
 
 ##### Underlying arrays
+
+##### Constants
+
+Constants are just Constants in Go.
+
+- Constants are created at compile time.
+- It can be Character, String, Boolean, or Numeric values.
+- Because of compile-time restriction, the expression define them must be constant expression, evaluated by a compiler.
+  > For instance, 1<<3 is a constant expression, while math.Sin(math.Pi/4) is not because the function call to math.Sin needs to happen at run time. -from [go.dev/docs/effective_go](https://go.dev/doc/effective_go#constants)
+- Constants cannot be defined using short declarations (:=).
+
+In Go, enumerated constants are created using the [iota](https://go.dev/ref/spec#Iota) enumerator.
+
+- [When and where to use iota](https://www.gopherguides.com/articles/how-to-use-iota-in-golang)
