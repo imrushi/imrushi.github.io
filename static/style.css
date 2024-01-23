@@ -11,6 +11,13 @@ a {
   background-size: 100% 200%;
   text-decoration: none;
 }
+/* Style for checkbox and text alignment in one line */
+.post-content li {
+  display: flex;
+  margin-bottom: 10px;
+  line-height: normal;
+  text-align: -webkit-match-parent;
+}
 
 /* Style for note list items */
 .note-item {
@@ -72,7 +79,7 @@ input[type="checkbox"] {
   background-color: transparent;
   border: 1px solid #23B0FF;
   border-radius: 3px;
-  margin-right: 5px;
+  margin-right: 10px;
   position: relative;
   cursor: pointer;
 }
