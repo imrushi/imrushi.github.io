@@ -16,7 +16,7 @@ a {
   display: flex;
   margin-bottom: 10px;
   line-height: normal;
-  text-align: -webkit-match-parent;
+  align-items: center;
 }
 
 /* Style for note list items */
@@ -79,7 +79,7 @@ input[type="checkbox"] {
   background-color: transparent;
   border: 1px solid #23B0FF;
   border-radius: 3px;
-  margin-right: 10px;
+  margin: 0px 10px 0px 0px;
   position: relative;
   cursor: pointer;
 }
