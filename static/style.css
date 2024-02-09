@@ -13,7 +13,7 @@ a {
 }
 /* Style for checkbox and text alignment in one line */
 .post-content li {
-  display: flex;
+  /* display: flex; */
   margin-bottom: 10px;
   line-height: normal;
   align-items: center;
