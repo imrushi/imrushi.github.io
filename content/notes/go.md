@@ -769,3 +769,102 @@ Constants are just Constants in Go.
 In Go, enumerated constants are created using the [iota](https://go.dev/ref/spec#Iota) enumerator.
 
 - [When and where to use iota](https://www.gopherguides.com/articles/how-to-use-iota-in-golang)
+
+## Embedding
+
+Not Embedding, just the declaration of two struct types working together:
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="not embedding" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type car struct {
+  name string
+  model string
+}
+
+type magazine struct {
+  company car // NOT Embedding
+  level string
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+This is embedding:
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="embedding" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+type car struct {
+  name string
+  model string
+}
+
+type magazine struct {
+  car // Value Semantic Embedding
+  level string
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+Embed a type using pointer semantics
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="pointer semantic embedding" expand="Show" collapse="Hide" isCollapsed="false" >}}
+
+type car struct {
+  name string
+  model string
+}
+
+type magazine struct {
+  *car // Pointer Semantic Embedding
+  level string
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type's name.
+
+The best way to think about embedding is to view the `car` type as an inner type and `magazine` as an outer type. It's this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Outer/inner type promotion" expand="Show" collapse="Hide" isCollapsed="false" >}}
+package main
+
+import "fmt"
+
+type car struct {
+	name  string
+	model string
+}
+
+type magazine struct {
+	*car  // Pointer Semantic Embedding
+	level string
+}
+
+func (c *car) order(quantity int) {
+	fmt.Printf("Ordering %d copies of magazine \"%s\" (%s).\n", quantity, c.name, c.model)
+}
+
+func main() {
+	mz := magazine{
+		car:   &car{name: "Honda Accord", model: "2024"},
+		level: "Gold",
+	}
+
+	mz.car.order(2)
+	mz.order(3) // Outer type promotion
+}
+
+// Output:
+// Ordering 2 copies of magazine "Honda Accord" (2024).
+// Ordering 3 copies of magazine "Honda Accord" (2024).
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+Once I add a method named `order` for `car` type and then a small main function, I can see the output is the same whether I call the `order` method through the inner pointer value directly or through the outer type value. The `order` method declared for the user type is accessible directly by the `magazine` type value.
+
+## Composition
+
+The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.
+
