@@ -868,3 +868,132 @@ Once I add a method named `order` for `car` type and then a small main function,
 
 The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.
 
+<!-- prettier-ignore-start -->
+{{< code language="go" title="cloud struct" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type Cloud struct {
+	Host    string
+	Timeout time.Duration
+}
+
+func (*Cloud) Pull(d *Data) error {
+	switch rand.Intn(10) {
+	case 1, 9:
+		return io.EOF
+	case 5:
+		return errors.New("Error reading data from Cloud")
+	default:
+		d.Line = "Data"
+		fmt.Println("In:", d.Line)
+		return nil
+	}
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The `Cloud` type represents a system that I need to pull data from. The implementation is not important. The method `Pull` can succeed, fail, or not have any data to pull.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="DB struct" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type DB struct {
+	Host    string
+	Timeout time.Duration
+}
+
+func (*DB) Store(d *Data) error {
+	fmt.Println("Out:", d.Line)
+	return nil
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The `DB` type also represents a system that I need to store data into. The method `Store` can succeed or fail.
+
+**Note**:- Above both methods implementation is not important here. Ignore the implementation.
+
+These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Pull and Store" expand="Show" collapse="Hide" isCollapsed="false" >}}
+func Pull(c *Cloud, data []Data) (int, error) {
+	for i := range data {
+		if err := c.Pull(&data[i]); err != nil {
+			return i, err
+		}
+	}
+	return len(data), nil
+}
+
+func Store(d *DB, data []Data) (int, error) {
+	for i := range data {
+		if err := d.Store(&data[i]); err != nil {
+			return i, err
+		}
+	}
+	return len(data), nil
+}
+
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Copy func" expand="Show" collapse="Hide" isCollapsed="false" >}}
+func Copy(sys *System, batch int) error {
+	data := make([]Data, batch)
+
+	for {
+		i, err := Pull(&sys.Cloud, data)
+		if i > 0 {
+			if _, err := Store(&sys.DB, data[:i]); err != nil {
+				return err
+			}
+		}
+		if err != nil {
+			return err
+		}
+	}
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it's a type called System.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="System Struct" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type System struct {
+  Cloud
+  DB
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="Main" expand="Show" collapse="Hide" isCollapsed="false" >}}
+func main() {
+	sys := System{
+		Cloud: Cloud{
+			Host:    "localhost:8000",
+			Timeout: time.Second,
+		},
+		DB: DB{
+			Host:    "localhost:9000",
+			Timeout: time.Second,
+		},
+	}
+
+	if err := Copy(&sys, 3); err != io.EOF {
+		fmt.Println(err)
+	}
+}
+
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The main function can be written to construct a Cloud and DB within th composition of a System. Then the System can be passed to the Copy function and data can begin to flow between the two systems.
+
+Now I have our first draft of a concrete solution to a concrete problem.
+
+### Decoupling With Interfaces
