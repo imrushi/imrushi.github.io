@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>golang on Rushi Panchariya</title><link>/tags/golang/</link><description>Recent content in golang on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Rushi Panchariya</title><link>/tags/golang/</link><description>Recent content in Golang on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
 History of Go Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour.</description><content>&lt;hr>
 &lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
 &lt;h2 id="history-of-go">History of Go&lt;/h2>
@@ -32,8 +32,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="672845931" type="checkbox" />
-&lt;label for="672845931">
+&lt;input id="597432861" type="checkbox" />
+&lt;label for="597432861">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -61,8 +61,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="485769213" type="checkbox" />
-&lt;label for="485769213">
+&lt;input id="651237984" type="checkbox" />
+&lt;label for="651237984">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -116,7 +116,7 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;li>
 &lt;p>The visibility of a name outside a package is determined by below points:&lt;/p>
 &lt;ul>
-&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from packages outside the current one. &lt;code>Example&lt;/code> - As you have seen in above &lt;a href="#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
+&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from packages outside the current one. &lt;code>Example&lt;/code> - As you have seen in above &lt;a href="/notes/go/#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
 &lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and only be accessed within the current package.&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -198,8 +198,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="945873621" type="checkbox" />
-&lt;label for="945873621">
+&lt;input id="892634517" type="checkbox" />
+&lt;label for="892634517">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -253,8 +253,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="319258746" type="checkbox" />
-&lt;label for="319258746">
+&lt;input id="496578132" type="checkbox" />
+&lt;label for="496578132">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -283,8 +283,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="381925467" type="checkbox" />
-&lt;label for="381925467">
+&lt;input id="642597831" type="checkbox" />
+&lt;label for="642597831">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -325,8 +325,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="167394582" type="checkbox" />
-&lt;label for="167394582">
+&lt;input id="917864523" type="checkbox" />
+&lt;label for="917864523">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -361,8 +361,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="687312549" type="checkbox" />
-&lt;label for="687312549">
+&lt;input id="253891467" type="checkbox" />
+&lt;label for="253891467">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -379,8 +379,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="839562714" type="checkbox" />
-&lt;label for="839562714">
+&lt;input id="869245317" type="checkbox" />
+&lt;label for="869245317">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -691,8 +691,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="987465321" type="checkbox" />
-&lt;label for="987465321">
+&lt;input id="246879531" type="checkbox" />
+&lt;label for="246879531">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -716,8 +716,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="867412593" type="checkbox" />
-&lt;label for="867412593">
+&lt;input id="123987654" type="checkbox" />
+&lt;label for="123987654">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -781,7 +781,7 @@ fmt.Println(notes[1]) // prints the second element
 ---Output---
 go
 ts
-&lt;/code>&lt;/pre>&lt;p>Here, we can prefer a &lt;a href="#short-variable-declaration">short variable declaration&lt;/a> with &lt;code>make&lt;/code>. A &lt;a href="#short-variable-declaration">short variable declaration&lt;/a> will infer the variable&amp;rsquo;s type for you.&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>Here, we can prefer a &lt;a href="/notes/go/#short-variable-declaration">short variable declaration&lt;/a> with &lt;code>make&lt;/code>. A &lt;a href="/notes/go/#short-variable-declaration">short variable declaration&lt;/a> will infer the variable&amp;rsquo;s type for you.&lt;/p>
 &lt;pre tabindex="0">&lt;code>// Create a slice with five integers, and set up a variable to hold it.
 numbers := make([]int, 5)
 numbers[0] = 2
@@ -792,8 +792,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="539684721" type="checkbox" />
-&lt;label for="539684721">
+&lt;input id="963728541" type="checkbox" />
+&lt;label for="963728541">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -820,8 +820,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="516982734" type="checkbox" />
-&lt;label for="516982734">
+&lt;input id="693184257" type="checkbox" />
+&lt;label for="693184257">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -840,8 +840,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="879624513" type="checkbox" />
-&lt;label for="879624513">
+&lt;input id="453189267" type="checkbox" />
+&lt;label for="453189267">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -859,8 +859,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="956841327" type="checkbox" />
-&lt;label for="956841327">
+&lt;input id="316245978" type="checkbox" />
+&lt;label for="316245978">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -877,8 +877,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="415928367" type="checkbox" />
-&lt;label for="415928367">
+&lt;input id="518293647" type="checkbox" />
+&lt;label for="518293647">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -913,8 +913,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="798215436" type="checkbox" />
-&lt;label for="798215436">
+&lt;input id="291457836" type="checkbox" />
+&lt;label for="291457836">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -934,8 +934,8 @@ level string
 &lt;p>This is embedding:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="594367218" type="checkbox" />
-&lt;label for="594367218">
+&lt;input id="734612958" type="checkbox" />
+&lt;label for="734612958">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -955,8 +955,8 @@ level string
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="619758423" type="checkbox" />
-&lt;label for="619758423">
+&lt;input id="841625973" type="checkbox" />
+&lt;label for="841625973">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -977,8 +977,8 @@ level string
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="745869321" type="checkbox" />
-&lt;label for="745869321">
+&lt;input id="673859421" type="checkbox" />
+&lt;label for="673859421">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1016,8 +1016,8 @@ mz.order(3) // Outer type promotion
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="653978421" type="checkbox" />
-&lt;label for="653978421">
+&lt;input id="316297584" type="checkbox" />
+&lt;label for="316297584">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1045,8 +1045,8 @@ return nil
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="945873126" type="checkbox" />
-&lt;label for="945873126">
+&lt;input id="521486793" type="checkbox" />
+&lt;label for="521486793">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1068,8 +1068,8 @@ return nil
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="529134867" type="checkbox" />
-&lt;label for="529134867">
+&lt;input id="385917264" type="checkbox" />
+&lt;label for="385917264">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1097,8 +1097,8 @@ return len(data), nil
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="846127539" type="checkbox" />
-&lt;label for="846127539">
+&lt;input id="798325461" type="checkbox" />
+&lt;label for="798325461">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1124,8 +1124,8 @@ return err
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="723594168" type="checkbox" />
-&lt;label for="723594168">
+&lt;input id="912478653" type="checkbox" />
+&lt;label for="912478653">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1141,8 +1141,8 @@ DB
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="785163942" type="checkbox" />
-&lt;label for="785163942">
+&lt;input id="248156973" type="checkbox" />
+&lt;label for="248156973">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>

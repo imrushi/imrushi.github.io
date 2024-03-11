@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>clean code on Rushi Panchariya</title><link>/tags/clean-code/</link><description>Recent content in clean code on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 03 Sep 2023 19:31:57 +0530</lastBuildDate><atom:link href="/tags/clean-code/index.xml" rel="self" type="application/rss+xml"/><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clean Code on Rushi Panchariya</title><link>/tags/clean-code/</link><description>Recent content in Clean Code on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 03 Sep 2023 19:31:57 +0530</lastBuildDate><atom:link href="/tags/clean-code/index.xml" rel="self" type="application/rss+xml"/><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
 As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code.</description><content>&lt;hr>
 &lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
 &lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
@@ -28,8 +28,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="972483615" type="checkbox" />
-&lt;label for="972483615">
+&lt;input id="564372891" type="checkbox" />
+&lt;label for="564372891">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -66,8 +66,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="453986217" type="checkbox" />
-&lt;label for="453986217">
+&lt;input id="675921843" type="checkbox" />
+&lt;label for="675921843">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -106,8 +106,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="689374521" type="checkbox" />
-&lt;label for="689374521">
+&lt;input id="478196235" type="checkbox" />
+&lt;label for="478196235">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -122,8 +122,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="613498527" type="checkbox" />
-&lt;label for="613498527">
+&lt;input id="536479281" type="checkbox" />
+&lt;label for="536479281">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -149,8 +149,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="798413526" type="checkbox" />
-&lt;label for="798413526">
+&lt;input id="538721946" type="checkbox" />
+&lt;label for="538721946">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -166,8 +166,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="169752483" type="checkbox" />
-&lt;label for="169752483">
+&lt;input id="978642135" type="checkbox" />
+&lt;label for="978642135">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -185,8 +185,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="328974156" type="checkbox" />
-&lt;label for="328974156">
+&lt;input id="283649157" type="checkbox" />
+&lt;label for="283649157">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -202,8 +202,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="512483679" type="checkbox" />
-&lt;label for="512483679">
+&lt;input id="471826953" type="checkbox" />
+&lt;label for="471826953">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -241,7 +241,7 @@ func ExportedFunction() {
 &lt;li>The following points determine the visibility of a name (variable, function, and type names) outside a package:
 &lt;ul>
 &lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered as &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from a package outside the current one.&lt;/li>
-&lt;li>Example - As you have seen in the above &lt;a href="#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
+&lt;li>Example - As you have seen in the above &lt;a href="/posts/go-basics-and-a-dash-of-clean-code/#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
 &lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and can only be accessed within the current package.&lt;/li>
 &lt;/ul>
 &lt;/li>

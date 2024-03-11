@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>actions on Rushi Panchariya</title><link>/tags/actions/</link><description>Recent content in actions on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 11:10:47 +0530</lastBuildDate><atom:link href="/tags/actions/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action hugo-to-medium by Prakhar Kaushik.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Actions on Rushi Panchariya</title><link>/tags/actions/</link><description>Recent content in Actions on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 11:10:47 +0530</lastBuildDate><atom:link href="/tags/actions/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action hugo-to-medium by Prakhar Kaushik.
 This GitHub action was good, but there were some issues. In Hugo, I mostly use shortcodes to showcase the sample codes, figures, and images.</description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
 &lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p>
 &lt;ul>
@@ -8,7 +8,7 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;li>Support both Markdown and Hugo Markdown formats.&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;p>&lt;strong>TL;DR&lt;/strong>: If you want to start creating a GitHub action without a backstory, head over to the &lt;a href="#creating-a-github-action">Creating a GitHub Action&lt;/a> section.&lt;/p>
+&lt;p>&lt;strong>TL;DR&lt;/strong>: If you want to start creating a GitHub action without a backstory, head over to the &lt;a href="/posts/create-github-action/#creating-a-github-action">Creating a GitHub Action&lt;/a> section.&lt;/p>
 &lt;hr>
 &lt;p>While I was researching on how to create my own or custom GitHub actions, I started with the GitHub &lt;a href="https://docs.github.com/en/actions/creating-actions">documentation&lt;/a> - it was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:&lt;/p>
 &lt;ul>
@@ -60,8 +60,8 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="576849231" type="checkbox" />
-&lt;label for="576849231">
+&lt;input id="694782153" type="checkbox" />
+&lt;label for="694782153">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -137,8 +137,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="893157642" type="checkbox" />
-&lt;label for="893157642">
+&lt;input id="624735189" type="checkbox" />
+&lt;label for="624735189">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -188,8 +188,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="849521376" type="checkbox" />
-&lt;label for="849521376">
+&lt;input id="643972185" type="checkbox" />
+&lt;label for="643972185">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -240,8 +240,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="538741692" type="checkbox" />
-&lt;label for="538741692">
+&lt;input id="279513846" type="checkbox" />
+&lt;label for="279513846">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -255,8 +255,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="713852649" type="checkbox" />
-&lt;label for="713852649">
+&lt;input id="158692437" type="checkbox" />
+&lt;label for="158692437">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -282,8 +282,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="684325791" type="checkbox" />
-&lt;label for="684325791">
+&lt;input id="312748965" type="checkbox" />
+&lt;label for="312748965">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -312,8 +312,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="275693814" type="checkbox" />
-&lt;label for="275693814">
+&lt;input id="635142879" type="checkbox" />
+&lt;label for="635142879">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -371,8 +371,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="916583247" type="checkbox" />
-&lt;label for="916583247">
+&lt;input id="736512948" type="checkbox" />
+&lt;label for="736512948">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
