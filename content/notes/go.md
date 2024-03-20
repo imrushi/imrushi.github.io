@@ -997,3 +997,52 @@ The main function can be written to construct a Cloud and DB within th compositi
 Now I have our first draft of a concrete solution to a concrete problem.
 
 ### Decoupling With Interfaces
+
+#### Methods
+
+A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword `func` and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="method" expand="Show" collapse="Hide" isCollapsed="false" >}}
+type user struct {
+	name  string
+	email string
+}
+
+func (u user) notify() {
+	fmt.Printf("Sending User Email To %s<%s>\n", u.name, u.email)
+}
+
+func (u *user) changeEmail(email string) {
+	u.email = email
+	fmt.Printf("Changed user email to %s\n", email)
+}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+The notify function is implemented with a value receiver. This means the method operates under value semantics and will operate on its own copy of the value used to make the call. (It will get the copy of value so if we update it will not affect outside method.)
+
+the changeEmail function is implemented with a pointer receiver. This means the method operates under pointer semantics and will operate on shared access to the value used to make the call. (It will update the value in struct.)
+
+#### Interfaces
+
+Interfaces give programs structure and encourage design by composition. They enable and enforce clean division between components. The standardization of interfaces can set clear and consistent expectation.
+
+Decoupling means reducing the dependencies between components and the types they use. This leads to correctness, quality and maintainability.
+
+Interface allow me to groupe concrete data together by what the data can do. **It's about focusing on what data can do and not what the data is.** Interface also help my code decouple itself from change by asking concrete data based on what it can do. It's not limited to one type of data.
+
+Interfaces should describe behavior and not state. They should be verbs and not nouns.
+
+Use an interface when:
+
+- Users of the API need to provide an implementation detail.
+- API's have multiple implementations they need to maintain internally.
+- Parts of the API that can change have been identified and require decoupling.
+
+Don't use an interface:
+
+- For the sake of using an interface.
+- To generalize an algorithm.
+- When users can declare their own interfaces.
+- If it's not clear how the interface makes the code better.
