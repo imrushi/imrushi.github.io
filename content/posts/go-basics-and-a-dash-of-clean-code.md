@@ -3,7 +3,7 @@ title: "Go: Basics and a Dash of Clean Code"
 date: "2023-09-03T19:31:57+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
-cover: "https://lh3.googleusercontent.com/pw/AIL4fc-rdeIvGqTbEDBw1djh_G8Dy1FpAUZe5kduMkdC3UH50QrQF7R3Pf4F2spL2B1Tap24ONzdohkhnRHjiGpNSivtkIEd3Q69gFQmWJlqy3ogJiitNdD9o56W9JR06yy4rSqiASmOFaGnKMByPLiVOks=w1280-h720-s-no?authuser=0"
+cover: "https://ik.imagekit.io/ruship/Go-dash.png?updatedAt=1711086060132"
 coverCredit: "Go Gopher created by Renee French and Ashley McNamara"
 categories: ["Go"]
 tags: ["go", "basics", "clean code"]

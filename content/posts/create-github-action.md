@@ -5,7 +5,7 @@ draft: false
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya"
 categories: ["GitHub"]
-cover: "https://drive.google.com/uc?export=view&id=1XQdK-jZiWjJRV2GIpGEc6ZDABzyxl03n"
+cover: "https://ik.imagekit.io/ruship/github-actions.png?updatedAt=1711085963514"
 tags: ["github", "actions", "ci/cd", "docker", "go"]
 keywords:
   [
