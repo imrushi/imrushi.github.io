@@ -71,7 +71,7 @@ enableGitInfo = true
       [[languages.en.menu.main]]
         identifier = "resume"
         name = "Resume"
-        url = "https://drive.google.com/file/d/1bwr2HSwIqLUBurvUA94q_D2xQR4lpjP1/view"
+        url = "/resume"
         weight = 4
       [[languages.en.menu.main]]
         identifier = "archive-site"
