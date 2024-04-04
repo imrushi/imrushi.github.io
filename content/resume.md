@@ -1,8 +1,8 @@
 ---
 title: "Resume"
-date: 2024-03-11T12:26:27+05:30
-draft: true
-author: "Rushi"
+date: 2024-04-04T23:58:27+05:30
+draft: false
+author: "Rushi Panchariya"
 ---
 
 [Download Resume](https://drive.usercontent.google.com/uc?id=1uHle0nhSsfW49WrK4QS9d4aiHtB1F0bR&export=download)
