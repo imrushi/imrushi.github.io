@@ -15,3 +15,7 @@ showLastUpdated: true
 - [x] System Design Interview – An insider's guide - Alex Xu
 - [x] Head First Go - Jay McGavren
 - [ ] OAuth 2 in Action - Justin Richer, Antonio Sanso
+
+- [ ] The algorithm design manual
+- [ ] How to solve it by computer
+- [ ] The Data science design manual
