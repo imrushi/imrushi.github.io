@@ -28,7 +28,7 @@ description: "In this blog, we delve into the world of Personal Access Tokens (P
 showFullContent: false
 readingTime: true
 hideComments: false
-draft: true
+draft: false
 color: "" #color from the theme settings
 ---
 
