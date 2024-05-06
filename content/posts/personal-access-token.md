@@ -1,12 +1,30 @@
 ---
-title: "Personal Access Token Implementation"
-date: "2024-03-22T13:48:34+05:30"
+title: "Personal Access Token (PAT)"
+date: "2024-05-06T14:32:34+05:30"
 author: "Rushi Panchariya"
 authorTwitter: "RushiPanchariya" #do not include @
 cover: ""
 tags: ["PAT", "Personal Access Token"]
-keywords: ["", ""]
-description: ""
+keywords:
+  [
+    "Personal Access Token",
+    "PAT",
+    "token generation",
+    "token management",
+    "token validation",
+    "HMAC",
+    "Hash-based Message Authentication Code",
+    "token expiry",
+    "OAuth2",
+    "Opaque Access Tokens",
+    "open source",
+    "third-party integration",
+    "security",
+    "go",
+    "generate PAT in go",
+    "PAT in Golang",
+  ]
+description: "In this blog, we delve into the world of Personal Access Tokens (PATs), exploring their role in modern security and authentication systems. Learn how PATs offer a secure alternative to traditional passwords, discover the key concepts behind token generation and validation, and gain practical insights into implementing PATs for enhanced access control."
 showFullContent: false
 readingTime: true
 hideComments: false
@@ -26,7 +44,7 @@ Here's why passwords can be frustrating:
 - Forgettable: Who remembers dozens of complex passwords? We all reuse passwords, which is a security risk.
 - Inflexible: Passwords are all-or-nothing. You either have access or you don't.
 
-PATs aim to solve these problems by offering a more secure and flexible way to log in.
+PATs aim to solve this problems by offering a more secure and flexible way to log in.
 
 ## What is PATs?
 
@@ -76,16 +94,14 @@ At the start, I have appended the `org_at_` prefix to the token to identify the 
 
 {{< image src="https://ik.imagekit.io/ruship/PAT/pat.png" alt="pat api" position="center" style="border-radius: 8px;" caption="Pass-by-value" captionPosition="center">}}
 
-- App will request for PAT with scopes.
+- The app will request a PAT with scopes.
 - PAT Generation will do below:
-  - Generate: this will generate token with random string and sign that token with cryptographic algorithm which is HMAC. And store the token `name, signature, scope, granted scope` against the user id.
-  - Verify: Verify will decode the token and again generates the hmac with decoded token (left side of dot) with signing key. Then it will compare both HMAC if it is equal the token is not tampered. If token not tampered it should check in database if signature entry exists.
-  - Revoke: To revoke token we need to delete token from the database.
+  - **Generate**: This will generate a token with a random string and sign that token with a cryptographic algorithm, which is HMAC[^1]. It will then store the token's name, signature, scope, granted scope against the user ID.
+  - **Verify**: Verification will decode the token and again generate the HMAC[^1] with the decoded token (left side of the dot) with the signing key. Then it will compare both HMACs[^1]; if they are equal, the token is not tampered. If the token is not tampered, it should check in the database if a signature entry exists.
+  - **Revoke**: To revoke a token, we need to delete the token from the database.
 - Database is used to store the token related information.
 
-<!-- {{< gist imrushi c025ae9c19d3b9ccba744aaaeb045fcd>}} -->
-
-As we seen above for validating/checking the token is valid we have to do database lookup. We will see the database schema for Personal Access Token.
+As we have seen above, for validating/checking if the token is valid, we have to perform a database lookup. Let's examine the database schema for Personal Access Tokens.
 
 **_PAT Table_**:
 
@@ -111,3 +127,127 @@ CREATE TABLE user_tokens (
 );
 {{< /code >}}
 <!-- prettier-ignore-end -->
+
+#### PAT Generation
+
+Generation of PAT using HMAC[^1]:
+
+- We require 32-byte long secret. We can use one global secret or rotated secret. This secret will be used as signing key in HMAC[^1].
+
+- We can take input for how long token key should be if it is not defined default should be 32-byte.
+
+- Using above token entropy, we can generate random bytes of specified length.
+
+- By given token key and signature key we can generate HMAC[^1].
+
+- In HMAC, we can use sha512 or sha256. Using one them, create hash for token key (which is data) and hash key as signature key.
+
+- With above HMAC process, we get signature. We create base64 for signature and random bytes.
+
+- Concatenate above both base64 with dot operator as separator. Example `token_base64.signature_base64`.
+
+When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.
+
+{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 pat.go>}}
+
+#### PAT Generation with Timestamp (including Token Expiry)
+
+PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.
+
+- We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.
+
+- We will create a base64 encoded string with generated random bytes and timestamp with a `~` sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.
+
+By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.
+
+This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="timestamp logic" expand="Show" collapse="Hide" isCollapsed="false" >}}
+  // generate 32-byte random string
+	tokenKey, err := RandomBytes(entropy)
+	if err != nil {
+		return "", "", err
+	}
+
+	// Adds the expiration timestamp in token
+	// time.Minute * 5 can be replace by environment variable
+	timestamp := time.Now().Add(time.Minute * 5).Unix()
+
+	// In token we have separated it with ~
+	// to detect extract the time
+	tokenContent := fmt.Sprintf("%s~%s", b64.EncodeToString(tokenKey), b64.EncodeToString([]byte(strconv.FormatInt(timestamp, 10))))
+
+	signature := generateHMAC(ctx, []byte(tokenContent), &signingKey)
+
+	encodingSignature := b64.EncodeToString(signature)
+	encodedToken := fmt.Sprintf("%s.%s", tokenContent, encodingSignature)
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+An example of token with a timestamp:
+`b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg`
+
+In the above example, the `~` separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.
+
+By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.
+
+##### PAT Verification
+
+At time of verification:
+
+- We will spilt the tokenKey with `~` and decode it.
+- And we will decode random bytes and timestamp.
+- We will generate HMAC similar to what we did in generation.
+- We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. `tokenTimestamp < time.Now().Unix()`
+
+<!-- prettier-ignore-start -->
+{{< code language="go" title="timestamp validation" expand="Show" collapse="Hide" isCollapsed="false" >}}
+  contentSplit := strings.Split(tokenKey, "~")
+	
+	// Extract timestamp from the token content
+	if len(contentSplit) != 2 {
+		return fmt.Errorf("Invalid token content format")
+	}
+
+	decodedTokenKey, err := b64.DecodeString(contentSplit[0])
+	if err != nil {
+		return err
+	}
+
+	decodedTimestamp, err := b64.DecodeString(contentSplit[1])
+	if err != nil {
+		return err
+	}
+	expectedMAC := generateHMAC(ctx, []byte(fmt.Sprintf("%s~%s", b64.EncodeToString(decodedTokenKey), b64.EncodeToString(decodedTimestamp))), &signingKey)
+	if !hmac.Equal(expectedMAC, decodedTokenSignature) {
+		return fmt.Errorf("Token signature mismatch")
+	}
+
+	tokenTimestamp, err := strconv.ParseInt(string(decodedTimestamp), 10, 64)
+	if err != nil {
+		return fmt.Errorf("Invalid token timestamp")
+	}
+
+	// Check token expiration
+	// fmt.Println(fmt.Sprintf("%v, %v", tokenTimestamp, time.Now().Unix()))
+	if tokenTimestamp < time.Now().Unix() || isRevoked(tokenSignature) {
+		// active = false
+		// c.updateActiveFlag(tokenSignature, 0)
+		return fmt.Errorf("Token expired")
+	}
+{{< /code >}}
+<!-- prettier-ignore-end -->
+
+Check the full code below for PAT with time expiry:
+
+{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 patWithTimestamp.go>}}
+
+---
+
+This research took lot of time, I am happy to share it with you. I'd like to extend my gratitude to [ORY's](https://www.ory.sh/) OpenSource community and their [Fosite](https://github.com/ory/fosite)[^2] project, from which I was able to learn about the generation and validation of Opaque Access Tokens.
+
+OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY's Fosite project for more details for only token part of [Fosite here](https://github.com/ory/fosite/tree/master/token/hmac).
+
+[^1]: HMAC: https://www.okta.com/identity-101/hmac/
+[^2]: Fosite: https://github.com/ory/fosite
