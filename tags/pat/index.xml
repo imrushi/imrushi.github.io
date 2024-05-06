@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PAT on Rushi Panchariya</title><link>/tags/pat/</link><description>Recent content in PAT on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 06 May 2024 14:32:34 +0530</lastBuildDate><atom:link href="/tags/pat/index.xml" rel="self" type="application/rss+xml"/><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.
+For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.
+This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
+&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p>
+&lt;p>Here&amp;rsquo;s why passwords can be frustrating:&lt;/p>
+&lt;ul>
+&lt;li>Leaky: Hackers can steal passwords in all sorts of ways, leaving your accounts vulnerable.&lt;/li>
+&lt;li>Forgettable: Who remembers dozens of complex passwords? We all reuse passwords, which is a security risk.&lt;/li>
+&lt;li>Inflexible: Passwords are all-or-nothing. You either have access or you don&amp;rsquo;t.&lt;/li>
+&lt;/ul>
+&lt;p>PATs aim to solve this problems by offering a more secure and flexible way to log in.&lt;/p>
+&lt;h2 id="what-is-pats">What is PATs?&lt;/h2>
+&lt;p>Personal Access Tokens (PATs) are &lt;strong>&lt;em>long strings of random characters&lt;/em>&lt;/strong> that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.&lt;/p>
+&lt;p>These tokens are stored in a database, and their validity is checked by performing a database lookup. But in this blog, I will also explain alternate approaches to checking the validity of a token. To revoke a token, you can simply delete it from the database. Once the token has been revoked, it can no longer be used.&lt;/p>
+&lt;p>PATs also called as &lt;strong>&lt;em>Opaque Access Tokens (OATs)&lt;/em>&lt;/strong> in OAuth 2.0.&lt;/p>
+&lt;p>You can check this &lt;strong>&lt;em>&lt;a href="https://www.ory.sh/docs/oauth2-oidc/jwt-access-token#opaque-access-tokens-versus-jwt">ORY documentation&lt;/a>&lt;/em>&lt;/strong> to learn more about PATs.&lt;/p>
+&lt;p>example of a PAT:&lt;/p>
+&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code>&lt;/pre>&lt;p>In above PAT on is divided in two segments with dot operator (.) on left side of dot operator is 32-byte random string with base64 encoding and on right side of dot operator we have cryptographic signature with base64 encoding which generated from 32-byte random string.&lt;/p>
+&lt;h3 id="advantages-and-characteristics">Advantages and Characteristics&lt;/h3>
+&lt;p>PAT offers several distinct advantages over traditional passwords:&lt;/p>
+&lt;ul>
+&lt;li>Enhanced Security: PATs can be granted specific permissions, limiting the potential damage if compromised.&lt;/li>
+&lt;li>Flexibility: PATs can be tailored to specific tasks or applications, enabling precise control over access privileges.&lt;/li>
+&lt;li>Third-party Integration: PAT facilitates secure integration with third-party tools and applications, eliminating the need to share passwords.&lt;/li>
+&lt;/ul>
+&lt;p>PATs are characterized by several key features:&lt;/p>
+&lt;ul>
+&lt;li>Unique Generation: Each PAT is a unique string of characters, preventing unauthorized access.&lt;/li>
+&lt;li>Granular Permission: PATs can be granted specific permissions, limiting their scope of access.&lt;/li>
+&lt;li>Revocability: PATs can be revoked at any time, effectively disabling them in cases of compromise.&lt;/li>
+&lt;/ul>
+&lt;h2 id="working--implementation">Working &amp;amp; Implementation&lt;/h2>
+&lt;p>Let&amp;rsquo;s first understand the how token is formed.&lt;/p>
+&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code>&lt;/pre>&lt;p>In the above PAT, it is divided into two segments with a dot operator (.). On the left side of the dot operator is a 32-byte random string with base64 encoding, and on the right side of the dot operator, we have a cryptographic signature with base64 encoding, which is generated from a 32-byte random string.&lt;/p>
+&lt;p>At the start, I have appended the &lt;code>org_at_&lt;/code> prefix to the token to identify the organization and token type like here &lt;code>_at_&lt;/code> is stands for &lt;code>Access Token&lt;/code>. It is not mandatory; you can skip this.&lt;/p>
+&lt;h3 id="working-overview">Working Overview&lt;/h3>
+&lt;img src="https://ik.imagekit.io/ruship/PAT/pat.png" alt="pat api" class="center" style="border-radius: 8px;" />
+&lt;ul>
+&lt;li>The app will request a PAT with scopes.&lt;/li>
+&lt;li>PAT Generation will do below:
+&lt;ul>
+&lt;li>&lt;strong>Generate&lt;/strong>: This will generate a token with a random string and sign that token with a cryptographic algorithm, which is HMAC&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. It will then store the token&amp;rsquo;s name, signature, scope, granted scope against the user ID.&lt;/li>
+&lt;li>&lt;strong>Verify&lt;/strong>: Verification will decode the token and again generate the HMAC&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> with the decoded token (left side of the dot) with the signing key. Then it will compare both HMACs&lt;sup id="fnref2:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>; if they are equal, the token is not tampered. If the token is not tampered, it should check in the database if a signature entry exists.&lt;/li>
+&lt;li>&lt;strong>Revoke&lt;/strong>: To revoke a token, we need to delete the token from the database.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Database is used to store the token related information.&lt;/li>
+&lt;/ul>
+&lt;p>As we have seen above, for validating/checking if the token is valid, we have to perform a database lookup. Let&amp;rsquo;s examine the database schema for Personal Access Tokens.&lt;/p>
+&lt;p>&lt;strong>&lt;em>PAT Table&lt;/em>&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>token_id&lt;/th>
+&lt;th>user_id&lt;/th>
+&lt;th>name&lt;/th>
+&lt;th>signature&lt;/th>
+&lt;th>scope&lt;/th>
+&lt;th>granted_scope&lt;/th>
+&lt;th>active&lt;/th>
+&lt;th>created_at&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>efaeb2c2-8654-4b83-a254-1ab1296614b2&lt;/td>
+&lt;td>6c1acbd1-602b-4235&lt;/td>
+&lt;td>token-name&lt;/td>
+&lt;td>N0_lECUd927GnG71eEKq1&amp;hellip;&lt;/td>
+&lt;td>email name&lt;/td>
+&lt;td>email&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2024-01-24 12:09:22&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="159784623" type="checkbox" />
+&lt;label for="159784623">
+&lt;span class="collapsable-code__language">sql&lt;/span>
+&lt;span class="collapsable-code__title">user token table&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-sql" >&lt;code>
+CREATE TABLE user_tokens (
+token_id VARCHAR(36) NOT NULL,
+user_id VARCHAR(36) NOT NULL,
+name VARCHAR(255) NOT NULL,
+signature VARCHAR(255) NOT NULL,
+scope TEXT NOT NULL,
+granted_scope TEXT NOT NULL,
+active INTEGER NOT NULL DEFAULT true,
+created_at TIMESTAMP NOT NULL,
+PRIMARY KEY (token_id),
+UNIQUE KEY unique_token (signature) USING BTREE,
+KEY user_id_index (user_id) USING BTREE,
+KEY name_index (name) USING BTREE
+);
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="pat-generation">PAT Generation&lt;/h4>
+&lt;p>Generation of PAT using HMAC&lt;sup id="fnref3:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>We require 32-byte long secret. We can use one global secret or rotated secret. This secret will be used as signing key in HMAC&lt;sup id="fnref4:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We can take input for how long token key should be if it is not defined default should be 32-byte.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using above token entropy, we can generate random bytes of specified length.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>By given token key and signature key we can generate HMAC&lt;sup id="fnref5:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In HMAC, we can use sha512 or sha256. Using one them, create hash for token key (which is data) and hash key as signature key.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>With above HMAC process, we get signature. We create base64 for signature and random bytes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Concatenate above both base64 with dot operator as separator. Example &lt;code>token_base64.signature_base64&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.&lt;/p>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=pat.go">&lt;/script>
+&lt;h4 id="pat-generation-with-timestamp-including-token-expiry">PAT Generation with Timestamp (including Token Expiry)&lt;/h4>
+&lt;p>PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We will create a base64 encoded string with generated random bytes and timestamp with a &lt;code>~&lt;/code> sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
+&lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="248153697" type="checkbox" />
+&lt;label for="248153697">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">timestamp logic&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// generate 32-byte random string
+tokenKey, err := RandomBytes(entropy)
+if err != nil {
+return &amp;#34;&amp;#34;, &amp;#34;&amp;#34;, err
+}
+// Adds the expiration timestamp in token
+// time.Minute * 5 can be replace by environment variable
+timestamp := time.Now().Add(time.Minute * 5).Unix()
+// In token we have separated it with ~
+// to detect extract the time
+tokenContent := fmt.Sprintf(&amp;#34;%s~%s&amp;#34;, b64.EncodeToString(tokenKey), b64.EncodeToString([]byte(strconv.FormatInt(timestamp, 10))))
+signature := generateHMAC(ctx, []byte(tokenContent), &amp;amp;signingKey)
+encodingSignature := b64.EncodeToString(signature)
+encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSignature)
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>An example of token with a timestamp:
+&lt;code>b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code>&lt;/p>
+&lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
+&lt;p>By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.&lt;/p>
+&lt;h5 id="pat-verification">PAT Verification&lt;/h5>
+&lt;p>At time of verification:&lt;/p>
+&lt;ul>
+&lt;li>We will spilt the tokenKey with &lt;code>~&lt;/code> and decode it.&lt;/li>
+&lt;li>And we will decode random bytes and timestamp.&lt;/li>
+&lt;li>We will generate HMAC similar to what we did in generation.&lt;/li>
+&lt;li>We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="263879451" type="checkbox" />
+&lt;label for="263879451">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">timestamp validation&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+contentSplit := strings.Split(tokenKey, &amp;#34;~&amp;#34;)
+// Extract timestamp from the token content
+if len(contentSplit) != 2 {
+return fmt.Errorf(&amp;#34;Invalid token content format&amp;#34;)
+}
+decodedTokenKey, err := b64.DecodeString(contentSplit[0])
+if err != nil {
+return err
+}
+decodedTimestamp, err := b64.DecodeString(contentSplit[1])
+if err != nil {
+return err
+}
+expectedMAC := generateHMAC(ctx, []byte(fmt.Sprintf(&amp;#34;%s~%s&amp;#34;, b64.EncodeToString(decodedTokenKey), b64.EncodeToString(decodedTimestamp))), &amp;amp;signingKey)
+if !hmac.Equal(expectedMAC, decodedTokenSignature) {
+return fmt.Errorf(&amp;#34;Token signature mismatch&amp;#34;)
+}
+tokenTimestamp, err := strconv.ParseInt(string(decodedTimestamp), 10, 64)
+if err != nil {
+return fmt.Errorf(&amp;#34;Invalid token timestamp&amp;#34;)
+}
+// Check token expiration
+// fmt.Println(fmt.Sprintf(&amp;#34;%v, %v&amp;#34;, tokenTimestamp, time.Now().Unix()))
+if tokenTimestamp &amp;lt; time.Now().Unix() || isRevoked(tokenSignature) {
+// active = false
+// c.updateActiveFlag(tokenSignature, 0)
+return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Check the full code below for PAT with time expiry:&lt;/p>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=patWithTimestamp.go">&lt;/script>
+&lt;hr>
+&lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>
+&lt;p>OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&amp;rsquo;s Fosite project for more details for only token part of &lt;a href="https://github.com/ory/fosite/tree/master/token/hmac">Fosite here&lt;/a>.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>HMAC: &lt;a href="https://www.okta.com/identity-101/hmac/">https://www.okta.com/identity-101/hmac/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref3:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref4:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref5:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Fosite: &lt;a href="https://github.com/ory/fosite">https://github.com/ory/fosite&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></content></item></channel></rss>

@@ -1,4 +1,241 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Resume</title><link>/resume/</link><pubDate>Thu, 04 Apr 2024 23:58:27 +0530</pubDate><guid>/resume/</guid><description>Download Resume
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rushi Panchariya</title><link>/</link><description>Recent content on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.
+For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.
+This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
+&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p>
+&lt;p>Here&amp;rsquo;s why passwords can be frustrating:&lt;/p>
+&lt;ul>
+&lt;li>Leaky: Hackers can steal passwords in all sorts of ways, leaving your accounts vulnerable.&lt;/li>
+&lt;li>Forgettable: Who remembers dozens of complex passwords? We all reuse passwords, which is a security risk.&lt;/li>
+&lt;li>Inflexible: Passwords are all-or-nothing. You either have access or you don&amp;rsquo;t.&lt;/li>
+&lt;/ul>
+&lt;p>PATs aim to solve this problems by offering a more secure and flexible way to log in.&lt;/p>
+&lt;h2 id="what-is-pats">What is PATs?&lt;/h2>
+&lt;p>Personal Access Tokens (PATs) are &lt;strong>&lt;em>long strings of random characters&lt;/em>&lt;/strong> that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.&lt;/p>
+&lt;p>These tokens are stored in a database, and their validity is checked by performing a database lookup. But in this blog, I will also explain alternate approaches to checking the validity of a token. To revoke a token, you can simply delete it from the database. Once the token has been revoked, it can no longer be used.&lt;/p>
+&lt;p>PATs also called as &lt;strong>&lt;em>Opaque Access Tokens (OATs)&lt;/em>&lt;/strong> in OAuth 2.0.&lt;/p>
+&lt;p>You can check this &lt;strong>&lt;em>&lt;a href="https://www.ory.sh/docs/oauth2-oidc/jwt-access-token#opaque-access-tokens-versus-jwt">ORY documentation&lt;/a>&lt;/em>&lt;/strong> to learn more about PATs.&lt;/p>
+&lt;p>example of a PAT:&lt;/p>
+&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code>&lt;/pre>&lt;p>In above PAT on is divided in two segments with dot operator (.) on left side of dot operator is 32-byte random string with base64 encoding and on right side of dot operator we have cryptographic signature with base64 encoding which generated from 32-byte random string.&lt;/p>
+&lt;h3 id="advantages-and-characteristics">Advantages and Characteristics&lt;/h3>
+&lt;p>PAT offers several distinct advantages over traditional passwords:&lt;/p>
+&lt;ul>
+&lt;li>Enhanced Security: PATs can be granted specific permissions, limiting the potential damage if compromised.&lt;/li>
+&lt;li>Flexibility: PATs can be tailored to specific tasks or applications, enabling precise control over access privileges.&lt;/li>
+&lt;li>Third-party Integration: PAT facilitates secure integration with third-party tools and applications, eliminating the need to share passwords.&lt;/li>
+&lt;/ul>
+&lt;p>PATs are characterized by several key features:&lt;/p>
+&lt;ul>
+&lt;li>Unique Generation: Each PAT is a unique string of characters, preventing unauthorized access.&lt;/li>
+&lt;li>Granular Permission: PATs can be granted specific permissions, limiting their scope of access.&lt;/li>
+&lt;li>Revocability: PATs can be revoked at any time, effectively disabling them in cases of compromise.&lt;/li>
+&lt;/ul>
+&lt;h2 id="working--implementation">Working &amp;amp; Implementation&lt;/h2>
+&lt;p>Let&amp;rsquo;s first understand the how token is formed.&lt;/p>
+&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code>&lt;/pre>&lt;p>In the above PAT, it is divided into two segments with a dot operator (.). On the left side of the dot operator is a 32-byte random string with base64 encoding, and on the right side of the dot operator, we have a cryptographic signature with base64 encoding, which is generated from a 32-byte random string.&lt;/p>
+&lt;p>At the start, I have appended the &lt;code>org_at_&lt;/code> prefix to the token to identify the organization and token type like here &lt;code>_at_&lt;/code> is stands for &lt;code>Access Token&lt;/code>. It is not mandatory; you can skip this.&lt;/p>
+&lt;h3 id="working-overview">Working Overview&lt;/h3>
+&lt;img src="https://ik.imagekit.io/ruship/PAT/pat.png" alt="pat api" class="center" style="border-radius: 8px;" />
+&lt;ul>
+&lt;li>The app will request a PAT with scopes.&lt;/li>
+&lt;li>PAT Generation will do below:
+&lt;ul>
+&lt;li>&lt;strong>Generate&lt;/strong>: This will generate a token with a random string and sign that token with a cryptographic algorithm, which is HMAC&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. It will then store the token&amp;rsquo;s name, signature, scope, granted scope against the user ID.&lt;/li>
+&lt;li>&lt;strong>Verify&lt;/strong>: Verification will decode the token and again generate the HMAC&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> with the decoded token (left side of the dot) with the signing key. Then it will compare both HMACs&lt;sup id="fnref2:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>; if they are equal, the token is not tampered. If the token is not tampered, it should check in the database if a signature entry exists.&lt;/li>
+&lt;li>&lt;strong>Revoke&lt;/strong>: To revoke a token, we need to delete the token from the database.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Database is used to store the token related information.&lt;/li>
+&lt;/ul>
+&lt;p>As we have seen above, for validating/checking if the token is valid, we have to perform a database lookup. Let&amp;rsquo;s examine the database schema for Personal Access Tokens.&lt;/p>
+&lt;p>&lt;strong>&lt;em>PAT Table&lt;/em>&lt;/strong>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>token_id&lt;/th>
+&lt;th>user_id&lt;/th>
+&lt;th>name&lt;/th>
+&lt;th>signature&lt;/th>
+&lt;th>scope&lt;/th>
+&lt;th>granted_scope&lt;/th>
+&lt;th>active&lt;/th>
+&lt;th>created_at&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>efaeb2c2-8654-4b83-a254-1ab1296614b2&lt;/td>
+&lt;td>6c1acbd1-602b-4235&lt;/td>
+&lt;td>token-name&lt;/td>
+&lt;td>N0_lECUd927GnG71eEKq1&amp;hellip;&lt;/td>
+&lt;td>email name&lt;/td>
+&lt;td>email&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2024-01-24 12:09:22&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="159784623" type="checkbox" />
+&lt;label for="159784623">
+&lt;span class="collapsable-code__language">sql&lt;/span>
+&lt;span class="collapsable-code__title">user token table&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-sql" >&lt;code>
+CREATE TABLE user_tokens (
+token_id VARCHAR(36) NOT NULL,
+user_id VARCHAR(36) NOT NULL,
+name VARCHAR(255) NOT NULL,
+signature VARCHAR(255) NOT NULL,
+scope TEXT NOT NULL,
+granted_scope TEXT NOT NULL,
+active INTEGER NOT NULL DEFAULT true,
+created_at TIMESTAMP NOT NULL,
+PRIMARY KEY (token_id),
+UNIQUE KEY unique_token (signature) USING BTREE,
+KEY user_id_index (user_id) USING BTREE,
+KEY name_index (name) USING BTREE
+);
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;h4 id="pat-generation">PAT Generation&lt;/h4>
+&lt;p>Generation of PAT using HMAC&lt;sup id="fnref3:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>We require 32-byte long secret. We can use one global secret or rotated secret. This secret will be used as signing key in HMAC&lt;sup id="fnref4:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We can take input for how long token key should be if it is not defined default should be 32-byte.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Using above token entropy, we can generate random bytes of specified length.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>By given token key and signature key we can generate HMAC&lt;sup id="fnref5:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In HMAC, we can use sha512 or sha256. Using one them, create hash for token key (which is data) and hash key as signature key.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>With above HMAC process, we get signature. We create base64 for signature and random bytes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Concatenate above both base64 with dot operator as separator. Example &lt;code>token_base64.signature_base64&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.&lt;/p>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=pat.go">&lt;/script>
+&lt;h4 id="pat-generation-with-timestamp-including-token-expiry">PAT Generation with Timestamp (including Token Expiry)&lt;/h4>
+&lt;p>PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>We will create a base64 encoded string with generated random bytes and timestamp with a &lt;code>~&lt;/code> sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
+&lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="248153697" type="checkbox" />
+&lt;label for="248153697">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">timestamp logic&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+// generate 32-byte random string
+tokenKey, err := RandomBytes(entropy)
+if err != nil {
+return &amp;#34;&amp;#34;, &amp;#34;&amp;#34;, err
+}
+// Adds the expiration timestamp in token
+// time.Minute * 5 can be replace by environment variable
+timestamp := time.Now().Add(time.Minute * 5).Unix()
+// In token we have separated it with ~
+// to detect extract the time
+tokenContent := fmt.Sprintf(&amp;#34;%s~%s&amp;#34;, b64.EncodeToString(tokenKey), b64.EncodeToString([]byte(strconv.FormatInt(timestamp, 10))))
+signature := generateHMAC(ctx, []byte(tokenContent), &amp;amp;signingKey)
+encodingSignature := b64.EncodeToString(signature)
+encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSignature)
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>An example of token with a timestamp:
+&lt;code>b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code>&lt;/p>
+&lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
+&lt;p>By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.&lt;/p>
+&lt;h5 id="pat-verification">PAT Verification&lt;/h5>
+&lt;p>At time of verification:&lt;/p>
+&lt;ul>
+&lt;li>We will spilt the tokenKey with &lt;code>~&lt;/code> and decode it.&lt;/li>
+&lt;li>And we will decode random bytes and timestamp.&lt;/li>
+&lt;li>We will generate HMAC similar to what we did in generation.&lt;/li>
+&lt;li>We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;div class="collapsable-code">
+&lt;input id="263879451" type="checkbox" />
+&lt;label for="263879451">
+&lt;span class="collapsable-code__language">go&lt;/span>
+&lt;span class="collapsable-code__title">timestamp validation&lt;/span>
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
+&lt;/label>
+&lt;pre class="language-go" >&lt;code>
+contentSplit := strings.Split(tokenKey, &amp;#34;~&amp;#34;)
+// Extract timestamp from the token content
+if len(contentSplit) != 2 {
+return fmt.Errorf(&amp;#34;Invalid token content format&amp;#34;)
+}
+decodedTokenKey, err := b64.DecodeString(contentSplit[0])
+if err != nil {
+return err
+}
+decodedTimestamp, err := b64.DecodeString(contentSplit[1])
+if err != nil {
+return err
+}
+expectedMAC := generateHMAC(ctx, []byte(fmt.Sprintf(&amp;#34;%s~%s&amp;#34;, b64.EncodeToString(decodedTokenKey), b64.EncodeToString(decodedTimestamp))), &amp;amp;signingKey)
+if !hmac.Equal(expectedMAC, decodedTokenSignature) {
+return fmt.Errorf(&amp;#34;Token signature mismatch&amp;#34;)
+}
+tokenTimestamp, err := strconv.ParseInt(string(decodedTimestamp), 10, 64)
+if err != nil {
+return fmt.Errorf(&amp;#34;Invalid token timestamp&amp;#34;)
+}
+// Check token expiration
+// fmt.Println(fmt.Sprintf(&amp;#34;%v, %v&amp;#34;, tokenTimestamp, time.Now().Unix()))
+if tokenTimestamp &amp;lt; time.Now().Unix() || isRevoked(tokenSignature) {
+// active = false
+// c.updateActiveFlag(tokenSignature, 0)
+return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
+}
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;!-- raw HTML omitted -->
+&lt;p>Check the full code below for PAT with time expiry:&lt;/p>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=patWithTimestamp.go">&lt;/script>
+&lt;hr>
+&lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>
+&lt;p>OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&amp;rsquo;s Fosite project for more details for only token part of &lt;a href="https://github.com/ory/fosite/tree/master/token/hmac">Fosite here&lt;/a>.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>HMAC: &lt;a href="https://www.okta.com/identity-101/hmac/">https://www.okta.com/identity-101/hmac/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref3:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref4:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref5:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Fosite: &lt;a href="https://github.com/ory/fosite">https://github.com/ory/fosite&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></content></item><item><title>Resume</title><link>/resume/</link><pubDate>Thu, 04 Apr 2024 23:58:27 +0530</pubDate><guid>/resume/</guid><description>Download Resume
 Rushi Panchariya | Software Engineer Eduction SANDIP INSTITUTE OF ENGINEERING AND MANAGEMENT, PUNE UNIVERSITY
 B.E: COMPUTER ENGINEERING | 2018 - 2021 Technical Skills Languages: - Primary : Golang - Trivial Exp : Python, TypeScript, Java, Javascript - Non-Trival Exp : C, C++ Tools and Frameworks: - Web - Frameworks : Angular, React - Hypermedia : HTML 5, CSS 3, JavaScript - REST : Golang, NodeJS(ExpressJS), Flask - Mobile - Fremeworks : Flutter - Database - Relational : MySQL, PostgreSQL - No-SQL : MongoDB, Redis - Time Series : Elasticsearch,InfluxDB - Meta - Cloud : Azure - Containers : Docker, Kubernetes - CI/CD : Jenkins, GitHub Actions, Ansible - Virtualization: VMWare VSpher, Virtual Box - Monitoring : Kibana - Version Control: Git - Templating : Cloud-init - OAuth2 and OpenID Connect: ORY Hydra, Keycloak - Editores : VS Code, Neovim Experience ESDS Software Solutions : Software Engineer Apr 2021 - Present Led the implementation of Keycloak SSO for an organization project, coordinating with developers.</description><content>&lt;p>&lt;a href="https://drive.usercontent.google.com/uc?id=1uHle0nhSsfW49WrK4QS9d4aiHtB1F0bR&amp;export=download">Download Resume&lt;/a>&lt;/p>
 &lt;h3 id="rushi-panchariya--software-engineer">Rushi Panchariya | Software Engineer&lt;/h3>
@@ -187,8 +424,8 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="438562197" type="checkbox" />
-&lt;label for="438562197">
+&lt;input id="293564781" type="checkbox" />
+&lt;label for="293564781">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -264,8 +501,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="583421967" type="checkbox" />
-&lt;label for="583421967">
+&lt;input id="512396847" type="checkbox" />
+&lt;label for="512396847">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -315,8 +552,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="758342169" type="checkbox" />
-&lt;label for="758342169">
+&lt;input id="436285971" type="checkbox" />
+&lt;label for="436285971">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -367,8 +604,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="748315962" type="checkbox" />
-&lt;label for="748315962">
+&lt;input id="825347196" type="checkbox" />
+&lt;label for="825347196">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -382,8 +619,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="756943218" type="checkbox" />
-&lt;label for="756943218">
+&lt;input id="859271463" type="checkbox" />
+&lt;label for="859271463">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -409,8 +646,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="589274613" type="checkbox" />
-&lt;label for="589274613">
+&lt;input id="384569271" type="checkbox" />
+&lt;label for="384569271">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -439,8 +676,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="435697281" type="checkbox" />
-&lt;label for="435697281">
+&lt;input id="138495726" type="checkbox" />
+&lt;label for="138495726">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -498,8 +735,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="439562817" type="checkbox" />
-&lt;label for="439562817">
+&lt;input id="395146278" type="checkbox" />
+&lt;label for="395146278">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -802,8 +1039,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="762541839" type="checkbox" />
-&lt;label for="762541839">
+&lt;input id="712589346" type="checkbox" />
+&lt;label for="712589346">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -840,8 +1077,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="968325714" type="checkbox" />
-&lt;label for="968325714">
+&lt;input id="961254738" type="checkbox" />
+&lt;label for="961254738">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -880,8 +1117,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="865941273" type="checkbox" />
-&lt;label for="865941273">
+&lt;input id="745186923" type="checkbox" />
+&lt;label for="745186923">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -896,8 +1133,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="945732861" type="checkbox" />
-&lt;label for="945732861">
+&lt;input id="786149325" type="checkbox" />
+&lt;label for="786149325">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -923,8 +1160,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="397218465" type="checkbox" />
-&lt;label for="397218465">
+&lt;input id="756213894" type="checkbox" />
+&lt;label for="756213894">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -940,8 +1177,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="437689152" type="checkbox" />
-&lt;label for="437689152">
+&lt;input id="971653284" type="checkbox" />
+&lt;label for="971653284">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -959,8 +1196,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="284561937" type="checkbox" />
-&lt;label for="284561937">
+&lt;input id="345186297" type="checkbox" />
+&lt;label for="345186297">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -976,8 +1213,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="978431625" type="checkbox" />
-&lt;label for="978431625">
+&lt;input id="473256198" type="checkbox" />
+&lt;label for="473256198">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1144,8 +1381,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="256387149" type="checkbox" />
-&lt;label for="256387149">
+&lt;input id="574893612" type="checkbox" />
+&lt;label for="574893612">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1173,8 +1410,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="291745386" type="checkbox" />
-&lt;label for="291745386">
+&lt;input id="189732546" type="checkbox" />
+&lt;label for="189732546">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1310,8 +1547,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="571498263" type="checkbox" />
-&lt;label for="571498263">
+&lt;input id="375289416" type="checkbox" />
+&lt;label for="375289416">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1365,8 +1602,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="731284596" type="checkbox" />
-&lt;label for="731284596">
+&lt;input id="827543691" type="checkbox" />
+&lt;label for="827543691">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1395,8 +1632,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="951248763" type="checkbox" />
-&lt;label for="951248763">
+&lt;input id="357482196" type="checkbox" />
+&lt;label for="357482196">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1437,8 +1674,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="945328617" type="checkbox" />
-&lt;label for="945328617">
+&lt;input id="879461352" type="checkbox" />
+&lt;label for="879461352">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1473,8 +1710,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="254891673" type="checkbox" />
-&lt;label for="254891673">
+&lt;input id="176325948" type="checkbox" />
+&lt;label for="176325948">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1491,8 +1728,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="839241576" type="checkbox" />
-&lt;label for="839241576">
+&lt;input id="917254863" type="checkbox" />
+&lt;label for="917254863">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1803,8 +2040,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="973152468" type="checkbox" />
-&lt;label for="973152468">
+&lt;input id="627958134" type="checkbox" />
+&lt;label for="627958134">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1828,8 +2065,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="147328659" type="checkbox" />
-&lt;label for="147328659">
+&lt;input id="362891574" type="checkbox" />
+&lt;label for="362891574">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1904,8 +2141,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="356981724" type="checkbox" />
-&lt;label for="356981724">
+&lt;input id="981675234" type="checkbox" />
+&lt;label for="981675234">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1932,8 +2169,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="694123587" type="checkbox" />
-&lt;label for="694123587">
+&lt;input id="921473658" type="checkbox" />
+&lt;label for="921473658">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1952,8 +2189,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="621894573" type="checkbox" />
-&lt;label for="621894573">
+&lt;input id="173648295" type="checkbox" />
+&lt;label for="173648295">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1971,8 +2208,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="652918347" type="checkbox" />
-&lt;label for="652918347">
+&lt;input id="619248537" type="checkbox" />
+&lt;label for="619248537">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1989,8 +2226,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="459381627" type="checkbox" />
-&lt;label for="459381627">
+&lt;input id="651427938" type="checkbox" />
+&lt;label for="651427938">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2025,8 +2262,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="245781936" type="checkbox" />
-&lt;label for="245781936">
+&lt;input id="168943527" type="checkbox" />
+&lt;label for="168943527">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2046,8 +2283,8 @@ level string
 &lt;p>This is embedding:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="431692857" type="checkbox" />
-&lt;label for="431692857">
+&lt;input id="654127893" type="checkbox" />
+&lt;label for="654127893">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2067,8 +2304,8 @@ level string
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="187396425" type="checkbox" />
-&lt;label for="187396425">
+&lt;input id="169827534" type="checkbox" />
+&lt;label for="169827534">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2089,8 +2326,8 @@ level string
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="624153789" type="checkbox" />
-&lt;label for="624153789">
+&lt;input id="164382975" type="checkbox" />
+&lt;label for="164382975">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2128,8 +2365,8 @@ mz.order(3) // Outer type promotion
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="934157862" type="checkbox" />
-&lt;label for="934157862">
+&lt;input id="856493217" type="checkbox" />
+&lt;label for="856493217">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2157,8 +2394,8 @@ return nil
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="381296745" type="checkbox" />
-&lt;label for="381296745">
+&lt;input id="312968457" type="checkbox" />
+&lt;label for="312968457">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2180,8 +2417,8 @@ return nil
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="813246597" type="checkbox" />
-&lt;label for="813246597">
+&lt;input id="735942816" type="checkbox" />
+&lt;label for="735942816">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2209,8 +2446,8 @@ return len(data), nil
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="386752491" type="checkbox" />
-&lt;label for="386752491">
+&lt;input id="374192865" type="checkbox" />
+&lt;label for="374192865">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2236,8 +2473,8 @@ return err
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="248371596" type="checkbox" />
-&lt;label for="248371596">
+&lt;input id="496813257" type="checkbox" />
+&lt;label for="496813257">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2253,8 +2490,8 @@ DB
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="231867954" type="checkbox" />
-&lt;label for="231867954">
+&lt;input id="491527638" type="checkbox" />
+&lt;label for="491527638">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2285,8 +2522,8 @@ fmt.Println(err)
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="745932186" type="checkbox" />
-&lt;label for="745932186">
+&lt;input id="324915768" type="checkbox" />
+&lt;label for="324915768">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2694,7 +2931,7 @@ Single Server Setup In any system development journey, it&amp;rsquo;s best to be
 &lt;img src="https://images2.imgbox.com/4d/c6/rYoOV6yD_o.png" alt="actors" style="border-radius: 8px;" />
 &lt;figcaption class="center" >OAuth2 Actors&lt;/figcaption>
 &lt;/figure></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>Hi there Hello, I am Rushi Panchariya. I&amp;rsquo;m Software Engineer with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.
-I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.</description><content>&lt;h1 id="hi-there-hahahugoshortcode2s0hbhb">Hi there
+I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.</description><content>&lt;h1 id="hi-there-hahahugoshortcode3s0hbhb">Hi there
 &lt;img src="/img/pikachu-running.gif" class="left" style="width: 50px;" />
 &lt;/h1>
 &lt;p>Hello, I am Rushi Panchariya. I&amp;rsquo;m &lt;strong>Software Engineer&lt;/strong> with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.&lt;/p>
