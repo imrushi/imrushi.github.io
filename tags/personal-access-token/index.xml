@@ -10,7 +10,7 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;li>Inflexible: Passwords are all-or-nothing. You either have access or you don&amp;rsquo;t.&lt;/li>
 &lt;/ul>
 &lt;p>PATs aim to solve this problems by offering a more secure and flexible way to log in.&lt;/p>
-&lt;h2 id="what-is-pats">What is PATs?&lt;/h2>
+&lt;h2 id="what-are-pats">What are PATs?&lt;/h2>
 &lt;p>Personal Access Tokens (PATs) are &lt;strong>&lt;em>long strings of random characters&lt;/em>&lt;/strong> that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.&lt;/p>
 &lt;p>These tokens are stored in a database, and their validity is checked by performing a database lookup. But in this blog, I will also explain alternate approaches to checking the validity of a token. To revoke a token, you can simply delete it from the database. Once the token has been revoked, it can no longer be used.&lt;/p>
 &lt;p>PATs also called as &lt;strong>&lt;em>Opaque Access Tokens (OATs)&lt;/em>&lt;/strong> in OAuth 2.0.&lt;/p>
@@ -79,8 +79,8 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/table>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="849367125" type="checkbox" />
-&lt;label for="849367125">
+&lt;input id="645327819" type="checkbox" />
+&lt;label for="645327819">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -230,8 +230,8 @@ KEY name_index (name) USING BTREE
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="938427561" type="checkbox" />
-&lt;label for="938427561">
+&lt;input id="967254813" type="checkbox" />
+&lt;label for="967254813">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -259,17 +259,17 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
 &lt;p>By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.&lt;/p>
 &lt;h5 id="pat-verification">PAT Verification&lt;/h5>
-&lt;p>At time of verification:&lt;/p>
+&lt;p>At time of verification we will:&lt;/p>
 &lt;ul>
-&lt;li>We will spilt the tokenKey with &lt;code>~&lt;/code> and decode it.&lt;/li>
-&lt;li>And we will decode random bytes and timestamp.&lt;/li>
-&lt;li>We will generate HMAC similar to what we did in generation.&lt;/li>
-&lt;li>We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
+&lt;li>Split the tokenKey with &lt;code>~&lt;/code> and decode it.&lt;/li>
+&lt;li>Decode random bytes and timestamp.&lt;/li>
+&lt;li>Generate HMAC similar to what we did in generation.&lt;/li>
+&lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="864235917" type="checkbox" />
-&lt;label for="864235917">
+&lt;input id="163948572" type="checkbox" />
+&lt;label for="163948572">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
