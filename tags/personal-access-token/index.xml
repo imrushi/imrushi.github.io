@@ -79,8 +79,8 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/table>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="159784623" type="checkbox" />
-&lt;label for="159784623">
+&lt;input id="849367125" type="checkbox" />
+&lt;label for="849367125">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -129,7 +129,93 @@ KEY name_index (name) USING BTREE
 &lt;/li>
 &lt;/ul>
 &lt;p>When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.&lt;/p>
-&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=pat.go">&lt;/script>
+&lt;h5 id="implementation">Implementation&lt;/h5>
+&lt;p>&lt;strong>&lt;em>main.go&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Setting the token entropy to 32-byte for generating random bytes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Creating context for managing cancellation signals and deadlines across API boundaries.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Generate function generates and encoded token and signature for provided context(request).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Validate function verifies provided token and signature.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=main.go">&lt;/script>
+&lt;p>&lt;strong>&lt;em>Generate function&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a signing key array with a length of 32 bytes and copy the secret into it.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Generate random bytes array of length equal to entropy.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Generate an HMAC signature using the generated random string and the signing key.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a new hasher using SHA512/256.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create a new HMAC instance using the hasher and the provided key.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Write the data into the HMAC.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Sum the HMAC and return the result.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Encode the signature using base64.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Store it in Database for later validation of token.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Concatenate the base64-encoded random string and the encoded signature with a dot.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Return the encoded token, encoded signature, and nil error.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=generateFunction.go">&lt;/script>
+&lt;p>&lt;strong>&lt;em>Validate function&lt;/em>&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Decode the base64-encoded token and signature.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Generate the HMAC signature using the decoded token and the signing key.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a new hasher using SHA512/256.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create a new HMAC instance using the hasher and the provided key.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Write the data into the HMAC.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Sum the HMAC and return the result.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Encode the signature using base64.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Compare the generated HMAC signature with the encoded signature.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=validateFunction.go">&lt;/script>
+&lt;p>Check out full &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-pat-go">code here&lt;/a>.&lt;/p>
 &lt;h4 id="pat-generation-with-timestamp-including-token-expiry">PAT Generation with Timestamp (including Token Expiry)&lt;/h4>
 &lt;p>PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.&lt;/p>
 &lt;ul>
@@ -144,8 +230,8 @@ KEY name_index (name) USING BTREE
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="248153697" type="checkbox" />
-&lt;label for="248153697">
+&lt;input id="938427561" type="checkbox" />
+&lt;label for="938427561">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -182,8 +268,8 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="263879451" type="checkbox" />
-&lt;label for="263879451">
+&lt;input id="864235917" type="checkbox" />
+&lt;label for="864235917">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -220,8 +306,7 @@ return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
 &lt;/code>&lt;/pre>
 &lt;/div>
 &lt;!-- raw HTML omitted -->
-&lt;p>Check the full code below for PAT with time expiry:&lt;/p>
-&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=patWithTimestamp.go">&lt;/script>
+&lt;p>Check the full code for PAT with time expiry &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go">here&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>
 &lt;p>OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&amp;rsquo;s Fosite project for more details for only token part of &lt;a href="https://github.com/ory/fosite/tree/master/token/hmac">Fosite here&lt;/a>.&lt;/p>

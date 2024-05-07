@@ -33,6 +33,33 @@ In HMAC, we can use sha512 or sha256. Using one them, create hash for token key 
 With above HMAC process, we get signature. We create base64 for signature and random bytes.
 Concatenate above both base64 with dot operator as separator. Example token_base64.signature_base64.
 When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.
+Implementation main.go:
+Setting the token entropy to 32-byte for generating random bytes.
+Creating context for managing cancellation signals and deadlines across API boundaries.
+Generate function generates and encoded token and signature for provided context(request).
+Validate function verifies provided token and signature.
+Generate function:
+Create a signing key array with a length of 32 bytes and copy the secret into it.
+Generate random bytes array of length equal to entropy.
+Generate an HMAC signature using the generated random string and the signing key.
+Create a new hasher using SHA512/256.
+Create a new HMAC instance using the hasher and the provided key.
+Write the data into the HMAC.
+Sum the HMAC and return the result.
+Encode the signature using base64.
+Store it in Database for later validation of token.
+Concatenate the base64-encoded random string and the encoded signature with a dot.
+Return the encoded token, encoded signature, and nil error.
+Validate function:
+Decode the base64-encoded token and signature.
+Generate the HMAC signature using the decoded token and the signing key.
+Create a new hasher using SHA512/256.
+Create a new HMAC instance using the hasher and the provided key.
+Write the data into the HMAC.
+Sum the HMAC and return the result.
+Encode the signature using base64.
+Compare the generated HMAC signature with the encoded signature.
+Check out full code here.
 PAT Generation with Timestamp (including Token Expiry) PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.
 We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.
 We will create a base64 encoded string with generated random bytes and timestamp with a ~ sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.
@@ -42,7 +69,7 @@ go timestamp logic // generate 32-byte random string tokenKey, err := RandomByte
 In the above example, the ~ separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.
 By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.
 PAT Verification At time of verification:
-We will spilt the tokenKey with ~ and decode it. And we will decode random bytes and timestamp. We will generate HMAC similar to what we did in generation. We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. tokenTimestamp &lt; time.Now().Unix() go timestamp validation contentSplit := strings.Split(tokenKey, &#34;~&#34;) // Extract timestamp from the token content if len(contentSplit) != 2 { return fmt.Errorf(&#34;Invalid token content format&#34;) } decodedTokenKey, err := b64.DecodeString(contentSplit[0]) if err != nil { return err } decodedTimestamp, err := b64.DecodeString(contentSplit[1]) if err != nil { return err } expectedMAC := generateHMAC(ctx, []byte(fmt.Sprintf(&#34;%s~%s&#34;, b64.EncodeToString(decodedTokenKey), b64.EncodeToString(decodedTimestamp))), &amp;signingKey) if !hmac.Equal(expectedMAC, decodedTokenSignature) { return fmt.Errorf(&#34;Token signature mismatch&#34;) } tokenTimestamp, err := strconv.ParseInt(string(decodedTimestamp), 10, 64) if err != nil { return fmt.Errorf(&#34;Invalid token timestamp&#34;) } // Check token expiration // fmt.Println(fmt.Sprintf(&#34;%v, %v&#34;, tokenTimestamp, time.Now().Unix())) if tokenTimestamp &lt; time.Now().Unix() || isRevoked(tokenSignature) { // active = false // c.updateActiveFlag(tokenSignature, 0) return fmt.Errorf(&#34;Token expired&#34;) } Check the full code below for PAT with time expiry:
+We will spilt the tokenKey with ~ and decode it. And we will decode random bytes and timestamp. We will generate HMAC similar to what we did in generation. We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. tokenTimestamp &lt; time.Now().Unix() go timestamp validation contentSplit := strings.Split(tokenKey, &#34;~&#34;) // Extract timestamp from the token content if len(contentSplit) != 2 { return fmt.Errorf(&#34;Invalid token content format&#34;) } decodedTokenKey, err := b64.DecodeString(contentSplit[0]) if err != nil { return err } decodedTimestamp, err := b64.DecodeString(contentSplit[1]) if err != nil { return err } expectedMAC := generateHMAC(ctx, []byte(fmt.Sprintf(&#34;%s~%s&#34;, b64.EncodeToString(decodedTokenKey), b64.EncodeToString(decodedTimestamp))), &amp;signingKey) if !hmac.Equal(expectedMAC, decodedTokenSignature) { return fmt.Errorf(&#34;Token signature mismatch&#34;) } tokenTimestamp, err := strconv.ParseInt(string(decodedTimestamp), 10, 64) if err != nil { return fmt.Errorf(&#34;Invalid token timestamp&#34;) } // Check token expiration // fmt.Println(fmt.Sprintf(&#34;%v, %v&#34;, tokenTimestamp, time.Now().Unix())) if tokenTimestamp &lt; time.Now().Unix() || isRevoked(tokenSignature) { // active = false // c.updateActiveFlag(tokenSignature, 0) return fmt.Errorf(&#34;Token expired&#34;) } Check the full code for PAT with time expiry here.
 This research took lot of time, I am happy to share it with you. I&rsquo;d like to extend my gratitude to ORY&rsquo;s OpenSource community and their Fosite2 project, from which I was able to learn about the generation and validation of Opaque Access Tokens.
 OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&rsquo;s Fosite project for more details for only token part of Fosite here.
 HMAC: https://www.okta.com/identity-101/hmac/&#160;&#x21a9;&#xfe0e;&#160;&#x21a9;&#xfe0e;&#160;&#x21a9;&#xfe0e;&#160;&#x21a9;&#xfe0e;&#160;&#x21a9;&#xfe0e;&#160;&#x21a9;&#xfe0e;
