@@ -46,7 +46,7 @@ Here's why passwords can be frustrating:
 
 PATs aim to solve this problems by offering a more secure and flexible way to log in.
 
-## What is PATs?
+## What are PATs?
 
 Personal Access Tokens (PATs) are **_long strings of random characters_** that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.
 
@@ -254,12 +254,12 @@ By implementing token expiry, we ensure that even if a token is intercepted, its
 
 ##### PAT Verification
 
-At time of verification:
+At time of verification we will:
 
-- We will spilt the tokenKey with `~` and decode it.
-- And we will decode random bytes and timestamp.
-- We will generate HMAC similar to what we did in generation.
-- We will check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. `tokenTimestamp < time.Now().Unix()`
+- Split the tokenKey with `~` and decode it.
+- Decode random bytes and timestamp.
+- Generate HMAC similar to what we did in generation.
+- Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. `tokenTimestamp < time.Now().Unix()`
 
 <!-- prettier-ignore-start -->
 {{< code language="go" title="timestamp validation" expand="Show" collapse="Hide" isCollapsed="false" >}}
