@@ -148,7 +148,67 @@ Generation of PAT using HMAC[^1]:
 
 When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.
 
-{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 pat.go>}}
+##### Implementation
+
+**_main.go_**:
+
+- Setting the token entropy to 32-byte for generating random bytes.
+
+- Creating context for managing cancellation signals and deadlines across API boundaries.
+
+- Generate function generates and encoded token and signature for provided context(request).
+
+- Validate function verifies provided token and signature.
+
+{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 main.go>}}
+
+**_Generate function_**:
+
+- Create a signing key array with a length of 32 bytes and copy the secret into it.
+
+- Generate random bytes array of length equal to entropy.
+
+- Generate an HMAC signature using the generated random string and the signing key.
+
+  - Create a new hasher using SHA512/256.
+
+  - Create a new HMAC instance using the hasher and the provided key.
+
+  - Write the data into the HMAC.
+
+  - Sum the HMAC and return the result.
+
+- Encode the signature using base64.
+
+- Store it in Database for later validation of token.
+
+- Concatenate the base64-encoded random string and the encoded signature with a dot.
+
+- Return the encoded token, encoded signature, and nil error.
+
+{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 generateFunction.go>}}
+
+**_Validate function_**:
+
+- Decode the base64-encoded token and signature.
+
+- Generate the HMAC signature using the decoded token and the signing key.
+
+  - Create a new hasher using SHA512/256.
+
+  - Create a new HMAC instance using the hasher and the provided key.
+
+  - Write the data into the HMAC.
+
+  - Sum the HMAC and return the result.
+
+- Encode the signature using base64.
+
+- Compare the generated HMAC signature with the encoded signature.
+
+{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 validateFunction.go>}}
+
+Check out full [code here](https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-pat-go).
 
 #### PAT Generation with Timestamp (including Token Expiry)
 
@@ -239,9 +299,7 @@ At time of verification:
 {{< /code >}}
 <!-- prettier-ignore-end -->
 
-Check the full code below for PAT with time expiry:
-
-{{< gist imrushi 7c5b97e460bbd6c0165852e903498a50 patWithTimestamp.go>}}
+Check the full code for PAT with time expiry [here](https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go).
 
 ---
 
