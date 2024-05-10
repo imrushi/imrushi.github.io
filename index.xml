@@ -79,8 +79,8 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/table>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="819235746" type="checkbox" />
-&lt;label for="819235746">
+&lt;input id="359842761" type="checkbox" />
+&lt;label for="359842761">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -230,8 +230,8 @@ KEY name_index (name) USING BTREE
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="239416758" type="checkbox" />
-&lt;label for="239416758">
+&lt;input id="268179435" type="checkbox" />
+&lt;label for="268179435">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -268,8 +268,8 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="548329671" type="checkbox" />
-&lt;label for="548329671">
+&lt;input id="723568941" type="checkbox" />
+&lt;label for="723568941">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -509,8 +509,8 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="768453291" type="checkbox" />
-&lt;label for="768453291">
+&lt;input id="128639574" type="checkbox" />
+&lt;label for="128639574">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -586,8 +586,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="147985632" type="checkbox" />
-&lt;label for="147985632">
+&lt;input id="678154239" type="checkbox" />
+&lt;label for="678154239">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -637,8 +637,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="156739842" type="checkbox" />
-&lt;label for="156739842">
+&lt;input id="314678592" type="checkbox" />
+&lt;label for="314678592">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -689,8 +689,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="517843296" type="checkbox" />
-&lt;label for="517843296">
+&lt;input id="285741936" type="checkbox" />
+&lt;label for="285741936">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -704,8 +704,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="574861932" type="checkbox" />
-&lt;label for="574861932">
+&lt;input id="354726189" type="checkbox" />
+&lt;label for="354726189">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -731,8 +731,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="468397215" type="checkbox" />
-&lt;label for="468397215">
+&lt;input id="964138572" type="checkbox" />
+&lt;label for="964138572">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -761,8 +761,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="271436895" type="checkbox" />
-&lt;label for="271436895">
+&lt;input id="569742138" type="checkbox" />
+&lt;label for="569742138">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -820,8 +820,8 @@ draft: true
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="461982753" type="checkbox" />
-&lt;label for="461982753">
+&lt;input id="314259867" type="checkbox" />
+&lt;label for="314259867">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1124,8 +1124,8 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="621839754" type="checkbox" />
-&lt;label for="621839754">
+&lt;input id="683419275" type="checkbox" />
+&lt;label for="683419275">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1162,8 +1162,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="469523187" type="checkbox" />
-&lt;label for="469523187">
+&lt;input id="934127856" type="checkbox" />
+&lt;label for="934127856">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1202,8 +1202,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="468927315" type="checkbox" />
-&lt;label for="468927315">
+&lt;input id="768312495" type="checkbox" />
+&lt;label for="768312495">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1218,8 +1218,8 @@ g()
 &lt;p>not like this:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="593814276" type="checkbox" />
-&lt;label for="593814276">
+&lt;input id="784123965" type="checkbox" />
+&lt;label for="784123965">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1245,8 +1245,8 @@ g()
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="914876325" type="checkbox" />
-&lt;label for="914876325">
+&lt;input id="268915743" type="checkbox" />
+&lt;label for="268915743">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1262,8 +1262,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;/ol>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="687295431" type="checkbox" />
-&lt;label for="687295431">
+&lt;input id="163498725" type="checkbox" />
+&lt;label for="163498725">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1281,8 +1281,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="563178429" type="checkbox" />
-&lt;label for="563178429">
+&lt;input id="457932618" type="checkbox" />
+&lt;label for="457932618">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1298,8 +1298,8 @@ func MyFunction() {
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="378962514" type="checkbox" />
-&lt;label for="378962514">
+&lt;input id="514682793" type="checkbox" />
+&lt;label for="514682793">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1466,8 +1466,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="763514829" type="checkbox" />
-&lt;label for="763514829">
+&lt;input id="519832467" type="checkbox" />
+&lt;label for="519832467">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1495,8 +1495,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="814657923" type="checkbox" />
-&lt;label for="814657923">
+&lt;input id="182746539" type="checkbox" />
+&lt;label for="182746539">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1632,8 +1632,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="859312746" type="checkbox" />
-&lt;label for="859312746">
+&lt;input id="263957481" type="checkbox" />
+&lt;label for="263957481">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1687,8 +1687,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="483915627" type="checkbox" />
-&lt;label for="483915627">
+&lt;input id="835792416" type="checkbox" />
+&lt;label for="835792416">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1717,8 +1717,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="783629514" type="checkbox" />
-&lt;label for="783629514">
+&lt;input id="219586734" type="checkbox" />
+&lt;label for="219586734">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1759,8 +1759,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="875163942" type="checkbox" />
-&lt;label for="875163942">
+&lt;input id="271369854" type="checkbox" />
+&lt;label for="271369854">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1795,8 +1795,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="561832947" type="checkbox" />
-&lt;label for="561832947">
+&lt;input id="362814975" type="checkbox" />
+&lt;label for="362814975">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1813,8 +1813,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="418937652" type="checkbox" />
-&lt;label for="418937652">
+&lt;input id="693258174" type="checkbox" />
+&lt;label for="693258174">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2125,8 +2125,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="821394657" type="checkbox" />
-&lt;label for="821394657">
+&lt;input id="583179246" type="checkbox" />
+&lt;label for="583179246">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2150,8 +2150,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="369485712" type="checkbox" />
-&lt;label for="369485712">
+&lt;input id="395872146" type="checkbox" />
+&lt;label for="395872146">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2226,8 +2226,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="981627543" type="checkbox" />
-&lt;label for="981627543">
+&lt;input id="689423751" type="checkbox" />
+&lt;label for="689423751">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2254,8 +2254,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="964873152" type="checkbox" />
-&lt;label for="964873152">
+&lt;input id="196837245" type="checkbox" />
+&lt;label for="196837245">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2274,8 +2274,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="467823519" type="checkbox" />
-&lt;label for="467823519">
+&lt;input id="236984715" type="checkbox" />
+&lt;label for="236984715">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2293,8 +2293,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="361729458" type="checkbox" />
-&lt;label for="361729458">
+&lt;input id="846931572" type="checkbox" />
+&lt;label for="846931572">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2311,8 +2311,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="293765184" type="checkbox" />
-&lt;label for="293765184">
+&lt;input id="971586432" type="checkbox" />
+&lt;label for="971586432">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2347,8 +2347,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="294156387" type="checkbox" />
-&lt;label for="294156387">
+&lt;input id="729684351" type="checkbox" />
+&lt;label for="729684351">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2368,8 +2368,8 @@ level string
 &lt;p>This is embedding:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="312794856" type="checkbox" />
-&lt;label for="312794856">
+&lt;input id="597132864" type="checkbox" />
+&lt;label for="597132864">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2389,8 +2389,8 @@ level string
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="862953471" type="checkbox" />
-&lt;label for="862953471">
+&lt;input id="283417956" type="checkbox" />
+&lt;label for="283417956">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2411,8 +2411,8 @@ level string
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="125987643" type="checkbox" />
-&lt;label for="125987643">
+&lt;input id="851697234" type="checkbox" />
+&lt;label for="851697234">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2450,8 +2450,8 @@ mz.order(3) // Outer type promotion
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="984152637" type="checkbox" />
-&lt;label for="984152637">
+&lt;input id="768523419" type="checkbox" />
+&lt;label for="768523419">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2479,8 +2479,8 @@ return nil
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="691872435" type="checkbox" />
-&lt;label for="691872435">
+&lt;input id="931658247" type="checkbox" />
+&lt;label for="931658247">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2502,8 +2502,8 @@ return nil
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="376254189" type="checkbox" />
-&lt;label for="376254189">
+&lt;input id="158976423" type="checkbox" />
+&lt;label for="158976423">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2531,8 +2531,8 @@ return len(data), nil
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="492658713" type="checkbox" />
-&lt;label for="492658713">
+&lt;input id="713485269" type="checkbox" />
+&lt;label for="713485269">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2558,8 +2558,8 @@ return err
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="145986372" type="checkbox" />
-&lt;label for="145986372">
+&lt;input id="974163528" type="checkbox" />
+&lt;label for="974163528">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2575,8 +2575,8 @@ DB
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="132598764" type="checkbox" />
-&lt;label for="132598764">
+&lt;input id="952786431" type="checkbox" />
+&lt;label for="952786431">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2607,8 +2607,8 @@ fmt.Println(err)
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="786145239" type="checkbox" />
-&lt;label for="786145239">
+&lt;input id="398175624" type="checkbox" />
+&lt;label for="398175624">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
