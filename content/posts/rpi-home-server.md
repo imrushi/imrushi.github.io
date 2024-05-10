@@ -53,3 +53,7 @@ password - casaos
 | Website                             | Source                                        | Category | Similar Apps |
 | ----------------------------------- | --------------------------------------------- | -------- | ------------ |
 | [Nextcloud](https://nextcloud.com/) | [GitHub](https://github.com/nextcloud/server) | storage  | Google Drive |
+
+Nextcloud is an open source cloud server. I am using it for storing my documents and files. My google drive storage is also getting full. This is the best alternative for that. It works good and get the works done but it lags sometimes (i think because of my low resources). I am thinking to install [NextcloudPi](https://github.com/nextcloud/nextcloudpi) which i think is a lightweight version of Nextcloud.
+
+### 
