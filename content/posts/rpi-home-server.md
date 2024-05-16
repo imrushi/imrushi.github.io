@@ -36,7 +36,7 @@ keywords:
 description: "Dive into the intricate setup of a Raspberry Pi Home Server, showcasing storage solutions, media streaming capabilities, torrent management, and secure network access. Discover how to optimize resources, manage services, and plan for future upgrades to enhance your home server experience."
 showFullContent: false
 readingTime: true
-draft: true
+draft: false
 hideComments: false
 color: "" #color from the theme settings
 ---
