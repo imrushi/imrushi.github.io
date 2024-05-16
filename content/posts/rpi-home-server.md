@@ -87,11 +87,11 @@ Nextcloud is an open-source cloud server. I am using it for storing my documents
 
 ### Immich
 
-| Website                       | Source                                        | Category | Similar Apps |
-| ----------------------------- | --------------------------------------------- | -------- | ------------ |
-| [Immich](https://immich.app/) | [GitHub](https://github.com/nextcloud/server) | storage  | -            |
+| Website                       | Source                                        | Category | Similar Apps  |
+| ----------------------------- | --------------------------------------------- | -------- | ------------- |
+| [Immich](https://immich.app/) | [GitHub](https://github.com/nextcloud/server) | storage  | Google Photos |
 
-Immich is a promising self-hosted alternative to **_App-Which-Must-Not-Be-Named_**, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to **_App-Which-Must-Not-Be-Named_**, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to **_App-Which-Must-Not-Be-Named_**. Nonetheless, it works well and gets the job done.
+Immich is a promising self-hosted alternative to Google Photos, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to Google Photos, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to Google Photos. Nonetheless, it works well and gets the job done.
 
 Check out the [comparison between Immich and various OpenSource Photo Libraries.](https://meichthys.github.io/foss_photo_libraries/)
 
