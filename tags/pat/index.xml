@@ -79,8 +79,8 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/table>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="264918537" type="checkbox" />
-&lt;label for="264918537">
+&lt;input id="839142576" type="checkbox" />
+&lt;label for="839142576">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -230,8 +230,8 @@ KEY name_index (name) USING BTREE
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="657281493" type="checkbox" />
-&lt;label for="657281493">
+&lt;input id="675394128" type="checkbox" />
+&lt;label for="675394128">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -268,8 +268,8 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="984671532" type="checkbox" />
-&lt;label for="984671532">
+&lt;input id="491236587" type="checkbox" />
+&lt;label for="491236587">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>

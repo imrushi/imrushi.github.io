@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RPi on Rushi Panchariya</title><link>/tags/rpi/</link><description>Recent content in RPi on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 16 May 2024 15:04:04 +0530</lastBuildDate><atom:link href="/tags/rpi/index.xml" rel="self" type="application/rss+xml"/><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).
+I was planning to make something like the following:</description><content>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
+&lt;p>I was planning to make something like the following:&lt;/p>
+&lt;ul>
+&lt;li>Store documents, codes (unfinished or WIP), videos, and photos.&lt;/li>
+&lt;li>Stream Movies and TV Shows&lt;/li>
+&lt;li>Block ads, trackers, and malware over the network.&lt;/li>
+&lt;li>Access all these over the internet&lt;/li>
+&lt;/ul>
+&lt;h2 id="raspberry-pi-4-model-b-specs">Raspberry Pi 4 Model B Specs:&lt;/h2>
+&lt;ul>
+&lt;li>2GB RAM&lt;/li>
+&lt;li>128GB SD Card&lt;/li>
+&lt;li>15W USB-C Power Supply&lt;/li>
+&lt;li>1.8GHz Quad Core Processor&lt;/li>
+&lt;/ul>
+&lt;p>I know the specs are low, but they get the job done for now. In the future, I will upgrade to RPi 5 and connect an SSD.&lt;/p>
+&lt;p>I am running Debian GNU/Linux 12 (Bookworm) OS along with Docker.&lt;/p>
+&lt;h2 id="application-setups">Application Setups:&lt;/h2>
+&lt;h3 id="casaos">CasaOS:&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/IceWhaleTech/CasaOS">CasaOS&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/IceWhaleTech/CasaOS">GitHub&lt;/a>&lt;/td>
+&lt;td>cloud os&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Casa OS is an open-source project that creates a personal cloud experience. It provides a web-based interface for managing your personal cloud and applications. It is set up and installed with a single command. Casa OS uses Docker containers to run applications. It has an app store with lots of apps that are easy to manage through the UI. It also provides CLI access to the RPi over the web. I really like its design, ease of setup, and installation of apps. Its dashboard offers monitoring options for CPU, Memory, Disk, Network, etc.&lt;/p>
+&lt;p>&lt;a href="http://demo.casaos.io/">Demo&lt;/a>&lt;/p>
+&lt;p>username - casaos&lt;/p>
+&lt;p>password - casaos&lt;/p>
+&lt;h3 id="nextcloud">NextCloud&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://nextcloud.com/">Nextcloud&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/nextcloud/server">GitHub&lt;/a>&lt;/td>
+&lt;td>storage&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Nextcloud is an open-source cloud server. I am using it for storing my documents and files. My other online storage service is also getting full. This is the best alternative for that. It works well and gets the job done, but it lags sometimes (I think because of my low resources). I am thinking of installing &lt;a href="https://github.com/nextcloud/nextcloudpi">NextcloudPi&lt;/a>, which I think is a lightweight version of Nextcloud.&lt;/p>
+&lt;h3 id="immich">Immich&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://immich.app/">Immich&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/nextcloud/server">GitHub&lt;/a>&lt;/td>
+&lt;td>storage&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Immich is a promising self-hosted alternative to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>. Nonetheless, it works well and gets the job done.&lt;/p>
+&lt;p>Check out the &lt;a href="https://meichthys.github.io/foss_photo_libraries/">comparison between Immich and various OpenSource Photo Libraries.&lt;/a>&lt;/p>
+&lt;h3 id="syncthing">Syncthing&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://syncthing.net/">Syncthing&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/syncthing/syncthing">GitHub&lt;/a>&lt;/td>
+&lt;td>storage&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Syncthing is an open-source file synchronization application that keeps our data consistent across multiple devices. It offers real-time updates, multi-device compatibility, and efficient file management.&lt;/p>
+&lt;p>I have been using Syncthing for syncing the projects which I am working on my PC. While I know there is GitHub to push the project, I prefer not to push buggy code or unfinished features. Syncthing makes it easy to access the code on the RPi from anywhere.&lt;/p>
+&lt;h3 id="adguard">AdGuard&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/AdguardTeam/AdGuardHome">AdGuard&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/AdguardTeam/AdGuardHome">GitHub&lt;/a>&lt;/td>
+&lt;td>privacy&lt;/td>
+&lt;td>Pi-Hole&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>I have been using uBlock Origin in the browser for a long time, but it only securely blocks ads in my browser. I wanted a solution that blocks ads over my entire network. AdGuard is a free and open-source privacy blocker that blocks ads, trackers, and malware. There are many options to filter ads, trackers, and malware:&lt;/p>
+&lt;ul>
+&lt;li>DNS Blocklist :- Below is Blocklist which i am using:
+&lt;ul>
+&lt;li>AdGuard DNS filter :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt&lt;/a>&lt;/li>
+&lt;li>AdAway Default Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt&lt;/a>&lt;/li>
+&lt;li>HaGeZi&amp;rsquo;s Pro Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt&lt;/a>&lt;/li>
+&lt;li>OISD Blocklist Big :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt&lt;/a>&lt;/li>
+&lt;li>Easylist :- &lt;a href="https://easylist.to/easylist/easylist.txt">https://easylist.to/easylist/easylist.txt&lt;/a>&lt;/li>
+&lt;li>uBlock Filter :- &lt;a href="https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt">https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>DNS Allowlist&lt;/li>
+&lt;li>DNS Rewrite&lt;/li>
+&lt;li>Blocked Services&lt;/li>
+&lt;li>Custom Filterling Rules&lt;/li>
+&lt;/ul>
+&lt;p>This list is easy to maintain if there are any updates to the block list. It can be updated with just one click.&lt;/p>
+&lt;p>I have configured my router to use the Raspberry Pi as the primary DNS server, allowing me to extend AdGuard&amp;rsquo;s protection to all devices on my network. This way, every device benefits from an ad-free and secure browsing experience.&lt;/p>
+&lt;hr>
+&lt;p>Now it&amp;rsquo;s time for the best part, setting up Movies and TV Show streaming over the network. I&amp;rsquo;m using Torrents to download movies and TV shows.&lt;/p>
+&lt;p>For this setup, a group of applications are deployed and interconnected. First, I&amp;rsquo;ll provide information about each application, and then I&amp;rsquo;ll explain how to set it up.&lt;/p>
+&lt;h3 id="jackett">Jackett&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://github.com/Jackett/Jackett">Jackett&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/Jackett/Jackett">GitHub&lt;/a>&lt;/td>
+&lt;td>torrent&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Jackett is an open-source application that acts as a middleman between your favorite torrent downloader and various torrent indexing websites. It allows you to search across a vast array of indexing sites from a single, user-friendly interface. Jackett seamlessly integrates with popular torrent downloaders like Sonarr, Radarr, qBittorrent, and many more, eliminating the need to configure individual search settings for each downloader.&lt;/p>
+&lt;p>Jackett acts as a proxy server. When anyone initiates a search through your compatible downloader, Jackett translates the request into a format understandable by the specific torrent indexing site. It then fetches the results, parses them, and delivers them back to your downloader in a standardized format.&lt;/p>
+&lt;p>I mostly use the following indexers for searching torrents:&lt;/p>
+&lt;ul>
+&lt;li>YTS :- &lt;a href="https://yts.mx/">https://yts.mx/&lt;/a>&lt;/li>
+&lt;li>TheRARBG :- &lt;a href="https://therarbg.to/">https://therarbg.to/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>&lt;em>Note&lt;/em>&lt;/strong>: It&amp;rsquo;s important to remember that Jackett itself is a legal tool. However, the legality of the content you download using Jackett depends on the copyright laws in your region and the specific content itself. Always ensure you&amp;rsquo;re downloading content that is legally available in your area.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="radarr">Radarr&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://radarr.video/">Radarr&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/Radarr/Radarr">GitHub&lt;/a>&lt;/td>
+&lt;td>torrent&lt;/td>
+&lt;td>Sonarr&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>If you&amp;rsquo;re a movie buff who relies on BitTorrent to build your collection, then Radarr is your new best friend. This open-source software automates the process of finding, downloading, and organizing your movie library and keeps your collection up-to-date. Tell Radarr which movies you want (and in what quality), and it scours the web using your Jackett indexers. Once it finds a match, Radarr automatically downloads the movie for you. You can add upcoming movies to Radarr&amp;rsquo;s watchlist, and it will automatically download them on their release date or whenever they become available on your chosen indexers.&lt;/p>
+&lt;h3 id="plex">Plex&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://www.plex.tv/">Plex&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/plexinc/pms-docker">GitHub&lt;/a>&lt;/td>
+&lt;td>torrent&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Plex is a media server application that lets you stream your own collection of movies, TV shows, music, and photos to various devices. It&amp;rsquo;s like a personal streaming service, but with complete control over your content and how you access it. Plex centralizes your media collection, offers flexible streaming options, and provides a user-friendly interface for various devices. Add your movies, TV shows, music, and photos to a server (computer, NAS) running the Plex Media Server software. Then, access that content from any Plex app on various devices like smartphones, tablets, smart TVs, game consoles, and even streaming devices.&lt;/p>
+&lt;h3 id="overseerr">Overseerr&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://overseerr.dev/">Overseerr&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/sct/overseerr">GitHub&lt;/a>&lt;/td>
+&lt;td>torrent&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Overseerr is an open-source software application designed to simplify Movie and TV show requests within your Plex media server setup. It integrates seamlessly with Plex, Sonarr (for TV shows), and Radarr (for movies), creating a centralized hub for managing user requests. It provides a user-friendly interface for your Plex users to request movies and TV shows they&amp;rsquo;d like to see added to your library. They can browse through suggestions, search for specific titles, and submit requests with a few clicks.&lt;/p>
+&lt;h3 id="transmission">Transmission&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://transmissionbt.com/">Transmission&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/transmission/transmission">GitHub&lt;/a>&lt;/td>
+&lt;td>torrent&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Transmission is an open-source BitTorrent client, known for its simplicity, speed, and cross-platform compatibility. It allows us to download files from the BitTorrent network, a decentralized peer-to-peer file-sharing system.&lt;/p>
+&lt;h2 id="working-of-streaming-setup">Working of Streaming Setup&lt;/h2>
+&lt;p>After reviewing the information about all the components I used, let&amp;rsquo;s delve into their connectivity.&lt;/p>
+&lt;img src="https://ik.imagekit.io/ruship/RPi-Home-Server/streaming-setup.svg" alt="pat api" class="center" style="border-radius: 8px;" />
+&lt;ul>
+&lt;li>Movie or TV show requests will come to Radarr with parameters like quality, tags, etc.&lt;/li>
+&lt;li>Radarr will search for the Movie/TV show using the Jackett torrent indexer and fetch torrent information.&lt;/li>
+&lt;li>Once Radarr obtains the torrent information, it sends it to Transmission for downloading and monitors the torrent&amp;rsquo;s download progress.&lt;/li>
+&lt;li>After Transmission completes the download, it saves the content to a specific path.&lt;/li>
+&lt;li>Radarr then moves the downloaded content to the Plex content directory.&lt;/li>
+&lt;li>The content is now accessible on Plex for streaming.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>Note&lt;/strong>: Sometimes, certain TV shows will not be downloaded through Radarr; in such cases, use Sonarr.&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;p>To securely access my home network over the internet, I am using VPN.&lt;/p>
+&lt;p>Initially, I set up the WireGuard VPN with DDNS. However, due to my ISP&amp;rsquo;s use of &lt;a href="https://en.wikipedia.org/wiki/Carrier-grade_NAT">CGNAT&lt;/a>, I was unable to access the internet.&lt;/p>
+&lt;p>Then, I learned about Tailscale from a friend.&lt;/p>
+&lt;h3 id="tailscale">Tailscale&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Website&lt;/th>
+&lt;th>Source&lt;/th>
+&lt;th>Category&lt;/th>
+&lt;th>Similar Apps&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://tailscale.com/">Tailscale&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://github.com/tailscale/tailscale">GitHub&lt;/a>&lt;/td>
+&lt;td>VPN&lt;/td>
+&lt;td>-&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Tailscale is a peer-to-peer VPN service designed to make your devices and applications accessible securely from anywhere in the world. It also utilizes WireGuard VPN in the backend. Tailscale employs a mesh network approach to connect multiple devices, allowing up to 100 devices in the free tier. It is available on all platforms, making device connectivity seamless. Additionally, Tailscale offers useful features such as inviting members to access your network and sharing specific devices.&lt;/p>
+&lt;hr>
+&lt;p>As I continue to refine my Raspberry Pi Home Server setup, I&amp;rsquo;m considering changing the streaming components by replacing:&lt;/p>
+&lt;ul>
+&lt;li>Plex =&amp;gt; &lt;a href="https://github.com/jellyfin/jellyfin">Jellyfin&lt;/a>&lt;/li>
+&lt;li>Overseerr =&amp;gt; &lt;a href="https://github.com/Fallenbagel/jellyseerr">Jellyseer&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>With only 2 GB of RAM, running all these services simultaneously can be challenging. As a result, I&amp;rsquo;ve opted not to run more resource-intensive services like Immich continuously. Instead, I activate this service when I need to periodically back up my data.&lt;/p>
+&lt;p>Looking ahead, I&amp;rsquo;m contemplating upgrading my Raspberry Pi to a Raspberry Pi 5 with 8 GB of RAM and attaching an SSD to it. This upgrade would provide more power and storage capacity, allowing for smoother operation and greater flexibility in running multiple services concurrently.&lt;/p>
+&lt;p>This concludes my setup for the Raspberry Pi Home Server. Any changes or additional components will be detailed in future posts.&lt;/p></content></item></channel></rss>

@@ -21,6 +21,14 @@ a {
   align-items: center;
 }
 
+.post-cover {
+  border: 20px solid #23B0FF;
+  background: transparent;
+  margin: 40px auto;
+  padding: 20px;
+  display: block;
+}
+
 /* Style for note list items */
 .note-item {
   display: flex;
