@@ -75,11 +75,11 @@ I was planning to make something like the following:</description><content>&lt;p
 &lt;td>&lt;a href="https://immich.app/">Immich&lt;/a>&lt;/td>
 &lt;td>&lt;a href="https://github.com/nextcloud/server">GitHub&lt;/a>&lt;/td>
 &lt;td>storage&lt;/td>
-&lt;td>-&lt;/td>
+&lt;td>Google Photos&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>Immich is a promising self-hosted alternative to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to &lt;strong>&lt;em>App-Which-Must-Not-Be-Named&lt;/em>&lt;/strong>. Nonetheless, it works well and gets the job done.&lt;/p>
+&lt;p>Immich is a promising self-hosted alternative to Google Photos, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to Google Photos, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to Google Photos. Nonetheless, it works well and gets the job done.&lt;/p>
 &lt;p>Check out the &lt;a href="https://meichthys.github.io/foss_photo_libraries/">comparison between Immich and various OpenSource Photo Libraries.&lt;/a>&lt;/p>
 &lt;h3 id="syncthing">Syncthing&lt;/h3>
 &lt;table>
