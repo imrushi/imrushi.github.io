@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>note on Rushi Panchariya</title><link>/notes/</link><description>Recent content in note on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Books</title><link>/notes/books/</link><pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate><guid>/notes/books/</guid><description>Deep Learning for Coders with fastai - Jeremy Howard (Author), Sylvain Gugger (Author)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>note on Rushi Panchariya</title><link>/notes/</link><description>Recent content in note on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS</title><link>/notes/aws/</link><pubDate>Fri, 28 Jun 2024 12:07:52 +0530</pubDate><guid>/notes/aws/</guid><description>AWS stands of Amazon Web Service. It offer broad range of cloud services.
+Traditional vs Serverless Web hosting Traditional Serverless Provision Capacity Runs On-Demand (unlimited capacity Only pay for Code Executions) Scaling (Pay too much or server issues) Scales Automatically (Pay What you need) Update OS &amp;amp; Software Runs on Managed AWS Infrastructure (up-to-date and secure environment) Lots of Overhead for SPA + API Apps Great for SPA + API Apps API Gateway (REST API) API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale.</description><content>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
+&lt;h2 id="traditional-vs-serverless-web-hosting">Traditional vs Serverless Web hosting&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Traditional&lt;/th>
+&lt;th>Serverless&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Provision Capacity&lt;/td>
+&lt;td>Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Scaling (Pay too much or server issues)&lt;/td>
+&lt;td>Scales Automatically (Pay What you need)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Update OS &amp;amp; Software&lt;/td>
+&lt;td>Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lots of Overhead for SPA + API Apps&lt;/td>
+&lt;td>Great for SPA + API Apps&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="api-gateway-rest-api">API Gateway (REST API)&lt;/h2>
+&lt;p>API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p>
+&lt;p>Things API Gateway can do:&lt;/p>
+&lt;ul>
+&lt;li>Create RESTful API&amp;rsquo;s and WebSockets API&amp;rsquo;s&lt;/li>
+&lt;li>Integration with backend services: API Gateway can route API requests to various backend services like AWS Lambda functions, Amazon EC2 instances, or other web apps.&lt;/li>
+&lt;li>Manage Traffic: API Gateway handles tasks like traffic management, throttling to limit requests, and Cross-Origin Resource Sharing (CORS) for secure communication between different domains.&lt;/li>
+&lt;li>Secure API&amp;rsquo;s: API Gateway helps us to secure APIs with features like IAM authorization and access control.&lt;/li>
+&lt;li>Monitor API&amp;rsquo;s: API Gateway provides metrics and logging to help you monitor the health and performance of our API&amp;rsquo;s.&lt;/li>
+&lt;/ul>
+&lt;figure class="center" >
+&lt;img src="/img/notes/aws/aws-api-gateway.svg" alt="How it Works" style="border-radius: 8px;" />
+&lt;figcaption class="center" >How it works&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="lambda-logic">Lambda (LOGIC)&lt;/h2>
+&lt;p>It&amp;rsquo;s designed to let us run our code without having to worry about provisioning or managing servers yourself.&lt;/p>
+&lt;ul>
+&lt;li>Serverless: We don&amp;rsquo;t need to set up or manage servers. AWS Lambda takes care of all the underlying infrastructure, so we can focus on writing code.&lt;/li>
+&lt;li>Event-driven: Our code (packaged as Lambda function) executes in response to events. These events can be triggered by various AWS services like S3 file upload, API Gateway requests, or DynamoDB changes.&lt;/li>
+&lt;li>Automatic Scaling: Lambda automatically scales our code up or down to handle the workload. We have to only pay for the compute time for our code.&lt;/li>
+&lt;li>Cost-effective: Since we only pay for what we use, Lambda can be a cost-effective way to run code that doesn&amp;rsquo;t require constant uptime.&lt;/li>
+&lt;li>Supported languages: Java, Go, Node.js, C#, Python, Ruby and PowerShell&lt;/li>
+&lt;/ul>
+&lt;h2 id="dynamodb-data">DynamoDB (DATA)&lt;/h2>
+&lt;h2 id="cognito-auth">Cognito (AUTH)&lt;/h2>
+&lt;h2 id="s3-simple-storage-service-web-app">S3 (Simple Storage Service) (Web APP)&lt;/h2>
+&lt;h2 id="cloudfront-cache-service">CloudFront (Cache service)&lt;/h2>
+&lt;h2 id="route53-dns">Route53 (DNS)&lt;/h2></content></item><item><title>Books</title><link>/notes/books/</link><pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate><guid>/notes/books/</guid><description>Deep Learning for Coders with fastai - Jeremy Howard (Author), Sylvain Gugger (Author)
 bruce lee - matthew polly
 So Good They Can&amp;rsquo;t Ignore You - Cal Newport
 Introduction to Algorithms - Charles E. Leiserson, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
@@ -293,8 +349,8 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="524137896" type="checkbox" />
-&lt;label for="524137896">
+&lt;input id="314286957" type="checkbox" />
+&lt;label for="314286957">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -322,8 +378,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="153874629" type="checkbox" />
-&lt;label for="153874629">
+&lt;input id="587329164" type="checkbox" />
+&lt;label for="587329164">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -459,8 +515,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="316472598" type="checkbox" />
-&lt;label for="316472598">
+&lt;input id="859367241" type="checkbox" />
+&lt;label for="859367241">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -514,8 +570,8 @@ fmt.Println(add(15, 10))
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="925143867" type="checkbox" />
-&lt;label for="925143867">
+&lt;input id="732945816" type="checkbox" />
+&lt;label for="732945816">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -544,8 +600,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="873126549" type="checkbox" />
-&lt;label for="873126549">
+&lt;input id="473621985" type="checkbox" />
+&lt;label for="473621985">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -586,8 +642,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="639875412" type="checkbox" />
-&lt;label for="639875412">
+&lt;input id="571496283" type="checkbox" />
+&lt;label for="571496283">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -622,8 +678,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>So, For example:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="938742156" type="checkbox" />
-&lt;label for="938742156">
+&lt;input id="631758294" type="checkbox" />
+&lt;label for="631758294">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -640,8 +696,8 @@ return a &amp;#43; b
 &lt;p>but&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="813657942" type="checkbox" />
-&lt;label for="813657942">
+&lt;input id="392645871" type="checkbox" />
+&lt;label for="392645871">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -952,8 +1008,8 @@ return a &amp;#43; b
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="815732469" type="checkbox" />
-&lt;label for="815732469">
+&lt;input id="837194652" type="checkbox" />
+&lt;label for="837194652">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -977,8 +1033,8 @@ Vegeta
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="185432679" type="checkbox" />
-&lt;label for="185432679">
+&lt;input id="487136952" type="checkbox" />
+&lt;label for="487136952">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1053,8 +1109,8 @@ fmt.Println(numbers[0])
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="675349812" type="checkbox" />
-&lt;label for="675349812">
+&lt;input id="461375928" type="checkbox" />
+&lt;label for="461375928">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1081,8 +1137,8 @@ fmt.Println(letter)
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="183794256" type="checkbox" />
-&lt;label for="183794256">
+&lt;input id="579243186" type="checkbox" />
+&lt;label for="579243186">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1101,8 +1157,8 @@ cool ninja turtle
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="497528361" type="checkbox" />
-&lt;label for="497528361">
+&lt;input id="638471952" type="checkbox" />
+&lt;label for="638471952">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1120,8 +1176,8 @@ fmt.Println(slice1)
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="439275618" type="checkbox" />
-&lt;label for="439275618">
+&lt;input id="265183974" type="checkbox" />
+&lt;label for="265183974">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1138,8 +1194,8 @@ fmt.Println(slice1)
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="491876235" type="checkbox" />
-&lt;label for="491876235">
+&lt;input id="843917265" type="checkbox" />
+&lt;label for="843917265">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1174,8 +1230,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="295648137" type="checkbox" />
-&lt;label for="295648137">
+&lt;input id="487652193" type="checkbox" />
+&lt;label for="487652193">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1195,8 +1251,8 @@ level string
 &lt;p>This is embedding:&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="532617489" type="checkbox" />
-&lt;label for="532617489">
+&lt;input id="216794583" type="checkbox" />
+&lt;label for="216794583">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1216,8 +1272,8 @@ level string
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="654397182" type="checkbox" />
-&lt;label for="654397182">
+&lt;input id="249718635" type="checkbox" />
+&lt;label for="249718635">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1238,8 +1294,8 @@ level string
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="218365479" type="checkbox" />
-&lt;label for="218365479">
+&lt;input id="574921863" type="checkbox" />
+&lt;label for="574921863">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1277,8 +1333,8 @@ mz.order(3) // Outer type promotion
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="146785329" type="checkbox" />
-&lt;label for="146785329">
+&lt;input id="953274861" type="checkbox" />
+&lt;label for="953274861">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1306,8 +1362,8 @@ return nil
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="627934158" type="checkbox" />
-&lt;label for="627934158">
+&lt;input id="426589371" type="checkbox" />
+&lt;label for="426589371">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1329,8 +1385,8 @@ return nil
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="852791436" type="checkbox" />
-&lt;label for="852791436">
+&lt;input id="592687413" type="checkbox" />
+&lt;label for="592687413">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1358,8 +1414,8 @@ return len(data), nil
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="593816247" type="checkbox" />
-&lt;label for="593816247">
+&lt;input id="973516248" type="checkbox" />
+&lt;label for="973516248">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1385,8 +1441,8 @@ return err
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="261938457" type="checkbox" />
-&lt;label for="261938457">
+&lt;input id="149853276" type="checkbox" />
+&lt;label for="149853276">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1402,8 +1458,8 @@ DB
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="195783264" type="checkbox" />
-&lt;label for="195783264">
+&lt;input id="519473286" type="checkbox" />
+&lt;label for="519473286">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1434,8 +1490,8 @@ fmt.Println(err)
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
 &lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="175834692" type="checkbox" />
-&lt;label for="175834692">
+&lt;input id="317259864" type="checkbox" />
+&lt;label for="317259864">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
