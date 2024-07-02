@@ -46,6 +46,26 @@ It's designed to let us run our code without having to worry about provisioning 
 
 ## DynamoDB (DATA)
 
+It is fully managed NoSQL database provided by AWS. It is key-value database similar to mongoDB. It does not support SQL queries. Instead, it uses a propritetary API based on JSON. This API is generally not called directly by user developers, but invoked through AWS SDKs.
+
+DynamoDB is primarily a key-value store in the sense that its data model consists of key-value pairs in a schemaless, very large, non relational table of rows (records). It does not support RDBMS methods to join tables through foreign keys. It can also support a document store data model using JSON.
+
+Data Structure:
+
+- Keys :- partition key is key (eg. UserID) and we store value against that partion key. eg. { UserID : firstName }. So here UserID is partition key and firstName is attribute.
+Partition key should be unique.
+
+> Note: why is it call partition key?
+> DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.
+
+**Partition key + sort key**
+Instead just using partition key as primary key dynamoDB gives option to use sort key. Using both partition and sort key we can get new primary key. So when we have same key we can use sort key (timestamp) this gives us primary key.
+
+- Attributes :- Attributes are the values stored against the partition key(key).
+- Indexes :-
+  - **Global Secondary Indexes**:
+Some application might need to perform many kinds of queries, using a variety of different **_attributes_** as query criteria. We can set 5 of this per table. 
+
 ## Cognito (AUTH)
 
 ## S3 (Simple Storage Service) (Web APP)
