@@ -51,6 +51,28 @@ Traditional vs Serverless Web hosting Traditional Serverless Provision Capacity 
 &lt;li>Supported languages: Java, Go, Node.js, C#, Python, Ruby and PowerShell&lt;/li>
 &lt;/ul>
 &lt;h2 id="dynamodb-data">DynamoDB (DATA)&lt;/h2>
+&lt;p>It is fully managed NoSQL database provided by AWS. It is key-value database similar to mongoDB. It does not support SQL queries. Instead, it uses a propritetary API based on JSON. This API is generally not called directly by user developers, but invoked through AWS SDKs.&lt;/p>
+&lt;p>DynamoDB is primarily a key-value store in the sense that its data model consists of key-value pairs in a schemaless, very large, non relational table of rows (records). It does not support RDBMS methods to join tables through foreign keys. It can also support a document store data model using JSON.&lt;/p>
+&lt;p>Data Structure:&lt;/p>
+&lt;ul>
+&lt;li>Keys :- partition key is key (eg. UserID) and we store value against that partion key. eg. { UserID : firstName }. So here UserID is partition key and firstName is attribute.
+Partition key should be unique.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Note: why is it call partition key?
+DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Partition key + sort key&lt;/strong>
+Instead just using partition key as primary key dynamoDB gives option to use sort key. Using both partition and sort key we can get new primary key. So when we have same key we can use sort key (timestamp) this gives us primary key.&lt;/p>
+&lt;ul>
+&lt;li>Attributes :- Attributes are the values stored against the partition key(key).&lt;/li>
+&lt;li>Indexes :-
+&lt;ul>
+&lt;li>&lt;strong>Global Secondary Indexes&lt;/strong>:
+Some application might need to perform many kinds of queries, using a variety of different &lt;strong>&lt;em>attributes&lt;/em>&lt;/strong> as query criteria. We can set 5 of this per table.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="cognito-auth">Cognito (AUTH)&lt;/h2>
 &lt;h2 id="s3-simple-storage-service-web-app">S3 (Simple Storage Service) (Web APP)&lt;/h2>
 &lt;h2 id="cloudfront-cache-service">CloudFront (Cache service)&lt;/h2>
