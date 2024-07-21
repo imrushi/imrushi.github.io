@@ -95,4 +95,4 @@ For those interested in contributing to this project, it’s open-source and can
 
 Special thanks to [@Vincent](https://github.com/vinckr) and [@Aeneas](https://github.com/aeneasr) (aka hackerman) for their coordination and support throughout this journey.
 
-Thank you for reading, and happy coding!Specially thanks to [@Vincent](https://github.com/vinckr) for coordinating and helping me.
+Thank you for reading, and happy coding!
