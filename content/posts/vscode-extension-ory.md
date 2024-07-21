@@ -13,7 +13,7 @@ I was exploring Ory Network and playing around with its configuration. Whenever 
 
 ## ORY CLI
 
-I used the [ORY CLI](https://www.ory.sh/docs/guides/cli/installation) for configuration and development purposes, which greatly simplified my development process. It is a convenient and easy-to-use tool that helps manage and configure Ory Network projects. Its built-in proxy and tunneling mechanisms smoothly route application traffic during development.
+I used the [ORY CLI](https://www.ory.sh/docs/guides/cli/installation) for configuration and development purposes, which greatly simplified my development process. It was a convenient and easy-to-use tool that helps manage and configure Ory Network projects. Its built-in proxy and tunneling mechanisms smoothly route application traffic during development.
 
 ---
 
@@ -31,11 +31,11 @@ Let me share some information about the development process, the challenges I fa
 
 This was my first time developing a VS Code extension. I had no idea where to start. I started looking for development docs, and it was not easy to understand. Some YouTube videos helped me with the basics, like how to create pop-up boxes, basic alert messages, etc., but there was no source to go to for advanced extension development.
 
-Before starting development, I had a discussion with [@Vincent](https://github.com/vinckr) about how to approach it, like API-based development or what? He suggested using the existing Ory CLI instead of APIs. The plan was to call the Ory CLI app with inputs from the VS Code extension when we got all the information from the frontend.
+Before starting development, I had a discussion with [@Vincent](https://github.com/vinckr) about how to approach it, like API-based development or what? He suggested using the existing Ory CLI instead of APIs. The plan was to call the Ory CLI app with inputs from the VS Code extension when we got all the information from the VS Code Extension.
 
 {{< figure src="/img/ory/ory-extension-arch.svg" alt="extension flow" position="center" style="border-radius: 8px;" caption="Extension workflow" captionPosition="center" >}}
 
-I started developing the first module, which checks the prerequisites, like if your system already has the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) installed. If not, it will give you the option to install it directly from VS Code. I faced many challenges because there are many edge cases.
+I started developing the first module, which checks the prerequisites, like if your system already has the [Ory CLI](https://www.ory.sh/docs/guides/cli/installation) installed it is good to go. If not, it will give you the option to install it directly from VS Code. I faced many challenges because there are many edge cases.
 
 I got lots of ideas and inspiration from other open-source VS Code extensions for my first module prerequisite. Some ideas were hard to implement because I didn't know how to approach them. For example, I had an idea to show a list of projects, OAuth clients, users, and permissions in a tree view with relations. That's where these open-source VS Code extensions repos helped me a lot.
 
@@ -51,7 +51,7 @@ There are two modules I had fun developing:
 
 {{< figure src="/img/ory/tunnel-running-process.png" alt="Tunnel" position="center" style="border-radius: 8px;" caption="Tunnel Running Process" captionPosition="center" >}}
 
-Overall, during the development process, I faced lots of errors (which is usual), got stuck on how it should be implemented, and did lots of research for weeks. It was fun.
+Overall, during the development process, I faced lots of errors (which is expected), got stuck on how it should be implemented, and did lots of research for weeks. It was fun.
 
 ## What I Learn
 
