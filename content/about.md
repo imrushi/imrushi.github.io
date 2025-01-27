@@ -3,7 +3,7 @@ title: "About"
 readingTime: false
 ---
 
-# Hi there {{<image src="/img/pikachu-running.gif" position="left" style="width: 50px;">}}
+# Hi there {{<image src="/img/pikachu-running.gif" position="left" style="width: 80px;border: 0px;">}}
 
 Hello, I am Rushi Panchariya. I'm **Software Engineer** with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.
 
