@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kindle on Rushi Panchariya</title><link>/tags/kindle/</link><description>Recent content in Kindle on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Jan 2025 15:11:59 +0000</lastBuildDate><atom:link href="/tags/kindle/index.xml" rel="self" type="application/rss+xml"/><item><title>Ads on My Kindle? Not on My Watch!</title><link>/posts/kindle-ads-remover/</link><pubDate>Mon, 27 Jan 2025 15:11:59 +0000</pubDate><guid>/posts/kindle-ads-remover/</guid><description>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
+&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
+&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p></description><content>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
+&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
+&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p>
+&lt;p>When I purchased my Kindle in Germany, there were two versions available: one with ads and one without. The ad-free version cost an additional 10 Euros, but I decided not to spend the extra money — I’d rather buy coffee or chocolates instead! At the time, I thought there might be a workaround to remove the ads, and since they didn’t show up initially, I ignored the issue.&lt;/p>
+&lt;p>However, after installing today’s Kindle update, ads started showing up on the lock screen. They were bright and intrusive, completely ruining the experience ☹️.&lt;/p>
+&lt;p>I initially considered adding the ad servers’ DNS to AdGuard but wanted a permanent solution.&lt;/p>
+&lt;h2 id="kindle-ad-remover">Kindle Ad Remover&lt;/h2>
+&lt;p>After a bit of Googling, I found a GitHub repository called &lt;a href="https://github.com/mariopepe/KindleAdRemover">KindleAdRemover&lt;/a>. According to the README, the process might require a Mac, which I have, but it&amp;rsquo;s an office device, so I couldn’t use it for this purpose. Thankfully, the repo also provided a shell script, and I decided to give that a try.&lt;/p>
+&lt;p>The shell script was straightforward. It checked if the Kindle was connected and detected. Once detected, it navigated to the Kindle&amp;rsquo;s &lt;code>system&lt;/code> directory, deleted the &lt;code>.assets&lt;/code> folder, and replaced it with an empty &lt;code>.assets&lt;/code> file.&lt;/p>
+&lt;p>Following the instructions, I connected my Kindle to my Raspberry Pi.&lt;/p>
+&lt;blockquote>
+&lt;p>Life won&amp;rsquo;t be easy/fun without Issue - this the one thing I&amp;rsquo;ve learned.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="issue-connecting-kindle-with-linux">Issue: Connecting Kindle with Linux&lt;/h2>
+&lt;p>When I connected my Kindle to the Raspberry Pi, it appeared in &lt;code>lsusb&lt;/code>, but the storage wasn’t mounting. I checked with &lt;code>fdisk -l&lt;/code>, but no storage device was listed. Even &lt;code>dmesg | tail&lt;/code> showed Kindle-related information but no mount path.&lt;/p>
+&lt;p>I suspect the issue lies with the latest Kindle (12th generation) update. The same problem occurred when I tried connecting it to a Mac (My Friends Macbook 😏).&lt;/p>
+&lt;blockquote>
+&lt;p>I’ll look into this issue further and try to fix it.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mission-kill-the-ads">Mission: Kill the Ads&lt;/h2>
+&lt;p>Determined to get rid of the ads, I found a &lt;code>PowerShell&lt;/code> script in the repository. I connected my Kindle to a Windows PC and saw the storage appear in File Explorer. Inside the &lt;code>system&lt;/code> directory, I located the &lt;code>.assets&lt;/code> folder.&lt;/p>
+&lt;p>Rather than deleting it manually, I tried running the &lt;code>PowerShell&lt;/code> script, but it didn’t work. Instead, I used &lt;code>Git Bash&lt;/code> to manually execute the required steps:&lt;/p>
+&lt;ol>
+&lt;li>Navigated to the &lt;code>.assets&lt;/code> directory inside the &lt;code>system&lt;/code> folder.&lt;/li>
+&lt;li>Opened &lt;code>Git Bash&lt;/code> in the Kindle storage directory.&lt;/li>
+&lt;li>Deleted the &lt;code>.assets&lt;/code> folder using:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ rm -r system/.assets
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Created an empty .assets file using:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ touch system/.assets
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>Disconnect Kindle.&lt;/li>
+&lt;/ol>
+&lt;p>After locking and unlocking the Kindle, all the ads were gone, and a nice wallpaper appeared instead.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: These steps will need to be repeated after every software update, as updates revert the changes.&lt;/p>
+&lt;/blockquote>
+&lt;p>Now, my mind can fully enjoy reading without being distracted by ads! 😉&lt;/p></content></item></channel></rss>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Rushi Panchariya</title><link>/tags/notes/</link><description>Recent content in Notes on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Regex Cheatsheet</title><link>/notes/regex/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>/notes/regex/</guid><description>We can use regular expression for regular find operations as well as replace.
-Symbol Description Sample Text Regex Output Letters \w Matches any latin letter or digit Sample \w S a m p l e \W Matches any non-alphanumeric character Digits \d Matches any decimal digit Numbers: 1, 2, 3, 100, 200 \d Numbers: 1, 2, 3, 1 0 0, 2 0 0 \D Matches any non decimal digit character. Repetition + Matches one or more repetition of symbol (select whole word or digit) Sample Text.</description><content>&lt;p>We can use regular expression for regular find operations as well as replace.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Rushi Panchariya</title><link>/tags/notes/</link><description>Recent content in Notes on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Regex Cheatsheet</title><link>/notes/regex/</link><pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate><guid>/notes/regex/</guid><description>&lt;p>We can use regular expression for regular find operations as well as replace.&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -221,8 +220,232 @@ Symbol Description Sample Text Regex Output Letters \w Matches any latin letter 
 &lt;td>&lt;code>abc&lt;/code>d&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></content></item><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.
-History of Go Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour.</description><content>&lt;hr>
+&lt;/table></description><content>&lt;p>We can use regular expression for regular find operations as well as replace.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>Symbol&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Sample Text&lt;/th>
+&lt;th>Regex&lt;/th>
+&lt;th>Output&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Letters&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>Matches any latin letter or digit&lt;/td>
+&lt;td>Sample&lt;/td>
+&lt;td>\w&lt;/td>
+&lt;td>&lt;code>S&lt;/code> &lt;code>a&lt;/code> &lt;code>m&lt;/code> &lt;code>p&lt;/code> &lt;code>l&lt;/code> &lt;code>e&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\W&lt;/td>
+&lt;td>Matches any non-alphanumeric character&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Digits&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Matches any decimal digit&lt;/td>
+&lt;td>Numbers: 1, 2, 3, 100, 200&lt;/td>
+&lt;td>\d&lt;/td>
+&lt;td>Numbers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>, &lt;code>2&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\D&lt;/td>
+&lt;td>Matches any non decimal digit character.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>Matches one or more repetition of symbol (select whole word or digit)&lt;/td>
+&lt;td>Sample Text.&lt;/td>
+&lt;td>\w+&lt;/td>
+&lt;td>&lt;code>Sample&lt;/code> &lt;code>Text&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Repetition&lt;/td>
+&lt;td>*&lt;/td>
+&lt;td>Matches Zero or more occurrences of the symbol&lt;/td>
+&lt;td>1 , 2, 3, 10, 20, 100, 200&lt;/td>
+&lt;td>\d\d*&lt;/td>
+&lt;td>&lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>10&lt;/code>, &lt;code>20&lt;/code>, &lt;code>100&lt;/code>, &lt;code>200&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Set&lt;/td>
+&lt;td>[]&lt;/td>
+&lt;td>Matches set of characters&lt;/td>
+&lt;td>All symbols inside the braces.&lt;/td>
+&lt;td>[abc] will match a,b or c&lt;/td>
+&lt;td>&lt;code>A&lt;/code>ll sym&lt;code>b&lt;/code>ols inside the &lt;code>b&lt;/code>r&lt;code>ac&lt;/code>es.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[a-c]&lt;/td>
+&lt;td>Works similarly to &lt;code>[abc]&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>Match any character except a,b or c&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>[^abc]&lt;/td>
+&lt;td>A&lt;code>ll&lt;/code> &lt;code>sym&lt;/code>b&lt;code>ols&lt;/code> &lt;code>inside&lt;/code> &lt;code>the&lt;/code> b&lt;code>r&lt;/code>ac&lt;code>es&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Special Symbols&lt;/td>
+&lt;td>\. \[ \+&lt;/td>
+&lt;td>Match symbols that bear special meaning for regex. need to escape with &lt;code>\&lt;/code>&lt;/td>
+&lt;td>2+2&lt;/td>
+&lt;td>+&lt;/td>
+&lt;td>2&lt;code>+&lt;/code>2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alteration&lt;/td>
+&lt;td>a|b&lt;/td>
+&lt;td>Will match &lt;code>a&lt;/code> or &lt;code>b&lt;/code>&lt;/td>
+&lt;td>numbers: 1, 2, 3, 100&lt;/td>
+&lt;td>[a-f]|\d&lt;/td>
+&lt;td>num&lt;code>b&lt;/code>ers: &lt;code>1&lt;/code>, &lt;code>2&lt;/code>, &lt;code>3&lt;/code>, &lt;code>1&lt;/code> &lt;code>0&lt;/code> &lt;code>0&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single Character&lt;/td>
+&lt;td>.&lt;/td>
+&lt;td>Matches any character other than newline&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>.*&lt;/td>
+&lt;td>&lt;code>This is test.&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Optional&lt;/td>
+&lt;td>?&lt;/td>
+&lt;td>Makes the symbol optional&lt;/td>
+&lt;td>he and she&lt;/td>
+&lt;td>s?he&lt;/td>
+&lt;td>&lt;code>he&lt;/code> and &lt;code>she&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Start Of string&lt;/td>
+&lt;td>^&lt;/td>
+&lt;td>Matches the start of a string without consuming characters&lt;/td>
+&lt;td>start of string&lt;/td>
+&lt;td>^\w+&lt;/td>
+&lt;td>&lt;code>start&lt;/code> of string&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>End Of string&lt;/td>
+&lt;td>$&lt;/td>
+&lt;td>Matches the end of string without consuming characters&lt;/td>
+&lt;td>end of string&lt;/td>
+&lt;td>\w+$&lt;/td>
+&lt;td>end of &lt;code>string&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Word Boundary&lt;/td>
+&lt;td>\b&lt;/td>
+&lt;td>Matches boundaries of word. \b\w and \w\b will match first and last letter in word.&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\b\w&lt;/td>
+&lt;td>&lt;code>I&lt;/code>mmortal &lt;code>G&lt;/code>ods&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>Immortal Gods&lt;/td>
+&lt;td>\w\b&lt;/td>
+&lt;td>Immorta&lt;code>l&lt;/code> God&lt;code>s&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Space Symbol&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>Match any space symbols&lt;/td>
+&lt;td>This is test.&lt;/td>
+&lt;td>\s&lt;/td>
+&lt;td>This&lt;code> &lt;/code>is&lt;code> &lt;/code>test.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>\S&lt;/td>
+&lt;td>Matches a single character which is not white space.&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Number of Repetitions&lt;/td>
+&lt;td>{min_num, max_num}&lt;/td>
+&lt;td>Number of repetitions for an expression.&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,5}&lt;/td>
+&lt;td>I &lt;code>remem&lt;/code>-&lt;code>ber&lt;/code>, &lt;code>Nick&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n}&lt;/td>
+&lt;td>Exactly n receptions&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3}&lt;/td>
+&lt;td>I &lt;code>rem&lt;/code>-&lt;code>mem&lt;/code>ber, &lt;code>Nic&lt;/code>k.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>{n,}&lt;/td>
+&lt;td>N or more&lt;/td>
+&lt;td>I remember, Nick.&lt;/td>
+&lt;td>\w{3,}&lt;/td>
+&lt;td>I &lt;code>remember&lt;/code>, &lt;code>Nick&lt;/code>.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Grouping&lt;/td>
+&lt;td>()&lt;/td>
+&lt;td>Group of the match by putting them in braces.&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+)&lt;/td>
+&lt;td>&lt;code>John&lt;/code> &lt;code>Smith&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Replacing&lt;/td>
+&lt;td>$1 $2&lt;/td>
+&lt;td>We can use groups for replacing, referencing by numbers: $1 $2 (selecting group 1 and group 2 using $1 $2)&lt;/td>
+&lt;td>John Smith&lt;/td>
+&lt;td>(\w+)\s(\w+) replace with $2 $1&lt;/td>
+&lt;td>Smith John&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Backreferenace (Contents In Capture Group)&lt;/td>
+&lt;td>\1&lt;/td>
+&lt;td>It will return a string with the content from the first capture group. 1 can be any number as long as it corresponds to a valid capture group.&lt;/td>
+&lt;td>6362888232275296622&lt;/td>
+&lt;td>(\d)\1&lt;/td>
+&lt;td>6362&lt;code>88&lt;/code>823&lt;code>22&lt;/code>7529&lt;code>66&lt;/code> &lt;code>22&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lookeaheads&lt;/td>
+&lt;td>(?=)&lt;/td>
+&lt;td>abc(?=d) will match abc only if it is followed by d.&lt;/td>
+&lt;td>abcd&lt;/td>
+&lt;td>abc(?=d)&lt;/td>
+&lt;td>&lt;code>abc&lt;/code>d&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></content></item><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>&lt;hr>
+&lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
+&lt;h2 id="history-of-go">History of Go&lt;/h2>
+&lt;p>Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p></description><content>&lt;hr>
 &lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
 &lt;h2 id="history-of-go">History of Go&lt;/h2>
 &lt;p>Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p>
@@ -253,10 +476,9 @@ History of Go Back in 2007, the search engine Google had a problem. They had to 
 &lt;p>Congratulations, you&amp;rsquo;ve just run your first Go program🥳!&lt;/p>
 &lt;h3 id="go-file-layout">Go file layout&lt;/h3>
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="328941567" type="checkbox" />
-&lt;label for="328941567">
+&lt;input id="729685134" type="checkbox" />
+&lt;label for="729685134">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -269,7 +491,6 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Every Go file has three sections:&lt;/p>
 &lt;ol>
 &lt;li>The &lt;code>package&lt;/code> clause&lt;/li>
@@ -282,10 +503,9 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;li>&lt;code>actual code&lt;/code> : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code>function&lt;/code> is a group of code that you &lt;code>call (run)&lt;/code> from other places in your program. When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first, which is why we need this function &lt;code>main&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="245179638" type="checkbox" />
-&lt;label for="245179638">
+&lt;input id="275361894" type="checkbox" />
+&lt;label for="275361894">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -309,7 +529,6 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;ul>
 &lt;li>&lt;code>Function&lt;/code> : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/li>
 &lt;/ul>
@@ -318,7 +537,7 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/blockquote>
 &lt;h3 id="no-semicolons">No Semicolons&lt;/h3>
 &lt;p>As you can see in our program there are no semicolons to separate statements in Go, we can use semicolons but it&amp;rsquo;s not required (in fact, it&amp;rsquo;s generally frowned upon).&lt;/p>
-&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
+&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
 &lt;p>If you want to know more how it works you check Go&amp;rsquo;s official doc
 &lt;a href="https://go.dev/doc/effective_go#semicolons">https://go.dev/doc/effective_go#semicolons&lt;/a>&lt;/p>
 &lt;h3 id="formatting">Formatting&lt;/h3>
@@ -419,10 +638,9 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>Syntax for function in Go: &lt;code>func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code>&lt;/p>
 &lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="649123857" type="checkbox" />
-&lt;label for="649123857">
+&lt;input id="871643295" type="checkbox" />
+&lt;label for="871643295">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -438,7 +656,6 @@ fmt.Println(add(15, 10))
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In the above &lt;code>Addition Function&lt;/code> program we have two functions. The first is &lt;code>main()&lt;/code>, which doesn&amp;rsquo;t take any arguments (arguments are passed inside rounded brackets &lt;code>()&lt;/code>). The second function is our &lt;code>add&lt;/code> function, which you can see we have started with the &lt;code>func&lt;/code> keyword to declare a function, followed by the function name &lt;code>add()&lt;/code>, and we have passed two arguments &lt;code>x&lt;/code> and &lt;code>y&lt;/code>, which are type of &lt;code>int&lt;/code>. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.&lt;/p>
 &lt;p>In the above example, we shortened:&lt;/p>
 &lt;p>&lt;code>x int, y int&lt;/code> to &lt;code>x, y int&lt;/code>&lt;/p>
@@ -474,10 +691,9 @@ fmt.Println(add(15, 10))
 &lt;h4 id="multiple-return-value">Multiple Return Value&lt;/h4>
 &lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="518726934" type="checkbox" />
-&lt;label for="518726934">
+&lt;input id="645382791" type="checkbox" />
+&lt;label for="645382791">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -498,16 +714,14 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In the above example, the &lt;code>divideAndRemainder&lt;/code> function takes two integer parameters, &lt;code>dividend&lt;/code> and &lt;code>divisor&lt;/code>. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specify the return types in parentheses immediately after the function signature. In below declaration &lt;code>(int, int)&lt;/code> is returning pair of integers in function return value.&lt;/p>
 &lt;p>&lt;code>func divideAndRemainder(dividend, divisor int) (int, int) {}&lt;/code>&lt;/p>
 &lt;p>When you call the &lt;code>divideAndRemainder&lt;/code> function in the &lt;code>main&lt;/code> function, you can capture both return values &lt;code>(quotient and remainder)&lt;/code> and use them as needed.&lt;/p>
 &lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="739541862" type="checkbox" />
-&lt;label for="739541862">
+&lt;input id="324587196" type="checkbox" />
+&lt;label for="324587196">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -526,7 +740,6 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In this example, the &lt;code>divideAndRemainder&lt;/code> function has named result parameters &lt;code>quotient&lt;/code> and &lt;code>remainder&lt;/code> (&lt;code>(quotient int, remainder int)&lt;/code>). Inside the function body, you assign values to these variables, and you don&amp;rsquo;t need to use the &lt;code>return&lt;/code> statement explicitly. Go will automatically return the values of &lt;code>quotient&lt;/code> and &lt;code>remainder&lt;/code> when the function exits.&lt;/p>
 &lt;p>Benefits of using named result parameters:&lt;/p>
 &lt;ol>
@@ -546,10 +759,9 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;li>&lt;code>**_Deferred functions capture their arguments at the time of the defer statement_**&lt;/code>: If you pass arguments to a deferred function, those arguments are evaluated immediately, and their values are captured at the time of the &lt;code>defer&lt;/code> statement, not at the time the function is executed. This can lead to some interesting behavior in cases where the values of variables change before the function executes.&lt;/li>
 &lt;/ol>
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="469157238" type="checkbox" />
-&lt;label for="469157238">
+&lt;input id="836175942" type="checkbox" />
+&lt;label for="836175942">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -566,7 +778,6 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In this example, when the &lt;code>main&lt;/code> function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code>fmt.Println&lt;/code> functions using &lt;code>defer&lt;/code>. These deferred functions will be executed in reverse order when the &lt;code>main&lt;/code> function is about to return.&lt;/p>
 &lt;p>In practice, you often use &lt;code>defer&lt;/code> for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p>
 &lt;h4 id="bullet-points">Bullet Points&lt;/h4>
@@ -582,10 +793,9 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>The term &lt;code>method&lt;/code> came up with object-oriented programming. In an OOP language (like C++ for example) you can define a &lt;code>class&lt;/code> which encapsulates data and functions which belongs together. Those functions inside a class are called &lt;code>methods&lt;/code> and you need an instance of that class to call such a method.&lt;/p>
 &lt;p>In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p>
 &lt;p>So, For example:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="549162873" type="checkbox" />
-&lt;label for="549162873">
+&lt;input id="298734156" type="checkbox" />
+&lt;label for="298734156">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -598,12 +808,10 @@ return a &amp;#43; b
 // MyFunction(1, 2)
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>but&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="938721654" type="checkbox" />
-&lt;label for="938721654">
+&lt;input id="138479526" type="checkbox" />
+&lt;label for="138479526">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -618,7 +826,6 @@ return a &amp;#43; b
 // x.MyMethod(2)
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h3 id="formatting-verbs">Formatting Verbs&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -912,10 +1119,9 @@ return a &amp;#43; b
 &lt;/ul>
 &lt;p>Elements in an array are numbered, starting with &lt;code>0&lt;/code>. An element&amp;rsquo;s number is called its &lt;code>index&lt;/code>.&lt;/p>
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="581649372" type="checkbox" />
-&lt;label for="581649372">
+&lt;input id="739184652" type="checkbox" />
+&lt;label for="739184652">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -932,15 +1138,13 @@ Goku
 Vegeta
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>If you doesn&amp;rsquo;t assign a value to &lt;code>names[0]&lt;/code> and try to print. It will show empty string lets see why.&lt;/p>
 &lt;h5 id="default-values-in-arrays">Default values in arrays&lt;/h5>
 &lt;p>As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code>int&lt;/code> values is filled with zeros by default and same will be for &lt;code>string&lt;/code> but instead of zeros it will be empty string.&lt;/p>
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="458936721" type="checkbox" />
-&lt;label for="458936721">
+&lt;input id="329154867" type="checkbox" />
+&lt;label for="329154867">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -953,7 +1157,6 @@ counters[1]&amp;#43;&amp;#43; // Increment the third element from 0 to 1.
 fmt.Println(counters[0], counters[1], counters[2])
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;pre>&lt;code> 2 0 1
 / | \
 / | Has been incremented once
@@ -1013,10 +1216,9 @@ fmt.Println(numbers[0])
 ---Output---
 2
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="641938572" type="checkbox" />
-&lt;label for="641938572">
+&lt;input id="923647581" type="checkbox" />
+&lt;label for="923647581">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1033,7 +1235,6 @@ fmt.Println(letter)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h5 id="slice-literals">Slice literals&lt;/h5>
 &lt;p>Create slices with initial values directly using slice literals:&lt;/p>
 &lt;ul>
@@ -1041,10 +1242,9 @@ fmt.Println(letter)
 &lt;li>No need for &lt;code>make&lt;/code> function.&lt;/li>
 &lt;li>Resembles array literals, but without length in square brackets.&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="371629485" type="checkbox" />
-&lt;label for="371629485">
+&lt;input id="486917253" type="checkbox" />
+&lt;label for="486917253">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1057,14 +1257,12 @@ fmt.Println(notes[2], notes[4], notes[5])
 cool ninja turtle
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h5 id="the-slice-operator">The Slice Operator&lt;/h5>
 &lt;p>Every slice is built on top of an &lt;strong>underlying array&lt;/strong>. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p>
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="941358627" type="checkbox" />
-&lt;label for="941358627">
+&lt;input id="538476912" type="checkbox" />
+&lt;label for="538476912">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1077,13 +1275,11 @@ fmt.Println(slice1)
 [go bot cool]
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In tha above program &lt;code>underlyingArray[0:3]&lt;/code> is creating slice using slice operator where it &lt;code>0&lt;/code> is index of array where the slice should start, and the &lt;code>3&lt;/code> index of the array that the slice should stop &lt;strong>before&lt;/strong>. In above output we can see that the second index is the index the slice will stop &lt;strong>before&lt;/strong>. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code>underlyingArray[i:j]&lt;/code> as a slice operator, the resulting slice will actually contain the elements &lt;code>underlyingArray[i]&lt;/code> through &lt;code>underlyingArray[j-1]&lt;/code>.&lt;/p>
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="741583629" type="checkbox" />
-&lt;label for="741583629">
+&lt;input id="941852367" type="checkbox" />
+&lt;label for="941852367">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1096,12 +1292,10 @@ fmt.Println(slice1)
 [car ninja turtle]
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="185693472" type="checkbox" />
-&lt;label for="185693472">
+&lt;input id="279436518" type="checkbox" />
+&lt;label for="279436518">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1114,7 +1308,6 @@ fmt.Println(slice1)
 invalid argument: index 7 out of bounds [0:7]
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h5 id="underlying-arrays">Underlying arrays&lt;/h5>
 &lt;h5 id="constants">Constants&lt;/h5>
 &lt;p>Constants are just Constants in Go.&lt;/p>
@@ -1134,10 +1327,9 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;/ul>
 &lt;h2 id="embedding">Embedding&lt;/h2>
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="123948675" type="checkbox" />
-&lt;label for="123948675">
+&lt;input id="345692187" type="checkbox" />
+&lt;label for="345692187">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1153,12 +1345,10 @@ level string
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>This is embedding:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="194623758" type="checkbox" />
-&lt;label for="194623758">
+&lt;input id="486973152" type="checkbox" />
+&lt;label for="486973152">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1174,12 +1364,10 @@ level string
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Embed a type using pointer semantics&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="472985163" type="checkbox" />
-&lt;label for="472985163">
+&lt;input id="918275346" type="checkbox" />
+&lt;label for="918275346">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1195,13 +1383,11 @@ level string
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type&amp;rsquo;s name.&lt;/p>
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="589716234" type="checkbox" />
-&lt;label for="589716234">
+&lt;input id="158734926" type="checkbox" />
+&lt;label for="158734926">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1233,14 +1419,12 @@ mz.order(3) // Outer type promotion
 // Ordering 3 copies of magazine &amp;#34;Honda Accord&amp;#34; (2024).
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Once I add a method named &lt;code>order&lt;/code> for &lt;code>car&lt;/code> type and then a small main function, I can see the output is the same whether I call the &lt;code>order&lt;/code> method through the inner pointer value directly or through the outer type value. The &lt;code>order&lt;/code> method declared for the user type is accessible directly by the &lt;code>magazine&lt;/code> type value.&lt;/p>
 &lt;h2 id="composition">Composition&lt;/h2>
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="237546918" type="checkbox" />
-&lt;label for="237546918">
+&lt;input id="278341695" type="checkbox" />
+&lt;label for="278341695">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1264,12 +1448,10 @@ return nil
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="239815467" type="checkbox" />
-&lt;label for="239815467">
+&lt;input id="241839756" type="checkbox" />
+&lt;label for="241839756">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1285,14 +1467,12 @@ return nil
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The &lt;code>DB&lt;/code> type also represents a system that I need to store data into. The method &lt;code>Store&lt;/code> can succeed or fail.&lt;/p>
 &lt;p>&lt;strong>Note&lt;/strong>:- Above both methods implementation is not important here. Ignore the implementation.&lt;/p>
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="387216549" type="checkbox" />
-&lt;label for="387216549">
+&lt;input id="872953461" type="checkbox" />
+&lt;label for="872953461">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1316,12 +1496,10 @@ return len(data), nil
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="291754368" type="checkbox" />
-&lt;label for="291754368">
+&lt;input id="369147582" type="checkbox" />
+&lt;label for="369147582">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1343,12 +1521,10 @@ return err
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="874962513" type="checkbox" />
-&lt;label for="874962513">
+&lt;input id="639874251" type="checkbox" />
+&lt;label for="639874251">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1360,12 +1536,10 @@ DB
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="826174953" type="checkbox" />
-&lt;label for="826174953">
+&lt;input id="721846359" type="checkbox" />
+&lt;label for="721846359">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1388,16 +1562,14 @@ fmt.Println(err)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The main function can be written to construct a Cloud and DB within th composition of a System. Then the System can be passed to the Copy function and data can begin to flow between the two systems.&lt;/p>
 &lt;p>Now I have our first draft of a concrete solution to a concrete problem.&lt;/p>
 &lt;h3 id="decoupling-with-interfaces">Decoupling With Interfaces&lt;/h3>
 &lt;h4 id="methods-1">Methods&lt;/h4>
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="639754128" type="checkbox" />
-&lt;label for="639754128">
+&lt;input id="394672185" type="checkbox" />
+&lt;label for="394672185">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1416,7 +1588,6 @@ fmt.Printf(&amp;#34;Changed user email to %s\n&amp;#34;, email)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>The notify function is implemented with a value receiver. This means the method operates under value semantics and will operate on its own copy of the value used to make the call. (It will get the copy of value so if we update it will not affect outside method.)&lt;/p>
 &lt;p>the changeEmail function is implemented with a pointer receiver. This means the method operates under pointer semantics and will operate on shared access to the value used to make the call. (It will update the value in struct.)&lt;/p>
 &lt;h4 id="interfaces">Interfaces&lt;/h4>
@@ -1436,7 +1607,7 @@ fmt.Printf(&amp;#34;Changed user email to %s\n&amp;#34;, email)
 &lt;li>To generalize an algorithm.&lt;/li>
 &lt;li>When users can declare their own interfaces.&lt;/li>
 &lt;li>If it&amp;rsquo;s not clear how the interface makes the code better.&lt;/li>
-&lt;/ul></content></item><item><title>Imp Links</title><link>/notes/imp-links/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/imp-links/</guid><description> Name Links Regex http://regextutorials.com/</description><content>&lt;table>
+&lt;/ul></content></item><item><title>Imp Links</title><link>/notes/imp-links/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/imp-links/</guid><description>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>Name&lt;/th>
@@ -1449,8 +1620,24 @@ fmt.Printf(&amp;#34;Changed user email to %s\n&amp;#34;, email)
 &lt;td>&lt;a href="http://regextutorials.com/">http://regextutorials.com/&lt;/a>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></content></item><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>Zero To Millions of Users In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.
-Single Server Setup In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.</description><content>&lt;hr>
+&lt;/table></description><content>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Links&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Regex&lt;/td>
+&lt;td>&lt;a href="http://regextutorials.com/">http://regextutorials.com/&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></content></item><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>&lt;hr>
+&lt;h2 id="zero-to-millions-of-users">Zero To Millions of Users&lt;/h2>
+&lt;p>In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p>
+&lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>
+&lt;p>In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.&lt;/p></description><content>&lt;hr>
 &lt;h2 id="zero-to-millions-of-users">Zero To Millions of Users&lt;/h2>
 &lt;p>In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p>
 &lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>

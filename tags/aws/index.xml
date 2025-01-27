@@ -1,5 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Rushi Panchariya</title><link>/tags/aws/</link><description>Recent content in AWS on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 28 Jun 2024 12:07:52 +0530</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS</title><link>/notes/aws/</link><pubDate>Fri, 28 Jun 2024 12:07:52 +0530</pubDate><guid>/notes/aws/</guid><description>AWS stands of Amazon Web Service. It offer broad range of cloud services.
-Traditional vs Serverless Web hosting Traditional Serverless Provision Capacity Runs On-Demand (unlimited capacity Only pay for Code Executions) Scaling (Pay too much or server issues) Scales Automatically (Pay What you need) Update OS &amp;amp; Software Runs on Managed AWS Infrastructure (up-to-date and secure environment) Lots of Overhead for SPA + API Apps Great for SPA + API Apps API Gateway (REST API) API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale.</description><content>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Rushi Panchariya</title><link>/tags/aws/</link><description>Recent content in AWS on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 28 Jun 2024 12:07:52 +0530</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS</title><link>/notes/aws/</link><pubDate>Fri, 28 Jun 2024 12:07:52 +0530</pubDate><guid>/notes/aws/</guid><description>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
+&lt;h2 id="traditional-vs-serverless-web-hosting">Traditional vs Serverless Web hosting&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Traditional&lt;/th>
+&lt;th>Serverless&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Provision Capacity&lt;/td>
+&lt;td>Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Scaling (Pay too much or server issues)&lt;/td>
+&lt;td>Scales Automatically (Pay What you need)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Update OS &amp;amp; Software&lt;/td>
+&lt;td>Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Lots of Overhead for SPA + API Apps&lt;/td>
+&lt;td>Great for SPA + API Apps&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="api-gateway-rest-api">API Gateway (REST API)&lt;/h2>
+&lt;p>API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p></description><content>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
 &lt;h2 id="traditional-vs-serverless-web-hosting">Traditional vs Serverless Web hosting&lt;/h2>
 &lt;table>
 &lt;thead>

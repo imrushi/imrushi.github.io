@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ci/Cd on Rushi Panchariya</title><link>/tags/ci/cd/</link><description>Recent content in Ci/Cd on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 11:10:47 +0530</lastBuildDate><atom:link href="/tags/ci/cd/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action hugo-to-medium by Prakhar Kaushik.
-This GitHub action was good, but there were some issues. In Hugo, I mostly use shortcodes to showcase the sample codes, figures, and images.</description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ci/Cd on Rushi Panchariya</title><link>/tags/ci/cd/</link><description>Recent content in Ci/Cd on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 11 Oct 2023 11:10:47 +0530</lastBuildDate><atom:link href="/tags/ci/cd/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
+&lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p></description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
 &lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p>
 &lt;ul>
 &lt;li>Select and replace shortcodes using regex.&lt;/li>
@@ -58,10 +58,9 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;/ul>
 &lt;p>But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code>action.yml&lt;/code> with &lt;code>composite action&lt;/code> and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p>
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="734582196" type="checkbox" />
-&lt;label for="734582196">
+&lt;input id="963745182" type="checkbox" />
+&lt;label for="963745182">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -121,7 +120,6 @@ icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>This time, I thought everything looked good. But I was getting this error: &lt;code>FATA[2023-09-29T11:17:24Z] repository does not exist&lt;/code> - it was generated from binary; it was not able to find the &lt;code>.git&lt;/code> directory. I was using it to take the latest commit message.&lt;/p>
 &lt;p>The conclusion for me was that I was not going to use the &lt;code>composite actions&lt;/code>. Now I have two options:&lt;/p>
 &lt;ol>
@@ -135,10 +133,9 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>Let&amp;rsquo;s check out how to create custom GitHub actions. In this, I am going to create &lt;code>Docker actions&lt;/code>, but action.yml will have an almost similar syntax.&lt;/p>
 &lt;h2 id="creating-a-github-action">Creating a GitHub Action&lt;/h2>
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="475192638" type="checkbox" />
-&lt;label for="475192638">
+&lt;input id="382465197" type="checkbox" />
+&lt;label for="382465197">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -153,7 +150,6 @@ RUN chmod &amp;#43;x HugoToMedium
 ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>What is going on in the above Dockerfile:&lt;/p>
 &lt;ul>
 &lt;li>We are pulling golang:1.21.1 alpine image&lt;/li>
@@ -186,10 +182,9 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;/ul>
 &lt;p>This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions">GitHub Docs&lt;/a>.&lt;/p>
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="857129346" type="checkbox" />
-&lt;label for="857129346">
+&lt;input id="976152834" type="checkbox" />
+&lt;label for="976152834">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -234,14 +229,12 @@ icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In the above &lt;code>action.yml&lt;/code> file, I have specified &lt;code>name&lt;/code> which will be used to show in the Actions tab. On the next line, &lt;code>description&lt;/code> what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, &lt;code>markdown-or-hugo&lt;/code> has its own description of what the variable is or, along with whether this variable should be &lt;code>required&lt;/code> or optional, and also sets the &lt;code>default&lt;/code> value to it. The same is done for the other four inputs.&lt;/p>
 &lt;p>In the &lt;code>runs&lt;/code> section with &lt;code>using&lt;/code> parameter, we specify which type of actions we are using &lt;code>docker&lt;/code>, and we also have to configure which &lt;code>image&lt;/code> to use. If you specify &lt;code>Dockerfile&lt;/code> as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code>docker://image-name:tag&lt;/code>. If your program takes arguments, you can pass them with the &lt;code>args&lt;/code> parameter, and if you want to pass the above-taken input you can use &lt;code>${{ inputs.input_variable_name }}&lt;/code>.&lt;/p>
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="218635749" type="checkbox" />
-&lt;label for="218635749">
+&lt;input id="591648732" type="checkbox" />
+&lt;label for="591648732">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -251,12 +244,10 @@ output_parameter:
 description: &amp;#39;This will show the output which will be set from container&amp;#39;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="175268934" type="checkbox" />
-&lt;label for="175268934">
+&lt;input id="549812367" type="checkbox" />
+&lt;label for="549812367">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -269,7 +260,6 @@ program_input=$(your_go_program)
 echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>You can check out more about the output &lt;a href="https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs">here&lt;/a>.&lt;/p>
 &lt;p>&lt;code>branding&lt;/code> uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons">here&lt;/a>.&lt;/p>
 &lt;p>Here you have written your first custom github action.&lt;/p>
@@ -280,10 +270,9 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;ul>
 &lt;li>If your repository is public, you can test it by assigning &lt;code>uses&lt;/code> with &lt;code>&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code> in &lt;code>steps&lt;/code>. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code>.github/workflows/filename.yml&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="493856127" type="checkbox" />
-&lt;label for="493856127">
+&lt;input id="132647589" type="checkbox" />
+&lt;label for="132647589">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -306,14 +295,12 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;ul>
 &lt;li>Second way is to test it in the current repository, you can use &lt;code>./&lt;/code> in &lt;code>uses&lt;/code>. &lt;code>./&lt;/code> syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="657982341" type="checkbox" />
-&lt;label for="657982341">
+&lt;input id="981476532" type="checkbox" />
+&lt;label for="981476532">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -336,7 +323,6 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h2 id="publishing-the-github-action">Publishing the GitHub Action&lt;/h2>
 &lt;p>As soon as our action has been tested, it&amp;rsquo;s time to publish it. Let&amp;rsquo;s see how we can do that.&lt;/p>
 &lt;p>To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:&lt;/p>
@@ -369,10 +355,9 @@ draft: true
 &lt;li>Start by creating a workflow in the .github/workflows directory of your repository (or create the directory if it doesn&amp;rsquo;t exist).&lt;/li>
 &lt;li>Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="459738612" type="checkbox" />
-&lt;label for="459738612">
+&lt;input id="296578413" type="checkbox" />
+&lt;label for="296578413">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -403,7 +388,6 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>This workflow is configured to run when changes are pushed to the main branch. It checks out your code, and then it uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action, passing the necessary inputs as specified in the with section.&lt;/p>
 &lt;ul>
 &lt;li>Commit this workflow YAML file to your repository.&lt;/li>

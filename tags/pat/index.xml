@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PAT on Rushi Panchariya</title><link>/tags/pat/</link><description>Recent content in PAT on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 06 May 2024 14:32:34 +0530</lastBuildDate><atom:link href="/tags/pat/index.xml" rel="self" type="application/rss+xml"/><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.
-For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.
-This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PAT on Rushi Panchariya</title><link>/tags/pat/</link><description>Recent content in PAT on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 06 May 2024 14:32:34 +0530</lastBuildDate><atom:link href="/tags/pat/index.xml" rel="self" type="application/rss+xml"/><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
+&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p></description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
 &lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
 &lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p>
 &lt;p>Here&amp;rsquo;s why passwords can be frustrating:&lt;/p>
@@ -77,10 +77,9 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="941832567" type="checkbox" />
-&lt;label for="941832567">
+&lt;input id="781624359" type="checkbox" />
+&lt;label for="781624359">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -102,7 +101,6 @@ KEY name_index (name) USING BTREE
 );
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h4 id="pat-generation">PAT Generation&lt;/h4>
 &lt;p>Generation of PAT using HMAC&lt;sup id="fnref3:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
 &lt;ul>
@@ -228,10 +226,9 @@ KEY name_index (name) USING BTREE
 &lt;/ul>
 &lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="958421763" type="checkbox" />
-&lt;label for="958421763">
+&lt;input id="432196785" type="checkbox" />
+&lt;label for="432196785">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -253,7 +250,6 @@ encodingSignature := b64.EncodeToString(signature)
 encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSignature)
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>An example of token with a timestamp:
 &lt;code>b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code>&lt;/p>
 &lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
@@ -266,10 +262,9 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;li>Generate HMAC similar to what we did in generation.&lt;/li>
 &lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="462751893" type="checkbox" />
-&lt;label for="462751893">
+&lt;input id="398561742" type="checkbox" />
+&lt;label for="398561742">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -305,7 +300,6 @@ return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Check the full code for PAT with time expiry &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go">here&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>

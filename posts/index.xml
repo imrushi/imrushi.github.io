@@ -1,5 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Rushi Panchariya</title><link>/posts/</link><description>Recent content in Posts on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 23 Jun 2024 16:08:19 +0530</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).
-I was planning to make something like the following:</description><content>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Rushi Panchariya</title><link>/posts/</link><description>Recent content in Posts on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Jan 2025 15:11:59 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ads on My Kindle? Not on My Watch!</title><link>/posts/kindle-ads-remover/</link><pubDate>Mon, 27 Jan 2025 15:11:59 +0000</pubDate><guid>/posts/kindle-ads-remover/</guid><description>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
+&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
+&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p></description><content>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
+&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
+&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p>
+&lt;p>When I purchased my Kindle in Germany, there were two versions available: one with ads and one without. The ad-free version cost an additional 10 Euros, but I decided not to spend the extra money — I’d rather buy coffee or chocolates instead! At the time, I thought there might be a workaround to remove the ads, and since they didn’t show up initially, I ignored the issue.&lt;/p>
+&lt;p>However, after installing today’s Kindle update, ads started showing up on the lock screen. They were bright and intrusive, completely ruining the experience ☹️.&lt;/p>
+&lt;p>I initially considered adding the ad servers’ DNS to AdGuard but wanted a permanent solution.&lt;/p>
+&lt;h2 id="kindle-ad-remover">Kindle Ad Remover&lt;/h2>
+&lt;p>After a bit of Googling, I found a GitHub repository called &lt;a href="https://github.com/mariopepe/KindleAdRemover">KindleAdRemover&lt;/a>. According to the README, the process might require a Mac, which I have, but it&amp;rsquo;s an office device, so I couldn’t use it for this purpose. Thankfully, the repo also provided a shell script, and I decided to give that a try.&lt;/p>
+&lt;p>The shell script was straightforward. It checked if the Kindle was connected and detected. Once detected, it navigated to the Kindle&amp;rsquo;s &lt;code>system&lt;/code> directory, deleted the &lt;code>.assets&lt;/code> folder, and replaced it with an empty &lt;code>.assets&lt;/code> file.&lt;/p>
+&lt;p>Following the instructions, I connected my Kindle to my Raspberry Pi.&lt;/p>
+&lt;blockquote>
+&lt;p>Life won&amp;rsquo;t be easy/fun without Issue - this the one thing I&amp;rsquo;ve learned.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="issue-connecting-kindle-with-linux">Issue: Connecting Kindle with Linux&lt;/h2>
+&lt;p>When I connected my Kindle to the Raspberry Pi, it appeared in &lt;code>lsusb&lt;/code>, but the storage wasn’t mounting. I checked with &lt;code>fdisk -l&lt;/code>, but no storage device was listed. Even &lt;code>dmesg | tail&lt;/code> showed Kindle-related information but no mount path.&lt;/p>
+&lt;p>I suspect the issue lies with the latest Kindle (12th generation) update. The same problem occurred when I tried connecting it to a Mac (My Friends Macbook 😏).&lt;/p>
+&lt;blockquote>
+&lt;p>I’ll look into this issue further and try to fix it.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mission-kill-the-ads">Mission: Kill the Ads&lt;/h2>
+&lt;p>Determined to get rid of the ads, I found a &lt;code>PowerShell&lt;/code> script in the repository. I connected my Kindle to a Windows PC and saw the storage appear in File Explorer. Inside the &lt;code>system&lt;/code> directory, I located the &lt;code>.assets&lt;/code> folder.&lt;/p>
+&lt;p>Rather than deleting it manually, I tried running the &lt;code>PowerShell&lt;/code> script, but it didn’t work. Instead, I used &lt;code>Git Bash&lt;/code> to manually execute the required steps:&lt;/p>
+&lt;ol>
+&lt;li>Navigated to the &lt;code>.assets&lt;/code> directory inside the &lt;code>system&lt;/code> folder.&lt;/li>
+&lt;li>Opened &lt;code>Git Bash&lt;/code> in the Kindle storage directory.&lt;/li>
+&lt;li>Deleted the &lt;code>.assets&lt;/code> folder using:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ rm -r system/.assets
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>Created an empty .assets file using:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ touch system/.assets
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
+&lt;li>Disconnect Kindle.&lt;/li>
+&lt;/ol>
+&lt;p>After locking and unlocking the Kindle, all the ads were gone, and a nice wallpaper appeared instead.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: These steps will need to be repeated after every software update, as updates revert the changes.&lt;/p>
+&lt;/blockquote>
+&lt;p>Now, my mind can fully enjoy reading without being distracted by ads! 😉&lt;/p></content></item><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
+&lt;p>I was planning to make something like the following:&lt;/p></description><content>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
 &lt;p>I was planning to make something like the following:&lt;/p>
 &lt;ul>
 &lt;li>Store documents, codes (unfinished or WIP), videos, and photos.&lt;/li>
@@ -298,9 +339,9 @@ I was planning to make something like the following:</description><content>&lt;p
 &lt;/ul>
 &lt;p>With only 2 GB of RAM, running all these services simultaneously can be challenging. As a result, I&amp;rsquo;ve opted not to run more resource-intensive services like Immich continuously. Instead, I activate this service when I need to periodically back up my data.&lt;/p>
 &lt;p>Looking ahead, I&amp;rsquo;m contemplating upgrading my Raspberry Pi to a Raspberry Pi 5 with 8 GB of RAM and attaching an SSD to it. This upgrade would provide more power and storage capacity, allowing for smoother operation and greater flexibility in running multiple services concurrently.&lt;/p>
-&lt;p>This concludes my setup for the Raspberry Pi Home Server. Any changes or additional components will be detailed in future posts.&lt;/p></content></item><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.
-For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.
-This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+&lt;p>This concludes my setup for the Raspberry Pi Home Server. Any changes or additional components will be detailed in future posts.&lt;/p></content></item><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
+&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
+&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p></description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
 &lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
 &lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p>
 &lt;p>Here&amp;rsquo;s why passwords can be frustrating:&lt;/p>
@@ -377,10 +418,9 @@ This is where Personal Access Tokens (PATs) come in.</description><content>&lt;p
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="941832567" type="checkbox" />
-&lt;label for="941832567">
+&lt;input id="781624359" type="checkbox" />
+&lt;label for="781624359">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -402,7 +442,6 @@ KEY name_index (name) USING BTREE
 );
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h4 id="pat-generation">PAT Generation&lt;/h4>
 &lt;p>Generation of PAT using HMAC&lt;sup id="fnref3:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
 &lt;ul>
@@ -528,10 +567,9 @@ KEY name_index (name) USING BTREE
 &lt;/ul>
 &lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="958421763" type="checkbox" />
-&lt;label for="958421763">
+&lt;input id="432196785" type="checkbox" />
+&lt;label for="432196785">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -553,7 +591,6 @@ encodingSignature := b64.EncodeToString(signature)
 encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSignature)
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>An example of token with a timestamp:
 &lt;code>b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code>&lt;/p>
 &lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
@@ -566,10 +603,9 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;li>Generate HMAC similar to what we did in generation.&lt;/li>
 &lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="462751893" type="checkbox" />
-&lt;label for="462751893">
+&lt;input id="398561742" type="checkbox" />
+&lt;label for="398561742">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -605,7 +641,6 @@ return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Check the full code for PAT with time expiry &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go">here&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>
@@ -620,8 +655,8 @@ return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
 &lt;p>Fosite: &lt;a href="https://github.com/ory/fosite">https://github.com/ory/fosite&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></content></item><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action hugo-to-medium by Prakhar Kaushik.
-This GitHub action was good, but there were some issues. In Hugo, I mostly use shortcodes to showcase the sample codes, figures, and images.</description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
+&lt;/div></content></item><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
+&lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p></description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
 &lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p>
 &lt;ul>
 &lt;li>Select and replace shortcodes using regex.&lt;/li>
@@ -680,10 +715,9 @@ This GitHub action was good, but there were some issues. In Hugo, I mostly use s
 &lt;/ul>
 &lt;p>But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code>action.yml&lt;/code> with &lt;code>composite action&lt;/code> and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p>
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="734582196" type="checkbox" />
-&lt;label for="734582196">
+&lt;input id="963745182" type="checkbox" />
+&lt;label for="963745182">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -743,7 +777,6 @@ icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>This time, I thought everything looked good. But I was getting this error: &lt;code>FATA[2023-09-29T11:17:24Z] repository does not exist&lt;/code> - it was generated from binary; it was not able to find the &lt;code>.git&lt;/code> directory. I was using it to take the latest commit message.&lt;/p>
 &lt;p>The conclusion for me was that I was not going to use the &lt;code>composite actions&lt;/code>. Now I have two options:&lt;/p>
 &lt;ol>
@@ -757,10 +790,9 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>Let&amp;rsquo;s check out how to create custom GitHub actions. In this, I am going to create &lt;code>Docker actions&lt;/code>, but action.yml will have an almost similar syntax.&lt;/p>
 &lt;h2 id="creating-a-github-action">Creating a GitHub Action&lt;/h2>
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="475192638" type="checkbox" />
-&lt;label for="475192638">
+&lt;input id="382465197" type="checkbox" />
+&lt;label for="382465197">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -775,7 +807,6 @@ RUN chmod &amp;#43;x HugoToMedium
 ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>What is going on in the above Dockerfile:&lt;/p>
 &lt;ul>
 &lt;li>We are pulling golang:1.21.1 alpine image&lt;/li>
@@ -808,10 +839,9 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;/ul>
 &lt;p>This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions">GitHub Docs&lt;/a>.&lt;/p>
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="857129346" type="checkbox" />
-&lt;label for="857129346">
+&lt;input id="976152834" type="checkbox" />
+&lt;label for="976152834">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -856,14 +886,12 @@ icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>In the above &lt;code>action.yml&lt;/code> file, I have specified &lt;code>name&lt;/code> which will be used to show in the Actions tab. On the next line, &lt;code>description&lt;/code> what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, &lt;code>markdown-or-hugo&lt;/code> has its own description of what the variable is or, along with whether this variable should be &lt;code>required&lt;/code> or optional, and also sets the &lt;code>default&lt;/code> value to it. The same is done for the other four inputs.&lt;/p>
 &lt;p>In the &lt;code>runs&lt;/code> section with &lt;code>using&lt;/code> parameter, we specify which type of actions we are using &lt;code>docker&lt;/code>, and we also have to configure which &lt;code>image&lt;/code> to use. If you specify &lt;code>Dockerfile&lt;/code> as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code>docker://image-name:tag&lt;/code>. If your program takes arguments, you can pass them with the &lt;code>args&lt;/code> parameter, and if you want to pass the above-taken input you can use &lt;code>${{ inputs.input_variable_name }}&lt;/code>.&lt;/p>
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="218635749" type="checkbox" />
-&lt;label for="218635749">
+&lt;input id="591648732" type="checkbox" />
+&lt;label for="591648732">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -873,12 +901,10 @@ output_parameter:
 description: &amp;#39;This will show the output which will be set from container&amp;#39;
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="175268934" type="checkbox" />
-&lt;label for="175268934">
+&lt;input id="549812367" type="checkbox" />
+&lt;label for="549812367">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -891,7 +917,6 @@ program_input=$(your_go_program)
 echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>You can check out more about the output &lt;a href="https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs">here&lt;/a>.&lt;/p>
 &lt;p>&lt;code>branding&lt;/code> uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons">here&lt;/a>.&lt;/p>
 &lt;p>Here you have written your first custom github action.&lt;/p>
@@ -902,10 +927,9 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;ul>
 &lt;li>If your repository is public, you can test it by assigning &lt;code>uses&lt;/code> with &lt;code>&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code> in &lt;code>steps&lt;/code>. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code>.github/workflows/filename.yml&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="493856127" type="checkbox" />
-&lt;label for="493856127">
+&lt;input id="132647589" type="checkbox" />
+&lt;label for="132647589">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -928,14 +952,12 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;ul>
 &lt;li>Second way is to test it in the current repository, you can use &lt;code>./&lt;/code> in &lt;code>uses&lt;/code>. &lt;code>./&lt;/code> syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="657982341" type="checkbox" />
-&lt;label for="657982341">
+&lt;input id="981476532" type="checkbox" />
+&lt;label for="981476532">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -958,7 +980,6 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h2 id="publishing-the-github-action">Publishing the GitHub Action&lt;/h2>
 &lt;p>As soon as our action has been tested, it&amp;rsquo;s time to publish it. Let&amp;rsquo;s see how we can do that.&lt;/p>
 &lt;p>To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:&lt;/p>
@@ -991,10 +1012,9 @@ draft: true
 &lt;li>Start by creating a workflow in the .github/workflows directory of your repository (or create the directory if it doesn&amp;rsquo;t exist).&lt;/li>
 &lt;li>Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="459738612" type="checkbox" />
-&lt;label for="459738612">
+&lt;input id="296578413" type="checkbox" />
+&lt;label for="296578413">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1025,7 +1045,6 @@ frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>This workflow is configured to run when changes are pushed to the main branch. It checks out your code, and then it uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action, passing the necessary inputs as specified in the with section.&lt;/p>
 &lt;ul>
 &lt;li>Commit this workflow YAML file to your repository.&lt;/li>
@@ -1044,8 +1063,9 @@ draft: true
 &lt;p>&amp;ldquo;Runner&amp;rdquo; refers to a virtual machine or container environment where your GitHub Action workflows are executed.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>If you have read my first blog Let&amp;rsquo;s Go, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some notes.
-As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code.</description><content>&lt;hr>
+&lt;/div></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>&lt;hr>
+&lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
+&lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p></description><content>&lt;hr>
 &lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
 &lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
 &lt;p>Let&amp;rsquo;s find the answer&amp;rsquo;s:&lt;/p>
@@ -1072,10 +1092,9 @@ As you read the heading of the blog, I will cover some of the basics that I thin
 &lt;p>Let&amp;rsquo;s start with syntax and clean code principles :&lt;/p>
 &lt;h2 id="go-file-layout">Go file layout&lt;/h2>
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="216789354" type="checkbox" />
-&lt;label for="216789354">
+&lt;input id="678425391" type="checkbox" />
+&lt;label for="678425391">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1088,7 +1107,6 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Every Go file has three sections:&lt;/p>
 &lt;ol>
 &lt;li>The &lt;code>package&lt;/code> clause&lt;/li>
@@ -1110,10 +1128,9 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/li>
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="461935782" type="checkbox" />
-&lt;label for="461935782">
+&lt;input id="521846793" type="checkbox" />
+&lt;label for="521846793">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1137,23 +1154,21 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;blockquote>
 &lt;p>Note: When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="no-semicolons">No Semicolons&lt;/h2>
 &lt;p>As you can see in our previous program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.&lt;/p>
-&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike &lt;a href="https://en.wikipedia.org/wiki/C_(programming_language)">C&lt;/a>, those semicolons do not appear in the source. Instead, the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
+&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, those semicolons do not appear in the source. Instead, the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
 &lt;h3 id="how-does-it-know-when-to-add-semicolons">How does it know when to add semicolons?&lt;/h3>
 &lt;p>The rule is: If a line ends with an identifier (for example: words such as &lt;code>int&lt;/code> or &lt;code>float64&lt;/code>), a basic value such as a number or a string, or certain specific tokens such as&lt;/p>
 &lt;p>&lt;code>break continue fallthrough return ++ -- ) }&lt;/code>&lt;/p>
 &lt;p>The Go lexer then adds a semicolon after that token when it encounters a newline, which is &lt;code>\n&lt;/code>.&lt;/p>
 &lt;p>To put it simply, when there&amp;rsquo;s a chance that a newline could end a statement, Go automatically inserts a semicolon.&lt;/p>
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="876129543" type="checkbox" />
-&lt;label for="876129543">
+&lt;input id="283615794" type="checkbox" />
+&lt;label for="283615794">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1164,12 +1179,10 @@ g()
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>not like this:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="621859473" type="checkbox" />
-&lt;label for="621859473">
+&lt;input id="453126879" type="checkbox" />
+&lt;label for="453126879">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1181,7 +1194,6 @@ g()
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;h2 id="formatting">Formatting&lt;/h2>
 &lt;p>Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if they are not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.&lt;/p>
 &lt;p>Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called &lt;code>go fmt&lt;/code>. This tool reads a program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.&lt;/p>
@@ -1193,10 +1205,9 @@ g()
 &lt;ol>
 &lt;li>&lt;strong>Single-line comments&lt;/strong>: Single-line comments start with two slashes &lt;code>//&lt;/code> and continue until the end of the line. They are used for adding brief explanations or clarity to a specific line of code.&lt;/li>
 &lt;/ol>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="257169348" type="checkbox" />
-&lt;label for="257169348">
+&lt;input id="713492568" type="checkbox" />
+&lt;label for="713492568">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1206,14 +1217,12 @@ g()
 var x int // This comment explains the purpose of the variable.
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;ol start="2">
 &lt;li>&lt;strong>Multi-line comments&lt;/strong>: Multi-line comments are enclosed within &lt;code>/*&lt;/code> and &lt;code>*/&lt;/code> and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.&lt;/li>
 &lt;/ol>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="651782439" type="checkbox" />
-&lt;label for="651782439">
+&lt;input id="543961287" type="checkbox" />
+&lt;label for="543961287">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1226,13 +1235,11 @@ detailed explanations or comments for larger code blocks.
 */
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>Go also has a convention for documenting exported (public) identifiers and packages using special comments, often referred to as &amp;ldquo;comment annotations&amp;rdquo; or &amp;ldquo;comments for the &lt;code>godoc&lt;/code> tool&amp;rdquo;. These comments are structured in a way that allows the godoc tool to automatically generate documentation based on them.&lt;/p>
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="349657821" type="checkbox" />
-&lt;label for="349657821">
+&lt;input id="529814637" type="checkbox" />
+&lt;label for="529814637">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1244,12 +1251,10 @@ func MyFunction() {
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
-&lt;!-- raw HTML omitted -->
 &lt;div class="collapsable-code">
-&lt;input id="143296587" type="checkbox" />
-&lt;label for="143296587">
+&lt;input id="368497251" type="checkbox" />
+&lt;label for="368497251">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1264,7 +1269,6 @@ func ExportedFunction() {
 }
 &lt;/code>&lt;/pre>
 &lt;/div>
-&lt;!-- raw HTML omitted -->
 &lt;p>To generate documentation from these comments, you can use the godoc command-line tool. Running godoc on your Go code will produce documentation that includes your comments, making it easier for others to understand and use your code. Properly documented code is not only more understandable but also encourages collaboration and code maintenance.&lt;/p>
 &lt;h2 id="names">Names&lt;/h2>
 &lt;img src="https://media0.giphy.com/media/3orieQcuSiWouzdHq0/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" />
@@ -1361,7 +1365,8 @@ func ExportedFunction() {
 &lt;li>&lt;a href="https://www.oreilly.com/library/view/head-first-go/9781491969540/">Head First GO&lt;/a> - Jay McGavren&lt;/li>
 &lt;li>&lt;a href="https://go.dev/doc/effective_go">Effective Go&lt;/a> - Go Doc&lt;/li>
 &lt;li>&lt;a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/">Clean Code&lt;/a> - Robert C. Martin&lt;/li>
-&lt;/ul></content></item><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>Begin This is the new beginning and also my second blog, which is also a non-technical blog (first blog). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the Notes section.</description><content>&lt;h2 id="begin">Begin&lt;/h2>
+&lt;/ul></content></item><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>&lt;h2 id="begin">Begin&lt;/h2>
+&lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p></description><content>&lt;h2 id="begin">Begin&lt;/h2>
 &lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p>
 &lt;h2 id="plan-and-present">Plan and Present&lt;/h2>
 &lt;p>As of now, I don’t have a full plan for what I am going to write, which topics I will cover, or where it will go. But I remember a quote that says to &lt;code>go with the flow and be more concerned with the journey than the destination&lt;/code>.&lt;/p>
