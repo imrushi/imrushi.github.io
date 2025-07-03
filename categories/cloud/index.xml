@@ -88,8 +88,7 @@ Partition key should be unique.&lt;/li>
 &lt;/ul>
 &lt;blockquote>
 &lt;p>Note: why is it call partition key?
-DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.&lt;/p>
-&lt;/blockquote>
+DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.&lt;/p>&lt;/blockquote>
 &lt;p>&lt;strong>Partition key + sort key&lt;/strong>
 Instead just using partition key as primary key dynamoDB gives option to use sort key. Using both partition and sort key we can get new primary key. So when we have same key we can use sort key (timestamp) this gives us primary key.&lt;/p>
 &lt;ul>
@@ -104,4 +103,85 @@ Some application might need to perform many kinds of queries, using a variety of
 &lt;h2 id="cognito-auth">Cognito (AUTH)&lt;/h2>
 &lt;h2 id="s3-simple-storage-service-web-app">S3 (Simple Storage Service) (Web APP)&lt;/h2>
 &lt;h2 id="cloudfront-cache-service">CloudFront (Cache service)&lt;/h2>
-&lt;h2 id="route53-dns">Route53 (DNS)&lt;/h2></content></item></channel></rss>
+&lt;h2 id="route53-dns">Route53 (DNS)&lt;/h2>
+&lt;hr>
+&lt;h2 id="ec2">EC2&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>There are different types of EC2 Instance type you can check here: &lt;a href="https://aws.amazon.com/ec2/instance-types/">https://aws.amazon.com/ec2/instance-types/&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>General Purpose :- Great for a diversity of workloads such as web servers or code repositoires. Balance between: Compute, Memory and Networking&lt;/li>
+&lt;li>Compute optimized :- Great for compute-intensive tasks that require high performance processors: for example
+&lt;ul>
+&lt;li>Batch processing workloads&lt;/li>
+&lt;li>Media transcoding&lt;/li>
+&lt;li>High performance web servers&lt;/li>
+&lt;li>Scientific Modeling &amp;amp; machine learning&lt;/li>
+&lt;li>Dedicated gaming server&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Memory Optimized :- Fast performance for workloads that process large data sets in memory: use case:
+&lt;ul>
+&lt;li>High performance, relational/non-relational Databases&lt;/li>
+&lt;li>Distributed web scale cache stores&lt;/li>
+&lt;li>In-memory databases optimized for BI (business Intelligence)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Accelerated computing&lt;/li>
+&lt;li>Storage Optimized :- Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage. Usecases:
+&lt;ul>
+&lt;li>High frequency online transaction processing (OLTP) systems&lt;/li>
+&lt;li>Relational &amp;amp; NoSQL databases&lt;/li>
+&lt;li>Cache for in-memory databases (for eg. Redis)&lt;/li>
+&lt;li>Data wearhousing applications&lt;/li>
+&lt;li>Distributed file Systems&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HPC Optimized&lt;/li>
+&lt;li>Instance Features&lt;/li>
+&lt;li>Measuring Instance Performance&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>AWS has following naming convention:&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>m5.2xlarge
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>m: instance classs&lt;/li>
+&lt;li>5: generation (the generation of hardware aws using if there is any improvement in hardware this will change for eg. 6)&lt;/li>
+&lt;li>2xlarge: size within the instance class&lt;/li>
+&lt;/ul>
+&lt;h3 id="ec2-security-groups">EC2 Security Groups&lt;/h3>
+&lt;ul>
+&lt;li>Security groups are acting as a &amp;ldquo;firewall&amp;rdquo; on EC2 instances&lt;/li>
+&lt;li>They regulate:
+&lt;ul>
+&lt;li>Access to Ports&lt;/li>
+&lt;li>Authorized IP ranges - IPv4 and IPv6&lt;/li>
+&lt;li>Control of inbound network (from other to the instance)&lt;/li>
+&lt;li>Control of outbound network (from the instance to other)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Good to know:
+&lt;ul>
+&lt;li>It can be attached to multiple instance&lt;/li>
+&lt;li>Locked down to a region/VPC combination (if we go to new region or create new VPC then we have to create new security group)&lt;/li>
+&lt;li>Security groups are firewall so it won&amp;rsquo;t be residing inside EC2&lt;/li>
+&lt;li>It is good to maintain one seperate security group for SSH access&lt;/li>
+&lt;li>If application is not accessible (time out), then its a security group issue&lt;/li>
+&lt;li>If application gives a &amp;ldquo;connection refused&amp;rdquo; error, then its an application error or its not launched yet&lt;/li>
+&lt;li>All inbound traffic is &lt;strong>blocked&lt;/strong> by default&lt;/li>
+&lt;li>All outbout traffic is &lt;strong>authorised&lt;/strong> by default&lt;/li>
+&lt;li>We can referance one security group in another&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>For AWS Developer Associate exam: Classic Ports to know
+22 = SSH (Secure Shell) - Log into a linux instance
+21 = FTP (File Transfer Protocol) - upload files inot a file share
+22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH
+80 = HTTP - access unsecured websites
+443 = HTTPS - access secured websites
+3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote></content></item></channel></rss>

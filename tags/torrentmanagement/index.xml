@@ -170,8 +170,7 @@
 &lt;li>TheRARBG :- &lt;a href="https://therarbg.to/">https://therarbg.to/&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>&lt;strong>&lt;em>Note&lt;/em>&lt;/strong>: It&amp;rsquo;s important to remember that Jackett itself is a legal tool. However, the legality of the content you download using Jackett depends on the copyright laws in your region and the specific content itself. Always ensure you&amp;rsquo;re downloading content that is legally available in your area.&lt;/p>
-&lt;/blockquote>
+&lt;p>&lt;strong>&lt;em>Note&lt;/em>&lt;/strong>: It&amp;rsquo;s important to remember that Jackett itself is a legal tool. However, the legality of the content you download using Jackett depends on the copyright laws in your region and the specific content itself. Always ensure you&amp;rsquo;re downloading content that is legally available in your area.&lt;/p>&lt;/blockquote>
 &lt;h3 id="radarr">Radarr&lt;/h3>
 &lt;table>
 &lt;thead>
@@ -264,8 +263,7 @@
 &lt;li>The content is now accessible on Plex for streaming.&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>&lt;strong>Note&lt;/strong>: Sometimes, certain TV shows will not be downloaded through Radarr; in such cases, use Sonarr.&lt;/p>
-&lt;/blockquote>
+&lt;p>&lt;strong>Note&lt;/strong>: Sometimes, certain TV shows will not be downloaded through Radarr; in such cases, use Sonarr.&lt;/p>&lt;/blockquote>
 &lt;hr>
 &lt;p>To securely access my home network over the internet, I am using VPN.&lt;/p>
 &lt;p>Initially, I set up the WireGuard VPN with DDNS. However, due to my ISP&amp;rsquo;s use of &lt;a href="https://en.wikipedia.org/wiki/Carrier-grade_NAT">CGNAT&lt;/a>, I was unable to access the internet.&lt;/p>
