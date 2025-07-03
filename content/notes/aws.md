@@ -73,3 +73,66 @@ Some application might need to perform many kinds of queries, using a variety of
 ## CloudFront (Cache service)
 
 ## Route53 (DNS)
+
+----------
+
+## EC2
+
+- There are different types of EC2 Instance type you can check here: https://aws.amazon.com/ec2/instance-types/
+  - General Purpose :- Great for a diversity of workloads such as web servers or code repositoires. Balance between: Compute, Memory and Networking 
+  - Compute optimized :- Great for compute-intensive tasks that require high performance processors: for example
+    - Batch processing workloads
+    - Media transcoding
+    - High performance web servers
+    - Scientific Modeling & machine learning
+    - Dedicated gaming server
+  - Memory Optimized :- Fast performance for workloads that process large data sets in memory: use case:
+    - High performance, relational/non-relational Databases
+    - Distributed web scale cache stores
+    - In-memory databases optimized for BI (business Intelligence)
+  - Accelerated computing
+  - Storage Optimized :- Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage. Usecases:
+    - High frequency online transaction processing (OLTP) systems
+    - Relational & NoSQL databases
+    - Cache for in-memory databases (for eg. Redis)
+    - Data wearhousing applications
+    - Distributed file Systems
+  - HPC Optimized 
+  - Instance Features
+  - Measuring Instance Performance
+
+- AWS has following naming convention:
+```
+m5.2xlarge
+```
+
+- m: instance classs
+- 5: generation (the generation of hardware aws using if there is any improvement in hardware this will change for eg. 6)
+- 2xlarge: size within the instance class
+
+### EC2 Security Groups
+
+- Security groups are acting as a "firewall" on EC2 instances
+- They regulate:
+  - Access to Ports
+  - Authorized IP ranges - IPv4 and IPv6
+  - Control of inbound network (from other to the instance)
+  - Control of outbound network (from the instance to other)
+- Good to know:
+  - It can be attached to multiple instance
+  - Locked down to a region/VPC combination (if we go to new region or create new VPC then we have to create new security group)
+  - Security groups are firewall so it won't be residing inside EC2
+  - It is good to maintain one seperate security group for SSH access
+  - If application is not accessible (time out), then its a security group issue 
+  - If application gives a "connection refused" error, then its an application error or its not launched yet
+  - All inbound traffic is **blocked** by default
+  - All outbout traffic is **authorised** by default
+  - We can referance one security group in another
+
+> For AWS Developer Associate exam: Classic Ports to know
+> 22 = SSH (Secure Shell) - Log into a linux instance
+> 21 = FTP (File Transfer Protocol) - upload files inot a file share
+> 22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH
+> 80 = HTTP - access unsecured websites
+> 443 = HTTPS - access secured websites
+> 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
