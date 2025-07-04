@@ -136,3 +136,13 @@ m5.2xlarge
 > 80 = HTTP - access unsecured websites  
 > 443 = HTTPS - access secured websites   
 > 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
+
+### AWS charges for IPv4 address
+
+- Starting from 1st 2024 there's charge for all public IPv4 created in your account
+- $0.005 per hour of Public IPv4
+- For new accounts in AWS you have a free tier for the EC2 service: 750 hours of Public IPv4 per month for the first 12 months
+- For all other services there is no free tier
+
+> NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.
+
