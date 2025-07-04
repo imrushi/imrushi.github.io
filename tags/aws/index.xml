@@ -184,4 +184,13 @@ Some application might need to perform many kinds of queries, using a variety of
 22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH&lt;br>
 80 = HTTP - access unsecured websites&lt;br>
 443 = HTTPS - access secured websites&lt;br>
-3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote></content></item></channel></rss>
+3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote>
+&lt;h3 id="aws-charges-for-ipv4-address">AWS charges for IPv4 address&lt;/h3>
+&lt;ul>
+&lt;li>Starting from 1st 2024 there&amp;rsquo;s charge for all public IPv4 created in your account&lt;/li>
+&lt;li>$0.005 per hour of Public IPv4&lt;/li>
+&lt;li>For new accounts in AWS you have a free tier for the EC2 service: 750 hours of Public IPv4 per month for the first 12 months&lt;/li>
+&lt;li>For all other services there is no free tier&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.&lt;/p>&lt;/blockquote></content></item></channel></rss>
