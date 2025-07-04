@@ -129,10 +129,10 @@ m5.2xlarge
   - All outbout traffic is **authorised** by default
   - We can referance one security group in another
 
-> For AWS Developer Associate exam: Classic Ports to know
-> 22 = SSH (Secure Shell) - Log into a linux instance
-> 21 = FTP (File Transfer Protocol) - upload files inot a file share
-> 22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH
-> 80 = HTTP - access unsecured websites
-> 443 = HTTPS - access secured websites
+> For AWS Developer Associate exam: Classic Ports to know  
+> 22 = SSH (Secure Shell) - Log into a linux instance  
+> 21 = FTP (File Transfer Protocol) - upload files inot a file share  
+> 22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH  
+> 80 = HTTP - access unsecured websites  
+> 443 = HTTPS - access secured websites   
 > 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
