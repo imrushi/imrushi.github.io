@@ -216,12 +216,12 @@ Some application might need to perform many kinds of queries, using a variety of
 &lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>For AWS Developer Associate exam: Classic Ports to know
-22 = SSH (Secure Shell) - Log into a linux instance
-21 = FTP (File Transfer Protocol) - upload files inot a file share
-22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH
-80 = HTTP - access unsecured websites
-443 = HTTPS - access secured websites
+&lt;p>For AWS Developer Associate exam: Classic Ports to know&lt;br>
+22 = SSH (Secure Shell) - Log into a linux instance&lt;br>
+21 = FTP (File Transfer Protocol) - upload files inot a file share&lt;br>
+22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH&lt;br>
+80 = HTTP - access unsecured websites&lt;br>
+443 = HTTPS - access secured websites&lt;br>
 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote></content></item><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
 &lt;p>I was planning to make something like the following:&lt;/p></description><content>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
 &lt;p>I was planning to make something like the following:&lt;/p>
@@ -600,8 +600,8 @@ Some application might need to perform many kinds of queries, using a variety of
 &lt;/tbody>
 &lt;/table>
 &lt;div class="collapsable-code">
-&lt;input id="358714926" type="checkbox" />
-&lt;label for="358714926">
+&lt;input id="267314598" type="checkbox" />
+&lt;label for="267314598">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -749,8 +749,8 @@ KEY name_index (name) USING BTREE
 &lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="925436718" type="checkbox" />
-&lt;label for="925436718">
+&lt;input id="527364819" type="checkbox" />
+&lt;label for="527364819">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -785,8 +785,8 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="312687495" type="checkbox" />
-&lt;label for="312687495">
+&lt;input id="852379164" type="checkbox" />
+&lt;label for="852379164">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1122,8 +1122,8 @@ ability, and fault tolerance with Docker and Kubernetes.&lt;/li>
 &lt;p>But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code>action.yml&lt;/code> with &lt;code>composite action&lt;/code> and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p>
 &lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="356982741" type="checkbox" />
-&lt;label for="356982741">
+&lt;input id="279385164" type="checkbox" />
+&lt;label for="279385164">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1197,8 +1197,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;h2 id="creating-a-github-action">Creating a GitHub Action&lt;/h2>
 &lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="146357829" type="checkbox" />
-&lt;label for="146357829">
+&lt;input id="947153628" type="checkbox" />
+&lt;label for="947153628">
 &lt;span class="collapsable-code__language">docker&lt;/span>
 &lt;span class="collapsable-code__title">Dockerfile&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1246,8 +1246,8 @@ ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
 &lt;p>This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions">GitHub Docs&lt;/a>.&lt;/p>
 &lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="358741926" type="checkbox" />
-&lt;label for="358741926">
+&lt;input id="724986513" type="checkbox" />
+&lt;label for="724986513">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">action.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1296,8 +1296,8 @@ color: &amp;#34;blue&amp;#34;
 &lt;p>In the &lt;code>runs&lt;/code> section with &lt;code>using&lt;/code> parameter, we specify which type of actions we are using &lt;code>docker&lt;/code>, and we also have to configure which &lt;code>image&lt;/code> to use. If you specify &lt;code>Dockerfile&lt;/code> as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code>docker://image-name:tag&lt;/code>. If your program takes arguments, you can pass them with the &lt;code>args&lt;/code> parameter, and if you want to pass the above-taken input you can use &lt;code>${{ inputs.input_variable_name }}&lt;/code>.&lt;/p>
 &lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="145876293" type="checkbox" />
-&lt;label for="145876293">
+&lt;input id="275436198" type="checkbox" />
+&lt;label for="275436198">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
 &lt;/label>
@@ -1309,8 +1309,8 @@ description: &amp;#39;This will show the output which will be set from container
 &lt;/div>
 &lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="132485679" type="checkbox" />
-&lt;label for="132485679">
+&lt;input id="872165394" type="checkbox" />
+&lt;label for="872165394">
 &lt;span class="collapsable-code__language">bash&lt;/span>
 &lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1334,8 +1334,8 @@ echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_
 &lt;li>If your repository is public, you can test it by assigning &lt;code>uses&lt;/code> with &lt;code>&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code> in &lt;code>steps&lt;/code>. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code>.github/workflows/filename.yml&lt;/code>.&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="187236945" type="checkbox" />
-&lt;label for="187236945">
+&lt;input id="764915238" type="checkbox" />
+&lt;label for="764915238">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1362,8 +1362,8 @@ draft: true
 &lt;li>Second way is to test it in the current repository, you can use &lt;code>./&lt;/code> in &lt;code>uses&lt;/code>. &lt;code>./&lt;/code> syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="938567214" type="checkbox" />
-&lt;label for="938567214">
+&lt;input id="571423968" type="checkbox" />
+&lt;label for="571423968">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1419,8 +1419,8 @@ draft: true
 &lt;li>Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="358172946" type="checkbox" />
-&lt;label for="358172946">
+&lt;input id="871654932" type="checkbox" />
+&lt;label for="871654932">
 &lt;span class="collapsable-code__language">yaml&lt;/span>
 &lt;span class="collapsable-code__title">main.yml&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1943,8 +1943,8 @@ draft: true
 &lt;h2 id="go-file-layout">Go file layout&lt;/h2>
 &lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="793158462" type="checkbox" />
-&lt;label for="793158462">
+&lt;input id="543792681" type="checkbox" />
+&lt;label for="543792681">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1979,8 +1979,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="219537846" type="checkbox" />
-&lt;label for="219537846">
+&lt;input id="275196483" type="checkbox" />
+&lt;label for="275196483">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2016,8 +2016,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;p>To put it simply, when there&amp;rsquo;s a chance that a newline could end a statement, Go automatically inserts a semicolon.&lt;/p>
 &lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="265731489" type="checkbox" />
-&lt;label for="265731489">
+&lt;input id="857921643" type="checkbox" />
+&lt;label for="857921643">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2030,8 +2030,8 @@ g()
 &lt;/div>
 &lt;p>not like this:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="743586291" type="checkbox" />
-&lt;label for="743586291">
+&lt;input id="239785614" type="checkbox" />
+&lt;label for="239785614">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">bad if statement&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2055,8 +2055,8 @@ g()
 &lt;li>&lt;strong>Single-line comments&lt;/strong>: Single-line comments start with two slashes &lt;code>//&lt;/code> and continue until the end of the line. They are used for adding brief explanations or clarity to a specific line of code.&lt;/li>
 &lt;/ol>
 &lt;div class="collapsable-code">
-&lt;input id="978215643" type="checkbox" />
-&lt;label for="978215643">
+&lt;input id="851629473" type="checkbox" />
+&lt;label for="851629473">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Single-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2070,8 +2070,8 @@ var x int // This comment explains the purpose of the variable.
 &lt;li>&lt;strong>Multi-line comments&lt;/strong>: Multi-line comments are enclosed within &lt;code>/*&lt;/code> and &lt;code>*/&lt;/code> and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.&lt;/li>
 &lt;/ol>
 &lt;div class="collapsable-code">
-&lt;input id="168493527" type="checkbox" />
-&lt;label for="168493527">
+&lt;input id="429756813" type="checkbox" />
+&lt;label for="429756813">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2087,8 +2087,8 @@ detailed explanations or comments for larger code blocks.
 &lt;p>Go also has a convention for documenting exported (public) identifiers and packages using special comments, often referred to as &amp;ldquo;comment annotations&amp;rdquo; or &amp;ldquo;comments for the &lt;code>godoc&lt;/code> tool&amp;rdquo;. These comments are structured in a way that allows the godoc tool to automatically generate documentation based on them.&lt;/p>
 &lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="856124973" type="checkbox" />
-&lt;label for="856124973">
+&lt;input id="679283451" type="checkbox" />
+&lt;label for="679283451">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2102,8 +2102,8 @@ func MyFunction() {
 &lt;/div>
 &lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="589374216" type="checkbox" />
-&lt;label for="589374216">
+&lt;input id="541829763" type="checkbox" />
+&lt;label for="541829763">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2267,8 +2267,8 @@ func ExportedFunction() {
 &lt;h3 id="go-file-layout">Go file layout&lt;/h3>
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="913827465" type="checkbox" />
-&lt;label for="913827465">
+&lt;input id="421379658" type="checkbox" />
+&lt;label for="421379658">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2294,8 +2294,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="389567214" type="checkbox" />
-&lt;label for="389567214">
+&lt;input id="173495268" type="checkbox" />
+&lt;label for="173495268">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2427,8 +2427,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="784631592" type="checkbox" />
-&lt;label for="784631592">
+&lt;input id="758329641" type="checkbox" />
+&lt;label for="758329641">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2478,8 +2478,8 @@ fmt.Println(add(15, 10))
 &lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="853924716" type="checkbox" />
-&lt;label for="853924716">
+&lt;input id="762148953" type="checkbox" />
+&lt;label for="762148953">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2506,8 +2506,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="287634915" type="checkbox" />
-&lt;label for="287634915">
+&lt;input id="417326985" type="checkbox" />
+&lt;label for="417326985">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2545,8 +2545,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;/ol>
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="793654218" type="checkbox" />
-&lt;label for="793654218">
+&lt;input id="324869751" type="checkbox" />
+&lt;label for="324869751">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2579,8 +2579,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p>
 &lt;p>So, For example:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="356281947" type="checkbox" />
-&lt;label for="356281947">
+&lt;input id="317985624" type="checkbox" />
+&lt;label for="317985624">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2595,8 +2595,8 @@ return a &amp;#43; b
 &lt;/div>
 &lt;p>but&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="319874265" type="checkbox" />
-&lt;label for="319874265">
+&lt;input id="892157643" type="checkbox" />
+&lt;label for="892157643">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2905,8 +2905,8 @@ return a &amp;#43; b
 &lt;p>Elements in an array are numbered, starting with &lt;code>0&lt;/code>. An element&amp;rsquo;s number is called its &lt;code>index&lt;/code>.&lt;/p>
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="815796423" type="checkbox" />
-&lt;label for="815796423">
+&lt;input id="645278913" type="checkbox" />
+&lt;label for="645278913">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -2928,8 +2928,8 @@ Vegeta
 &lt;p>As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code>int&lt;/code> values is filled with zeros by default and same will be for &lt;code>string&lt;/code> but instead of zeros it will be empty string.&lt;/p>
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="315794628" type="checkbox" />
-&lt;label for="315794628">
+&lt;input id="486725193" type="checkbox" />
+&lt;label for="486725193">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3001,8 +3001,8 @@ fmt.Println(numbers[0])
 2
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="698123475" type="checkbox" />
-&lt;label for="698123475">
+&lt;input id="725684139" type="checkbox" />
+&lt;label for="725684139">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3027,8 +3027,8 @@ fmt.Println(letter)
 &lt;li>Resembles array literals, but without length in square brackets.&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="457629318" type="checkbox" />
-&lt;label for="457629318">
+&lt;input id="821675934" type="checkbox" />
+&lt;label for="821675934">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3045,8 +3045,8 @@ cool ninja turtle
 &lt;p>Every slice is built on top of an &lt;strong>underlying array&lt;/strong>. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p>
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="371456928" type="checkbox" />
-&lt;label for="371456928">
+&lt;input id="517236948" type="checkbox" />
+&lt;label for="517236948">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3062,8 +3062,8 @@ fmt.Println(slice1)
 &lt;p>In tha above program &lt;code>underlyingArray[0:3]&lt;/code> is creating slice using slice operator where it &lt;code>0&lt;/code> is index of array where the slice should start, and the &lt;code>3&lt;/code> index of the array that the slice should stop &lt;strong>before&lt;/strong>. In above output we can see that the second index is the index the slice will stop &lt;strong>before&lt;/strong>. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code>underlyingArray[i:j]&lt;/code> as a slice operator, the resulting slice will actually contain the elements &lt;code>underlyingArray[i]&lt;/code> through &lt;code>underlyingArray[j-1]&lt;/code>.&lt;/p>
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="812536749" type="checkbox" />
-&lt;label for="812536749">
+&lt;input id="847516923" type="checkbox" />
+&lt;label for="847516923">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3078,8 +3078,8 @@ fmt.Println(slice1)
 &lt;/div>
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="938561472" type="checkbox" />
-&lt;label for="938561472">
+&lt;input id="267915834" type="checkbox" />
+&lt;label for="267915834">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3111,8 +3111,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;h2 id="embedding">Embedding&lt;/h2>
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="623985147" type="checkbox" />
-&lt;label for="623985147">
+&lt;input id="743298516" type="checkbox" />
+&lt;label for="743298516">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3130,8 +3130,8 @@ level string
 &lt;/div>
 &lt;p>This is embedding:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="817956243" type="checkbox" />
-&lt;label for="817956243">
+&lt;input id="356214879" type="checkbox" />
+&lt;label for="356214879">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3149,8 +3149,8 @@ level string
 &lt;/div>
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="126479538" type="checkbox" />
-&lt;label for="126479538">
+&lt;input id="594867132" type="checkbox" />
+&lt;label for="594867132">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3169,8 +3169,8 @@ level string
 &lt;p>In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type&amp;rsquo;s name.&lt;/p>
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="986751234" type="checkbox" />
-&lt;label for="986751234">
+&lt;input id="236471895" type="checkbox" />
+&lt;label for="236471895">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3206,8 +3206,8 @@ mz.order(3) // Outer type promotion
 &lt;h2 id="composition">Composition&lt;/h2>
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="526193847" type="checkbox" />
-&lt;label for="526193847">
+&lt;input id="384251796" type="checkbox" />
+&lt;label for="384251796">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3233,8 +3233,8 @@ return nil
 &lt;/div>
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="428375916" type="checkbox" />
-&lt;label for="428375916">
+&lt;input id="189736425" type="checkbox" />
+&lt;label for="189736425">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3254,8 +3254,8 @@ return nil
 &lt;p>&lt;strong>Note&lt;/strong>:- Above both methods implementation is not important here. Ignore the implementation.&lt;/p>
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="346951278" type="checkbox" />
-&lt;label for="346951278">
+&lt;input id="572684391" type="checkbox" />
+&lt;label for="572684391">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3281,8 +3281,8 @@ return len(data), nil
 &lt;/div>
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="931728456" type="checkbox" />
-&lt;label for="931728456">
+&lt;input id="346217589" type="checkbox" />
+&lt;label for="346217589">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3306,8 +3306,8 @@ return err
 &lt;/div>
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="648512937" type="checkbox" />
-&lt;label for="648512937">
+&lt;input id="485637291" type="checkbox" />
+&lt;label for="485637291">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3321,8 +3321,8 @@ DB
 &lt;/div>
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="719835624" type="checkbox" />
-&lt;label for="719835624">
+&lt;input id="752641398" type="checkbox" />
+&lt;label for="752641398">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3351,8 +3351,8 @@ fmt.Println(err)
 &lt;h4 id="methods-1">Methods&lt;/h4>
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="943852617" type="checkbox" />
-&lt;label for="943852617">
+&lt;input id="219786345" type="checkbox" />
+&lt;label for="219786345">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -3774,11 +3774,11 @@ fmt.Printf(&amp;#34;Changed user email to %s\n&amp;#34;, email)
 &lt;figure class="center" >
 &lt;img src="https://images2.imgbox.com/4d/c6/rYoOV6yD_o.png" alt="actors" style="border-radius: 8px;" />
 &lt;figcaption class="center" >OAuth2 Actors&lt;/figcaption>
-&lt;/figure></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>&lt;h1 id="hi-there-hahahugoshortcode1s0hbhb">Hi there
+&lt;/figure></content></item><item><title>About</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>&lt;h1 id="hi-there-hahahugoshortcode2s0hbhb">Hi there
 &lt;img src="/img/pikachu-running.gif" class="left" style="width: 80px;border: 0px;" />
 &lt;/h1>
 &lt;p>Hello, I am Rushi Panchariya. I&amp;rsquo;m &lt;strong>Software Engineer&lt;/strong> with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.&lt;/p>
-&lt;p>I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.&lt;/p></description><content>&lt;h1 id="hi-there-hahahugoshortcode1s0hbhb">Hi there
+&lt;p>I&amp;rsquo;m always excited to work on new technologies and learn more about them. I am excited to work on a project that will benefit the community and assist them address their difficulties in whatever manner possible. When I&amp;rsquo;m working on a project, a concept, or a task, I&amp;rsquo;m always intrigued about the outcome.&lt;/p></description><content>&lt;h1 id="hi-there-hahahugoshortcode2s0hbhb">Hi there
 &lt;img src="/img/pikachu-running.gif" class="left" style="width: 80px;border: 0px;" />
 &lt;/h1>
 &lt;p>Hello, I am Rushi Panchariya. I&amp;rsquo;m &lt;strong>Software Engineer&lt;/strong> with passion for Gaming 🎮, Coding 👨‍💻 and Music 🎧.&lt;/p>

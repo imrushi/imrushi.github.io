@@ -178,10 +178,10 @@ Some application might need to perform many kinds of queries, using a variety of
 &lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>For AWS Developer Associate exam: Classic Ports to know
-22 = SSH (Secure Shell) - Log into a linux instance
-21 = FTP (File Transfer Protocol) - upload files inot a file share
-22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH
-80 = HTTP - access unsecured websites
-443 = HTTPS - access secured websites
+&lt;p>For AWS Developer Associate exam: Classic Ports to know&lt;br>
+22 = SSH (Secure Shell) - Log into a linux instance&lt;br>
+21 = FTP (File Transfer Protocol) - upload files inot a file share&lt;br>
+22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH&lt;br>
+80 = HTTP - access unsecured websites&lt;br>
+443 = HTTPS - access secured websites&lt;br>
 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote></content></item></channel></rss>
