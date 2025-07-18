@@ -146,3 +146,20 @@ m5.2xlarge
 
 > NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.
 
+## EC2 Instance Storage
+
+### What's an EBS Volume
+
+- An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run
+- It allows your instance to persist data, even after their termination
+- **They can only be mounted to one instance at a time** (at the CCP level)
+- They are bound to a specific availability zone
+  - To move a volume across, you first need to take snapshot of it.
+- It can be detached from an EC2 instance and attached to another one quickly
+
+> Free Tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnatic per month
+
+- Delete on Termination attribute
+  - Controls the EBS behaviour when an EC2 instance terminates
+  - By default, the root EBS volume is deleted (attribute enalbed)
+  - By default, any other attached EBS volume is not deleted (attribute disabled)
