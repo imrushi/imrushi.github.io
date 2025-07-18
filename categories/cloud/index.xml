@@ -193,4 +193,28 @@ Some application might need to perform many kinds of queries, using a variety of
 &lt;li>For all other services there is no free tier&lt;/li>
 &lt;/ul>
 &lt;blockquote>
-&lt;p>NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.&lt;/p>&lt;/blockquote></content></item></channel></rss>
+&lt;p>NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.&lt;/p>&lt;/blockquote>
+&lt;h2 id="ec2-instance-storage">EC2 Instance Storage&lt;/h2>
+&lt;h3 id="whats-an-ebs-volume">What&amp;rsquo;s an EBS Volume&lt;/h3>
+&lt;ul>
+&lt;li>An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run&lt;/li>
+&lt;li>It allows your instance to persist data, even after their termination&lt;/li>
+&lt;li>&lt;strong>They can only be mounted to one instance at a time&lt;/strong> (at the CCP level)&lt;/li>
+&lt;li>They are bound to a specific availability zone
+&lt;ul>
+&lt;li>To move a volume across, you first need to take snapshot of it.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>It can be detached from an EC2 instance and attached to another one quickly&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Free Tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnatic per month&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>Delete on Termination attribute
+&lt;ul>
+&lt;li>Controls the EBS behaviour when an EC2 instance terminates&lt;/li>
+&lt;li>By default, the root EBS volume is deleted (attribute enalbed)&lt;/li>
+&lt;li>By default, any other attached EBS volume is not deleted (attribute disabled)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></content></item></channel></rss>

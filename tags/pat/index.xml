@@ -78,8 +78,8 @@
 &lt;/tbody>
 &lt;/table>
 &lt;div class="collapsable-code">
-&lt;input id="298614753" type="checkbox" />
-&lt;label for="298614753">
+&lt;input id="854392671" type="checkbox" />
+&lt;label for="854392671">
 &lt;span class="collapsable-code__language">sql&lt;/span>
 &lt;span class="collapsable-code__title">user token table&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -227,8 +227,8 @@ KEY name_index (name) USING BTREE
 &lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
 &lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="976435821" type="checkbox" />
-&lt;label for="976435821">
+&lt;input id="896417352" type="checkbox" />
+&lt;label for="896417352">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp logic&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -263,8 +263,8 @@ encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSigna
 &lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="871952643" type="checkbox" />
-&lt;label for="871952643">
+&lt;input id="952741836" type="checkbox" />
+&lt;label for="952741836">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">timestamp validation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>

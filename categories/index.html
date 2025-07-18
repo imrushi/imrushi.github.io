@@ -261,7 +261,8 @@ m5.2xlarge m: instance classs 5: generation (the generation of hardware aws usin
 443 = HTTPS - access secured websites
 3389 = RDP (Remote Desktop Protocol) - log into a Windows instance
 AWS charges for IPv4 address Starting from 1st 2024 there&rsquo;s charge for all public IPv4 created in your account $0.005 per hour of Public IPv4 For new accounts in AWS you have a free tier for the EC2 service: 750 hours of Public IPv4 per month for the first 12 months For all other services there is no free tier NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.
-`,url:"/notes/aws/"},"/notes/books/":{title:"Books",tags:[],categories:[],keywords:[],content:` Deep Learning for Coders with fastai - Jeremy Howard (Author), Sylvain Gugger (Author)
+EC2 Instance Storage What&rsquo;s an EBS Volume An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run It allows your instance to persist data, even after their termination They can only be mounted to one instance at a time (at the CCP level) They are bound to a specific availability zone To move a volume across, you first need to take snapshot of it. It can be detached from an EC2 instance and attached to another one quickly Free Tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnatic per month
+Delete on Termination attribute Controls the EBS behaviour when an EC2 instance terminates By default, the root EBS volume is deleted (attribute enalbed) By default, any other attached EBS volume is not deleted (attribute disabled) `,url:"/notes/aws/"},"/notes/books/":{title:"Books",tags:[],categories:[],keywords:[],content:` Deep Learning for Coders with fastai - Jeremy Howard (Author), Sylvain Gugger (Author)
 bruce lee - matthew polly
 So Good They Can&rsquo;t Ignore You - Cal Newport
 Introduction to Algorithms - Charles E. Leiserson, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein

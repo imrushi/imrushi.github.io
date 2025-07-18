@@ -476,8 +476,8 @@
 &lt;h3 id="go-file-layout">Go file layout&lt;/h3>
 &lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="561432789" type="checkbox" />
-&lt;label for="561432789">
+&lt;input id="319487265" type="checkbox" />
+&lt;label for="319487265">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -503,8 +503,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;/ul>
 &lt;p>Below is the code with what it does in comments:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="815297463" type="checkbox" />
-&lt;label for="815297463">
+&lt;input id="631982547" type="checkbox" />
+&lt;label for="631982547">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Hello World&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -636,8 +636,8 @@ fmt.Println(&amp;#34;Hello, World&amp;#34;)
 &lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
 &lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="613784295" type="checkbox" />
-&lt;label for="613784295">
+&lt;input id="238657149" type="checkbox" />
+&lt;label for="238657149">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Addition Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -687,8 +687,8 @@ fmt.Println(add(15, 10))
 &lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
 &lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="237651498" type="checkbox" />
-&lt;label for="237651498">
+&lt;input id="862713594" type="checkbox" />
+&lt;label for="862713594">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -715,8 +715,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 &lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
 &lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="618593724" type="checkbox" />
-&lt;label for="618593724">
+&lt;input id="568129734" type="checkbox" />
+&lt;label for="568129734">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -754,8 +754,8 @@ fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 &lt;/ol>
 &lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="246193857" type="checkbox" />
-&lt;label for="246193857">
+&lt;input id="875693241" type="checkbox" />
+&lt;label for="875693241">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Defer working&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -788,8 +788,8 @@ fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 &lt;p>In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p>
 &lt;p>So, For example:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="265149738" type="checkbox" />
-&lt;label for="265149738">
+&lt;input id="247856193" type="checkbox" />
+&lt;label for="247856193">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Function&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -804,8 +804,8 @@ return a &amp;#43; b
 &lt;/div>
 &lt;p>but&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="457921368" type="checkbox" />
-&lt;label for="457921368">
+&lt;input id="234861579" type="checkbox" />
+&lt;label for="234861579">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1114,8 +1114,8 @@ return a &amp;#43; b
 &lt;p>Elements in an array are numbered, starting with &lt;code>0&lt;/code>. An element&amp;rsquo;s number is called its &lt;code>index&lt;/code>.&lt;/p>
 &lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="375462189" type="checkbox" />
-&lt;label for="375462189">
+&lt;input id="381429576" type="checkbox" />
+&lt;label for="381429576">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1137,8 +1137,8 @@ Vegeta
 &lt;p>As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code>int&lt;/code> values is filled with zeros by default and same will be for &lt;code>string&lt;/code> but instead of zeros it will be empty string.&lt;/p>
 &lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="914532876" type="checkbox" />
-&lt;label for="914532876">
+&lt;input id="256937148" type="checkbox" />
+&lt;label for="256937148">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1210,8 +1210,8 @@ fmt.Println(numbers[0])
 2
 &lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="954316782" type="checkbox" />
-&lt;label for="954316782">
+&lt;input id="685492713" type="checkbox" />
+&lt;label for="685492713">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">For loop&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1236,8 +1236,8 @@ fmt.Println(letter)
 &lt;li>Resembles array literals, but without length in square brackets.&lt;/li>
 &lt;/ul>
 &lt;div class="collapsable-code">
-&lt;input id="913457286" type="checkbox" />
-&lt;label for="913457286">
+&lt;input id="968413752" type="checkbox" />
+&lt;label for="968413752">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Slice Literals&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1254,8 +1254,8 @@ cool ninja turtle
 &lt;p>Every slice is built on top of an &lt;strong>underlying array&lt;/strong>. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p>
 &lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="489127653" type="checkbox" />
-&lt;label for="489127653">
+&lt;input id="265178934" type="checkbox" />
+&lt;label for="265178934">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Array to Slice&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1271,8 +1271,8 @@ fmt.Println(slice1)
 &lt;p>In tha above program &lt;code>underlyingArray[0:3]&lt;/code> is creating slice using slice operator where it &lt;code>0&lt;/code> is index of array where the slice should start, and the &lt;code>3&lt;/code> index of the array that the slice should stop &lt;strong>before&lt;/strong>. In above output we can see that the second index is the index the slice will stop &lt;strong>before&lt;/strong>. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code>underlyingArray[i:j]&lt;/code> as a slice operator, the resulting slice will actually contain the elements &lt;code>underlyingArray[i]&lt;/code> through &lt;code>underlyingArray[j-1]&lt;/code>.&lt;/p>
 &lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="437629185" type="checkbox" />
-&lt;label for="437629185">
+&lt;input id="798154263" type="checkbox" />
+&lt;label for="798154263">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">print with last element&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1287,8 +1287,8 @@ fmt.Println(slice1)
 &lt;/div>
 &lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="891276453" type="checkbox" />
-&lt;label for="891276453">
+&lt;input id="348157269" type="checkbox" />
+&lt;label for="348157269">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Error access&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1320,8 +1320,8 @@ invalid argument: index 7 out of bounds [0:7]
 &lt;h2 id="embedding">Embedding&lt;/h2>
 &lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="263174598" type="checkbox" />
-&lt;label for="263174598">
+&lt;input id="159237864" type="checkbox" />
+&lt;label for="159237864">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">not embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1339,8 +1339,8 @@ level string
 &lt;/div>
 &lt;p>This is embedding:&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="574819362" type="checkbox" />
-&lt;label for="574819362">
+&lt;input id="367521894" type="checkbox" />
+&lt;label for="367521894">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1358,8 +1358,8 @@ level string
 &lt;/div>
 &lt;p>Embed a type using pointer semantics&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="316859427" type="checkbox" />
-&lt;label for="316859427">
+&lt;input id="217396845" type="checkbox" />
+&lt;label for="217396845">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1378,8 +1378,8 @@ level string
 &lt;p>In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type&amp;rsquo;s name.&lt;/p>
 &lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="638491752" type="checkbox" />
-&lt;label for="638491752">
+&lt;input id="269834175" type="checkbox" />
+&lt;label for="269834175">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1415,8 +1415,8 @@ mz.order(3) // Outer type promotion
 &lt;h2 id="composition">Composition&lt;/h2>
 &lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="163458972" type="checkbox" />
-&lt;label for="163458972">
+&lt;input id="158734962" type="checkbox" />
+&lt;label for="158734962">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">cloud struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1442,8 +1442,8 @@ return nil
 &lt;/div>
 &lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="647215938" type="checkbox" />
-&lt;label for="647215938">
+&lt;input id="275496831" type="checkbox" />
+&lt;label for="275496831">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">DB struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1463,8 +1463,8 @@ return nil
 &lt;p>&lt;strong>Note&lt;/strong>:- Above both methods implementation is not important here. Ignore the implementation.&lt;/p>
 &lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="879436251" type="checkbox" />
-&lt;label for="879436251">
+&lt;input id="164835297" type="checkbox" />
+&lt;label for="164835297">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Pull and Store&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1490,8 +1490,8 @@ return len(data), nil
 &lt;/div>
 &lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="567384912" type="checkbox" />
-&lt;label for="567384912">
+&lt;input id="913267458" type="checkbox" />
+&lt;label for="913267458">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Copy func&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1515,8 +1515,8 @@ return err
 &lt;/div>
 &lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="691325487" type="checkbox" />
-&lt;label for="691325487">
+&lt;input id="859427361" type="checkbox" />
+&lt;label for="859427361">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">System Struct&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1530,8 +1530,8 @@ DB
 &lt;/div>
 &lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="289765413" type="checkbox" />
-&lt;label for="289765413">
+&lt;input id="682349751" type="checkbox" />
+&lt;label for="682349751">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">Main&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
@@ -1560,8 +1560,8 @@ fmt.Println(err)
 &lt;h4 id="methods-1">Methods&lt;/h4>
 &lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
 &lt;div class="collapsable-code">
-&lt;input id="893576124" type="checkbox" />
-&lt;label for="893576124">
+&lt;input id="237195864" type="checkbox" />
+&lt;label for="237195864">
 &lt;span class="collapsable-code__language">go&lt;/span>
 &lt;span class="collapsable-code__title">method&lt;/span>
 &lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
