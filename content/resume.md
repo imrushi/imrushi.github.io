@@ -1,6 +1,6 @@
 ---
 title: "Resume"
-date: 2024-04-04T23:58:27+05:30
+date: 2024-11-25T10:21:27+05:30
 draft: false
 author: "Rushi Panchariya"
 ---
@@ -27,7 +27,7 @@ author: "Rushi Panchariya"
 
       Tools and Frameworks:
         - Web
-              - Frameworks    : Angular, React
+              - Frameworks    : Angular, React, Svelte
               - Hypermedia    : HTML 5, CSS 3, JavaScript
               - REST          : Golang, NodeJS(ExpressJS), Flask
 
@@ -40,7 +40,7 @@ author: "Rushi Panchariya"
               - Time Series   : Elasticsearch,InfluxDB
 
         - Meta
-              - Cloud         : Azure
+              - Cloud         : AWS, Azure
               - Containers    : Docker, Kubernetes
               - CI/CD         : Jenkins, GitHub Actions, Ansible
               - Virtualization: VMWare VSpher, Virtual Box
@@ -52,8 +52,15 @@ author: "Rushi Panchariya"
 
 ## Experience
 
+## Volkswagen Digital Solutions [India] : Senior Software Engineer
+#### *Jun 2024 - Present*
+
+  - Working on various challanges related to Logistics.
+  - Working on Migration of system which has been there for 40 years.
+  - Creating various infrasturcture solutions on AWS.
+
 ### ESDS Software Solutions : Software Engineer
-#### *Apr 2021 - Present*
+#### *Apr 2021 - May 2024*
 
   - Led the implementation of Keycloak SSO for an organization project, coordinating with developers.
   - Developed a workflow builder API for BPMN (Business Process Modeling Notation), which allowed applications to function in accordance with
@@ -98,3 +105,4 @@ ability, and fault tolerance with Docker and Kubernetes.
   - 2022 **Employee Of The Month**, ESDS Software Solution Limited, Nashik, India
   - 2022 **Employee Of The Quarter**, ESDS Software Solution Limited, Nashik, India
   - 2022 **Star Performer**, ESDS Software Solution Limited,       Nashik, India
+  - 2025 **Trandsetter Award**, Volkswagen Digital Solutions [Inida], Pune
