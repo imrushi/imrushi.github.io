@@ -1,280 +1,280 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Design on Rushi Panchariya</title><link>/categories/system-design/</link><description>Recent content in System Design on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/system-design/index.xml" rel="self" type="application/rss+xml"/><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>&lt;hr>
-&lt;h2 id="zero-to-millions-of-users">Zero To Millions of Users&lt;/h2>
-&lt;p>In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p>
-&lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>
-&lt;p>In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.&lt;/p></description><content>&lt;hr>
-&lt;h2 id="zero-to-millions-of-users">Zero To Millions of Users&lt;/h2>
-&lt;p>In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p>
-&lt;h3 id="single-server-setup">Single Server Setup&lt;/h3>
-&lt;p>In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.&lt;/p>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Single Web Server Working&lt;/figcaption>
-&lt;/figure>
-&lt;ol>
-&lt;li>User access websites through domain names, such as mysite.dev. Domain Name System (DNS) is a third-party paid service not hosted by our system.&lt;/li>
-&lt;li>DNS translates the domain name into an IP address, such as 10.43.23.18 in the figure.&lt;/li>
-&lt;li>Once the IP address is obtained, HTTP requests are sent directly to the web server.&lt;/li>
-&lt;li>The web server returns HTML pages or JSON response for rendering.&lt;/li>
-&lt;/ol>
-&lt;p>The traffic to this single server comes from two primary sources:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Web App&lt;/strong>: It utilizes server-side languages (e.g., Java, Go, Python) for business logic and storage, along with client-side languages like HTML and JavaScript for presentation.&lt;/li>
-&lt;li>&lt;strong>Mobile App&lt;/strong>: HTTP protocol facilitates communication between the mobile app and the web server. JSON is commonly used for API responses due to its simplicity.&lt;/li>
-&lt;/ul>
-&lt;h3 id="scaling-with-multiple-servers">Scaling with Multiple Servers&lt;/h3>
-&lt;p>As the user base grows, relying on a single server is no longer sufficient. We need to move to a multi-server setup, separating web/mobile traffic from the database. This separation allows for independent scaling of web/mobile traffic servers and database servers.&lt;/p>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Single Web Server with DB&lt;/figcaption>
-&lt;/figure>
-&lt;h4 id="choosing-the-right-database">Choosing the Right Database&lt;/h4>
-&lt;p>When it comes to databases, there are two main categories to consider: Relational Database and Non-Relational Database.&lt;/p>
-&lt;p>&lt;strong>&lt;em>Relational Databases&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>These are often referred to as relational database management system (RDBMS) or SQL database.&lt;/li>
-&lt;li>Data is structured in tables and rows.&lt;/li>
-&lt;li>SQL is used for joining data from different tables.&lt;/li>
-&lt;li>Popular databases options: MySQL, PostgresSQL, Oracle database, MSSQL, etc.&lt;/li>
-&lt;li>This technology has been around for more than 40 years.&lt;/li>
-&lt;/ul>
-&lt;p>If relational databases doesn&amp;rsquo;t suit your specific use case, it&amp;rsquo;s essential to explore beyond relational databases.&lt;/p>
-&lt;p>&lt;strong>&lt;em>Non-Relational Databases&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>Also known as NoSQL databases.&lt;/li>
-&lt;li>Categorized into:
-&lt;ol>
-&lt;li>Key-value stores&lt;/li>
-&lt;li>Graph stores&lt;/li>
-&lt;li>Column stores&lt;/li>
-&lt;li>Document stores&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li>Typically, non-relational databases do not support join operations.&lt;/li>
-&lt;li>Popular databases options: CouchDB, Neo4j, Cassandra, MongoDB, Amazon DynamoDB, etc.&lt;/li>
-&lt;li>Non-relational databases might be the right choice if:
-&lt;ul>
-&lt;li>Requires super-low latency.&lt;/li>
-&lt;li>Deal with unstructured data.&lt;/li>
-&lt;li>Need to store a massive amount of data.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h4 id="scaling-the-database">Scaling the Database&lt;/h4>
-&lt;p>There are two ways to scale database: Vertical Scaling and Horizontal Scaling&lt;/p>
-&lt;p>&lt;strong>&lt;em>Vertical Scaling&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>This involves adding more power (CPU, RAM, etc.) to your existing servers.&lt;/li>
-&lt;li>Vertical scaling is suitable when traffic is low, and its simplicity is an advantage.&lt;/li>
-&lt;li>However, it has limitations, including a hard limit on resources and a lack of failover and redundancy.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>&lt;em>Horizontal Scaling&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>This approach involves adding more servers to your resource pool.&lt;/li>
-&lt;li>It is more suitable for large-scale applications, addressing the limitations of vertical scaling.&lt;/li>
-&lt;/ul>
-&lt;p>In the previous design, users connected directly to the web server, leading to potential issues like server unavailability or slow responses during high traffic. To address these challenges, load balancing comes into play.&lt;/p>
-&lt;h3 id="load-balancer">Load Balancer&lt;/h3>
-&lt;p>Load balancers distribute incoming traffic evenly among a set of web servers defined in a load-balanced configuration.&lt;/p>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/load-balancer.png" alt="Single Server Setup" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Single Web Server Working&lt;/figcaption>
-&lt;/figure>
-&lt;p>As shown in above diagram:&lt;/p>
-&lt;ul>
-&lt;li>Users connect to the public IP of the load balancer directly.&lt;/li>
-&lt;li>The load balancer then directs the request to one of the web servers via a private IP for enhanced security.&lt;/li>
-&lt;li>Private IPs are used for server-to-server communication within the same network.&lt;/li>
-&lt;/ul>
-&lt;p>This setup resolves the issue of server unavailability and enhances web tier availability. For instance:&lt;/p>
-&lt;ul>
-&lt;li>If one server goes offline, traffic is automatically redirected to another server, preventing downtime.&lt;/li>
-&lt;li>As website traffic grows, additional servers can be added to the pool, and the load balancer will distribute requests accordingly.&lt;/li>
-&lt;/ul>
-&lt;p>The current design includes a single database, which lacks failover and redundancy. To address this, let&amp;rsquo;s explore database replication.&lt;/p>
-&lt;h3 id="database-replication">Database Replication&lt;/h3>
-&lt;p>Database replication involves establishing a master-slave relationship between the master and the slave databases.&lt;/p>
-&lt;ul>
-&lt;li>The master database primarily handles write operations.&lt;/li>
-&lt;li>Slave databases replicate data from the master but are typically reserved for read operations.&lt;/li>
-&lt;li>Any data-modifying commands, such as insertions, deletions, or updates, are directed to the master database.&lt;/li>
-&lt;li>Most application requires a much higher ratio of reads to writes; thus, the number of slave db in system usually larger than the number of master db.&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/db-replication.png" alt="Database Replication" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Database Replication&lt;/figcaption>
-&lt;/figure>
-&lt;p>Advantages of database replication:&lt;/p>
-&lt;ul>
-&lt;li>Enhanced Performance: In a master-slave model, the master handles write and update operations, while read tasks are efficiently distributed to slave nodes, improving query processing performance.&lt;/li>
-&lt;li>Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.&lt;/li>
-&lt;li>High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.&lt;/li>
-&lt;/ul>
-&lt;h4 id="what-if-one-of-the-databases-goes-offline">What if one of the databases goes offline?&lt;/h4>
-&lt;ul>
-&lt;li>If there&amp;rsquo;s only one slave database available, and it experiences an outage, read operations will temporarily shift to the master database. As soon as the issue is detected, a new slave database will replace the faulty one. In cases where multiple slave databases are in operations, read operations are rerouted to other healthy slave databases. A new database server will promptly replace the problematic one.&lt;/li>
-&lt;li>In the event of the master database going offline, one of the slave databases will be promoted to assume the role of the new master. All database operations will be temporarily executed on this newly appointed master database. Simultaneously, a new slave database will be introduced to ensure data replication continues seamlessly.&lt;/li>
-&lt;/ul>
-&lt;p>In practical production systems, promoting a new master is more intricate, as the data in a slave database may not be up-to-date. This necessitates the execution of data recovery script to reconcile the missing data. Although alternative replication methods such as multi-master and circular replication exist, they tend to be more intricate in nature.&lt;/p>
-&lt;p>Let&amp;rsquo;s examine the system design:&lt;/p>
-&lt;ul>
-&lt;li>When a user wants to access the system, they obtain the IP address of the load balancer via DNS.&lt;/li>
-&lt;li>Using this IP address, the user establishes a connection with the load balancer.&lt;/li>
-&lt;li>The load balancer routes the HTTP request to either Server 1 or Server 2.&lt;/li>
-&lt;li>A web server retrieves user data from slave database.&lt;/li>
-&lt;li>Any data-modifying operations, such as write, update, or delete actions, are directed to the master database.&lt;/li>
-&lt;/ul>
-&lt;p>With understanding of the web and data tiers, the next step is to enhance the systems&amp;rsquo;s response time. This can be achieved by introducing a cache layer and transferring static content like JavaScript, CSS, Images, and Video files to a content delivery network (CDN).&lt;/p>
-&lt;h2 id="cache">Cache&lt;/h2>
-&lt;p>A cache is a temporary storage. It stores frequently accessed data in memory so that requests are served more quickly. Whenever web page loads, one or more database call are executed to fetch data. It highly impact the performance of the application by calling the database repeatedly. The cache can mitigate this problem.&lt;/p>
-&lt;p>Cache tier is a temporary data store layer, much faster that the database. Having a separate cache tier benefits the:&lt;/p>
-&lt;ul>
-&lt;li>System Performance&lt;/li>
-&lt;li>Reduce Database Workloads&lt;/li>
-&lt;li>Scale the Cache Tire Independently&lt;/li>
-&lt;/ul>
-&lt;p>Caching strategy depends on the data and &lt;strong>&lt;em>data access patterns&lt;/em>&lt;/strong>.&lt;/p>
-&lt;p>Below are Caching Strategies:&lt;/p>
-&lt;h3 id="read-through-cache">Read-Through Cache&lt;/h3>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/cache-tier.png" alt="Cache tier" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Setup of cache server&lt;/figcaption>
-&lt;/figure>
-&lt;p>After receiving a request:&lt;/p>
-&lt;ol>
-&lt;li>Web server checks if data exists in cache.&lt;/li>
-&lt;li>If exists it returns the data.&lt;/li>
-&lt;li>If not exists, it queries database for data, and save the response data in cache and send it back to client.&lt;/li>
-&lt;li>This caching strategy is called a read-through cache.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Automated Data Fetching&lt;/strong>: Read-through caches automate the process of fetching data from database and populating the cache, reducing the burden on application logic and developers. This can simplify application code and improve maintainability.&lt;/li>
-&lt;li>&lt;strong>Data Consistency&lt;/strong>: Since data is fetched and populated by the cache provider, there&amp;rsquo;s a higher likelihood of data consistency between and the database, reducing the risk of serving stale data.&lt;/li>
-&lt;li>&lt;strong>Optimal for Read-Heavy Workloads&lt;/strong>: Read-through caches are particularly well-suited for read-heavy workloads where the same data is requested frequently. They minimize the load on the primary data store(database) and improve response times for commonly accessed data, such as news stories.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Cache Miss Penalty&lt;/strong>: The first request for data in a read-through cache always results in a cache miss, incurring the extra penalty of loading data to the cache. This can introduce latency for the initial requests.&lt;/li>
-&lt;li>&lt;strong>Warming or pre-heating&lt;/strong>: To mitigate the cache miss penalty, developers often need to manually warm or pre-heat the cache by issuing queries in advance. This adds complexity and requires careful management.&lt;/li>
-&lt;li>&lt;strong>Lack of Flexibility&lt;/strong>: Unlike Cache-aside, where the data model in the cache can differ from that in the database, read-through caches typically do not allow for different data models. This limitation may be a drawback in some scenarios.&lt;/li>
-&lt;/ol>
-&lt;h3 id="cache-aside">Cache-Aside&lt;/h3>
-&lt;ul>
-&lt;li>Application directly talks to both the cache and the database.&lt;/li>
-&lt;li>No connection between the cache and the database.&lt;/li>
-&lt;li>All operations to cache and database are handled by the application.&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/cache-aside.png" alt="Cache Aside" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Cache Aside&lt;/figcaption>
-&lt;/figure>
-&lt;p>Here is what happing:&lt;/p>
-&lt;ol>
-&lt;li>When the application need data, it first checks the cache for the data.&lt;/li>
-&lt;li>If the data is not found in the cache (a cache miss), the application fetches the data from the primary data store (eg. a database).&lt;/li>
-&lt;li>After fetching the data, the application insert or updates it in the cache, associating it with a specific key. The update can be synchronous or asynchronous, depending on the design.&lt;/li>
-&lt;li>The application uses the data from the cache for subsequent read requests until the data expires or is invalidated.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Read-Heavy Workloads&lt;/strong>: Cache-Aside is well-suited for read-heavy workloads, efficiently reducing the load on the primary database.&lt;/li>
-&lt;li>&lt;strong>Resilience to Cache Failures&lt;/strong>: Systems using Cache-Aside remain operational even if the cache cluster fails since they can directly access the database. This provide resilience and ensure system availability.&lt;/li>
-&lt;li>&lt;strong>Flexible Data Models&lt;/strong>: Cache-Aside allows for different data models in the cache compared to the database. It&amp;rsquo;s versatile for storing responses resulting from multiple queries against a request ID.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Data Inconsistency&lt;/strong>: When data is written to the database, the cache may become inconsistent. Developers often rely on Time to Live (TTL) to serve stale data, but this can lead to inconsistencies and issues with data freshness.&lt;/li>
-&lt;li>&lt;strong>Stale Data&lt;/strong>: In cases where TTL is used, there&amp;rsquo;s a risk of serving stale data until the expiration, which might not be suitable for applications requiring up-to-date information.&lt;/li>
-&lt;li>&lt;strong>Lack of Cache Consistency&lt;/strong>: Cache-Aside doesn&amp;rsquo;t guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.&lt;/li>
-&lt;li>&lt;strong>Peak Load Issues&lt;/strong>: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.&lt;/li>
-&lt;/ol>
-&lt;h3 id="write-through-cache">Write-Through Cache&lt;/h3>
-&lt;ul>
-&lt;li>In this strategy data is written both to the cache and to the underlying data store, such as a database, simultaneously.&lt;/li>
-&lt;li>This ensure that the cache and the data store always have consistent data.&lt;/li>
-&lt;li>When a write operation is performed, it is first written to the cache and then immediately written to the data store.&lt;/li>
-&lt;li>This approach is often used in scenarios where data consistency is critical, but it can introduce higher latency for write operations due to the additional write to the data store.&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/write-through.png" alt="Write-Through Cache" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Write-Through Cache&lt;/figcaption>
-&lt;/figure>
-&lt;ul>
-&lt;li>When the application performs a write operation(eg., update, insert,etc.), the data is first written to the write-through cache.&lt;/li>
-&lt;li>The Cache immediately forwards the write operation to the underlying database to ensure data consistency.&lt;/li>
-&lt;li>The Cache always reflects the most up-to-date data in the database, maintaining data consistency.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Data Consistency Guarantee&lt;/strong>: Ensures strong data consistency without cache invalidation.&lt;/li>
-&lt;li>&lt;strong>Seamless Integration with Read-Through Cache&lt;/strong>: Works well with read-through caching for comprehensive performance and consistency.&lt;/li>
-&lt;li>&lt;strong>Simplified Cache Management&lt;/strong>: Eliminates the need for complex cache invalidation strategies. Ensures that the cache remains synchronized with the data store.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Write Latency&lt;/strong>: Introduces extra write latency due to dual write operations.&lt;/li>
-&lt;li>&lt;strong>Storage Overhead&lt;/strong>: May required increased storage, leading to higher infrastructure costs.&lt;/li>
-&lt;/ol>
-&lt;h3 id="write-around-cache">Write-Around Cache&lt;/h3>
-&lt;ul>
-&lt;li>Data is written directly to the data store(database) and only the data that is read makes it way into cache.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>When it combine with read-through it provides good performance in situations where data is written once and read less frequently or never.&lt;/li>
-&lt;/ol>
-&lt;h3 id="write-back-cache-write-behind">Write-Back Cache (Write-Behind)&lt;/h3>
-&lt;ul>
-&lt;li>In this write operations are initially written to the cache and subsequently asynchronously written to the underlying data store (database).&lt;/li>
-&lt;li>It is used to optimize write operations, reduce write latency, and improve application performance by acknowledging writes quickly, without waiting for the data to be written to the data store (database) immediately.&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/write-back.png" alt="Write-Back (or Behind) Cache" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Write-Back (or Behind) Cache&lt;/figcaption>
-&lt;/figure>
-&lt;p>&lt;strong>&lt;em>Pros&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Reduce Write Latency&lt;/strong>: Improves application responsiveness by acknowledging writes quickly.&lt;/li>
-&lt;li>&lt;strong>Optimized Write Throughput&lt;/strong>: Allows the application to continue processing without write delay.&lt;/li>
-&lt;li>&lt;strong>Improved Application Performance&lt;/strong>: Allows the application to continue processing without write delays.&lt;/li>
-&lt;li>&lt;strong>Mitigation of Write Spikes&lt;/strong>: Smooth out the load on the data store during write bursts.&lt;/li>
-&lt;/ol>
-&lt;p>&lt;strong>&lt;em>Cons&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Data Inconsistency Risk&lt;/strong>: Potential data inconsistency between the cache and the data store.&lt;/li>
-&lt;li>&lt;strong>Data Loss Risk&lt;/strong>: Risk of data loss in case of cache or system failures.&lt;/li>
-&lt;li>&lt;strong>Complex Cache Management&lt;/strong>: Requires additional mechanisms for data consistency.&lt;/li>
-&lt;li>&lt;strong>Storage and Infrastructure Costs&lt;/strong>: Increase operational costs due to added storage and resources.&lt;/li>
-&lt;/ol>
-&lt;hr>
-&lt;p>Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it&amp;rsquo;s not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it&amp;rsquo;s crucial to store critical data in durable data repositories.&lt;/p>
-&lt;p>Reference: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/">https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a>&lt;/p>
-&lt;h2 id="cdn-content-delivery-network">CDN (Content Delivery Network)&lt;/h2>
-&lt;p>A Content Delivery Network (CDN) is geographically distributed network of proxy servers and their data centers that provide high availability and performance by distributing the service to end-users.&lt;/p>
-&lt;p>CDNs cache content like web pages, images, and video (static contents) in proxy servers near to the physical location of the user, allowing them to access internet content from a web-enabled device or browser more quickly through a server near them.&lt;/p>
-&lt;p>Benefits of CDNs:&lt;/p>
-&lt;ul>
-&lt;li>It reduces latency in communication created by a network design.&lt;/li>
-&lt;li>It improves website performance.&lt;/li>
-&lt;li>It support core network infrastructure, such as:
-&lt;ul>
-&lt;li>Reducing page load time&lt;/li>
-&lt;li>Reducing Bandwidth costs&lt;/li>
-&lt;li>Increasing protection against security attacks and downtime.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/system-design/CDN-workflow.png" alt="CDN Workflow" style="border-radius: 8px;" />
-&lt;figcaption class="center" >CDN Workflow&lt;/figcaption>
-&lt;/figure>
-&lt;ol>
-&lt;li>User A access the image.png through application. In application embedded image.png url is CDN url. (request will go to nearest CDN server for client.)&lt;/li>
-&lt;li>If image.png is not in CDN server, it requests to origin server.&lt;/li>
-&lt;li>Origin server stores content in CDN Cache.&lt;/li>
-&lt;li>It returns the loaded content (image.png) to User A.&lt;/li>
-&lt;li>User B is accesses same image.png.&lt;/li>
-&lt;li>CDN returns the content faster than User A. As Content is already present in CDN server.&lt;/li>
-&lt;/ol>
-&lt;p>The Content will be present in CDN cache as long as the TTL has not expired.&lt;/p></content></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Design on Rushi Panchariya</title><link>/categories/system-design/</link><description>Recent content in System Design on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/system-design/index.xml" rel="self" type="application/rss+xml"/><item><title>System Design</title><link>/notes/system-design/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/system-design/</guid><description>&lt;hr&gt;
+&lt;h2 id="zero-to-millions-of-users"&gt;Zero To Millions of Users&lt;/h2&gt;
+&lt;p&gt;In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p&gt;
+&lt;h3 id="single-server-setup"&gt;Single Server Setup&lt;/h3&gt;
+&lt;p&gt;In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.&lt;/p&gt;</description><content>&lt;hr&gt;
+&lt;h2 id="zero-to-millions-of-users"&gt;Zero To Millions of Users&lt;/h2&gt;
+&lt;p&gt;In this section, we will explores the process of scaling a system from supporting a single user to eventually serving millions of users.&lt;/p&gt;
+&lt;h3 id="single-server-setup"&gt;Single Server Setup&lt;/h3&gt;
+&lt;p&gt;In any system development journey, it&amp;rsquo;s best to begin with a simple step, and that applies even to complex systems. We initiate this process by running everything on a single server. This single server setup includes web services, applications, databases, caching, and more.&lt;/p&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Single Web Server Working&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;User access websites through domain names, such as mysite.dev. Domain Name System (DNS) is a third-party paid service not hosted by our system.&lt;/li&gt;
+&lt;li&gt;DNS translates the domain name into an IP address, such as 10.43.23.18 in the figure.&lt;/li&gt;
+&lt;li&gt;Once the IP address is obtained, HTTP requests are sent directly to the web server.&lt;/li&gt;
+&lt;li&gt;The web server returns HTML pages or JSON response for rendering.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The traffic to this single server comes from two primary sources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Web App&lt;/strong&gt;: It utilizes server-side languages (e.g., Java, Go, Python) for business logic and storage, along with client-side languages like HTML and JavaScript for presentation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile App&lt;/strong&gt;: HTTP protocol facilitates communication between the mobile app and the web server. JSON is commonly used for API responses due to its simplicity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="scaling-with-multiple-servers"&gt;Scaling with Multiple Servers&lt;/h3&gt;
+&lt;p&gt;As the user base grows, relying on a single server is no longer sufficient. We need to move to a multi-server setup, separating web/mobile traffic from the database. This separation allows for independent scaling of web/mobile traffic servers and database servers.&lt;/p&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/simple-web-server.png" alt="Single Server Setup" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Single Web Server with DB&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h4 id="choosing-the-right-database"&gt;Choosing the Right Database&lt;/h4&gt;
+&lt;p&gt;When it comes to databases, there are two main categories to consider: Relational Database and Non-Relational Database.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Relational Databases&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;These are often referred to as relational database management system (RDBMS) or SQL database.&lt;/li&gt;
+&lt;li&gt;Data is structured in tables and rows.&lt;/li&gt;
+&lt;li&gt;SQL is used for joining data from different tables.&lt;/li&gt;
+&lt;li&gt;Popular databases options: MySQL, PostgresSQL, Oracle database, MSSQL, etc.&lt;/li&gt;
+&lt;li&gt;This technology has been around for more than 40 years.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If relational databases doesn&amp;rsquo;t suit your specific use case, it&amp;rsquo;s essential to explore beyond relational databases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Non-Relational Databases&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Also known as NoSQL databases.&lt;/li&gt;
+&lt;li&gt;Categorized into:
+&lt;ol&gt;
+&lt;li&gt;Key-value stores&lt;/li&gt;
+&lt;li&gt;Graph stores&lt;/li&gt;
+&lt;li&gt;Column stores&lt;/li&gt;
+&lt;li&gt;Document stores&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Typically, non-relational databases do not support join operations.&lt;/li&gt;
+&lt;li&gt;Popular databases options: CouchDB, Neo4j, Cassandra, MongoDB, Amazon DynamoDB, etc.&lt;/li&gt;
+&lt;li&gt;Non-relational databases might be the right choice if:
+&lt;ul&gt;
+&lt;li&gt;Requires super-low latency.&lt;/li&gt;
+&lt;li&gt;Deal with unstructured data.&lt;/li&gt;
+&lt;li&gt;Need to store a massive amount of data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="scaling-the-database"&gt;Scaling the Database&lt;/h4&gt;
+&lt;p&gt;There are two ways to scale database: Vertical Scaling and Horizontal Scaling&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Vertical Scaling&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This involves adding more power (CPU, RAM, etc.) to your existing servers.&lt;/li&gt;
+&lt;li&gt;Vertical scaling is suitable when traffic is low, and its simplicity is an advantage.&lt;/li&gt;
+&lt;li&gt;However, it has limitations, including a hard limit on resources and a lack of failover and redundancy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Horizontal Scaling&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This approach involves adding more servers to your resource pool.&lt;/li&gt;
+&lt;li&gt;It is more suitable for large-scale applications, addressing the limitations of vertical scaling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the previous design, users connected directly to the web server, leading to potential issues like server unavailability or slow responses during high traffic. To address these challenges, load balancing comes into play.&lt;/p&gt;
+&lt;h3 id="load-balancer"&gt;Load Balancer&lt;/h3&gt;
+&lt;p&gt;Load balancers distribute incoming traffic evenly among a set of web servers defined in a load-balanced configuration.&lt;/p&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/load-balancer.png" alt="Single Server Setup" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Single Web Server Working&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;As shown in above diagram:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users connect to the public IP of the load balancer directly.&lt;/li&gt;
+&lt;li&gt;The load balancer then directs the request to one of the web servers via a private IP for enhanced security.&lt;/li&gt;
+&lt;li&gt;Private IPs are used for server-to-server communication within the same network.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This setup resolves the issue of server unavailability and enhances web tier availability. For instance:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If one server goes offline, traffic is automatically redirected to another server, preventing downtime.&lt;/li&gt;
+&lt;li&gt;As website traffic grows, additional servers can be added to the pool, and the load balancer will distribute requests accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The current design includes a single database, which lacks failover and redundancy. To address this, let&amp;rsquo;s explore database replication.&lt;/p&gt;
+&lt;h3 id="database-replication"&gt;Database Replication&lt;/h3&gt;
+&lt;p&gt;Database replication involves establishing a master-slave relationship between the master and the slave databases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The master database primarily handles write operations.&lt;/li&gt;
+&lt;li&gt;Slave databases replicate data from the master but are typically reserved for read operations.&lt;/li&gt;
+&lt;li&gt;Any data-modifying commands, such as insertions, deletions, or updates, are directed to the master database.&lt;/li&gt;
+&lt;li&gt;Most application requires a much higher ratio of reads to writes; thus, the number of slave db in system usually larger than the number of master db.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/db-replication.png" alt="Database Replication" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Database Replication&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Advantages of database replication:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhanced Performance: In a master-slave model, the master handles write and update operations, while read tasks are efficiently distributed to slave nodes, improving query processing performance.&lt;/li&gt;
+&lt;li&gt;Reliability: Data is preserved, even in the event of natural disasters, preventing data loss. We do not need to worry about data loss because data is replicated across multiple locations.&lt;/li&gt;
+&lt;li&gt;High availability: Even if one server breaks, the website continues to function, using data from another server, ensuring smooth operation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="what-if-one-of-the-databases-goes-offline"&gt;What if one of the databases goes offline?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;If there&amp;rsquo;s only one slave database available, and it experiences an outage, read operations will temporarily shift to the master database. As soon as the issue is detected, a new slave database will replace the faulty one. In cases where multiple slave databases are in operations, read operations are rerouted to other healthy slave databases. A new database server will promptly replace the problematic one.&lt;/li&gt;
+&lt;li&gt;In the event of the master database going offline, one of the slave databases will be promoted to assume the role of the new master. All database operations will be temporarily executed on this newly appointed master database. Simultaneously, a new slave database will be introduced to ensure data replication continues seamlessly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In practical production systems, promoting a new master is more intricate, as the data in a slave database may not be up-to-date. This necessitates the execution of data recovery script to reconcile the missing data. Although alternative replication methods such as multi-master and circular replication exist, they tend to be more intricate in nature.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s examine the system design:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When a user wants to access the system, they obtain the IP address of the load balancer via DNS.&lt;/li&gt;
+&lt;li&gt;Using this IP address, the user establishes a connection with the load balancer.&lt;/li&gt;
+&lt;li&gt;The load balancer routes the HTTP request to either Server 1 or Server 2.&lt;/li&gt;
+&lt;li&gt;A web server retrieves user data from slave database.&lt;/li&gt;
+&lt;li&gt;Any data-modifying operations, such as write, update, or delete actions, are directed to the master database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With understanding of the web and data tiers, the next step is to enhance the systems&amp;rsquo;s response time. This can be achieved by introducing a cache layer and transferring static content like JavaScript, CSS, Images, and Video files to a content delivery network (CDN).&lt;/p&gt;
+&lt;h2 id="cache"&gt;Cache&lt;/h2&gt;
+&lt;p&gt;A cache is a temporary storage. It stores frequently accessed data in memory so that requests are served more quickly. Whenever web page loads, one or more database call are executed to fetch data. It highly impact the performance of the application by calling the database repeatedly. The cache can mitigate this problem.&lt;/p&gt;
+&lt;p&gt;Cache tier is a temporary data store layer, much faster that the database. Having a separate cache tier benefits the:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;System Performance&lt;/li&gt;
+&lt;li&gt;Reduce Database Workloads&lt;/li&gt;
+&lt;li&gt;Scale the Cache Tire Independently&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caching strategy depends on the data and &lt;strong&gt;&lt;em&gt;data access patterns&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Below are Caching Strategies:&lt;/p&gt;
+&lt;h3 id="read-through-cache"&gt;Read-Through Cache&lt;/h3&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/cache-tier.png" alt="Cache tier" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Setup of cache server&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;After receiving a request:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Web server checks if data exists in cache.&lt;/li&gt;
+&lt;li&gt;If exists it returns the data.&lt;/li&gt;
+&lt;li&gt;If not exists, it queries database for data, and save the response data in cache and send it back to client.&lt;/li&gt;
+&lt;li&gt;This caching strategy is called a read-through cache.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pros&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Automated Data Fetching&lt;/strong&gt;: Read-through caches automate the process of fetching data from database and populating the cache, reducing the burden on application logic and developers. This can simplify application code and improve maintainability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Consistency&lt;/strong&gt;: Since data is fetched and populated by the cache provider, there&amp;rsquo;s a higher likelihood of data consistency between and the database, reducing the risk of serving stale data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimal for Read-Heavy Workloads&lt;/strong&gt;: Read-through caches are particularly well-suited for read-heavy workloads where the same data is requested frequently. They minimize the load on the primary data store(database) and improve response times for commonly accessed data, such as news stories.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cons&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Cache Miss Penalty&lt;/strong&gt;: The first request for data in a read-through cache always results in a cache miss, incurring the extra penalty of loading data to the cache. This can introduce latency for the initial requests.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Warming or pre-heating&lt;/strong&gt;: To mitigate the cache miss penalty, developers often need to manually warm or pre-heat the cache by issuing queries in advance. This adds complexity and requires careful management.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lack of Flexibility&lt;/strong&gt;: Unlike Cache-aside, where the data model in the cache can differ from that in the database, read-through caches typically do not allow for different data models. This limitation may be a drawback in some scenarios.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="cache-aside"&gt;Cache-Aside&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Application directly talks to both the cache and the database.&lt;/li&gt;
+&lt;li&gt;No connection between the cache and the database.&lt;/li&gt;
+&lt;li&gt;All operations to cache and database are handled by the application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/cache-aside.png" alt="Cache Aside" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Cache Aside&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Here is what happing:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;When the application need data, it first checks the cache for the data.&lt;/li&gt;
+&lt;li&gt;If the data is not found in the cache (a cache miss), the application fetches the data from the primary data store (eg. a database).&lt;/li&gt;
+&lt;li&gt;After fetching the data, the application insert or updates it in the cache, associating it with a specific key. The update can be synchronous or asynchronous, depending on the design.&lt;/li&gt;
+&lt;li&gt;The application uses the data from the cache for subsequent read requests until the data expires or is invalidated.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pros&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Read-Heavy Workloads&lt;/strong&gt;: Cache-Aside is well-suited for read-heavy workloads, efficiently reducing the load on the primary database.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resilience to Cache Failures&lt;/strong&gt;: Systems using Cache-Aside remain operational even if the cache cluster fails since they can directly access the database. This provide resilience and ensure system availability.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexible Data Models&lt;/strong&gt;: Cache-Aside allows for different data models in the cache compared to the database. It&amp;rsquo;s versatile for storing responses resulting from multiple queries against a request ID.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cons&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Inconsistency&lt;/strong&gt;: When data is written to the database, the cache may become inconsistent. Developers often rely on Time to Live (TTL) to serve stale data, but this can lead to inconsistencies and issues with data freshness.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stale Data&lt;/strong&gt;: In cases where TTL is used, there&amp;rsquo;s a risk of serving stale data until the expiration, which might not be suitable for applications requiring up-to-date information.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lack of Cache Consistency&lt;/strong&gt;: Cache-Aside doesn&amp;rsquo;t guarantee cache consistency, potentially resulting in multiple clients fetching and updating the same data simultaneously. This can lead to data inconsistency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peak Load Issues&lt;/strong&gt;: If the cache fails during peak loads, response times can get worse(deteriorate), and in extreme cases, it might even overwhelm the database, impacting system performance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="write-through-cache"&gt;Write-Through Cache&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In this strategy data is written both to the cache and to the underlying data store, such as a database, simultaneously.&lt;/li&gt;
+&lt;li&gt;This ensure that the cache and the data store always have consistent data.&lt;/li&gt;
+&lt;li&gt;When a write operation is performed, it is first written to the cache and then immediately written to the data store.&lt;/li&gt;
+&lt;li&gt;This approach is often used in scenarios where data consistency is critical, but it can introduce higher latency for write operations due to the additional write to the data store.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/write-through.png" alt="Write-Through Cache" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Write-Through Cache&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;When the application performs a write operation(eg., update, insert,etc.), the data is first written to the write-through cache.&lt;/li&gt;
+&lt;li&gt;The Cache immediately forwards the write operation to the underlying database to ensure data consistency.&lt;/li&gt;
+&lt;li&gt;The Cache always reflects the most up-to-date data in the database, maintaining data consistency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pros&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Consistency Guarantee&lt;/strong&gt;: Ensures strong data consistency without cache invalidation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Seamless Integration with Read-Through Cache&lt;/strong&gt;: Works well with read-through caching for comprehensive performance and consistency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simplified Cache Management&lt;/strong&gt;: Eliminates the need for complex cache invalidation strategies. Ensures that the cache remains synchronized with the data store.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cons&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Write Latency&lt;/strong&gt;: Introduces extra write latency due to dual write operations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage Overhead&lt;/strong&gt;: May required increased storage, leading to higher infrastructure costs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="write-around-cache"&gt;Write-Around Cache&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Data is written directly to the data store(database) and only the data that is read makes it way into cache.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pros&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;When it combine with read-through it provides good performance in situations where data is written once and read less frequently or never.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="write-back-cache-write-behind"&gt;Write-Back Cache (Write-Behind)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In this write operations are initially written to the cache and subsequently asynchronously written to the underlying data store (database).&lt;/li&gt;
+&lt;li&gt;It is used to optimize write operations, reduce write latency, and improve application performance by acknowledging writes quickly, without waiting for the data to be written to the data store (database) immediately.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/write-back.png" alt="Write-Back (or Behind) Cache" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Write-Back (or Behind) Cache&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pros&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Reduce Write Latency&lt;/strong&gt;: Improves application responsiveness by acknowledging writes quickly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimized Write Throughput&lt;/strong&gt;: Allows the application to continue processing without write delay.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Improved Application Performance&lt;/strong&gt;: Allows the application to continue processing without write delays.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mitigation of Write Spikes&lt;/strong&gt;: Smooth out the load on the data store during write bursts.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Cons&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Inconsistency Risk&lt;/strong&gt;: Potential data inconsistency between the cache and the data store.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Loss Risk&lt;/strong&gt;: Risk of data loss in case of cache or system failures.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Complex Cache Management&lt;/strong&gt;: Requires additional mechanisms for data consistency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storage and Infrastructure Costs&lt;/strong&gt;: Increase operational costs due to added storage and resources.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;Determine the appropriate times to implement caching. Opt for caching when data is regularly read but seldom updated. Since cached data resides in volatile memory, it&amp;rsquo;s not suitable for data persistence. For example, if a cache server undergoes a restart, all in-memory data is erased. Consequently, it&amp;rsquo;s crucial to store critical data in durable data repositories.&lt;/p&gt;
+&lt;p&gt;Reference: &lt;a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/"&gt;https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="cdn-content-delivery-network"&gt;CDN (Content Delivery Network)&lt;/h2&gt;
+&lt;p&gt;A Content Delivery Network (CDN) is geographically distributed network of proxy servers and their data centers that provide high availability and performance by distributing the service to end-users.&lt;/p&gt;
+&lt;p&gt;CDNs cache content like web pages, images, and video (static contents) in proxy servers near to the physical location of the user, allowing them to access internet content from a web-enabled device or browser more quickly through a server near them.&lt;/p&gt;
+&lt;p&gt;Benefits of CDNs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It reduces latency in communication created by a network design.&lt;/li&gt;
+&lt;li&gt;It improves website performance.&lt;/li&gt;
+&lt;li&gt;It support core network infrastructure, such as:
+&lt;ul&gt;
+&lt;li&gt;Reducing page load time&lt;/li&gt;
+&lt;li&gt;Reducing Bandwidth costs&lt;/li&gt;
+&lt;li&gt;Increasing protection against security attacks and downtime.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/system-design/CDN-workflow.png" alt="CDN Workflow" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;CDN Workflow&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ol&gt;
+&lt;li&gt;User A access the image.png through application. In application embedded image.png url is CDN url. (request will go to nearest CDN server for client.)&lt;/li&gt;
+&lt;li&gt;If image.png is not in CDN server, it requests to origin server.&lt;/li&gt;
+&lt;li&gt;Origin server stores content in CDN Cache.&lt;/li&gt;
+&lt;li&gt;It returns the loaded content (image.png) to User A.&lt;/li&gt;
+&lt;li&gt;User B is accesses same image.png.&lt;/li&gt;
+&lt;li&gt;CDN returns the content faster than User A. As Content is already present in CDN server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The Content will be present in CDN cache as long as the TTL has not expired.&lt;/p&gt;</content></item></channel></rss>

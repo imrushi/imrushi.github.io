@@ -1,220 +1,224 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Rushi Panchariya</title><link>/tags/aws/</link><description>Recent content in AWS on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 28 Jun 2024 12:07:52 +0530</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS</title><link>/notes/aws/</link><pubDate>Fri, 28 Jun 2024 12:07:52 +0530</pubDate><guid>/notes/aws/</guid><description>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
-&lt;h2 id="traditional-vs-serverless-web-hosting">Traditional vs Serverless Web hosting&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Traditional&lt;/th>
-&lt;th>Serverless&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Provision Capacity&lt;/td>
-&lt;td>Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Scaling (Pay too much or server issues)&lt;/td>
-&lt;td>Scales Automatically (Pay What you need)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Update OS &amp;amp; Software&lt;/td>
-&lt;td>Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Lots of Overhead for SPA + API Apps&lt;/td>
-&lt;td>Great for SPA + API Apps&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="api-gateway-rest-api">API Gateway (REST API)&lt;/h2>
-&lt;p>API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p></description><content>&lt;p>AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p>
-&lt;h2 id="traditional-vs-serverless-web-hosting">Traditional vs Serverless Web hosting&lt;/h2>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Traditional&lt;/th>
-&lt;th>Serverless&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Provision Capacity&lt;/td>
-&lt;td>Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Scaling (Pay too much or server issues)&lt;/td>
-&lt;td>Scales Automatically (Pay What you need)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Update OS &amp;amp; Software&lt;/td>
-&lt;td>Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Lots of Overhead for SPA + API Apps&lt;/td>
-&lt;td>Great for SPA + API Apps&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h2 id="api-gateway-rest-api">API Gateway (REST API)&lt;/h2>
-&lt;p>API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p>
-&lt;p>Things API Gateway can do:&lt;/p>
-&lt;ul>
-&lt;li>Create RESTful API&amp;rsquo;s and WebSockets API&amp;rsquo;s&lt;/li>
-&lt;li>Integration with backend services: API Gateway can route API requests to various backend services like AWS Lambda functions, Amazon EC2 instances, or other web apps.&lt;/li>
-&lt;li>Manage Traffic: API Gateway handles tasks like traffic management, throttling to limit requests, and Cross-Origin Resource Sharing (CORS) for secure communication between different domains.&lt;/li>
-&lt;li>Secure API&amp;rsquo;s: API Gateway helps us to secure APIs with features like IAM authorization and access control.&lt;/li>
-&lt;li>Monitor API&amp;rsquo;s: API Gateway provides metrics and logging to help you monitor the health and performance of our API&amp;rsquo;s.&lt;/li>
-&lt;/ul>
-&lt;figure class="center" >
-&lt;img src="/img/notes/aws/aws-api-gateway.svg" alt="How it Works" style="border-radius: 8px;" />
-&lt;figcaption class="center" >How it works&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="lambda-logic">Lambda (LOGIC)&lt;/h2>
-&lt;p>It&amp;rsquo;s designed to let us run our code without having to worry about provisioning or managing servers yourself.&lt;/p>
-&lt;ul>
-&lt;li>Serverless: We don&amp;rsquo;t need to set up or manage servers. AWS Lambda takes care of all the underlying infrastructure, so we can focus on writing code.&lt;/li>
-&lt;li>Event-driven: Our code (packaged as Lambda function) executes in response to events. These events can be triggered by various AWS services like S3 file upload, API Gateway requests, or DynamoDB changes.&lt;/li>
-&lt;li>Automatic Scaling: Lambda automatically scales our code up or down to handle the workload. We have to only pay for the compute time for our code.&lt;/li>
-&lt;li>Cost-effective: Since we only pay for what we use, Lambda can be a cost-effective way to run code that doesn&amp;rsquo;t require constant uptime.&lt;/li>
-&lt;li>Supported languages: Java, Go, Node.js, C#, Python, Ruby and PowerShell&lt;/li>
-&lt;/ul>
-&lt;h2 id="dynamodb-data">DynamoDB (DATA)&lt;/h2>
-&lt;p>It is fully managed NoSQL database provided by AWS. It is key-value database similar to mongoDB. It does not support SQL queries. Instead, it uses a propritetary API based on JSON. This API is generally not called directly by user developers, but invoked through AWS SDKs.&lt;/p>
-&lt;p>DynamoDB is primarily a key-value store in the sense that its data model consists of key-value pairs in a schemaless, very large, non relational table of rows (records). It does not support RDBMS methods to join tables through foreign keys. It can also support a document store data model using JSON.&lt;/p>
-&lt;p>Data Structure:&lt;/p>
-&lt;ul>
-&lt;li>Keys :- partition key is key (eg. UserID) and we store value against that partion key. eg. { UserID : firstName }. So here UserID is partition key and firstName is attribute.
-Partition key should be unique.&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Note: why is it call partition key?
-DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.&lt;/p>&lt;/blockquote>
-&lt;p>&lt;strong>Partition key + sort key&lt;/strong>
-Instead just using partition key as primary key dynamoDB gives option to use sort key. Using both partition and sort key we can get new primary key. So when we have same key we can use sort key (timestamp) this gives us primary key.&lt;/p>
-&lt;ul>
-&lt;li>Attributes :- Attributes are the values stored against the partition key(key).&lt;/li>
-&lt;li>Indexes :-
-&lt;ul>
-&lt;li>&lt;strong>Global Secondary Indexes&lt;/strong>:
-Some application might need to perform many kinds of queries, using a variety of different &lt;strong>&lt;em>attributes&lt;/em>&lt;/strong> as query criteria. We can set 5 of this per table.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="cognito-auth">Cognito (AUTH)&lt;/h2>
-&lt;h2 id="s3-simple-storage-service-web-app">S3 (Simple Storage Service) (Web APP)&lt;/h2>
-&lt;h2 id="cloudfront-cache-service">CloudFront (Cache service)&lt;/h2>
-&lt;h2 id="route53-dns">Route53 (DNS)&lt;/h2>
-&lt;hr>
-&lt;h2 id="ec2">EC2&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>There are different types of EC2 Instance type you can check here: &lt;a href="https://aws.amazon.com/ec2/instance-types/">https://aws.amazon.com/ec2/instance-types/&lt;/a>&lt;/p>
-&lt;ul>
-&lt;li>General Purpose :- Great for a diversity of workloads such as web servers or code repositoires. Balance between: Compute, Memory and Networking&lt;/li>
-&lt;li>Compute optimized :- Great for compute-intensive tasks that require high performance processors: for example
-&lt;ul>
-&lt;li>Batch processing workloads&lt;/li>
-&lt;li>Media transcoding&lt;/li>
-&lt;li>High performance web servers&lt;/li>
-&lt;li>Scientific Modeling &amp;amp; machine learning&lt;/li>
-&lt;li>Dedicated gaming server&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Memory Optimized :- Fast performance for workloads that process large data sets in memory: use case:
-&lt;ul>
-&lt;li>High performance, relational/non-relational Databases&lt;/li>
-&lt;li>Distributed web scale cache stores&lt;/li>
-&lt;li>In-memory databases optimized for BI (business Intelligence)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Accelerated computing&lt;/li>
-&lt;li>Storage Optimized :- Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage. Usecases:
-&lt;ul>
-&lt;li>High frequency online transaction processing (OLTP) systems&lt;/li>
-&lt;li>Relational &amp;amp; NoSQL databases&lt;/li>
-&lt;li>Cache for in-memory databases (for eg. Redis)&lt;/li>
-&lt;li>Data wearhousing applications&lt;/li>
-&lt;li>Distributed file Systems&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>HPC Optimized&lt;/li>
-&lt;li>Instance Features&lt;/li>
-&lt;li>Measuring Instance Performance&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>AWS has following naming convention:&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;pre tabindex="0">&lt;code>m5.2xlarge
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>m: instance classs&lt;/li>
-&lt;li>5: generation (the generation of hardware aws using if there is any improvement in hardware this will change for eg. 6)&lt;/li>
-&lt;li>2xlarge: size within the instance class&lt;/li>
-&lt;/ul>
-&lt;h3 id="ec2-security-groups">EC2 Security Groups&lt;/h3>
-&lt;ul>
-&lt;li>Security groups are acting as a &amp;ldquo;firewall&amp;rdquo; on EC2 instances&lt;/li>
-&lt;li>They regulate:
-&lt;ul>
-&lt;li>Access to Ports&lt;/li>
-&lt;li>Authorized IP ranges - IPv4 and IPv6&lt;/li>
-&lt;li>Control of inbound network (from other to the instance)&lt;/li>
-&lt;li>Control of outbound network (from the instance to other)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Good to know:
-&lt;ul>
-&lt;li>It can be attached to multiple instance&lt;/li>
-&lt;li>Locked down to a region/VPC combination (if we go to new region or create new VPC then we have to create new security group)&lt;/li>
-&lt;li>Security groups are firewall so it won&amp;rsquo;t be residing inside EC2&lt;/li>
-&lt;li>It is good to maintain one seperate security group for SSH access&lt;/li>
-&lt;li>If application is not accessible (time out), then its a security group issue&lt;/li>
-&lt;li>If application gives a &amp;ldquo;connection refused&amp;rdquo; error, then its an application error or its not launched yet&lt;/li>
-&lt;li>All inbound traffic is &lt;strong>blocked&lt;/strong> by default&lt;/li>
-&lt;li>All outbout traffic is &lt;strong>authorised&lt;/strong> by default&lt;/li>
-&lt;li>We can referance one security group in another&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>For AWS Developer Associate exam: Classic Ports to know&lt;br>
-22 = SSH (Secure Shell) - Log into a linux instance&lt;br>
-21 = FTP (File Transfer Protocol) - upload files inot a file share&lt;br>
-22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH&lt;br>
-80 = HTTP - access unsecured websites&lt;br>
-443 = HTTPS - access secured websites&lt;br>
-3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p>&lt;/blockquote>
-&lt;h3 id="aws-charges-for-ipv4-address">AWS charges for IPv4 address&lt;/h3>
-&lt;ul>
-&lt;li>Starting from 1st 2024 there&amp;rsquo;s charge for all public IPv4 created in your account&lt;/li>
-&lt;li>$0.005 per hour of Public IPv4&lt;/li>
-&lt;li>For new accounts in AWS you have a free tier for the EC2 service: 750 hours of Public IPv4 per month for the first 12 months&lt;/li>
-&lt;li>For all other services there is no free tier&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.&lt;/p>&lt;/blockquote>
-&lt;h2 id="ec2-instance-storage">EC2 Instance Storage&lt;/h2>
-&lt;h3 id="whats-an-ebs-volume">What&amp;rsquo;s an EBS Volume&lt;/h3>
-&lt;ul>
-&lt;li>An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run&lt;/li>
-&lt;li>It allows your instance to persist data, even after their termination&lt;/li>
-&lt;li>&lt;strong>They can only be mounted to one instance at a time&lt;/strong> (at the CCP level)&lt;/li>
-&lt;li>They are bound to a specific availability zone
-&lt;ul>
-&lt;li>To move a volume across, you first need to take snapshot of it.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>It can be detached from an EC2 instance and attached to another one quickly&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Free Tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnatic per month&lt;/p>&lt;/blockquote>
-&lt;ul>
-&lt;li>Delete on Termination attribute
-&lt;ul>
-&lt;li>Controls the EBS behaviour when an EC2 instance terminates&lt;/li>
-&lt;li>By default, the root EBS volume is deleted (attribute enalbed)&lt;/li>
-&lt;li>By default, any other attached EBS volume is not deleted (attribute disabled)&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></content></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Rushi Panchariya</title><link>/tags/aws/</link><description>Recent content in AWS on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 28 Jun 2024 12:07:52 +0530</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS</title><link>/notes/aws/</link><pubDate>Fri, 28 Jun 2024 12:07:52 +0530</pubDate><guid>/notes/aws/</guid><description>&lt;p&gt;AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p&gt;
+&lt;h2 id="traditional-vs-serverless-web-hosting"&gt;Traditional vs Serverless Web hosting&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Traditional&lt;/th&gt;
+&lt;th&gt;Serverless&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Provision Capacity&lt;/td&gt;
+&lt;td&gt;Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scaling (Pay too much or server issues)&lt;/td&gt;
+&lt;td&gt;Scales Automatically (Pay What you need)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Update OS &amp;amp; Software&lt;/td&gt;
+&lt;td&gt;Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lots of Overhead for SPA + API Apps&lt;/td&gt;
+&lt;td&gt;Great for SPA + API Apps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="api-gateway-rest-api"&gt;API Gateway (REST API)&lt;/h2&gt;
+&lt;p&gt;API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p&gt;</description><content>&lt;p&gt;AWS stands of Amazon Web Service. It offer broad range of cloud services.&lt;/p&gt;
+&lt;h2 id="traditional-vs-serverless-web-hosting"&gt;Traditional vs Serverless Web hosting&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Traditional&lt;/th&gt;
+&lt;th&gt;Serverless&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Provision Capacity&lt;/td&gt;
+&lt;td&gt;Runs On-Demand (unlimited capacity Only pay for Code Executions)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Scaling (Pay too much or server issues)&lt;/td&gt;
+&lt;td&gt;Scales Automatically (Pay What you need)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Update OS &amp;amp; Software&lt;/td&gt;
+&lt;td&gt;Runs on Managed AWS Infrastructure (up-to-date and secure environment)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Lots of Overhead for SPA + API Apps&lt;/td&gt;
+&lt;td&gt;Great for SPA + API Apps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="api-gateway-rest-api"&gt;API Gateway (REST API)&lt;/h2&gt;
+&lt;p&gt;API Gateway is fully managed service that allows you to easily create, publish, maintain, monitor, secure API&amp;rsquo;s at any scale. An API, acts as a &amp;ldquo;front door&amp;rdquo; for applications to access data, functionality, or business logic from your backend services like servers, databases or lambda.&lt;/p&gt;
+&lt;p&gt;Things API Gateway can do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create RESTful API&amp;rsquo;s and WebSockets API&amp;rsquo;s&lt;/li&gt;
+&lt;li&gt;Integration with backend services: API Gateway can route API requests to various backend services like AWS Lambda functions, Amazon EC2 instances, or other web apps.&lt;/li&gt;
+&lt;li&gt;Manage Traffic: API Gateway handles tasks like traffic management, throttling to limit requests, and Cross-Origin Resource Sharing (CORS) for secure communication between different domains.&lt;/li&gt;
+&lt;li&gt;Secure API&amp;rsquo;s: API Gateway helps us to secure APIs with features like IAM authorization and access control.&lt;/li&gt;
+&lt;li&gt;Monitor API&amp;rsquo;s: API Gateway provides metrics and logging to help you monitor the health and performance of our API&amp;rsquo;s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/aws/aws-api-gateway.svg" alt="How it Works" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;How it works&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2 id="lambda-logic"&gt;Lambda (LOGIC)&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s designed to let us run our code without having to worry about provisioning or managing servers yourself.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Serverless: We don&amp;rsquo;t need to set up or manage servers. AWS Lambda takes care of all the underlying infrastructure, so we can focus on writing code.&lt;/li&gt;
+&lt;li&gt;Event-driven: Our code (packaged as Lambda function) executes in response to events. These events can be triggered by various AWS services like S3 file upload, API Gateway requests, or DynamoDB changes.&lt;/li&gt;
+&lt;li&gt;Automatic Scaling: Lambda automatically scales our code up or down to handle the workload. We have to only pay for the compute time for our code.&lt;/li&gt;
+&lt;li&gt;Cost-effective: Since we only pay for what we use, Lambda can be a cost-effective way to run code that doesn&amp;rsquo;t require constant uptime.&lt;/li&gt;
+&lt;li&gt;Supported languages: Java, Go, Node.js, C#, Python, Ruby and PowerShell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dynamodb-data"&gt;DynamoDB (DATA)&lt;/h2&gt;
+&lt;p&gt;It is fully managed NoSQL database provided by AWS. It is key-value database similar to mongoDB. It does not support SQL queries. Instead, it uses a propritetary API based on JSON. This API is generally not called directly by user developers, but invoked through AWS SDKs.&lt;/p&gt;
+&lt;p&gt;DynamoDB is primarily a key-value store in the sense that its data model consists of key-value pairs in a schemaless, very large, non relational table of rows (records). It does not support RDBMS methods to join tables through foreign keys. It can also support a document store data model using JSON.&lt;/p&gt;
+&lt;p&gt;Data Structure:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Keys :- partition key is key (eg. UserID) and we store value against that partion key. eg. { UserID : firstName }. So here UserID is partition key and firstName is attribute.
+Partition key should be unique.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: why is it call partition key?
+DynamoDB stores data in fleet of SSD and it try to store data effectively by partitioning it over SSDs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Partition key + sort key&lt;/strong&gt;
+Instead just using partition key as primary key dynamoDB gives option to use sort key. Using both partition and sort key we can get new primary key. So when we have same key we can use sort key (timestamp) this gives us primary key.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Attributes :- Attributes are the values stored against the partition key(key).&lt;/li&gt;
+&lt;li&gt;Indexes :-
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Global Secondary Indexes&lt;/strong&gt;:
+Some application might need to perform many kinds of queries, using a variety of different &lt;strong&gt;&lt;em&gt;attributes&lt;/em&gt;&lt;/strong&gt; as query criteria. We can set 5 of this per table.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cognito-auth"&gt;Cognito (AUTH)&lt;/h2&gt;
+&lt;h2 id="s3-simple-storage-service-web-app"&gt;S3 (Simple Storage Service) (Web APP)&lt;/h2&gt;
+&lt;h2 id="cloudfront-cache-service"&gt;CloudFront (Cache service)&lt;/h2&gt;
+&lt;h2 id="route53-dns"&gt;Route53 (DNS)&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2 id="ec2"&gt;EC2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;There are different types of EC2 Instance type you can check here: &lt;a href="https://aws.amazon.com/ec2/instance-types/"&gt;https://aws.amazon.com/ec2/instance-types/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;General Purpose :- Great for a diversity of workloads such as web servers or code repositoires. Balance between: Compute, Memory and Networking&lt;/li&gt;
+&lt;li&gt;Compute optimized :- Great for compute-intensive tasks that require high performance processors: for example
+&lt;ul&gt;
+&lt;li&gt;Batch processing workloads&lt;/li&gt;
+&lt;li&gt;Media transcoding&lt;/li&gt;
+&lt;li&gt;High performance web servers&lt;/li&gt;
+&lt;li&gt;Scientific Modeling &amp;amp; machine learning&lt;/li&gt;
+&lt;li&gt;Dedicated gaming server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Memory Optimized :- Fast performance for workloads that process large data sets in memory: use case:
+&lt;ul&gt;
+&lt;li&gt;High performance, relational/non-relational Databases&lt;/li&gt;
+&lt;li&gt;Distributed web scale cache stores&lt;/li&gt;
+&lt;li&gt;In-memory databases optimized for BI (business Intelligence)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Accelerated computing&lt;/li&gt;
+&lt;li&gt;Storage Optimized :- Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage. Usecases:
+&lt;ul&gt;
+&lt;li&gt;High frequency online transaction processing (OLTP) systems&lt;/li&gt;
+&lt;li&gt;Relational &amp;amp; NoSQL databases&lt;/li&gt;
+&lt;li&gt;Cache for in-memory databases (for eg. Redis)&lt;/li&gt;
+&lt;li&gt;Data wearhousing applications&lt;/li&gt;
+&lt;li&gt;Distributed file Systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HPC Optimized&lt;/li&gt;
+&lt;li&gt;Instance Features&lt;/li&gt;
+&lt;li&gt;Measuring Instance Performance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AWS has following naming convention:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;m5.2xlarge
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;m: instance classs&lt;/li&gt;
+&lt;li&gt;5: generation (the generation of hardware aws using if there is any improvement in hardware this will change for eg. 6)&lt;/li&gt;
+&lt;li&gt;2xlarge: size within the instance class&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="ec2-security-groups"&gt;EC2 Security Groups&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Security groups are acting as a &amp;ldquo;firewall&amp;rdquo; on EC2 instances&lt;/li&gt;
+&lt;li&gt;They regulate:
+&lt;ul&gt;
+&lt;li&gt;Access to Ports&lt;/li&gt;
+&lt;li&gt;Authorized IP ranges - IPv4 and IPv6&lt;/li&gt;
+&lt;li&gt;Control of inbound network (from other to the instance)&lt;/li&gt;
+&lt;li&gt;Control of outbound network (from the instance to other)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Good to know:
+&lt;ul&gt;
+&lt;li&gt;It can be attached to multiple instance&lt;/li&gt;
+&lt;li&gt;Locked down to a region/VPC combination (if we go to new region or create new VPC then we have to create new security group)&lt;/li&gt;
+&lt;li&gt;Security groups are firewall so it won&amp;rsquo;t be residing inside EC2&lt;/li&gt;
+&lt;li&gt;It is good to maintain one seperate security group for SSH access&lt;/li&gt;
+&lt;li&gt;If application is not accessible (time out), then its a security group issue&lt;/li&gt;
+&lt;li&gt;If application gives a &amp;ldquo;connection refused&amp;rdquo; error, then its an application error or its not launched yet&lt;/li&gt;
+&lt;li&gt;All inbound traffic is &lt;strong&gt;blocked&lt;/strong&gt; by default&lt;/li&gt;
+&lt;li&gt;All outbout traffic is &lt;strong&gt;authorised&lt;/strong&gt; by default&lt;/li&gt;
+&lt;li&gt;We can referance one security group in another&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For AWS Developer Associate exam: Classic Ports to know&lt;br&gt;
+22 = SSH (Secure Shell) - Log into a linux instance&lt;br&gt;
+21 = FTP (File Transfer Protocol) - upload files inot a file share&lt;br&gt;
+22 = SFTP (Secure file transfer Protocol) - Upload files usign SSH&lt;br&gt;
+80 = HTTP - access unsecured websites&lt;br&gt;
+443 = HTTPS - access secured websites&lt;br&gt;
+3389 = RDP (Remote Desktop Protocol) - log into a Windows instance&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="aws-charges-for-ipv4-address"&gt;AWS charges for IPv4 address&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Starting from 1st 2024 there&amp;rsquo;s charge for all public IPv4 created in your account&lt;/li&gt;
+&lt;li&gt;$0.005 per hour of Public IPv4&lt;/li&gt;
+&lt;li&gt;For new accounts in AWS you have a free tier for the EC2 service: 750 hours of Public IPv4 per month for the first 12 months&lt;/li&gt;
+&lt;li&gt;For all other services there is no free tier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: IPv6 is free to use. to use IPv6 need to make changes in networking and security groups.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="ec2-instance-storage"&gt;EC2 Instance Storage&lt;/h2&gt;
+&lt;h3 id="whats-an-ebs-volume"&gt;What&amp;rsquo;s an EBS Volume&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run&lt;/li&gt;
+&lt;li&gt;It allows your instance to persist data, even after their termination&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;They can only be mounted to one instance at a time&lt;/strong&gt; (at the CCP level)&lt;/li&gt;
+&lt;li&gt;They are bound to a specific availability zone
+&lt;ul&gt;
+&lt;li&gt;To move a volume across, you first need to take snapshot of it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;It can be detached from an EC2 instance and attached to another one quickly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Free Tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnatic per month&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Delete on Termination attribute
+&lt;ul&gt;
+&lt;li&gt;Controls the EBS behaviour when an EC2 instance terminates&lt;/li&gt;
+&lt;li&gt;By default, the root EBS volume is deleted (attribute enalbed)&lt;/li&gt;
+&lt;li&gt;By default, any other attached EBS volume is not deleted (attribute disabled)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content></item></channel></rss>

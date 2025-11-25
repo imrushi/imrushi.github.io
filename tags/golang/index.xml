@@ -1,71 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Rushi Panchariya</title><link>/tags/golang/</link><description>Recent content in Golang on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>&lt;hr>
-&lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
-&lt;h2 id="history-of-go">History of Go&lt;/h2>
-&lt;p>Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p></description><content>&lt;hr>
-&lt;p>Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p>
-&lt;h2 id="history-of-go">History of Go&lt;/h2>
-&lt;p>Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p>
-&lt;p>So Google engineers &lt;strong>Robert Griesemer, Rob Pike, and Ken Thompson&lt;/strong> sketched out some goals for a new language:&lt;/p>
-&lt;ul>
-&lt;li>Fast Compilation&lt;/li>
-&lt;li>Less cumbersome code&lt;/li>
-&lt;li>Unused memory freed automatically (garbage collection)&lt;/li>
-&lt;li>Easy-to-write software that does serval operations simultaneously (concurrency)&lt;/li>
-&lt;li>Good support for processor with multiple cores&lt;/li>
-&lt;/ul>
-&lt;p>After a couple years of work, Google had created Go: a language that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It&amp;rsquo;s now free for anyone to use.&lt;/p>
-&lt;p>If you&amp;rsquo;re writing a command-line tool, Go can produce executable files for Windows, MacOS, and Linux, all from the same source code. If you&amp;rsquo;re writing a web server, it can help you handle many users connecting at once. And no matter what you&amp;rsquo;re what you&amp;rsquo;re writing, it will help you ensure that your code is easier to maintain.&lt;/p>
-&lt;h2 id="syntax-basics">Syntax Basics&lt;/h2>
-&lt;h3 id="go-playground">Go Playground&lt;/h3>
-&lt;p>The easiest way to try Go is to visit &lt;a href="https://go.dev/play">Go Playground&lt;/a> in your web browser. It is simple editor where you can enter Go code and run it on their servers. The result is displayed right there in your browser.&lt;/p>
-&lt;blockquote>
-&lt;p>Note: Go Playground requires stable internet connection. If you don&amp;rsquo;t, see &lt;a href="https://go.dev/doc/install">Install Go&lt;/a> on your system.&lt;/p>&lt;/blockquote>
-&lt;p>Let&amp;rsquo;s try out play ground:&lt;/p>
-&lt;ol>
-&lt;li>Open &lt;a href="https://go.dev/play">Go Playground&lt;/a> in your browser.&lt;/li>
-&lt;li>There will be hello world program already written.&lt;/li>
-&lt;li>Click the Format button, which will automatically reformat your code according to Go conventions.&lt;/li>
-&lt;li>Click the Run button.&lt;/li>
-&lt;/ol>
-&lt;p>You should see &amp;ldquo;Hello, World!&amp;rdquo; displayed at the bottom of the screen.&lt;/p>
-&lt;p>Congratulations, you&amp;rsquo;ve just run your first Go program🥳!&lt;/p>
-&lt;h3 id="go-file-layout">Go file layout&lt;/h3>
-&lt;p>Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="319487265" type="checkbox" />
-&lt;label for="319487265">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Hello World&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Rushi Panchariya</title><link>/tags/golang/</link><description>Recent content in Golang on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go</title><link>/notes/go/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>/notes/go/</guid><description>&lt;hr&gt;
+&lt;p&gt;Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p&gt;
+&lt;h2 id="history-of-go"&gt;History of Go&lt;/h2&gt;
+&lt;p&gt;Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p&gt;</description><content>&lt;hr&gt;
+&lt;p&gt;Go is a programming language that focuses on simplicity and speed. It&amp;rsquo;s simpler than other languages, so it&amp;rsquo;s quicker to learn. And it lets you harness the power of today&amp;rsquo;s multicore computer processor, so your programs run faster.&lt;/p&gt;
+&lt;h2 id="history-of-go"&gt;History of Go&lt;/h2&gt;
+&lt;p&gt;Back in 2007, the search engine Google had a problem. They had to maintain programs with millions of line of code. Before they could test new changes, they had to compile the code into runnable form, a process which at the time took the better part of an hour. Needless to say, this was bad for developer productivity.&lt;/p&gt;
+&lt;p&gt;So Google engineers &lt;strong&gt;Robert Griesemer, Rob Pike, and Ken Thompson&lt;/strong&gt; sketched out some goals for a new language:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast Compilation&lt;/li&gt;
+&lt;li&gt;Less cumbersome code&lt;/li&gt;
+&lt;li&gt;Unused memory freed automatically (garbage collection)&lt;/li&gt;
+&lt;li&gt;Easy-to-write software that does serval operations simultaneously (concurrency)&lt;/li&gt;
+&lt;li&gt;Good support for processor with multiple cores&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After a couple years of work, Google had created Go: a language that was fast to write code for and produced programs that were fast to compile and run. The project switched to an open source license in 2009. It&amp;rsquo;s now free for anyone to use.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re writing a command-line tool, Go can produce executable files for Windows, MacOS, and Linux, all from the same source code. If you&amp;rsquo;re writing a web server, it can help you handle many users connecting at once. And no matter what you&amp;rsquo;re what you&amp;rsquo;re writing, it will help you ensure that your code is easier to maintain.&lt;/p&gt;
+&lt;h2 id="syntax-basics"&gt;Syntax Basics&lt;/h2&gt;
+&lt;h3 id="go-playground"&gt;Go Playground&lt;/h3&gt;
+&lt;p&gt;The easiest way to try Go is to visit &lt;a href="https://go.dev/play"&gt;Go Playground&lt;/a&gt; in your web browser. It is simple editor where you can enter Go code and run it on their servers. The result is displayed right there in your browser.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Go Playground requires stable internet connection. If you don&amp;rsquo;t, see &lt;a href="https://go.dev/doc/install"&gt;Install Go&lt;/a&gt; on your system.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let&amp;rsquo;s try out play ground:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open &lt;a href="https://go.dev/play"&gt;Go Playground&lt;/a&gt; in your browser.&lt;/li&gt;
+&lt;li&gt;There will be hello world program already written.&lt;/li&gt;
+&lt;li&gt;Click the Format button, which will automatically reformat your code according to Go conventions.&lt;/li&gt;
+&lt;li&gt;Click the Run button.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You should see &amp;ldquo;Hello, World!&amp;rdquo; displayed at the bottom of the screen.&lt;/p&gt;
+&lt;p&gt;Congratulations, you&amp;rsquo;ve just run your first Go program🥳!&lt;/p&gt;
+&lt;h3 id="go-file-layout"&gt;Go file layout&lt;/h3&gt;
+&lt;p&gt;Now let&amp;rsquo;s look at the code and figure out what it actually means&amp;hellip;&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="347921685" type="checkbox" /&gt;
+&lt;label for="347921685"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Hello World&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import &amp;#34;fmt&amp;#34;
 func main() {
 fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Every Go file has three sections:&lt;/p>
-&lt;ol>
-&lt;li>The &lt;code>package&lt;/code> clause&lt;/li>
-&lt;li>Any &lt;code>import&lt;/code> statements&lt;/li>
-&lt;li>The actual code&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>&lt;code>Package&lt;/code> : A package is a collection of code that all does similar things, like formatting strings or drawing images. The package clause gives the name of the package that this file&amp;rsquo;s code will become a part of. In this case, we use the special package &lt;code>main&lt;/code>, which is required if this code is going to be run directly (usually from the terminal).&lt;/li>
-&lt;li>&lt;code>import&lt;/code> : Go files almost always have one or more &lt;code>import&lt;/code> statements. Each file needs to &lt;code>import&lt;/code> other packages before its code can use the code those other packages contain. Loading all the Go code on your computer at once would result in a big, slow program, so instead you specify only the package you need by importing them.&lt;/li>
-&lt;li>&lt;code>actual code&lt;/code> : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code>function&lt;/code> is a group of code that you &lt;code>call (run)&lt;/code> from other places in your program. When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first, which is why we need this function &lt;code>main&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;p>Below is the code with what it does in comments:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="631982547" type="checkbox" />
-&lt;label for="631982547">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Hello World&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Every Go file has three sections:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;code&gt;package&lt;/code&gt; clause&lt;/li&gt;
+&lt;li&gt;Any &lt;code&gt;import&lt;/code&gt; statements&lt;/li&gt;
+&lt;li&gt;The actual code&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Package&lt;/code&gt; : A package is a collection of code that all does similar things, like formatting strings or drawing images. The package clause gives the name of the package that this file&amp;rsquo;s code will become a part of. In this case, we use the special package &lt;code&gt;main&lt;/code&gt;, which is required if this code is going to be run directly (usually from the terminal).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;import&lt;/code&gt; : Go files almost always have one or more &lt;code&gt;import&lt;/code&gt; statements. Each file needs to &lt;code&gt;import&lt;/code&gt; other packages before its code can use the code those other packages contain. Loading all the Go code on your computer at once would result in a big, slow program, so instead you specify only the package you need by importing them.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;actual code&lt;/code&gt; : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code&gt;function&lt;/code&gt; is a group of code that you &lt;code&gt;call (run)&lt;/code&gt; from other places in your program. When a Go program is run, it looks for a function named &lt;code&gt;main&lt;/code&gt; and runs that first, which is why we need this function &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is the code with what it does in comments:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="473562918" type="checkbox" /&gt;
+&lt;label for="473562918"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Hello World&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // This line says the rest of the code in
 // this file belongs to the &amp;#34;main&amp;#34; package
 package main
@@ -82,123 +83,125 @@ func main() {
 // from the &amp;#34;fmt&amp;#34; package
 fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;ul>
-&lt;li>&lt;code>Function&lt;/code> : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Note: When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first.&lt;/p>&lt;/blockquote>
-&lt;h3 id="no-semicolons">No Semicolons&lt;/h3>
-&lt;p>As you can see in our program there are no semicolons to separate statements in Go, we can use semicolons but it&amp;rsquo;s not required (in fact, it&amp;rsquo;s generally frowned upon).&lt;/p>
-&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
-&lt;p>If you want to know more how it works you check Go&amp;rsquo;s official doc
-&lt;a href="https://go.dev/doc/effective_go#semicolons">https://go.dev/doc/effective_go#semicolons&lt;/a>&lt;/p>
-&lt;h3 id="formatting">Formatting&lt;/h3>
-&lt;p>Formatting issues are the most contentious but the least important. People may prefer different formatting styles, thus when another developer or person reads the same code it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents in the same way.&lt;/p>
-&lt;p>With Go we take an unusual approach and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called &lt;code>go fmt&lt;/code>. The &lt;code>go fmt&lt;/code> program reads a Go program and emits the source in a &lt;strong>&lt;em>standard style of indentation and vertical alignment, retaining and if necessary reformatting comments.&lt;/em>&lt;/strong>&lt;/p>
-&lt;p>Next time whenever you share your code, other Go developers will expect it to be in the standard Go format. &lt;em>With Go all you have to do is run &lt;code>go fmt&lt;/code>&lt;/em>.&lt;/p>
-&lt;p>If you want to try its simple version, head over to the &lt;a href="https://go.dev/play">Go playground&lt;/a>, write some buggy or unformatted code, and hit the &lt;code>format&lt;/code> button.&lt;/p>
-&lt;h3 id="comments">Comments&lt;/h3>
-&lt;p>Go provides C style &lt;code>/* */&lt;/code> block comments and C++ style &lt;code>//&lt;/code> line comments. Most block comments appear as package comments but are useful within an expression or to disable large blocks of code; Otherwise usually line comments are used.&lt;/p>
-&lt;p>Comments that appear before a top-level declaration, with no intervening newlines, are considered to document the declaration itself. For example: In the above &lt;code>Hello World&lt;/code> programme with comments, all comments will be used in &lt;code>Go Documents&lt;/code>. These &lt;code>doc comments&lt;/code> are the primary documentation for given Go package or command.&lt;/p>
-&lt;p>For more about doc comments, see &lt;a href="https://go.dev/doc/comment">Go Doc Comments&lt;/a>.&lt;/p>
-&lt;h3 id="names">Names&lt;/h3>
-&lt;p>Names are as important in Go as in any other language. Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>A name must begin with letter, and can have any number of additional letters and numbers.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>The visibility of a name outside a package is determined by below points:&lt;/p>
-&lt;ul>
-&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from packages outside the current one. &lt;code>Example&lt;/code> - As you have seen in above &lt;a href="/notes/go/#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
-&lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and only be accessed within the current package.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Above the only rules enforced by the language. But the &lt;code>Go community&lt;/code> follows some additional conventions as well:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>If a name consists of multiple words, each word after the first should be capitalized, and they should be attached together without spaces between them, like this: &lt;strong>&lt;em>topRank, RetryConnection&lt;/em>&lt;/strong>&amp;hellip; This style is often called &lt;a href="https://en.wikipedia.org/wiki/Camel_case">Camel Case&lt;/a> because the capitalized letter look like the humps of a camel.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>When the meaning of a name is obvious from the context, the Go community&amp;rsquo;s convention is to abbreviate it: to use &lt;code>i&lt;/code> instead of &lt;code>index&lt;/code>, &lt;code>max&lt;/code> instead of &lt;code>maximum&lt;/code>&amp;hellip;&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h4 id="mixedcaps">MixedCaps&lt;/h4>
-&lt;p>The convention in Go is to use &lt;code>MixedCaps&lt;/code> or &lt;code>mixedCaps&lt;/code> rather than underscores to write multiword names.&lt;/p>
-&lt;h4 id="package-names">Package Names&lt;/h4>
-&lt;p>Good package names make code better. A package&amp;rsquo;s names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
-&lt;h5 id="guideline">Guideline&lt;/h5>
-&lt;p>It&amp;rsquo;s helpful if everyone using the package can the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for &lt;strong>&lt;em>under_scores&lt;/em>&lt;/strong> or &lt;strong>&lt;em>mixedCaps&lt;/em>&lt;/strong>. They are often simple nouns, such as:&lt;/p>
-&lt;ul>
-&lt;li>time (provides functionality for measuring and displaying time)&lt;/li>
-&lt;li>list (implements a doubly linked list)&lt;/li>
-&lt;li>http (provides HTTP client and server implementations)&lt;/li>
-&lt;/ul>
-&lt;p>Below are example for bad naming styles in Go:&lt;/p>
-&lt;ul>
-&lt;li>computeServiceClient&lt;/li>
-&lt;li>priority_queue&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>&lt;em>Abbreviate judiciously&lt;/em>&lt;/strong>. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely-used packages often have compressed names:&lt;/p>
-&lt;ul>
-&lt;li>strconv (string conversion)&lt;/li>
-&lt;li>syscall (system call)&lt;/li>
-&lt;li>fmt (formatted I/O)&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p>&lt;/blockquote>
-&lt;p>Another convention is that the package name is the base name of its source directory; the package in &lt;code>src/encoding/base64&lt;/code> is imported as &lt;code>&amp;quot;encoding/base64&amp;quot;&lt;/code> but has name &lt;code>base64&lt;/code>, not &lt;code>encoding_base64&lt;/code> and not &lt;code>encodingBase64&lt;/code>.&lt;/p>
-&lt;p>Another short example is &lt;code>once.Do&lt;/code>; &lt;code>once.Do(setup)&lt;/code> reads well and would not be improved by writing &lt;code>once.DoOrWaitUntilDone(setup)&lt;/code>. &lt;em>Long names don&amp;rsquo;t automatically make things more readable.&lt;/em> A helpful doc comment can often be more valuable than an extra long name.&lt;/p>
-&lt;h4 id="interface-names">Interface Names&lt;/h4>
-&lt;p>By convention, one-method interfaces are named by the &lt;code>method name&lt;/code> plus and &lt;code>-er&lt;/code> suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p>
-&lt;h3 id="declaration-variables">Declaration Variables&lt;/h3>
-&lt;p>In Go, a &lt;code>variable&lt;/code> is a piece of storage containing a value. You can give a variable a name by using a &lt;code>variable declaration&lt;/code>. Just use the &lt;code>var&lt;/code> keyword followed by the desired name and the type of values the variable will hold.&lt;/p>
-&lt;p>Variable declaration syntax:&lt;/p>
-&lt;p>&lt;code>var name string&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>var&lt;/code> :- It is a keyword.&lt;/li>
-&lt;li>&lt;code>name&lt;/code> :- It will be a variable name that you want to access in your programme.&lt;/li>
-&lt;li>&lt;code>string&lt;/code> :- It will be any datatype that the variable will hold data for. (Go-supported datatype)&lt;/li>
-&lt;/ul>
-&lt;p>Once you declare a variable, you can assign any value of that type to it with &lt;code>=&lt;/code> sign.&lt;/p>
-&lt;p>&lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/p>
-&lt;p>You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code>=&lt;/code>, and the same number of values on the right side, separated with commas (&lt;code>,&lt;/code>).&lt;/p>
-&lt;p>Syntax for assign multiple variables at once:&lt;/p>
-&lt;p>&lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/p>
-&lt;p>You can assign new values to existing variables, but they need to be values of the same type like you can&amp;rsquo;t assign &lt;code>int&lt;/code> variable value to &lt;code>string&lt;/code> type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p>
-&lt;h3 id="short-variable-declaration">Short Variable Declaration&lt;/h3>
-&lt;p>As we seen in the above section we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a &lt;code>short variable declaration&lt;/code>. Instead of explicitly declaring the type of the variable and later assigning to it with &lt;code>=&lt;/code>, you do both at once using &lt;code>:=&lt;/code>.&lt;/p>
-&lt;p>Here are our previous examples with short variable declaration :&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>name := jerry&lt;/code> instead of &lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;code>length, width := 1.2, 2.4&lt;/code> instead of &lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p>
-&lt;p>Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p>
-&lt;h4 id="pointers">Pointers&lt;/h4>
-&lt;h3 id="functions">Functions&lt;/h3>
-&lt;p>A function is a group of statements that together perform a task. Function can be used to:&lt;/p>
-&lt;ul>
-&lt;li>Reuse code in multiple places.&lt;/li>
-&lt;li>Make code more organized and readable.&lt;/li>
-&lt;li>Hide implementation details.&lt;/li>
-&lt;li>Improve code performance.&lt;/li>
-&lt;/ul>
-&lt;p>Functions are declared using the &lt;code>func&lt;/code> keyword, followed by the &lt;code>function name, a list of parameters in parentheses (), and a block of code&lt;/code>. The function body is enclosed in curly &lt;code>braces&lt;/code> (&lt;code>{&lt;/code> and &lt;code>}&lt;/code>). A function can take zero or more arguments.&lt;/p>
-&lt;p>Syntax for function in Go: &lt;code>func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code>&lt;/p>
-&lt;h4 id="creating-function-and-calling-function">Creating Function and Calling Function&lt;/h4>
-&lt;p>Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code>add()&lt;/code> it will take 2 arguments &lt;code>x and y&lt;/code>. Which will be &lt;code>int&lt;/code> type and return &lt;code>int&lt;/code> (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="238657149" type="checkbox" />
-&lt;label for="238657149">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Addition Function&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Function&lt;/code&gt; : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: When a Go program is run, it looks for a function named &lt;code&gt;main&lt;/code&gt; and runs that first.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="no-semicolons"&gt;No Semicolons&lt;/h3&gt;
+&lt;p&gt;As you can see in our program there are no semicolons to separate statements in Go, we can use semicolons but it&amp;rsquo;s not required (in fact, it&amp;rsquo;s generally frowned upon).&lt;/p&gt;
+&lt;p&gt;Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29"&gt;C&lt;/a&gt;, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike in &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29"&gt;C&lt;/a&gt;, those semicolons do not appear in the source. Instead the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis"&gt;lexer&lt;/a&gt; uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p&gt;
+&lt;p&gt;If you want to know more how it works you check Go&amp;rsquo;s official doc
+&lt;a href="https://go.dev/doc/effective_go#semicolons"&gt;https://go.dev/doc/effective_go#semicolons&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="formatting"&gt;Formatting&lt;/h3&gt;
+&lt;p&gt;Formatting issues are the most contentious but the least important. People may prefer different formatting styles, thus when another developer or person reads the same code it may take some time for him to grasp if he is not accustomed to the same formatting style. It will be easier if everyone formats their documents in the same way.&lt;/p&gt;
+&lt;p&gt;With Go we take an unusual approach and let the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool, called &lt;code&gt;go fmt&lt;/code&gt;. The &lt;code&gt;go fmt&lt;/code&gt; program reads a Go program and emits the source in a &lt;strong&gt;&lt;em&gt;standard style of indentation and vertical alignment, retaining and if necessary reformatting comments.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Next time whenever you share your code, other Go developers will expect it to be in the standard Go format. &lt;em&gt;With Go all you have to do is run &lt;code&gt;go fmt&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to try its simple version, head over to the &lt;a href="https://go.dev/play"&gt;Go playground&lt;/a&gt;, write some buggy or unformatted code, and hit the &lt;code&gt;format&lt;/code&gt; button.&lt;/p&gt;
+&lt;h3 id="comments"&gt;Comments&lt;/h3&gt;
+&lt;p&gt;Go provides C style &lt;code&gt;/* */&lt;/code&gt; block comments and C++ style &lt;code&gt;//&lt;/code&gt; line comments. Most block comments appear as package comments but are useful within an expression or to disable large blocks of code; Otherwise usually line comments are used.&lt;/p&gt;
+&lt;p&gt;Comments that appear before a top-level declaration, with no intervening newlines, are considered to document the declaration itself. For example: In the above &lt;code&gt;Hello World&lt;/code&gt; programme with comments, all comments will be used in &lt;code&gt;Go Documents&lt;/code&gt;. These &lt;code&gt;doc comments&lt;/code&gt; are the primary documentation for given Go package or command.&lt;/p&gt;
+&lt;p&gt;For more about doc comments, see &lt;a href="https://go.dev/doc/comment"&gt;Go Doc Comments&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="names"&gt;Names&lt;/h3&gt;
+&lt;p&gt;Names are as important in Go as in any other language. Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A name must begin with letter, and can have any number of additional letters and numbers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The visibility of a name outside a package is determined by below points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the name of a variable, function, or type begins with a &lt;strong&gt;&lt;em&gt;Capital letter&lt;/em&gt;&lt;/strong&gt;, it is considered &lt;strong&gt;&lt;em&gt;Exported&lt;/em&gt;&lt;/strong&gt; and can be accessed from packages outside the current one. &lt;code&gt;Example&lt;/code&gt; - As you have seen in above &lt;a href="/notes/go/#go-file-layout"&gt;hello world program&lt;/a&gt;. The &lt;code&gt;P&lt;/code&gt; in &lt;code&gt;fmt.Println&lt;/code&gt; is capitalized: so it can be used from the main package or any other.&lt;/li&gt;
+&lt;li&gt;If the name begins with a &lt;strong&gt;&lt;em&gt;Lowercase letter&lt;/em&gt;&lt;/strong&gt;, it is considered &lt;strong&gt;&lt;em&gt;Unexported&lt;/em&gt;&lt;/strong&gt; and only be accessed within the current package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Above the only rules enforced by the language. But the &lt;code&gt;Go community&lt;/code&gt; follows some additional conventions as well:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If a name consists of multiple words, each word after the first should be capitalized, and they should be attached together without spaces between them, like this: &lt;strong&gt;&lt;em&gt;topRank, RetryConnection&lt;/em&gt;&lt;/strong&gt;&amp;hellip; This style is often called &lt;a href="https://en.wikipedia.org/wiki/Camel_case"&gt;Camel Case&lt;/a&gt; because the capitalized letter look like the humps of a camel.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;When the meaning of a name is obvious from the context, the Go community&amp;rsquo;s convention is to abbreviate it: to use &lt;code&gt;i&lt;/code&gt; instead of &lt;code&gt;index&lt;/code&gt;, &lt;code&gt;max&lt;/code&gt; instead of &lt;code&gt;maximum&lt;/code&gt;&amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="mixedcaps"&gt;MixedCaps&lt;/h4&gt;
+&lt;p&gt;The convention in Go is to use &lt;code&gt;MixedCaps&lt;/code&gt; or &lt;code&gt;mixedCaps&lt;/code&gt; rather than underscores to write multiword names.&lt;/p&gt;
+&lt;h4 id="package-names"&gt;Package Names&lt;/h4&gt;
+&lt;p&gt;Good package names make code better. A package&amp;rsquo;s names provides context for its contents, making it easier for developer/user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p&gt;
+&lt;h5 id="guideline"&gt;Guideline&lt;/h5&gt;
+&lt;p&gt;It&amp;rsquo;s helpful if everyone using the package can the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for &lt;strong&gt;&lt;em&gt;under_scores&lt;/em&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;mixedCaps&lt;/em&gt;&lt;/strong&gt;. They are often simple nouns, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;time (provides functionality for measuring and displaying time)&lt;/li&gt;
+&lt;li&gt;list (implements a doubly linked list)&lt;/li&gt;
+&lt;li&gt;http (provides HTTP client and server implementations)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below are example for bad naming styles in Go:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;computeServiceClient&lt;/li&gt;
+&lt;li&gt;priority_queue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Abbreviate judiciously&lt;/em&gt;&lt;/strong&gt;. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely-used packages often have compressed names:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;strconv (string conversion)&lt;/li&gt;
+&lt;li&gt;syscall (system call)&lt;/li&gt;
+&lt;li&gt;fmt (formatted I/O)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Another convention is that the package name is the base name of its source directory; the package in &lt;code&gt;src/encoding/base64&lt;/code&gt; is imported as &lt;code&gt;&amp;quot;encoding/base64&amp;quot;&lt;/code&gt; but has name &lt;code&gt;base64&lt;/code&gt;, not &lt;code&gt;encoding_base64&lt;/code&gt; and not &lt;code&gt;encodingBase64&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another short example is &lt;code&gt;once.Do&lt;/code&gt;; &lt;code&gt;once.Do(setup)&lt;/code&gt; reads well and would not be improved by writing &lt;code&gt;once.DoOrWaitUntilDone(setup)&lt;/code&gt;. &lt;em&gt;Long names don&amp;rsquo;t automatically make things more readable.&lt;/em&gt; A helpful doc comment can often be more valuable than an extra long name.&lt;/p&gt;
+&lt;h4 id="interface-names"&gt;Interface Names&lt;/h4&gt;
+&lt;p&gt;By convention, one-method interfaces are named by the &lt;code&gt;method name&lt;/code&gt; plus and &lt;code&gt;-er&lt;/code&gt; suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p&gt;
+&lt;h3 id="declaration-variables"&gt;Declaration Variables&lt;/h3&gt;
+&lt;p&gt;In Go, a &lt;code&gt;variable&lt;/code&gt; is a piece of storage containing a value. You can give a variable a name by using a &lt;code&gt;variable declaration&lt;/code&gt;. Just use the &lt;code&gt;var&lt;/code&gt; keyword followed by the desired name and the type of values the variable will hold.&lt;/p&gt;
+&lt;p&gt;Variable declaration syntax:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var name string&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt; :- It is a keyword.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt; :- It will be a variable name that you want to access in your programme.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string&lt;/code&gt; :- It will be any datatype that the variable will hold data for. (Go-supported datatype)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you declare a variable, you can assign any value of that type to it with &lt;code&gt;=&lt;/code&gt; sign.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var name string = &amp;quot;Jerry&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code&gt;=&lt;/code&gt;, and the same number of values on the right side, separated with commas (&lt;code&gt;,&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Syntax for assign multiple variables at once:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var length, width float64 = 1.2, 2.4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can assign new values to existing variables, but they need to be values of the same type like you can&amp;rsquo;t assign &lt;code&gt;int&lt;/code&gt; variable value to &lt;code&gt;string&lt;/code&gt; type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p&gt;
+&lt;h3 id="short-variable-declaration"&gt;Short Variable Declaration&lt;/h3&gt;
+&lt;p&gt;As we seen in the above section we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a &lt;code&gt;short variable declaration&lt;/code&gt;. Instead of explicitly declaring the type of the variable and later assigning to it with &lt;code&gt;=&lt;/code&gt;, you do both at once using &lt;code&gt;:=&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here are our previous examples with short variable declaration :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;name := jerry&lt;/code&gt; instead of &lt;code&gt;var name string = &amp;quot;Jerry&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;length, width := 1.2, 2.4&lt;/code&gt; instead of &lt;code&gt;var length, width float64 = 1.2, 2.4&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p&gt;
+&lt;p&gt;Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p&gt;
+&lt;h4 id="pointers"&gt;Pointers&lt;/h4&gt;
+&lt;h3 id="functions"&gt;Functions&lt;/h3&gt;
+&lt;p&gt;A function is a group of statements that together perform a task. Function can be used to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reuse code in multiple places.&lt;/li&gt;
+&lt;li&gt;Make code more organized and readable.&lt;/li&gt;
+&lt;li&gt;Hide implementation details.&lt;/li&gt;
+&lt;li&gt;Improve code performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Functions are declared using the &lt;code&gt;func&lt;/code&gt; keyword, followed by the &lt;code&gt;function name, a list of parameters in parentheses (), and a block of code&lt;/code&gt;. The function body is enclosed in curly &lt;code&gt;braces&lt;/code&gt; (&lt;code&gt;{&lt;/code&gt; and &lt;code&gt;}&lt;/code&gt;). A function can take zero or more arguments.&lt;/p&gt;
+&lt;p&gt;Syntax for function in Go: &lt;code&gt;func funcName(var1 dataType, var2 dataType,... varN dataType) returnType {}&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id="creating-function-and-calling-function"&gt;Creating Function and Calling Function&lt;/h4&gt;
+&lt;p&gt;Let&amp;rsquo;s create a sample addition program which will contains function with name &lt;code&gt;add()&lt;/code&gt; it will take 2 arguments &lt;code&gt;x and y&lt;/code&gt;. Which will be &lt;code&gt;int&lt;/code&gt; type and return &lt;code&gt;int&lt;/code&gt; (Don&amp;rsquo;t worry we will check return and data types next sections.).&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="218735496" type="checkbox" /&gt;
+&lt;label for="218735496"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Addition Function&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import &amp;#34;fmt&amp;#34;
 func add(x, y int) int {
@@ -207,49 +210,51 @@ return x &amp;#43; y
 func main() {
 fmt.Println(add(15, 10))
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In the above &lt;code>Addition Function&lt;/code> program we have two functions. The first is &lt;code>main()&lt;/code>, which doesn&amp;rsquo;t take any arguments (arguments are passed inside rounded brackets &lt;code>()&lt;/code>). The second function is our &lt;code>add&lt;/code> function, which you can see we have started with the &lt;code>func&lt;/code> keyword to declare a function, followed by the function name &lt;code>add()&lt;/code>, and we have passed two arguments &lt;code>x&lt;/code> and &lt;code>y&lt;/code>, which are type of &lt;code>int&lt;/code>. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.&lt;/p>
-&lt;p>In the above example, we shortened:&lt;/p>
-&lt;p>&lt;code>x int, y int&lt;/code> to &lt;code>x, y int&lt;/code>&lt;/p>
-&lt;p>The function is returning &lt;code>int&lt;/code> data type, which is single value, with &lt;code>return statement&lt;/code> statement of &lt;code>x + y&lt;/code>, which is an addition of numbers.&lt;/p>
-&lt;p>To call this function, we need to type the function name (&lt;code>add&lt;/code> in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is &lt;code>15, 10&lt;/code>.&lt;/p>
-&lt;blockquote>
-&lt;p>A parameter is a variable, local to a function, whose value is set when the function is called. When the function is run, each parameter will be se to a copy of the value in the corresponding arguments.&lt;/p>&lt;/blockquote>
-&lt;p>If you check the above program &lt;code>Println&lt;/code> is also a function. Let&amp;rsquo;s break down the structure of &lt;code>fmt.Println()&lt;/code> and see what is happening here.&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>fmt.&lt;/code> :- It is an package which contain multiple function.&lt;/li>
-&lt;li>&lt;code>Println&lt;/code> :- &lt;code>Println&lt;/code> is function name which resides in &lt;code>fmt&lt;/code> package. To use &lt;code>Println&lt;/code> package should be imported then only we can access function it offers.&lt;/li>
-&lt;li>&lt;code>()&lt;/code> :- By using parentheses we are executing the function.&lt;/li>
-&lt;/ul>
-&lt;p>If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.&lt;/p>
-&lt;h4 id="function-parameters-receive-copies-of-the-arguments">Function parameters receive copies of the arguments&lt;/h4>
-&lt;p>As we mentioned, when you call a function that has parameters declared, you need to provide arguments to the call. The value in each argument is copied to the corresponding parameter variable. It is also called &lt;code>pass-by-value&lt;/code>.&lt;/p>
-&lt;blockquote>
-&lt;p>Go is a &amp;ldquo;pass-by-value&amp;rdquo; language; function parameters receive a &lt;strong>&lt;em>copy&lt;/em>&lt;/strong> of the arguments from the function call.&lt;/p>&lt;/blockquote>
-&lt;p>This is fine in most cases. But if you want to pass a variable&amp;rsquo;s value to a function and have it change the value in some way, you&amp;rsquo;ll run into trouble. The function can only change the copy of the value in it&amp;rsquo;s parameter, not the original. So any changes you make within the function won&amp;rsquo;t be visible outside it!&lt;/p>
-&lt;p>For example:&lt;/p>
-&lt;figure class="center" >
-&lt;img src="/img/notes/pass-by-value.png" alt="actors" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Pass-by-value&lt;/figcaption>
-&lt;/figure>
-&lt;p>Now, we wanted to move the statement that prints the addition value from the &lt;code>add&lt;/code> function back to the function that calls it (in this case &lt;code>main&lt;/code>). It won&amp;rsquo;t work, because &lt;code>add&lt;/code> function only alters its &lt;strong>&lt;em>copy&lt;/em>&lt;/strong> of the value. In the calling function, when we try to print, we&amp;rsquo;ll get the original value, not the addition one!&lt;/p>
-&lt;figure class="center" >
-&lt;img src="/img/notes/pass-by-value-2.png" alt="actors" style="border-radius: 8px;" />
-&lt;figcaption class="center" >Pass-by-value Printing outside add function&lt;/figcaption>
-&lt;/figure>
-&lt;p>There is a way to allow a function to alter the original value of variable holds, rather than a copy. We do this using pointers which also called as &amp;ldquo;pass-by-reference&amp;rdquo;.&lt;/p>
-&lt;h4 id="multiple-return-value">Multiple Return Value&lt;/h4>
-&lt;p>One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p>
-&lt;p>Below is Division program which return multiple values like quotient, remainder :&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="862713594" type="checkbox" />
-&lt;label for="862713594">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Division&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In the above &lt;code&gt;Addition Function&lt;/code&gt; program we have two functions. The first is &lt;code&gt;main()&lt;/code&gt;, which doesn&amp;rsquo;t take any arguments (arguments are passed inside rounded brackets &lt;code&gt;()&lt;/code&gt;). The second function is our &lt;code&gt;add&lt;/code&gt; function, which you can see we have started with the &lt;code&gt;func&lt;/code&gt; keyword to declare a function, followed by the function name &lt;code&gt;add()&lt;/code&gt;, and we have passed two arguments &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt;, which are type of &lt;code&gt;int&lt;/code&gt;. When two or more consecutively named function parameters or arguments share a type, you can omit the type from all but the last.&lt;/p&gt;
+&lt;p&gt;In the above example, we shortened:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;x int, y int&lt;/code&gt; to &lt;code&gt;x, y int&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The function is returning &lt;code&gt;int&lt;/code&gt; data type, which is single value, with &lt;code&gt;return statement&lt;/code&gt; statement of &lt;code&gt;x + y&lt;/code&gt;, which is an addition of numbers.&lt;/p&gt;
+&lt;p&gt;To call this function, we need to type the function name (&lt;code&gt;add&lt;/code&gt; in this case) and a pair of parentheses with arguments separated by a comma (,) in our case, which is &lt;code&gt;15, 10&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A parameter is a variable, local to a function, whose value is set when the function is called. When the function is run, each parameter will be se to a copy of the value in the corresponding arguments.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you check the above program &lt;code&gt;Println&lt;/code&gt; is also a function. Let&amp;rsquo;s break down the structure of &lt;code&gt;fmt.Println()&lt;/code&gt; and see what is happening here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fmt.&lt;/code&gt; :- It is an package which contain multiple function.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Println&lt;/code&gt; :- &lt;code&gt;Println&lt;/code&gt; is function name which resides in &lt;code&gt;fmt&lt;/code&gt; package. To use &lt;code&gt;Println&lt;/code&gt; package should be imported then only we can access function it offers.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;()&lt;/code&gt; :- By using parentheses we are executing the function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If the function takes a number of arguments and we don’t pass any or provide too few or too many, it will give you an error message saying how many arguments were expected, and you will need to fix your code.&lt;/p&gt;
+&lt;h4 id="function-parameters-receive-copies-of-the-arguments"&gt;Function parameters receive copies of the arguments&lt;/h4&gt;
+&lt;p&gt;As we mentioned, when you call a function that has parameters declared, you need to provide arguments to the call. The value in each argument is copied to the corresponding parameter variable. It is also called &lt;code&gt;pass-by-value&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Go is a &amp;ldquo;pass-by-value&amp;rdquo; language; function parameters receive a &lt;strong&gt;&lt;em&gt;copy&lt;/em&gt;&lt;/strong&gt; of the arguments from the function call.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is fine in most cases. But if you want to pass a variable&amp;rsquo;s value to a function and have it change the value in some way, you&amp;rsquo;ll run into trouble. The function can only change the copy of the value in it&amp;rsquo;s parameter, not the original. So any changes you make within the function won&amp;rsquo;t be visible outside it!&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/pass-by-value.png" alt="actors" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Pass-by-value&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Now, we wanted to move the statement that prints the addition value from the &lt;code&gt;add&lt;/code&gt; function back to the function that calls it (in this case &lt;code&gt;main&lt;/code&gt;). It won&amp;rsquo;t work, because &lt;code&gt;add&lt;/code&gt; function only alters its &lt;strong&gt;&lt;em&gt;copy&lt;/em&gt;&lt;/strong&gt; of the value. In the calling function, when we try to print, we&amp;rsquo;ll get the original value, not the addition one!&lt;/p&gt;
+&lt;figure class="center" &gt;
+&lt;img src="/img/notes/pass-by-value-2.png" alt="actors" style="border-radius: 8px;" /&gt;
+&lt;figcaption class="center" &gt;Pass-by-value Printing outside add function&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;There is a way to allow a function to alter the original value of variable holds, rather than a copy. We do this using pointers which also called as &amp;ldquo;pass-by-reference&amp;rdquo;.&lt;/p&gt;
+&lt;h4 id="multiple-return-value"&gt;Multiple Return Value&lt;/h4&gt;
+&lt;p&gt;One of Go&amp;rsquo;s unusual features is that functions and methods can return multiple values. This feature is quite useful in various situations where you need to return more than one piece of information from a function. Multiple return values allow you to efficiently handle errors, return status code, or return additional context information along with the primary result.&lt;/p&gt;
+&lt;p&gt;Below is Division program which return multiple values like quotient, remainder :&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="325196748" type="checkbox" /&gt;
+&lt;label for="325196748"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Division&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import (
 &amp;#34;fmt&amp;#34;
@@ -263,21 +268,21 @@ func main() {
 quotient, remainder := divideAndRemainder(10, 3)
 fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, quotient, remainder)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In the above example, the &lt;code>divideAndRemainder&lt;/code> function takes two integer parameters, &lt;code>dividend&lt;/code> and &lt;code>divisor&lt;/code>. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specify the return types in parentheses immediately after the function signature. In below declaration &lt;code>(int, int)&lt;/code> is returning pair of integers in function return value.&lt;/p>
-&lt;p>&lt;code>func divideAndRemainder(dividend, divisor int) (int, int) {}&lt;/code>&lt;/p>
-&lt;p>When you call the &lt;code>divideAndRemainder&lt;/code> function in the &lt;code>main&lt;/code> function, you can capture both return values &lt;code>(quotient and remainder)&lt;/code> and use them as needed.&lt;/p>
-&lt;h4 id="named-result-parameters">Named Result Parameters&lt;/h4>
-&lt;p>Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="568129734" type="checkbox" />
-&lt;label for="568129734">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Division with Named Result Parameters&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In the above example, the &lt;code&gt;divideAndRemainder&lt;/code&gt; function takes two integer parameters, &lt;code&gt;dividend&lt;/code&gt; and &lt;code&gt;divisor&lt;/code&gt;. It calculates the quotient and remainder of the division operation and returns both values as tuple (or pair) of integers. In Go, you specify the return types in parentheses immediately after the function signature. In below declaration &lt;code&gt;(int, int)&lt;/code&gt; is returning pair of integers in function return value.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;func divideAndRemainder(dividend, divisor int) (int, int) {}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;When you call the &lt;code&gt;divideAndRemainder&lt;/code&gt; function in the &lt;code&gt;main&lt;/code&gt; function, you can capture both return values &lt;code&gt;(quotient and remainder)&lt;/code&gt; and use them as needed.&lt;/p&gt;
+&lt;h4 id="named-result-parameters"&gt;Named Result Parameters&lt;/h4&gt;
+&lt;p&gt;Named Result Parameters allow us to declare names from the return values of a function in it&amp;rsquo;s signature. Named result parameters are particularly useful for improving the readability and documentation of a code. They make it clear what each return value represents and can be especially helpful in functions with multiple return values.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="415697328" type="checkbox" /&gt;
+&lt;label for="415697328"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Division with Named Result Parameters&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import &amp;#34;fmt&amp;#34;
 func divideAndRemainder(dividend, divisor int) (quotient int, remainder int) {
@@ -289,34 +294,35 @@ func main() {
 q, r := divideAndRemainder(10, 3)
 fmt.Printf(&amp;#34;Quotient: %d, Remainder: %d\n&amp;#34;, q, r)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In this example, the &lt;code>divideAndRemainder&lt;/code> function has named result parameters &lt;code>quotient&lt;/code> and &lt;code>remainder&lt;/code> (&lt;code>(quotient int, remainder int)&lt;/code>). Inside the function body, you assign values to these variables, and you don&amp;rsquo;t need to use the &lt;code>return&lt;/code> statement explicitly. Go will automatically return the values of &lt;code>quotient&lt;/code> and &lt;code>remainder&lt;/code> when the function exits.&lt;/p>
-&lt;p>Benefits of using named result parameters:&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>**_Documentation and clarity_**&lt;/code>: It provide self-documentation for the function, making it clear what each return value represents. This can improve code readability and maintainability.&lt;/li>
-&lt;li>&lt;code>**_Simplify return statement_**&lt;/code>: You don&amp;rsquo;t need to explicitly list the &lt;code>return&lt;/code> values in the return statement. This simplifies the code and reduces redundancy.&lt;/li>
-&lt;li>&lt;code>**_Avoid variable shadowing_**&lt;/code>: When you use named result parameters, you can avoid variable shadowing issues that may occur if you redeclare the same variable names in a nested block.&lt;/li>
-&lt;li>&lt;code>**_Facilitate readability in complex function _**&lt;/code>: In functions with many return values or complex logic, using named result parameters can make it easier to understand the meaning of each return value.&lt;/li>
-&lt;/ol>
-&lt;blockquote>
-&lt;p>&lt;code>Note&lt;/code>:- Named result parameters are implicitly declared as local variables within the function. You can assign values to them directly, and they will be returned when the function exits. However,you cannot use the &lt;code>:=&lt;/code> short declaration operator to declare and assign values to named result parameters withing the same line; you should use the &lt;code>=&lt;/code> assignment operator.&lt;/p>&lt;/blockquote>
-&lt;h4 id="defer">Defer&lt;/h4>
-&lt;p>In Go, the &lt;code>defer&lt;/code> statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it&amp;rsquo;s due to normal execution or an error.&lt;/p>
-&lt;p>How &lt;code>defer&lt;/code> statement works in Go:&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>**_Deferred functions are executed in reverse order_**&lt;/code>: When you use &lt;code>defer&lt;/code> to schedule a function call, Go adds it to a stack. The deferred functions are executed in reverse order, meaning the last scheduled function will be executed first, and so on. This behavior is useful when you need to reverse some action or cleanup resources.&lt;/li>
-&lt;li>&lt;code>**_Deferred functions capture their arguments at the time of the defer statement_**&lt;/code>: If you pass arguments to a deferred function, those arguments are evaluated immediately, and their values are captured at the time of the &lt;code>defer&lt;/code> statement, not at the time the function is executed. This can lead to some interesting behavior in cases where the values of variables change before the function executes.&lt;/li>
-&lt;/ol>
-&lt;p>A simple example to illustrate how &lt;code>defer&lt;/code> works:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="875693241" type="checkbox" />
-&lt;label for="875693241">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Defer working&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In this example, the &lt;code&gt;divideAndRemainder&lt;/code&gt; function has named result parameters &lt;code&gt;quotient&lt;/code&gt; and &lt;code&gt;remainder&lt;/code&gt; (&lt;code&gt;(quotient int, remainder int)&lt;/code&gt;). Inside the function body, you assign values to these variables, and you don&amp;rsquo;t need to use the &lt;code&gt;return&lt;/code&gt; statement explicitly. Go will automatically return the values of &lt;code&gt;quotient&lt;/code&gt; and &lt;code&gt;remainder&lt;/code&gt; when the function exits.&lt;/p&gt;
+&lt;p&gt;Benefits of using named result parameters:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;**_Documentation and clarity_**&lt;/code&gt;: It provide self-documentation for the function, making it clear what each return value represents. This can improve code readability and maintainability.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;**_Simplify return statement_**&lt;/code&gt;: You don&amp;rsquo;t need to explicitly list the &lt;code&gt;return&lt;/code&gt; values in the return statement. This simplifies the code and reduces redundancy.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;**_Avoid variable shadowing_**&lt;/code&gt;: When you use named result parameters, you can avoid variable shadowing issues that may occur if you redeclare the same variable names in a nested block.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;**_Facilitate readability in complex function _**&lt;/code&gt;: In functions with many return values or complex logic, using named result parameters can make it easier to understand the meaning of each return value.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Note&lt;/code&gt;:- Named result parameters are implicitly declared as local variables within the function. You can assign values to them directly, and they will be returned when the function exits. However,you cannot use the &lt;code&gt;:=&lt;/code&gt; short declaration operator to declare and assign values to named result parameters withing the same line; you should use the &lt;code&gt;=&lt;/code&gt; assignment operator.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id="defer"&gt;Defer&lt;/h4&gt;
+&lt;p&gt;In Go, the &lt;code&gt;defer&lt;/code&gt; statement is used to schedule a function call to be executed just before the surrounding function returns. It allows you to ensure that certain cleanup or finalization tasks are performed regardless of how the function exits, whether it&amp;rsquo;s due to normal execution or an error.&lt;/p&gt;
+&lt;p&gt;How &lt;code&gt;defer&lt;/code&gt; statement works in Go:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;**_Deferred functions are executed in reverse order_**&lt;/code&gt;: When you use &lt;code&gt;defer&lt;/code&gt; to schedule a function call, Go adds it to a stack. The deferred functions are executed in reverse order, meaning the last scheduled function will be executed first, and so on. This behavior is useful when you need to reverse some action or cleanup resources.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;**_Deferred functions capture their arguments at the time of the defer statement_**&lt;/code&gt;: If you pass arguments to a deferred function, those arguments are evaluated immediately, and their values are captured at the time of the &lt;code&gt;defer&lt;/code&gt; statement, not at the time the function is executed. This can lead to some interesting behavior in cases where the values of variables change before the function executes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A simple example to illustrate how &lt;code&gt;defer&lt;/code&gt; works:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="948625713" type="checkbox" /&gt;
+&lt;label for="948625713"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Defer working&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import (
 &amp;#34;fmt&amp;#34;
@@ -326,47 +332,47 @@ defer fmt.Println(&amp;#34;This will be executed last&amp;#34;)
 defer fmt.Println(&amp;#34;This will be executed second&amp;#34;)
 fmt.Println(&amp;#34;This will be executed first&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In this example, when the &lt;code>main&lt;/code> function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code>fmt.Println&lt;/code> functions using &lt;code>defer&lt;/code>. These deferred functions will be executed in reverse order when the &lt;code>main&lt;/code> function is about to return.&lt;/p>
-&lt;p>In practice, you often use &lt;code>defer&lt;/code> for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p>
-&lt;h4 id="bullet-points">Bullet Points&lt;/h4>
-&lt;ul>
-&lt;li>When a function returns multiple values, the last value usually has a type of &lt;code>error&lt;/code>. Error values have an &lt;code>Error()&lt;/code> method that returns a string describing the error.&lt;/li>
-&lt;li>By convention, functions return an error value of nil to indicate there are no errors.&lt;/li>
-&lt;li>You can access the value a pointer holds by putting a * right before it: *myPointer.&lt;/li>
-&lt;li>If a function receives a pointer as a parameter, and it updates the value at that pointer, then the updated value will still be visible outside the function.&lt;/li>
-&lt;/ul>
-&lt;h3 id="methods">Methods&lt;/h3>
-&lt;p>A function is a standalone piece of code that can be called by other parts of your program.&lt;/p>
-&lt;p>A method is a function that is associated with a specific type or struct.&lt;/p>
-&lt;p>The term &lt;code>method&lt;/code> came up with object-oriented programming. In an OOP language (like C++ for example) you can define a &lt;code>class&lt;/code> which encapsulates data and functions which belongs together. Those functions inside a class are called &lt;code>methods&lt;/code> and you need an instance of that class to call such a method.&lt;/p>
-&lt;p>In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p>
-&lt;p>So, For example:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="247856193" type="checkbox" />
-&lt;label for="247856193">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Function&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In this example, when the &lt;code&gt;main&lt;/code&gt; function is executed, it first prints &amp;ldquo;This will be executed first,&amp;rdquo; then schedules the two &lt;code&gt;fmt.Println&lt;/code&gt; functions using &lt;code&gt;defer&lt;/code&gt;. These deferred functions will be executed in reverse order when the &lt;code&gt;main&lt;/code&gt; function is about to return.&lt;/p&gt;
+&lt;p&gt;In practice, you often use &lt;code&gt;defer&lt;/code&gt; for resource cleanup, like closing files, releasing locks, or other cleanup tasks, to ensure that these tasks are performed even if there&amp;rsquo;s an early return or an error condition.&lt;/p&gt;
+&lt;h4 id="bullet-points"&gt;Bullet Points&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;When a function returns multiple values, the last value usually has a type of &lt;code&gt;error&lt;/code&gt;. Error values have an &lt;code&gt;Error()&lt;/code&gt; method that returns a string describing the error.&lt;/li&gt;
+&lt;li&gt;By convention, functions return an error value of nil to indicate there are no errors.&lt;/li&gt;
+&lt;li&gt;You can access the value a pointer holds by putting a * right before it: *myPointer.&lt;/li&gt;
+&lt;li&gt;If a function receives a pointer as a parameter, and it updates the value at that pointer, then the updated value will still be visible outside the function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="methods"&gt;Methods&lt;/h3&gt;
+&lt;p&gt;A function is a standalone piece of code that can be called by other parts of your program.&lt;/p&gt;
+&lt;p&gt;A method is a function that is associated with a specific type or struct.&lt;/p&gt;
+&lt;p&gt;The term &lt;code&gt;method&lt;/code&gt; came up with object-oriented programming. In an OOP language (like C++ for example) you can define a &lt;code&gt;class&lt;/code&gt; which encapsulates data and functions which belongs together. Those functions inside a class are called &lt;code&gt;methods&lt;/code&gt; and you need an instance of that class to call such a method.&lt;/p&gt;
+&lt;p&gt;In Go, the terminology it is basically the same, although Go isn&amp;rsquo;t an OOP language in the classical meaning. A function which takes a receiver is usually called a method (probably just because people are still used to the terminology of OOP).&lt;/p&gt;
+&lt;p&gt;So, For example:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="256834971" type="checkbox" /&gt;
+&lt;label for="256834971"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Function&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 func MyFunction(a, b int) int {
 return a &amp;#43; b
 }
 // Usage:
 // MyFunction(1, 2)
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>but&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="234861579" type="checkbox" />
-&lt;label for="234861579">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Method&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;but&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="164873925" type="checkbox" /&gt;
+&lt;label for="164873925"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Method&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type MyInteger int
 func (a MyInteger) MyMethod(b int) int {
 return a &amp;#43; b
@@ -374,309 +380,309 @@ return a &amp;#43; b
 // Usage:
 // var x MyInteger = 1
 // x.MyMethod(2)
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h3 id="formatting-verbs">Formatting Verbs&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>General&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%v&lt;/td>
-&lt;td>the value in a default format&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%+v&lt;/td>
-&lt;td>when printing structs, adds field names&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%#v&lt;/td>
-&lt;td>a Go-syntax representation of the value&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%T&lt;/td>
-&lt;td>a Go-syntax representation of the type of the value&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%%&lt;/td>
-&lt;td>a literal percent sign; consumes no values&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Boolean&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%t&lt;/td>
-&lt;td>the word true or false&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Integer&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%b&lt;/td>
-&lt;td>base 2 (binary)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%c&lt;/td>
-&lt;td>the character represented by the corresponding Unicode code point&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%d&lt;/td>
-&lt;td>base 10 (decimal)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%o&lt;/td>
-&lt;td>base 8 (octal- uses number between 0 - 7)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%O&lt;/td>
-&lt;td>base 8 with 0o prefix&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%q&lt;/td>
-&lt;td>a single-quoted character literal safely escaped with Go syntax&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%x&lt;/td>
-&lt;td>base 16 (hexadecimal), with lowercase letters for a-f&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%X&lt;/td>
-&lt;td>base 16 (hexadecimal), with uppercase letters for A-F&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%U&lt;/td>
-&lt;td>Unicode format: U+1234; same as &amp;ldquo;U+%04X&amp;rdquo;&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Floting-point and complex constituents&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%b&lt;/td>
-&lt;td>decimalless scientific notation with exponent a power of two&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%e&lt;/td>
-&lt;td>scientific notation, e.g. -1.234456e+78&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%E&lt;/td>
-&lt;td>scientific notation, e.g. -1.234456E+78&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%f&lt;/td>
-&lt;td>decimal point but exponent, e.g. 123.456&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%F&lt;/td>
-&lt;td>synonym for %f&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%9f&lt;/td>
-&lt;td>width 9, default precision&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%.2f&lt;/td>
-&lt;td>default width, precision 2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%9.2f&lt;/td>
-&lt;td>width 9, precision 2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%9.f&lt;/td>
-&lt;td>width 9, precision 0&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%g&lt;/td>
-&lt;td>%e for large exponents, %f otherwise&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%G&lt;/td>
-&lt;td>%E for large exponents, %F otherwise&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%x&lt;/td>
-&lt;td>hexadecimal notation (with decimal power of two exponent), e.g. -0x1.23abcp+20&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%X&lt;/td>
-&lt;td>upper-case hexadecimal notation, e.g. -0X1.23ABCP+20&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>String and slice of bytes&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%s&lt;/td>
-&lt;td>the uninterpreted bytes of the string or slice&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%q&lt;/td>
-&lt;td>a double-quoted string safely escaped with Go syntax&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%x&lt;/td>
-&lt;td>base 16, lower-case, two characters per byte&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>%X&lt;/td>
-&lt;td>base 16, upper-case, two characters per byte&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Slice&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%p&lt;/td>
-&lt;td>address of 0th element in base 16 notation, with leading 0x&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Pointer&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>%p&lt;/td>
-&lt;td>base 16 notation, with leading 0x&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>The default format for %v is&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>bool&lt;/td>
-&lt;td>%t&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>int, int8 etc.&lt;/td>
-&lt;td>%d&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>uint, uint8 etc.&lt;/td>
-&lt;td>%d, %#x if printed with %#v&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>float32, complex64, etc&lt;/td>
-&lt;td>%g&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>string&lt;/td>
-&lt;td>%s&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>chan&lt;/td>
-&lt;td>%p&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>pointer&lt;/td>
-&lt;td>%p&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>flags&lt;/th>
-&lt;th>&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>+&lt;/td>
-&lt;td>always print a sign for numeric values; guarantee ASCII-only output for %q (%+q)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-&lt;/td>
-&lt;td>pad with spaces on the right rather than the left (left-justify the field)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>#&lt;/td>
-&lt;td>alternate format: add leading 0b for binary (%#b), 0 for octal (%#o)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&amp;rsquo; &amp;rsquo; (space)&lt;/td>
-&lt;td>leave a space for elided sign in numbers (% d); put spaces between bytes printing strings or slices in hex (% x, % X)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>0&lt;/td>
-&lt;td>pad with leading zeros rather than spaces&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="data-structures">Data Structures&lt;/h3>
-&lt;h4 id="array">Array&lt;/h4>
-&lt;p>An array is a collection of values that all share the same type. Think of it like one of those pill boxes with compartments &amp;ndash; you can store and retrieve pills from each compartment separately, but it&amp;rsquo;s also easy to transport the container as a whole.&lt;/p>
-&lt;p>The values an array holds are called its &lt;strong>elements&lt;/strong>. You can have an array of string, booleans, or an array of any other Go type (even an array of array). You can store an entire array in a single variable, and then access any element within the array that you need.&lt;/p>
-&lt;p>An array holds a specific number of elements, and it cannot grow or shrink. To declare a variable that holds an array you need to follow below syntax:&lt;/p>
-&lt;p>&lt;code>var myArray [4]string&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>var&lt;/code>: Keyword to declare variable.&lt;/li>
-&lt;li>&lt;code>myArray&lt;/code>: Variable name which holds array.&lt;/li>
-&lt;li>&lt;code>[4]string&lt;/code>:
-&lt;ul>
-&lt;li>&lt;code>[]&lt;/code>: In this brackets you specify how much data array should hold. Like in above example &lt;code>[4]&lt;/code> it will hold 4 elements.&lt;/li>
-&lt;li>&lt;code>datatype&lt;/code>: Which type of data it will store is mentioned here. for example &lt;code>string&lt;/code> or &lt;code>int&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Elements in an array are numbered, starting with &lt;code>0&lt;/code>. An element&amp;rsquo;s number is called its &lt;code>index&lt;/code>.&lt;/p>
-&lt;p>If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="381429576" type="checkbox" />
-&lt;label for="381429576">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Create Array of Names&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id="formatting-verbs"&gt;Formatting Verbs&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;General&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%v&lt;/td&gt;
+&lt;td&gt;the value in a default format&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%+v&lt;/td&gt;
+&lt;td&gt;when printing structs, adds field names&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%#v&lt;/td&gt;
+&lt;td&gt;a Go-syntax representation of the value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%T&lt;/td&gt;
+&lt;td&gt;a Go-syntax representation of the type of the value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%%&lt;/td&gt;
+&lt;td&gt;a literal percent sign; consumes no values&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Boolean&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%t&lt;/td&gt;
+&lt;td&gt;the word true or false&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Integer&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%b&lt;/td&gt;
+&lt;td&gt;base 2 (binary)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%c&lt;/td&gt;
+&lt;td&gt;the character represented by the corresponding Unicode code point&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%d&lt;/td&gt;
+&lt;td&gt;base 10 (decimal)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%o&lt;/td&gt;
+&lt;td&gt;base 8 (octal- uses number between 0 - 7)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%O&lt;/td&gt;
+&lt;td&gt;base 8 with 0o prefix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%q&lt;/td&gt;
+&lt;td&gt;a single-quoted character literal safely escaped with Go syntax&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%x&lt;/td&gt;
+&lt;td&gt;base 16 (hexadecimal), with lowercase letters for a-f&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%X&lt;/td&gt;
+&lt;td&gt;base 16 (hexadecimal), with uppercase letters for A-F&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%U&lt;/td&gt;
+&lt;td&gt;Unicode format: U+1234; same as &amp;ldquo;U+%04X&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Floting-point and complex constituents&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%b&lt;/td&gt;
+&lt;td&gt;decimalless scientific notation with exponent a power of two&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%e&lt;/td&gt;
+&lt;td&gt;scientific notation, e.g. -1.234456e+78&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%E&lt;/td&gt;
+&lt;td&gt;scientific notation, e.g. -1.234456E+78&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%f&lt;/td&gt;
+&lt;td&gt;decimal point but exponent, e.g. 123.456&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%F&lt;/td&gt;
+&lt;td&gt;synonym for %f&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%9f&lt;/td&gt;
+&lt;td&gt;width 9, default precision&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%.2f&lt;/td&gt;
+&lt;td&gt;default width, precision 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%9.2f&lt;/td&gt;
+&lt;td&gt;width 9, precision 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%9.f&lt;/td&gt;
+&lt;td&gt;width 9, precision 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%g&lt;/td&gt;
+&lt;td&gt;%e for large exponents, %f otherwise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%G&lt;/td&gt;
+&lt;td&gt;%E for large exponents, %F otherwise&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%x&lt;/td&gt;
+&lt;td&gt;hexadecimal notation (with decimal power of two exponent), e.g. -0x1.23abcp+20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%X&lt;/td&gt;
+&lt;td&gt;upper-case hexadecimal notation, e.g. -0X1.23ABCP+20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;String and slice of bytes&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%s&lt;/td&gt;
+&lt;td&gt;the uninterpreted bytes of the string or slice&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%q&lt;/td&gt;
+&lt;td&gt;a double-quoted string safely escaped with Go syntax&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%x&lt;/td&gt;
+&lt;td&gt;base 16, lower-case, two characters per byte&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%X&lt;/td&gt;
+&lt;td&gt;base 16, upper-case, two characters per byte&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Slice&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%p&lt;/td&gt;
+&lt;td&gt;address of 0th element in base 16 notation, with leading 0x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Pointer&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%p&lt;/td&gt;
+&lt;td&gt;base 16 notation, with leading 0x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;The default format for %v is&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;%t&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int, int8 etc.&lt;/td&gt;
+&lt;td&gt;%d&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uint, uint8 etc.&lt;/td&gt;
+&lt;td&gt;%d, %#x if printed with %#v&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;float32, complex64, etc&lt;/td&gt;
+&lt;td&gt;%g&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;%s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;chan&lt;/td&gt;
+&lt;td&gt;%p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pointer&lt;/td&gt;
+&lt;td&gt;%p&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;flags&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;+&lt;/td&gt;
+&lt;td&gt;always print a sign for numeric values; guarantee ASCII-only output for %q (%+q)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;td&gt;pad with spaces on the right rather than the left (left-justify the field)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;#&lt;/td&gt;
+&lt;td&gt;alternate format: add leading 0b for binary (%#b), 0 for octal (%#o)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;rsquo; &amp;rsquo; (space)&lt;/td&gt;
+&lt;td&gt;leave a space for elided sign in numbers (% d); put spaces between bytes printing strings or slices in hex (% x, % X)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;pad with leading zeros rather than spaces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="data-structures"&gt;Data Structures&lt;/h3&gt;
+&lt;h4 id="array"&gt;Array&lt;/h4&gt;
+&lt;p&gt;An array is a collection of values that all share the same type. Think of it like one of those pill boxes with compartments &amp;ndash; you can store and retrieve pills from each compartment separately, but it&amp;rsquo;s also easy to transport the container as a whole.&lt;/p&gt;
+&lt;p&gt;The values an array holds are called its &lt;strong&gt;elements&lt;/strong&gt;. You can have an array of string, booleans, or an array of any other Go type (even an array of array). You can store an entire array in a single variable, and then access any element within the array that you need.&lt;/p&gt;
+&lt;p&gt;An array holds a specific number of elements, and it cannot grow or shrink. To declare a variable that holds an array you need to follow below syntax:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var myArray [4]string&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt;: Keyword to declare variable.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;myArray&lt;/code&gt;: Variable name which holds array.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[4]string&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[]&lt;/code&gt;: In this brackets you specify how much data array should hold. Like in above example &lt;code&gt;[4]&lt;/code&gt; it will hold 4 elements.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;datatype&lt;/code&gt;: Which type of data it will store is mentioned here. for example &lt;code&gt;string&lt;/code&gt; or &lt;code&gt;int&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Elements in an array are numbered, starting with &lt;code&gt;0&lt;/code&gt;. An element&amp;rsquo;s number is called its &lt;code&gt;index&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you wanted to make an array with the names of people. for example, the first name would be assigned to index 0, the second name would be at 1, and so forth. The index is specified in square brackets.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="468291573" type="checkbox" /&gt;
+&lt;label for="468291573"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Create Array of Names&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 var names [5]string // Create an array of five strings.
 names[0] = &amp;#34;Goku&amp;#34; // Assign a value to the first element.
 names[1] = &amp;#34;Vegeta&amp;#34; // Assign a value to the second element.
@@ -686,93 +692,94 @@ fmt.Println(names[1]) // Print the second element.
 // Output:
 Goku
 Vegeta
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>If you doesn&amp;rsquo;t assign a value to &lt;code>names[0]&lt;/code> and try to print. It will show empty string lets see why.&lt;/p>
-&lt;h5 id="default-values-in-arrays">Default values in arrays&lt;/h5>
-&lt;p>As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code>int&lt;/code> values is filled with zeros by default and same will be for &lt;code>string&lt;/code> but instead of zeros it will be empty string.&lt;/p>
-&lt;p>Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="256937148" type="checkbox" />
-&lt;label for="256937148">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Zero value manipulation&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;If you doesn&amp;rsquo;t assign a value to &lt;code&gt;names[0]&lt;/code&gt; and try to print. It will show empty string lets see why.&lt;/p&gt;
+&lt;h5 id="default-values-in-arrays"&gt;Default values in arrays&lt;/h5&gt;
+&lt;p&gt;As with variables, when an array is created, all the values it contains are initialized to the zero value for the type that array holds. So an array of &lt;code&gt;int&lt;/code&gt; values is filled with zeros by default and same will be for &lt;code&gt;string&lt;/code&gt; but instead of zeros it will be empty string.&lt;/p&gt;
+&lt;p&gt;Zero/default values can make it safe to manipulate an array element even if you haven&amp;rsquo;t explicitly assigned a value to it. For example, here we have an array of integer counters. We can increment any of them without explicitly assigning a value first, because we know they will all start from 0.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="673495182" type="checkbox" /&gt;
+&lt;label for="673495182"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Zero value manipulation&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 var counters [3]int
 counters[0]&amp;#43;&amp;#43; // Increment the first element from 0 to 1.
 counters[0]&amp;#43;&amp;#43; // Increment the first element from 1 to 2.
 counters[1]&amp;#43;&amp;#43; // Increment the third element from 0 to 1.
 fmt.Println(counters[0], counters[1], counters[2])
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;pre>&lt;code> 2 0 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt; 2 0 1
 / | \
 / | Has been incremented once
 / Still at its zero value
 Has been incremented twice
-&lt;/code>&lt;/pre>
-&lt;blockquote>
-&lt;p>Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.&lt;/p>&lt;/blockquote>
-&lt;p>Okay, but how can assign default values like we do in python and other languages?&lt;/p>
-&lt;h5 id="array-literals">Array literals&lt;/h5>
-&lt;p>If you know in advance what values an array should hold, you can initialize the array with those values using an &lt;code>array literal&lt;/code>. An array literal starts just like an array type, with the number of elements it will hold in square brackets, followed by the type of its elements. This is followed by a list in curly braces of the initial values each element should have. The element values should be separated by commas &lt;code>,&lt;/code>.&lt;/p>
-&lt;p>&lt;code>[3]int{7, 21, 5}&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>[3]&lt;/code>: Number of elements array will hold.&lt;/li>
-&lt;li>&lt;code>int&lt;/code>: Type of elements array will hold.&lt;/li>
-&lt;li>&lt;code>{data, comma, separated}&lt;/code> : Comma-separated list of array values.&lt;/li>
-&lt;/ul>
-&lt;p>Let&amp;rsquo;s our previous example using array literals, instead of assigning values to the array elements one by one:&lt;/p>
-&lt;p>&lt;code>var names [4]string = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code>&lt;/p>
-&lt;p>Using an array literal also allows you to do short variable declaration with &lt;code>:=&lt;/code>.&lt;/p>
-&lt;p>&lt;code>names = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code>&lt;/p>
-&lt;p>If you have array string with sentences as value:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">text&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> [&lt;span style="color:#ae81ff">3&lt;/span>]&lt;span style="color:#66d9ef">string&lt;/span>{&lt;span style="color:#e6db74">&amp;#34;This is a series of long strings&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;which would be awkward to place&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;together on a single line&amp;#34;&lt;/span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>As you see above it will be hard to read if item grow it will be in single line to make it more readable we can break this in multiline as shown below:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">text&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> [&lt;span style="color:#ae81ff">3&lt;/span>]&lt;span style="color:#66d9ef">string&lt;/span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;This is a series of long strings&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;which would be awkward to place&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;together on a single line&amp;#34;&lt;/span>,
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>But here is catch which you will have to keep in mind when you break it in multiline it should end with &lt;code>,&lt;/code> else you will get error/run it problems.&lt;/p>
-&lt;h4 id="slices">Slices&lt;/h4>
-&lt;p>It is a Go data structure that we can add more values to&amp;ndash;it&amp;rsquo;s called slice. A slice is also a list of elements of a particular type, but unlike arrays, tools are available to add or remove elements. Slice don&amp;rsquo;t hold any data themselves. A slice is merely a view into the elements of an underlying array.&lt;/p>
-&lt;p>To declare the type for a variable that holds a slice, you use an empty pair of square brackets, followed by the type of elements the slice will hold.&lt;/p>
-&lt;p>&lt;code>var mySlice []string&lt;/code>&lt;/p>
-&lt;p>This is just like the syntax for declaring an array variable, except that you don’t specify the size.&lt;/p>
-&lt;p>Unlike with array variables, declaring a slice variable doesn&amp;rsquo;t automatically create a slice. For that, we can call the built-in make function. We pass &lt;code>make&lt;/code> the type of the slice we want to create which should be the same as the type of the variable we&amp;rsquo;re going to assign it to, and the length of slice it should create.&lt;/p>
-&lt;pre tabindex="0">&lt;code>// Declare a slice variable
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note:- When an array is created, all the values it contains are initialized to the zero value for the type the array holds.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Okay, but how can assign default values like we do in python and other languages?&lt;/p&gt;
+&lt;h5 id="array-literals"&gt;Array literals&lt;/h5&gt;
+&lt;p&gt;If you know in advance what values an array should hold, you can initialize the array with those values using an &lt;code&gt;array literal&lt;/code&gt;. An array literal starts just like an array type, with the number of elements it will hold in square brackets, followed by the type of its elements. This is followed by a list in curly braces of the initial values each element should have. The element values should be separated by commas &lt;code&gt;,&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[3]int{7, 21, 5}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[3]&lt;/code&gt;: Number of elements array will hold.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int&lt;/code&gt;: Type of elements array will hold.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{data, comma, separated}&lt;/code&gt; : Comma-separated list of array values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&amp;rsquo;s our previous example using array literals, instead of assigning values to the array elements one by one:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var names [4]string = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Using an array literal also allows you to do short variable declaration with &lt;code&gt;:=&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;names = [4]string{&amp;quot;Goku&amp;quot;, &amp;quot;Vegeta&amp;quot;, &amp;quot;Gohan&amp;quot;}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you have array string with sentences as value:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;text&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;]&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt;{&lt;span style="color:#e6db74"&gt;&amp;#34;This is a series of long strings&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;which would be awkward to place&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;together on a single line&amp;#34;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you see above it will be hard to read if item grow it will be in single line to make it more readable we can break this in multiline as shown below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;text&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;]&lt;span style="color:#66d9ef"&gt;string&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;This is a series of long strings&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;which would be awkward to place&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;together on a single line&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But here is catch which you will have to keep in mind when you break it in multiline it should end with &lt;code&gt;,&lt;/code&gt; else you will get error/run it problems.&lt;/p&gt;
+&lt;h4 id="slices"&gt;Slices&lt;/h4&gt;
+&lt;p&gt;It is a Go data structure that we can add more values to&amp;ndash;it&amp;rsquo;s called slice. A slice is also a list of elements of a particular type, but unlike arrays, tools are available to add or remove elements. Slice don&amp;rsquo;t hold any data themselves. A slice is merely a view into the elements of an underlying array.&lt;/p&gt;
+&lt;p&gt;To declare the type for a variable that holds a slice, you use an empty pair of square brackets, followed by the type of elements the slice will hold.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var mySlice []string&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This is just like the syntax for declaring an array variable, except that you don’t specify the size.&lt;/p&gt;
+&lt;p&gt;Unlike with array variables, declaring a slice variable doesn&amp;rsquo;t automatically create a slice. For that, we can call the built-in make function. We pass &lt;code&gt;make&lt;/code&gt; the type of the slice we want to create which should be the same as the type of the variable we&amp;rsquo;re going to assign it to, and the length of slice it should create.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;// Declare a slice variable
 var notes []string
 // Create a slice with seven strings
 notes = make([]string, 7)
-&lt;/code>&lt;/pre>&lt;p>Once the slice is created, you assign and retrieve its elements using the
-same syntax you would for an array.&lt;/p>
-&lt;pre tabindex="0">&lt;code>notes[0] = &amp;#34;go&amp;#34; // Assign a value to the first element
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Once the slice is created, you assign and retrieve its elements using the
+same syntax you would for an array.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;notes[0] = &amp;#34;go&amp;#34; // Assign a value to the first element
 notes[1] = &amp;#34;ts&amp;#34; // ... to the second element
 fmt.Println(notes[0]) // prints the first element
 fmt.Println(notes[1]) // prints the second element
 ---Output---
 go
 ts
-&lt;/code>&lt;/pre>&lt;p>Here, we can prefer a &lt;a href="/notes/go/#short-variable-declaration">short variable declaration&lt;/a> with &lt;code>make&lt;/code>. A &lt;a href="/notes/go/#short-variable-declaration">short variable declaration&lt;/a> will infer the variable&amp;rsquo;s type for you.&lt;/p>
-&lt;pre tabindex="0">&lt;code>// Create a slice with five integers, and set up a variable to hold it.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Here, we can prefer a &lt;a href="/notes/go/#short-variable-declaration"&gt;short variable declaration&lt;/a&gt; with &lt;code&gt;make&lt;/code&gt;. A &lt;a href="/notes/go/#short-variable-declaration"&gt;short variable declaration&lt;/a&gt; will infer the variable&amp;rsquo;s type for you.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;// Create a slice with five integers, and set up a variable to hold it.
 numbers := make([]int, 5)
 numbers[0] = 2
 numbers[1] = 3
 fmt.Println(numbers[0])
 ---Output---
 2
-&lt;/code>&lt;/pre>&lt;p>The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="685492713" type="checkbox" />
-&lt;label for="685492713">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">For loop&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The built-in len function works the same way with slices as it does with arrays. Just pass len a slice, and its length will be returned as an integer. Both for and for&amp;hellip;range loops work just the same with slices as they do with arrays, too.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="127956384" type="checkbox" /&gt;
+&lt;label for="127956384"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;For loop&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 letters := []string{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;,&amp;#34;c&amp;#34;}
 // Regular for loop
 for i := 0; i &amp;lt; len(letters); i&amp;#43;&amp;#43; {
@@ -782,107 +789,108 @@ fmt.Println(letters[i])
 for _, letter := range letters {
 fmt.Println(letter)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h5 id="slice-literals">Slice literals&lt;/h5>
-&lt;p>Create slices with initial values directly using slice literals:&lt;/p>
-&lt;ul>
-&lt;li>Syntax: &lt;code>[]type{values}&lt;/code> (e.g., &lt;code>[]int{1,2,3}&lt;/code>)&lt;/li>
-&lt;li>No need for &lt;code>make&lt;/code> function.&lt;/li>
-&lt;li>Resembles array literals, but without length in square brackets.&lt;/li>
-&lt;/ul>
-&lt;div class="collapsable-code">
-&lt;input id="968413752" type="checkbox" />
-&lt;label for="968413752">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Slice Literals&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id="slice-literals"&gt;Slice literals&lt;/h5&gt;
+&lt;p&gt;Create slices with initial values directly using slice literals:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntax: &lt;code&gt;[]type{values}&lt;/code&gt; (e.g., &lt;code&gt;[]int{1,2,3}&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;No need for &lt;code&gt;make&lt;/code&gt; function.&lt;/li&gt;
+&lt;li&gt;Resembles array literals, but without length in square brackets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="421695738" type="checkbox" /&gt;
+&lt;label for="421695738"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Slice Literals&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // Assign values using a slice literal.
 notes := []string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
 fmt.Println(notes[2], notes[4], notes[5])
 // output
 cool ninja turtle
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h5 id="the-slice-operator">The Slice Operator&lt;/h5>
-&lt;p>Every slice is built on top of an &lt;strong>underlying array&lt;/strong>. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p>
-&lt;p>When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong>slice operator&lt;/strong>.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="265178934" type="checkbox" />
-&lt;label for="265178934">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Array to Slice&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id="the-slice-operator"&gt;The Slice Operator&lt;/h5&gt;
+&lt;p&gt;Every slice is built on top of an &lt;strong&gt;underlying array&lt;/strong&gt;. It&amp;rsquo;s the underlying array that actually holds the slice&amp;rsquo;s data; the slice is merely a view into some (or all) of the array&amp;rsquo;s elements.&lt;/p&gt;
+&lt;p&gt;When we use the make function or a slice literal to create slice, the underlying array is created for us automatically. We can&amp;rsquo;t access it, expect through the slice. But we can also create a slice from array with the &lt;strong&gt;slice operator&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="526178394" type="checkbox" /&gt;
+&lt;label for="526178394"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Array to Slice&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
 slice1 := underlyingArray[0:3]
 fmt.Println(slice1)
 // Output
 [go bot cool]
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In tha above program &lt;code>underlyingArray[0:3]&lt;/code> is creating slice using slice operator where it &lt;code>0&lt;/code> is index of array where the slice should start, and the &lt;code>3&lt;/code> index of the array that the slice should stop &lt;strong>before&lt;/strong>. In above output we can see that the second index is the index the slice will stop &lt;strong>before&lt;/strong>. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code>underlyingArray[i:j]&lt;/code> as a slice operator, the resulting slice will actually contain the elements &lt;code>underlyingArray[i]&lt;/code> through &lt;code>underlyingArray[j-1]&lt;/code>.&lt;/p>
-&lt;p>If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="798154263" type="checkbox" />
-&lt;label for="798154263">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">print with last element&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In tha above program &lt;code&gt;underlyingArray[0:3]&lt;/code&gt; is creating slice using slice operator where it &lt;code&gt;0&lt;/code&gt; is index of array where the slice should start, and the &lt;code&gt;3&lt;/code&gt; index of the array that the slice should stop &lt;strong&gt;before&lt;/strong&gt;. In above output we can see that the second index is the index the slice will stop &lt;strong&gt;before&lt;/strong&gt;. That is, the slice should include the elements up to, but not including, the second index. If you use &lt;code&gt;underlyingArray[i:j]&lt;/code&gt; as a slice operator, the resulting slice will actually contain the elements &lt;code&gt;underlyingArray[i]&lt;/code&gt; through &lt;code&gt;underlyingArray[j-1]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you want a slice to include the last element of an underlying array, you actually specify a second index that’s one beyond the end of the array in your slice operator.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="418257963" type="checkbox" /&gt;
+&lt;label for="418257963"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;print with last element&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
 slice1 := underlyingArray[3:6]
 fmt.Println(slice1)
 // Output
 [car ninja turtle]
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="348157269" type="checkbox" />
-&lt;label for="348157269">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Error access&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Make sure you don’t go any further than that, though, or you’ll get an error:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="259876431" type="checkbox" /&gt;
+&lt;label for="259876431"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Error access&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 underlyingArray := [6]string{&amp;#34;go&amp;#34;,&amp;#34;bot&amp;#34;, &amp;#34;cool&amp;#34;, &amp;#34;car&amp;#34;, &amp;#34;ninja&amp;#34;, &amp;#34;turtle&amp;#34;}
 slice1 := underlyingArray[3:7]
 fmt.Println(slice1)
 // Output
 invalid argument: index 7 out of bounds [0:7]
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h5 id="underlying-arrays">Underlying arrays&lt;/h5>
-&lt;h5 id="constants">Constants&lt;/h5>
-&lt;p>Constants are just Constants in Go.&lt;/p>
-&lt;ul>
-&lt;li>Constants are created at compile time.&lt;/li>
-&lt;li>It can be Character, String, Boolean, or Numeric values.&lt;/li>
-&lt;li>Because of compile-time restriction, the expression define them must be constant expression, evaluated by a compiler.
-&lt;blockquote>
-&lt;p>For instance, 1&amp;laquo;3 is a constant expression, while math.Sin(math.Pi/4) is not because the function call to math.Sin needs to happen at run time. -from &lt;a href="https://go.dev/doc/effective_go#constants">go.dev/docs/effective_go&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;/li>
-&lt;li>Constants cannot be defined using short declarations (:=).&lt;/li>
-&lt;/ul>
-&lt;p>In Go, enumerated constants are created using the &lt;a href="https://go.dev/ref/spec#Iota">iota&lt;/a> enumerator.&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://www.gopherguides.com/articles/how-to-use-iota-in-golang">When and where to use iota&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="embedding">Embedding&lt;/h2>
-&lt;p>Not Embedding, just the declaration of two struct types working together:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="159237864" type="checkbox" />
-&lt;label for="159237864">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">not embedding&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id="underlying-arrays"&gt;Underlying arrays&lt;/h5&gt;
+&lt;h5 id="constants"&gt;Constants&lt;/h5&gt;
+&lt;p&gt;Constants are just Constants in Go.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Constants are created at compile time.&lt;/li&gt;
+&lt;li&gt;It can be Character, String, Boolean, or Numeric values.&lt;/li&gt;
+&lt;li&gt;Because of compile-time restriction, the expression define them must be constant expression, evaluated by a compiler.
+&lt;blockquote&gt;
+&lt;p&gt;For instance, 1&amp;laquo;3 is a constant expression, while math.Sin(math.Pi/4) is not because the function call to math.Sin needs to happen at run time. -from &lt;a href="https://go.dev/doc/effective_go#constants"&gt;go.dev/docs/effective_go&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;Constants cannot be defined using short declarations (:=).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In Go, enumerated constants are created using the &lt;a href="https://go.dev/ref/spec#Iota"&gt;iota&lt;/a&gt; enumerator.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.gopherguides.com/articles/how-to-use-iota-in-golang"&gt;When and where to use iota&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="embedding"&gt;Embedding&lt;/h2&gt;
+&lt;p&gt;Not Embedding, just the declaration of two struct types working together:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="237486519" type="checkbox" /&gt;
+&lt;label for="237486519"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;not embedding&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type car struct {
 name string
 model string
@@ -891,17 +899,17 @@ type magazine struct {
 company car // NOT Embedding
 level string
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>This is embedding:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="367521894" type="checkbox" />
-&lt;label for="367521894">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">embedding&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This is embedding:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="872561394" type="checkbox" /&gt;
+&lt;label for="872561394"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;embedding&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type car struct {
 name string
 model string
@@ -910,17 +918,17 @@ type magazine struct {
 car // Value Semantic Embedding
 level string
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Embed a type using pointer semantics&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="217396845" type="checkbox" />
-&lt;label for="217396845">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">pointer semantic embedding&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Embed a type using pointer semantics&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="695382147" type="checkbox" /&gt;
+&lt;label for="695382147"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;pointer semantic embedding&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type car struct {
 name string
 model string
@@ -929,18 +937,18 @@ type magazine struct {
 *car // Pointer Semantic Embedding
 level string
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type&amp;rsquo;s name.&lt;/p>
-&lt;p>The best way to think about embedding is to view the &lt;code>car&lt;/code> type as an inner type and &lt;code>magazine&lt;/code> as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="269834175" type="checkbox" />
-&lt;label for="269834175">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Outer/inner type promotion&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In this case, a pointer of the type is embedded. In either case, accessing the embedded value is done through the use of the type&amp;rsquo;s name.&lt;/p&gt;
+&lt;p&gt;The best way to think about embedding is to view the &lt;code&gt;car&lt;/code&gt; type as an inner type and &lt;code&gt;magazine&lt;/code&gt; as an outer type. It&amp;rsquo;s this inner/outer type relationship that is magical because with embedding, related to the inner type (both fields and methods) can be promoted up to the outer type.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="785319246" type="checkbox" /&gt;
+&lt;label for="785319246"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Outer/inner type promotion&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import &amp;#34;fmt&amp;#34;
 type car struct {
@@ -965,19 +973,19 @@ mz.order(3) // Outer type promotion
 // Output:
 // Ordering 2 copies of magazine &amp;#34;Honda Accord&amp;#34; (2024).
 // Ordering 3 copies of magazine &amp;#34;Honda Accord&amp;#34; (2024).
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Once I add a method named &lt;code>order&lt;/code> for &lt;code>car&lt;/code> type and then a small main function, I can see the output is the same whether I call the &lt;code>order&lt;/code> method through the inner pointer value directly or through the outer type value. The &lt;code>order&lt;/code> method declared for the user type is accessible directly by the &lt;code>magazine&lt;/code> type value.&lt;/p>
-&lt;h2 id="composition">Composition&lt;/h2>
-&lt;p>The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="158734962" type="checkbox" />
-&lt;label for="158734962">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">cloud struct&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Once I add a method named &lt;code&gt;order&lt;/code&gt; for &lt;code&gt;car&lt;/code&gt; type and then a small main function, I can see the output is the same whether I call the &lt;code&gt;order&lt;/code&gt; method through the inner pointer value directly or through the outer type value. The &lt;code&gt;order&lt;/code&gt; method declared for the user type is accessible directly by the &lt;code&gt;magazine&lt;/code&gt; type value.&lt;/p&gt;
+&lt;h2 id="composition"&gt;Composition&lt;/h2&gt;
+&lt;p&gt;The best way to take advantage of embedding is through the compositional design pattern. The idea is to compose larger types from smaller types and focus on the composition of behavior.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="145327698" type="checkbox" /&gt;
+&lt;label for="145327698"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;cloud struct&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type Cloud struct {
 Host string
 Timeout time.Duration
@@ -994,17 +1002,17 @@ fmt.Println(&amp;#34;In:&amp;#34;, d.Line)
 return nil
 }
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The &lt;code>Cloud&lt;/code> type represents a system that I need to pull data from. The implementation is not important. The method &lt;code>Pull&lt;/code> can succeed, fail, or not have any data to pull.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="275496831" type="checkbox" />
-&lt;label for="275496831">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">DB struct&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;Cloud&lt;/code&gt; type represents a system that I need to pull data from. The implementation is not important. The method &lt;code&gt;Pull&lt;/code&gt; can succeed, fail, or not have any data to pull.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="981642573" type="checkbox" /&gt;
+&lt;label for="981642573"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;DB struct&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type DB struct {
 Host string
 Timeout time.Duration
@@ -1013,19 +1021,19 @@ func (*DB) Store(d *Data) error {
 fmt.Println(&amp;#34;Out:&amp;#34;, d.Line)
 return nil
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The &lt;code>DB&lt;/code> type also represents a system that I need to store data into. The method &lt;code>Store&lt;/code> can succeed or fail.&lt;/p>
-&lt;p>&lt;strong>Note&lt;/strong>:- Above both methods implementation is not important here. Ignore the implementation.&lt;/p>
-&lt;p>These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="164835297" type="checkbox" />
-&lt;label for="164835297">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Pull and Store&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;DB&lt;/code&gt; type also represents a system that I need to store data into. The method &lt;code&gt;Store&lt;/code&gt; can succeed or fail.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;:- Above both methods implementation is not important here. Ignore the implementation.&lt;/p&gt;
+&lt;p&gt;These two types represent a primitive layer of code that provides the base behavior required to solve the business problem of pulling data out of Cloud and storing that data into DB.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="614728593" type="checkbox" /&gt;
+&lt;label for="614728593"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Pull and Store&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 func Pull(c *Cloud, data []Data) (int, error) {
 for i := range data {
 if err := c.Pull(&amp;amp;data[i]); err != nil {
@@ -1042,17 +1050,17 @@ return i, err
 }
 return len(data), nil
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="913267458" type="checkbox" />
-&lt;label for="913267458">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Copy func&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;These two functions, Pull and Store are build on the primitive layer of code by accepting a collection of data values to pull or store in the respective systems. These functions focus on the concrete types of Cloud and DB since those are the systems the program needs to work with at this time.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="517463289" type="checkbox" /&gt;
+&lt;label for="517463289"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Copy func&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 func Copy(sys *System, batch int) error {
 data := make([]Data, batch)
 for {
@@ -1067,32 +1075,32 @@ return err
 }
 }
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="859427361" type="checkbox" />
-&lt;label for="859427361">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">System Struct&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The Copy function builds on top of the Pull and Store functions to move all the data that is pending for each run. If I notice the first parameter to Copy, it&amp;rsquo;s a type called System.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="823471695" type="checkbox" /&gt;
+&lt;label for="823471695"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;System Struct&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type System struct {
 Cloud
 DB
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="682349751" type="checkbox" />
-&lt;label for="682349751">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Main&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The System type is to compose a system that knows how to Pull and Store. In this case, composing the ability to Pull and Store from Cloud and DB.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="418576392" type="checkbox" /&gt;
+&lt;label for="418576392"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Main&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 func main() {
 sys := System{
 Cloud: Cloud{
@@ -1108,21 +1116,21 @@ if err := Copy(&amp;amp;sys, 3); err != io.EOF {
 fmt.Println(err)
 }
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The main function can be written to construct a Cloud and DB within th composition of a System. Then the System can be passed to the Copy function and data can begin to flow between the two systems.&lt;/p>
-&lt;p>Now I have our first draft of a concrete solution to a concrete problem.&lt;/p>
-&lt;h3 id="decoupling-with-interfaces">Decoupling With Interfaces&lt;/h3>
-&lt;h4 id="methods-1">Methods&lt;/h4>
-&lt;p>A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code>func&lt;/code> and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="237195864" type="checkbox" />
-&lt;label for="237195864">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">method&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The main function can be written to construct a Cloud and DB within th composition of a System. Then the System can be passed to the Copy function and data can begin to flow between the two systems.&lt;/p&gt;
+&lt;p&gt;Now I have our first draft of a concrete solution to a concrete problem.&lt;/p&gt;
+&lt;h3 id="decoupling-with-interfaces"&gt;Decoupling With Interfaces&lt;/h3&gt;
+&lt;h4 id="methods-1"&gt;Methods&lt;/h4&gt;
+&lt;p&gt;A function is called a method when that function has a receiver declared. The receiver is the parameter that is declared between the keyword &lt;code&gt;func&lt;/code&gt; and the function name. There are two types of receivers, value receivers for implementing value semantics and pointer receivers for implementing pointer semantics.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="256471398" type="checkbox" /&gt;
+&lt;label for="256471398"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;method&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 type user struct {
 name string
 email string
@@ -1134,25 +1142,25 @@ func (u *user) changeEmail(email string) {
 u.email = email
 fmt.Printf(&amp;#34;Changed user email to %s\n&amp;#34;, email)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>The notify function is implemented with a value receiver. This means the method operates under value semantics and will operate on its own copy of the value used to make the call. (It will get the copy of value so if we update it will not affect outside method.)&lt;/p>
-&lt;p>the changeEmail function is implemented with a pointer receiver. This means the method operates under pointer semantics and will operate on shared access to the value used to make the call. (It will update the value in struct.)&lt;/p>
-&lt;h4 id="interfaces">Interfaces&lt;/h4>
-&lt;p>Interfaces give programs structure and encourage design by composition. They enable and enforce clean division between components. The standardization of interfaces can set clear and consistent expectation.&lt;/p>
-&lt;p>Decoupling means reducing the dependencies between components and the types they use. This leads to correctness, quality and maintainability.&lt;/p>
-&lt;p>Interface allow me to groupe concrete data together by what the data can do. &lt;strong>It&amp;rsquo;s about focusing on what data can do and not what the data is.&lt;/strong> Interface also help my code decouple itself from change by asking concrete data based on what it can do. It&amp;rsquo;s not limited to one type of data.&lt;/p>
-&lt;p>Interfaces should describe behavior and not state. They should be verbs and not nouns.&lt;/p>
-&lt;p>Use an interface when:&lt;/p>
-&lt;ul>
-&lt;li>Users of the API need to provide an implementation detail.&lt;/li>
-&lt;li>API&amp;rsquo;s have multiple implementations they need to maintain internally.&lt;/li>
-&lt;li>Parts of the API that can change have been identified and require decoupling.&lt;/li>
-&lt;/ul>
-&lt;p>Don&amp;rsquo;t use an interface:&lt;/p>
-&lt;ul>
-&lt;li>For the sake of using an interface.&lt;/li>
-&lt;li>To generalize an algorithm.&lt;/li>
-&lt;li>When users can declare their own interfaces.&lt;/li>
-&lt;li>If it&amp;rsquo;s not clear how the interface makes the code better.&lt;/li>
-&lt;/ul></content></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;The notify function is implemented with a value receiver. This means the method operates under value semantics and will operate on its own copy of the value used to make the call. (It will get the copy of value so if we update it will not affect outside method.)&lt;/p&gt;
+&lt;p&gt;the changeEmail function is implemented with a pointer receiver. This means the method operates under pointer semantics and will operate on shared access to the value used to make the call. (It will update the value in struct.)&lt;/p&gt;
+&lt;h4 id="interfaces"&gt;Interfaces&lt;/h4&gt;
+&lt;p&gt;Interfaces give programs structure and encourage design by composition. They enable and enforce clean division between components. The standardization of interfaces can set clear and consistent expectation.&lt;/p&gt;
+&lt;p&gt;Decoupling means reducing the dependencies between components and the types they use. This leads to correctness, quality and maintainability.&lt;/p&gt;
+&lt;p&gt;Interface allow me to groupe concrete data together by what the data can do. &lt;strong&gt;It&amp;rsquo;s about focusing on what data can do and not what the data is.&lt;/strong&gt; Interface also help my code decouple itself from change by asking concrete data based on what it can do. It&amp;rsquo;s not limited to one type of data.&lt;/p&gt;
+&lt;p&gt;Interfaces should describe behavior and not state. They should be verbs and not nouns.&lt;/p&gt;
+&lt;p&gt;Use an interface when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users of the API need to provide an implementation detail.&lt;/li&gt;
+&lt;li&gt;API&amp;rsquo;s have multiple implementations they need to maintain internally.&lt;/li&gt;
+&lt;li&gt;Parts of the API that can change have been identified and require decoupling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Don&amp;rsquo;t use an interface:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For the sake of using an interface.&lt;/li&gt;
+&lt;li&gt;To generalize an algorithm.&lt;/li&gt;
+&lt;li&gt;When users can declare their own interfaces.&lt;/li&gt;
+&lt;li&gt;If it&amp;rsquo;s not clear how the interface makes the code better.&lt;/li&gt;
+&lt;/ul&gt;</content></item></channel></rss>

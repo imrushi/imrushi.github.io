@@ -1,426 +1,431 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Rushi Panchariya</title><link>/posts/</link><description>Recent content in Posts on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Jan 2025 15:11:59 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ads on My Kindle? Not on My Watch!</title><link>/posts/kindle-ads-remover/</link><pubDate>Mon, 27 Jan 2025 15:11:59 +0000</pubDate><guid>/posts/kindle-ads-remover/</guid><description>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
-&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
-&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p></description><content>&lt;p>Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p>
-&lt;h2 id="i-hate-ads">I hate Ads&lt;/h2>
-&lt;p>If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong>no one loves ads.&lt;/strong> I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p>
-&lt;p>When I purchased my Kindle in Germany, there were two versions available: one with ads and one without. The ad-free version cost an additional 10 Euros, but I decided not to spend the extra money — I’d rather buy coffee or chocolates instead! At the time, I thought there might be a workaround to remove the ads, and since they didn’t show up initially, I ignored the issue.&lt;/p>
-&lt;p>However, after installing today’s Kindle update, ads started showing up on the lock screen. They were bright and intrusive, completely ruining the experience ☹️.&lt;/p>
-&lt;p>I initially considered adding the ad servers’ DNS to AdGuard but wanted a permanent solution.&lt;/p>
-&lt;h2 id="kindle-ad-remover">Kindle Ad Remover&lt;/h2>
-&lt;p>After a bit of Googling, I found a GitHub repository called &lt;a href="https://github.com/mariopepe/KindleAdRemover">KindleAdRemover&lt;/a>. According to the README, the process might require a Mac, which I have, but it&amp;rsquo;s an office device, so I couldn’t use it for this purpose. Thankfully, the repo also provided a shell script, and I decided to give that a try.&lt;/p>
-&lt;p>The shell script was straightforward. It checked if the Kindle was connected and detected. Once detected, it navigated to the Kindle&amp;rsquo;s &lt;code>system&lt;/code> directory, deleted the &lt;code>.assets&lt;/code> folder, and replaced it with an empty &lt;code>.assets&lt;/code> file.&lt;/p>
-&lt;p>Following the instructions, I connected my Kindle to my Raspberry Pi.&lt;/p>
-&lt;blockquote>
-&lt;p>Life won&amp;rsquo;t be easy/fun without Issue - this the one thing I&amp;rsquo;ve learned.&lt;/p>&lt;/blockquote>
-&lt;h2 id="issue-connecting-kindle-with-linux">Issue: Connecting Kindle with Linux&lt;/h2>
-&lt;p>When I connected my Kindle to the Raspberry Pi, it appeared in &lt;code>lsusb&lt;/code>, but the storage wasn’t mounting. I checked with &lt;code>fdisk -l&lt;/code>, but no storage device was listed. Even &lt;code>dmesg | tail&lt;/code> showed Kindle-related information but no mount path.&lt;/p>
-&lt;p>I suspect the issue lies with the latest Kindle (12th generation) update. The same problem occurred when I tried connecting it to a Mac (My Friends Macbook 😏).&lt;/p>
-&lt;blockquote>
-&lt;p>I’ll look into this issue further and try to fix it.&lt;/p>&lt;/blockquote>
-&lt;h2 id="mission-kill-the-ads">Mission: Kill the Ads&lt;/h2>
-&lt;p>Determined to get rid of the ads, I found a &lt;code>PowerShell&lt;/code> script in the repository. I connected my Kindle to a Windows PC and saw the storage appear in File Explorer. Inside the &lt;code>system&lt;/code> directory, I located the &lt;code>.assets&lt;/code> folder.&lt;/p>
-&lt;p>Rather than deleting it manually, I tried running the &lt;code>PowerShell&lt;/code> script, but it didn’t work. Instead, I used &lt;code>Git Bash&lt;/code> to manually execute the required steps:&lt;/p>
-&lt;ol>
-&lt;li>Navigated to the &lt;code>.assets&lt;/code> directory inside the &lt;code>system&lt;/code> folder.&lt;/li>
-&lt;li>Opened &lt;code>Git Bash&lt;/code> in the Kindle storage directory.&lt;/li>
-&lt;li>Deleted the &lt;code>.assets&lt;/code> folder using:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ rm -r system/.assets
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
-&lt;li>Created an empty .assets file using:&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ touch system/.assets
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="5">
-&lt;li>Disconnect Kindle.&lt;/li>
-&lt;/ol>
-&lt;p>After locking and unlocking the Kindle, all the ads were gone, and a nice wallpaper appeared instead.&lt;/p>
-&lt;blockquote>
-&lt;p>Note: These steps will need to be repeated after every software update, as updates revert the changes.&lt;/p>&lt;/blockquote>
-&lt;p>Now, my mind can fully enjoy reading without being distracted by ads! 😉&lt;/p></content></item><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
-&lt;p>I was planning to make something like the following:&lt;/p></description><content>&lt;p>I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p>
-&lt;p>I was planning to make something like the following:&lt;/p>
-&lt;ul>
-&lt;li>Store documents, codes (unfinished or WIP), videos, and photos.&lt;/li>
-&lt;li>Stream Movies and TV Shows&lt;/li>
-&lt;li>Block ads, trackers, and malware over the network.&lt;/li>
-&lt;li>Access all these over the internet&lt;/li>
-&lt;/ul>
-&lt;h2 id="raspberry-pi-4-model-b-specs">Raspberry Pi 4 Model B Specs:&lt;/h2>
-&lt;ul>
-&lt;li>2GB RAM&lt;/li>
-&lt;li>128GB SD Card&lt;/li>
-&lt;li>15W USB-C Power Supply&lt;/li>
-&lt;li>1.8GHz Quad Core Processor&lt;/li>
-&lt;/ul>
-&lt;p>I know the specs are low, but they get the job done for now. In the future, I will upgrade to RPi 5 and connect an SSD.&lt;/p>
-&lt;p>I am running Debian GNU/Linux 12 (Bookworm) OS along with Docker.&lt;/p>
-&lt;h2 id="application-setups">Application Setups:&lt;/h2>
-&lt;h3 id="casaos">CasaOS:&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://github.com/IceWhaleTech/CasaOS">CasaOS&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/IceWhaleTech/CasaOS">GitHub&lt;/a>&lt;/td>
-&lt;td>cloud os&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Casa OS is an open-source project that creates a personal cloud experience. It provides a web-based interface for managing your personal cloud and applications. It is set up and installed with a single command. Casa OS uses Docker containers to run applications. It has an app store with lots of apps that are easy to manage through the UI. It also provides CLI access to the RPi over the web. I really like its design, ease of setup, and installation of apps. Its dashboard offers monitoring options for CPU, Memory, Disk, Network, etc.&lt;/p>
-&lt;p>&lt;a href="http://demo.casaos.io/">Demo&lt;/a>&lt;/p>
-&lt;p>username - casaos&lt;/p>
-&lt;p>password - casaos&lt;/p>
-&lt;h3 id="nextcloud">NextCloud&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://nextcloud.com/">Nextcloud&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/nextcloud/server">GitHub&lt;/a>&lt;/td>
-&lt;td>storage&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Nextcloud is an open-source cloud server. I am using it for storing my documents and files. My other online storage service is also getting full. This is the best alternative for that. It works well and gets the job done, but it lags sometimes (I think because of my low resources). I am thinking of installing &lt;a href="https://github.com/nextcloud/nextcloudpi">NextcloudPi&lt;/a>, which I think is a lightweight version of Nextcloud.&lt;/p>
-&lt;h3 id="immich">Immich&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://immich.app/">Immich&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/nextcloud/server">GitHub&lt;/a>&lt;/td>
-&lt;td>storage&lt;/td>
-&lt;td>Google Photos&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Immich is a promising self-hosted alternative to Google Photos, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to Google Photos, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to Google Photos. Nonetheless, it works well and gets the job done.&lt;/p>
-&lt;p>Check out the &lt;a href="https://meichthys.github.io/foss_photo_libraries/">comparison between Immich and various OpenSource Photo Libraries.&lt;/a>&lt;/p>
-&lt;h3 id="syncthing">Syncthing&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://syncthing.net/">Syncthing&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/syncthing/syncthing">GitHub&lt;/a>&lt;/td>
-&lt;td>storage&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Syncthing is an open-source file synchronization application that keeps our data consistent across multiple devices. It offers real-time updates, multi-device compatibility, and efficient file management.&lt;/p>
-&lt;p>I have been using Syncthing for syncing the projects which I am working on my PC. While I know there is GitHub to push the project, I prefer not to push buggy code or unfinished features. Syncthing makes it easy to access the code on the RPi from anywhere.&lt;/p>
-&lt;h3 id="adguard">AdGuard&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://github.com/AdguardTeam/AdGuardHome">AdGuard&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/AdguardTeam/AdGuardHome">GitHub&lt;/a>&lt;/td>
-&lt;td>privacy&lt;/td>
-&lt;td>Pi-Hole&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>I have been using uBlock Origin in the browser for a long time, but it only securely blocks ads in my browser. I wanted a solution that blocks ads over my entire network. AdGuard is a free and open-source privacy blocker that blocks ads, trackers, and malware. There are many options to filter ads, trackers, and malware:&lt;/p>
-&lt;ul>
-&lt;li>DNS Blocklist :- Below is Blocklist which i am using:
-&lt;ul>
-&lt;li>AdGuard DNS filter :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt&lt;/a>&lt;/li>
-&lt;li>AdAway Default Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt&lt;/a>&lt;/li>
-&lt;li>HaGeZi&amp;rsquo;s Pro Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt&lt;/a>&lt;/li>
-&lt;li>OISD Blocklist Big :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt">https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt&lt;/a>&lt;/li>
-&lt;li>Easylist :- &lt;a href="https://easylist.to/easylist/easylist.txt">https://easylist.to/easylist/easylist.txt&lt;/a>&lt;/li>
-&lt;li>uBlock Filter :- &lt;a href="https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt">https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>DNS Allowlist&lt;/li>
-&lt;li>DNS Rewrite&lt;/li>
-&lt;li>Blocked Services&lt;/li>
-&lt;li>Custom Filterling Rules&lt;/li>
-&lt;/ul>
-&lt;p>This list is easy to maintain if there are any updates to the block list. It can be updated with just one click.&lt;/p>
-&lt;p>I have configured my router to use the Raspberry Pi as the primary DNS server, allowing me to extend AdGuard&amp;rsquo;s protection to all devices on my network. This way, every device benefits from an ad-free and secure browsing experience.&lt;/p>
-&lt;hr>
-&lt;p>Now it&amp;rsquo;s time for the best part, setting up Movies and TV Show streaming over the network. I&amp;rsquo;m using Torrents to download movies and TV shows.&lt;/p>
-&lt;p>For this setup, a group of applications are deployed and interconnected. First, I&amp;rsquo;ll provide information about each application, and then I&amp;rsquo;ll explain how to set it up.&lt;/p>
-&lt;h3 id="jackett">Jackett&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://github.com/Jackett/Jackett">Jackett&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/Jackett/Jackett">GitHub&lt;/a>&lt;/td>
-&lt;td>torrent&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Jackett is an open-source application that acts as a middleman between your favorite torrent downloader and various torrent indexing websites. It allows you to search across a vast array of indexing sites from a single, user-friendly interface. Jackett seamlessly integrates with popular torrent downloaders like Sonarr, Radarr, qBittorrent, and many more, eliminating the need to configure individual search settings for each downloader.&lt;/p>
-&lt;p>Jackett acts as a proxy server. When anyone initiates a search through your compatible downloader, Jackett translates the request into a format understandable by the specific torrent indexing site. It then fetches the results, parses them, and delivers them back to your downloader in a standardized format.&lt;/p>
-&lt;p>I mostly use the following indexers for searching torrents:&lt;/p>
-&lt;ul>
-&lt;li>YTS :- &lt;a href="https://yts.mx/">https://yts.mx/&lt;/a>&lt;/li>
-&lt;li>TheRARBG :- &lt;a href="https://therarbg.to/">https://therarbg.to/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>&lt;strong>&lt;em>Note&lt;/em>&lt;/strong>: It&amp;rsquo;s important to remember that Jackett itself is a legal tool. However, the legality of the content you download using Jackett depends on the copyright laws in your region and the specific content itself. Always ensure you&amp;rsquo;re downloading content that is legally available in your area.&lt;/p>&lt;/blockquote>
-&lt;h3 id="radarr">Radarr&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://radarr.video/">Radarr&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/Radarr/Radarr">GitHub&lt;/a>&lt;/td>
-&lt;td>torrent&lt;/td>
-&lt;td>Sonarr&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>If you&amp;rsquo;re a movie buff who relies on BitTorrent to build your collection, then Radarr is your new best friend. This open-source software automates the process of finding, downloading, and organizing your movie library and keeps your collection up-to-date. Tell Radarr which movies you want (and in what quality), and it scours the web using your Jackett indexers. Once it finds a match, Radarr automatically downloads the movie for you. You can add upcoming movies to Radarr&amp;rsquo;s watchlist, and it will automatically download them on their release date or whenever they become available on your chosen indexers.&lt;/p>
-&lt;h3 id="plex">Plex&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://www.plex.tv/">Plex&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/plexinc/pms-docker">GitHub&lt;/a>&lt;/td>
-&lt;td>torrent&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Plex is a media server application that lets you stream your own collection of movies, TV shows, music, and photos to various devices. It&amp;rsquo;s like a personal streaming service, but with complete control over your content and how you access it. Plex centralizes your media collection, offers flexible streaming options, and provides a user-friendly interface for various devices. Add your movies, TV shows, music, and photos to a server (computer, NAS) running the Plex Media Server software. Then, access that content from any Plex app on various devices like smartphones, tablets, smart TVs, game consoles, and even streaming devices.&lt;/p>
-&lt;h3 id="overseerr">Overseerr&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://overseerr.dev/">Overseerr&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/sct/overseerr">GitHub&lt;/a>&lt;/td>
-&lt;td>torrent&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Overseerr is an open-source software application designed to simplify Movie and TV show requests within your Plex media server setup. It integrates seamlessly with Plex, Sonarr (for TV shows), and Radarr (for movies), creating a centralized hub for managing user requests. It provides a user-friendly interface for your Plex users to request movies and TV shows they&amp;rsquo;d like to see added to your library. They can browse through suggestions, search for specific titles, and submit requests with a few clicks.&lt;/p>
-&lt;h3 id="transmission">Transmission&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://transmissionbt.com/">Transmission&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/transmission/transmission">GitHub&lt;/a>&lt;/td>
-&lt;td>torrent&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Transmission is an open-source BitTorrent client, known for its simplicity, speed, and cross-platform compatibility. It allows us to download files from the BitTorrent network, a decentralized peer-to-peer file-sharing system.&lt;/p>
-&lt;h2 id="working-of-streaming-setup">Working of Streaming Setup&lt;/h2>
-&lt;p>After reviewing the information about all the components I used, let&amp;rsquo;s delve into their connectivity.&lt;/p>
-&lt;img src="https://ik.imagekit.io/ruship/RPi-Home-Server/streaming-setup.svg" alt="pat api" class="center" style="border-radius: 8px;" />
-&lt;ul>
-&lt;li>Movie or TV show requests will come to Radarr with parameters like quality, tags, etc.&lt;/li>
-&lt;li>Radarr will search for the Movie/TV show using the Jackett torrent indexer and fetch torrent information.&lt;/li>
-&lt;li>Once Radarr obtains the torrent information, it sends it to Transmission for downloading and monitors the torrent&amp;rsquo;s download progress.&lt;/li>
-&lt;li>After Transmission completes the download, it saves the content to a specific path.&lt;/li>
-&lt;li>Radarr then moves the downloaded content to the Plex content directory.&lt;/li>
-&lt;li>The content is now accessible on Plex for streaming.&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>&lt;strong>Note&lt;/strong>: Sometimes, certain TV shows will not be downloaded through Radarr; in such cases, use Sonarr.&lt;/p>&lt;/blockquote>
-&lt;hr>
-&lt;p>To securely access my home network over the internet, I am using VPN.&lt;/p>
-&lt;p>Initially, I set up the WireGuard VPN with DDNS. However, due to my ISP&amp;rsquo;s use of &lt;a href="https://en.wikipedia.org/wiki/Carrier-grade_NAT">CGNAT&lt;/a>, I was unable to access the internet.&lt;/p>
-&lt;p>Then, I learned about Tailscale from a friend.&lt;/p>
-&lt;h3 id="tailscale">Tailscale&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Website&lt;/th>
-&lt;th>Source&lt;/th>
-&lt;th>Category&lt;/th>
-&lt;th>Similar Apps&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;a href="https://tailscale.com/">Tailscale&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://github.com/tailscale/tailscale">GitHub&lt;/a>&lt;/td>
-&lt;td>VPN&lt;/td>
-&lt;td>-&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>Tailscale is a peer-to-peer VPN service designed to make your devices and applications accessible securely from anywhere in the world. It also utilizes WireGuard VPN in the backend. Tailscale employs a mesh network approach to connect multiple devices, allowing up to 100 devices in the free tier. It is available on all platforms, making device connectivity seamless. Additionally, Tailscale offers useful features such as inviting members to access your network and sharing specific devices.&lt;/p>
-&lt;hr>
-&lt;p>As I continue to refine my Raspberry Pi Home Server setup, I&amp;rsquo;m considering changing the streaming components by replacing:&lt;/p>
-&lt;ul>
-&lt;li>Plex =&amp;gt; &lt;a href="https://github.com/jellyfin/jellyfin">Jellyfin&lt;/a>&lt;/li>
-&lt;li>Overseerr =&amp;gt; &lt;a href="https://github.com/Fallenbagel/jellyseerr">Jellyseer&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>With only 2 GB of RAM, running all these services simultaneously can be challenging. As a result, I&amp;rsquo;ve opted not to run more resource-intensive services like Immich continuously. Instead, I activate this service when I need to periodically back up my data.&lt;/p>
-&lt;p>Looking ahead, I&amp;rsquo;m contemplating upgrading my Raspberry Pi to a Raspberry Pi 5 with 8 GB of RAM and attaching an SSD to it. This upgrade would provide more power and storage capacity, allowing for smoother operation and greater flexibility in running multiple services concurrently.&lt;/p>
-&lt;p>This concludes my setup for the Raspberry Pi Home Server. Any changes or additional components will be detailed in future posts.&lt;/p></content></item><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
-&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
-&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p></description><content>&lt;p>I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p>
-&lt;p>For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p>
-&lt;p>This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p>
-&lt;p>Here&amp;rsquo;s why passwords can be frustrating:&lt;/p>
-&lt;ul>
-&lt;li>Leaky: Hackers can steal passwords in all sorts of ways, leaving your accounts vulnerable.&lt;/li>
-&lt;li>Forgettable: Who remembers dozens of complex passwords? We all reuse passwords, which is a security risk.&lt;/li>
-&lt;li>Inflexible: Passwords are all-or-nothing. You either have access or you don&amp;rsquo;t.&lt;/li>
-&lt;/ul>
-&lt;p>PATs aim to solve this problems by offering a more secure and flexible way to log in.&lt;/p>
-&lt;h2 id="what-are-pats">What are PATs?&lt;/h2>
-&lt;p>Personal Access Tokens (PATs) are &lt;strong>&lt;em>long strings of random characters&lt;/em>&lt;/strong> that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.&lt;/p>
-&lt;p>These tokens are stored in a database, and their validity is checked by performing a database lookup. But in this blog, I will also explain alternate approaches to checking the validity of a token. To revoke a token, you can simply delete it from the database. Once the token has been revoked, it can no longer be used.&lt;/p>
-&lt;p>PATs also called as &lt;strong>&lt;em>Opaque Access Tokens (OATs)&lt;/em>&lt;/strong> in OAuth 2.0.&lt;/p>
-&lt;p>You can check this &lt;strong>&lt;em>&lt;a href="https://www.ory.sh/docs/oauth2-oidc/jwt-access-token#opaque-access-tokens-versus-jwt">ORY documentation&lt;/a>&lt;/em>&lt;/strong> to learn more about PATs.&lt;/p>
-&lt;p>example of a PAT:&lt;/p>
-&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
-&lt;/code>&lt;/pre>&lt;p>In above PAT on is divided in two segments with dot operator (.) on left side of dot operator is 32-byte random string with base64 encoding and on right side of dot operator we have cryptographic signature with base64 encoding which generated from 32-byte random string.&lt;/p>
-&lt;h3 id="advantages-and-characteristics">Advantages and Characteristics&lt;/h3>
-&lt;p>PAT offers several distinct advantages over traditional passwords:&lt;/p>
-&lt;ul>
-&lt;li>Enhanced Security: PATs can be granted specific permissions, limiting the potential damage if compromised.&lt;/li>
-&lt;li>Flexibility: PATs can be tailored to specific tasks or applications, enabling precise control over access privileges.&lt;/li>
-&lt;li>Third-party Integration: PAT facilitates secure integration with third-party tools and applications, eliminating the need to share passwords.&lt;/li>
-&lt;/ul>
-&lt;p>PATs are characterized by several key features:&lt;/p>
-&lt;ul>
-&lt;li>Unique Generation: Each PAT is a unique string of characters, preventing unauthorized access.&lt;/li>
-&lt;li>Granular Permission: PATs can be granted specific permissions, limiting their scope of access.&lt;/li>
-&lt;li>Revocability: PATs can be revoked at any time, effectively disabling them in cases of compromise.&lt;/li>
-&lt;/ul>
-&lt;h2 id="working--implementation">Working &amp;amp; Implementation&lt;/h2>
-&lt;p>Let&amp;rsquo;s first understand the how token is formed.&lt;/p>
-&lt;pre tabindex="0">&lt;code>org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
-&lt;/code>&lt;/pre>&lt;p>In the above PAT, it is divided into two segments with a dot operator (.). On the left side of the dot operator is a 32-byte random string with base64 encoding, and on the right side of the dot operator, we have a cryptographic signature with base64 encoding, which is generated from a 32-byte random string.&lt;/p>
-&lt;p>At the start, I have appended the &lt;code>org_at_&lt;/code> prefix to the token to identify the organization and token type like here &lt;code>_at_&lt;/code> is stands for &lt;code>Access Token&lt;/code>. It is not mandatory; you can skip this.&lt;/p>
-&lt;h3 id="working-overview">Working Overview&lt;/h3>
-&lt;img src="https://ik.imagekit.io/ruship/PAT/pat.png" alt="pat api" class="center" style="border-radius: 8px;" />
-&lt;ul>
-&lt;li>The app will request a PAT with scopes.&lt;/li>
-&lt;li>PAT Generation will do below:
-&lt;ul>
-&lt;li>&lt;strong>Generate&lt;/strong>: This will generate a token with a random string and sign that token with a cryptographic algorithm, which is HMAC&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. It will then store the token&amp;rsquo;s name, signature, scope, granted scope against the user ID.&lt;/li>
-&lt;li>&lt;strong>Verify&lt;/strong>: Verification will decode the token and again generate the HMAC&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> with the decoded token (left side of the dot) with the signing key. Then it will compare both HMACs&lt;sup id="fnref2:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>; if they are equal, the token is not tampered. If the token is not tampered, it should check in the database if a signature entry exists.&lt;/li>
-&lt;li>&lt;strong>Revoke&lt;/strong>: To revoke a token, we need to delete the token from the database.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Database is used to store the token related information.&lt;/li>
-&lt;/ul>
-&lt;p>As we have seen above, for validating/checking if the token is valid, we have to perform a database lookup. Let&amp;rsquo;s examine the database schema for Personal Access Tokens.&lt;/p>
-&lt;p>&lt;strong>&lt;em>PAT Table&lt;/em>&lt;/strong>:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>token_id&lt;/th>
-&lt;th>user_id&lt;/th>
-&lt;th>name&lt;/th>
-&lt;th>signature&lt;/th>
-&lt;th>scope&lt;/th>
-&lt;th>granted_scope&lt;/th>
-&lt;th>active&lt;/th>
-&lt;th>created_at&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>efaeb2c2-8654-4b83-a254-1ab1296614b2&lt;/td>
-&lt;td>6c1acbd1-602b-4235&lt;/td>
-&lt;td>token-name&lt;/td>
-&lt;td>N0_lECUd927GnG71eEKq1&amp;hellip;&lt;/td>
-&lt;td>email name&lt;/td>
-&lt;td>email&lt;/td>
-&lt;td>1&lt;/td>
-&lt;td>2024-01-24 12:09:22&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;div class="collapsable-code">
-&lt;input id="854392671" type="checkbox" />
-&lt;label for="854392671">
-&lt;span class="collapsable-code__language">sql&lt;/span>
-&lt;span class="collapsable-code__title">user token table&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-sql" >&lt;code>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Rushi Panchariya</title><link>/posts/</link><description>Recent content in Posts on Rushi Panchariya</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 27 Jan 2025 15:11:59 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Ads on My Kindle? Not on My Watch!</title><link>/posts/kindle-ads-remover/</link><pubDate>Mon, 27 Jan 2025 15:11:59 +0000</pubDate><guid>/posts/kindle-ads-remover/</guid><description>&lt;p&gt;Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p&gt;
+&lt;h2 id="i-hate-ads"&gt;I hate Ads&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong&gt;no one loves ads.&lt;/strong&gt; I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p&gt;</description><content>&lt;p&gt;Today, while exploring the settings on my Kindle. To my surprise, there was a software update available. I was connected to Wi-Fi (I usually keep it in Airplane mode). After updating, I noticed an annoying change — my Kindle&amp;rsquo;s lock screen was suddenly flooded with ads.&lt;/p&gt;
+&lt;h2 id="i-hate-ads"&gt;I hate Ads&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve read my previous posts, you know I have AdGuard installed to block ads because &lt;strong&gt;no one loves ads.&lt;/strong&gt; I&amp;rsquo;ve already paid a lot for my Kindle, so why should I pay extra to remove ads?&lt;/p&gt;
+&lt;p&gt;When I purchased my Kindle in Germany, there were two versions available: one with ads and one without. The ad-free version cost an additional 10 Euros, but I decided not to spend the extra money — I’d rather buy coffee or chocolates instead! At the time, I thought there might be a workaround to remove the ads, and since they didn’t show up initially, I ignored the issue.&lt;/p&gt;
+&lt;p&gt;However, after installing today’s Kindle update, ads started showing up on the lock screen. They were bright and intrusive, completely ruining the experience ☹️.&lt;/p&gt;
+&lt;p&gt;I initially considered adding the ad servers’ DNS to AdGuard but wanted a permanent solution.&lt;/p&gt;
+&lt;h2 id="kindle-ad-remover"&gt;Kindle Ad Remover&lt;/h2&gt;
+&lt;p&gt;After a bit of Googling, I found a GitHub repository called &lt;a href="https://github.com/mariopepe/KindleAdRemover"&gt;KindleAdRemover&lt;/a&gt;. According to the README, the process might require a Mac, which I have, but it&amp;rsquo;s an office device, so I couldn’t use it for this purpose. Thankfully, the repo also provided a shell script, and I decided to give that a try.&lt;/p&gt;
+&lt;p&gt;The shell script was straightforward. It checked if the Kindle was connected and detected. Once detected, it navigated to the Kindle&amp;rsquo;s &lt;code&gt;system&lt;/code&gt; directory, deleted the &lt;code&gt;.assets&lt;/code&gt; folder, and replaced it with an empty &lt;code&gt;.assets&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Following the instructions, I connected my Kindle to my Raspberry Pi.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Life won&amp;rsquo;t be easy/fun without Issue - this the one thing I&amp;rsquo;ve learned.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="issue-connecting-kindle-with-linux"&gt;Issue: Connecting Kindle with Linux&lt;/h2&gt;
+&lt;p&gt;When I connected my Kindle to the Raspberry Pi, it appeared in &lt;code&gt;lsusb&lt;/code&gt;, but the storage wasn’t mounting. I checked with &lt;code&gt;fdisk -l&lt;/code&gt;, but no storage device was listed. Even &lt;code&gt;dmesg | tail&lt;/code&gt; showed Kindle-related information but no mount path.&lt;/p&gt;
+&lt;p&gt;I suspect the issue lies with the latest Kindle (12th generation) update. The same problem occurred when I tried connecting it to a Mac (My Friends Macbook 😏).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’ll look into this issue further and try to fix it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="mission-kill-the-ads"&gt;Mission: Kill the Ads&lt;/h2&gt;
+&lt;p&gt;Determined to get rid of the ads, I found a &lt;code&gt;PowerShell&lt;/code&gt; script in the repository. I connected my Kindle to a Windows PC and saw the storage appear in File Explorer. Inside the &lt;code&gt;system&lt;/code&gt; directory, I located the &lt;code&gt;.assets&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Rather than deleting it manually, I tried running the &lt;code&gt;PowerShell&lt;/code&gt; script, but it didn’t work. Instead, I used &lt;code&gt;Git Bash&lt;/code&gt; to manually execute the required steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Navigated to the &lt;code&gt;.assets&lt;/code&gt; directory inside the &lt;code&gt;system&lt;/code&gt; folder.&lt;/li&gt;
+&lt;li&gt;Opened &lt;code&gt;Git Bash&lt;/code&gt; in the Kindle storage directory.&lt;/li&gt;
+&lt;li&gt;Deleted the &lt;code&gt;.assets&lt;/code&gt; folder using:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ rm -r system/.assets
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;Created an empty .assets file using:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ touch system/.assets
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="5"&gt;
+&lt;li&gt;Disconnect Kindle.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After locking and unlocking the Kindle, all the ads were gone, and a nice wallpaper appeared instead.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: These steps will need to be repeated after every software update, as updates revert the changes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, my mind can fully enjoy reading without being distracted by ads! 😉&lt;/p&gt;</content></item><item><title>RPi Home Server</title><link>/posts/rpi-home-server/</link><pubDate>Thu, 16 May 2024 15:04:04 +0530</pubDate><guid>/posts/rpi-home-server/</guid><description>&lt;p&gt;I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p&gt;
+&lt;p&gt;I was planning to make something like the following:&lt;/p&gt;</description><content>&lt;p&gt;I did a project on the Raspberry Pi in college. Since then, my Raspberry Pi has been lying in a box. I had the idea to create an FPV drone from it, which I am still planning to do 😅. Until I work on that, I&amp;rsquo;m thinking of creating a mini server (which I was inspired to do after seeing a RPi stack server photo on Twitter/X).&lt;/p&gt;
+&lt;p&gt;I was planning to make something like the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Store documents, codes (unfinished or WIP), videos, and photos.&lt;/li&gt;
+&lt;li&gt;Stream Movies and TV Shows&lt;/li&gt;
+&lt;li&gt;Block ads, trackers, and malware over the network.&lt;/li&gt;
+&lt;li&gt;Access all these over the internet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="raspberry-pi-4-model-b-specs"&gt;Raspberry Pi 4 Model B Specs:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2GB RAM&lt;/li&gt;
+&lt;li&gt;128GB SD Card&lt;/li&gt;
+&lt;li&gt;15W USB-C Power Supply&lt;/li&gt;
+&lt;li&gt;1.8GHz Quad Core Processor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I know the specs are low, but they get the job done for now. In the future, I will upgrade to RPi 5 and connect an SSD.&lt;/p&gt;
+&lt;p&gt;I am running Debian GNU/Linux 12 (Bookworm) OS along with Docker.&lt;/p&gt;
+&lt;h2 id="application-setups"&gt;Application Setups:&lt;/h2&gt;
+&lt;h3 id="casaos"&gt;CasaOS:&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/IceWhaleTech/CasaOS"&gt;CasaOS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/IceWhaleTech/CasaOS"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;cloud os&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Casa OS is an open-source project that creates a personal cloud experience. It provides a web-based interface for managing your personal cloud and applications. It is set up and installed with a single command. Casa OS uses Docker containers to run applications. It has an app store with lots of apps that are easy to manage through the UI. It also provides CLI access to the RPi over the web. I really like its design, ease of setup, and installation of apps. Its dashboard offers monitoring options for CPU, Memory, Disk, Network, etc.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://demo.casaos.io/"&gt;Demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;username - casaos&lt;/p&gt;
+&lt;p&gt;password - casaos&lt;/p&gt;
+&lt;h3 id="nextcloud"&gt;NextCloud&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://nextcloud.com/"&gt;Nextcloud&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/nextcloud/server"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;storage&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Nextcloud is an open-source cloud server. I am using it for storing my documents and files. My other online storage service is also getting full. This is the best alternative for that. It works well and gets the job done, but it lags sometimes (I think because of my low resources). I am thinking of installing &lt;a href="https://github.com/nextcloud/nextcloudpi"&gt;NextcloudPi&lt;/a&gt;, which I think is a lightweight version of Nextcloud.&lt;/p&gt;
+&lt;h3 id="immich"&gt;Immich&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://immich.app/"&gt;Immich&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/nextcloud/server"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;storage&lt;/td&gt;
+&lt;td&gt;Google Photos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Immich is a promising self-hosted alternative to Google Photos, particularly for users who value privacy and control over their data. It is an open-source app with client applications available for Android and iOS, allowing users to share photos with friends and family. I am using it for storing my photos and videos. Immich offers features similar to Google Photos, including photo organization, face recognition, mobile app, and sharing options. However, since Immich is under active development, some features might be less polished compared to Google Photos. Nonetheless, it works well and gets the job done.&lt;/p&gt;
+&lt;p&gt;Check out the &lt;a href="https://meichthys.github.io/foss_photo_libraries/"&gt;comparison between Immich and various OpenSource Photo Libraries.&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="syncthing"&gt;Syncthing&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://syncthing.net/"&gt;Syncthing&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/syncthing/syncthing"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;storage&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Syncthing is an open-source file synchronization application that keeps our data consistent across multiple devices. It offers real-time updates, multi-device compatibility, and efficient file management.&lt;/p&gt;
+&lt;p&gt;I have been using Syncthing for syncing the projects which I am working on my PC. While I know there is GitHub to push the project, I prefer not to push buggy code or unfinished features. Syncthing makes it easy to access the code on the RPi from anywhere.&lt;/p&gt;
+&lt;h3 id="adguard"&gt;AdGuard&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/AdguardTeam/AdGuardHome"&gt;AdGuard&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/AdguardTeam/AdGuardHome"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;privacy&lt;/td&gt;
+&lt;td&gt;Pi-Hole&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I have been using uBlock Origin in the browser for a long time, but it only securely blocks ads in my browser. I wanted a solution that blocks ads over my entire network. AdGuard is a free and open-source privacy blocker that blocks ads, trackers, and malware. There are many options to filter ads, trackers, and malware:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DNS Blocklist :- Below is Blocklist which i am using:
+&lt;ul&gt;
+&lt;li&gt;AdGuard DNS filter :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt"&gt;https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AdAway Default Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt"&gt;https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HaGeZi&amp;rsquo;s Pro Blocklist :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt"&gt;https://adguardteam.github.io/HostlistsRegistry/assets/filter_48.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;OISD Blocklist Big :- &lt;a href="https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt"&gt;https://adguardteam.github.io/HostlistsRegistry/assets/filter_27.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Easylist :- &lt;a href="https://easylist.to/easylist/easylist.txt"&gt;https://easylist.to/easylist/easylist.txt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;uBlock Filter :- &lt;a href="https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"&gt;https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DNS Allowlist&lt;/li&gt;
+&lt;li&gt;DNS Rewrite&lt;/li&gt;
+&lt;li&gt;Blocked Services&lt;/li&gt;
+&lt;li&gt;Custom Filterling Rules&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This list is easy to maintain if there are any updates to the block list. It can be updated with just one click.&lt;/p&gt;
+&lt;p&gt;I have configured my router to use the Raspberry Pi as the primary DNS server, allowing me to extend AdGuard&amp;rsquo;s protection to all devices on my network. This way, every device benefits from an ad-free and secure browsing experience.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Now it&amp;rsquo;s time for the best part, setting up Movies and TV Show streaming over the network. I&amp;rsquo;m using Torrents to download movies and TV shows.&lt;/p&gt;
+&lt;p&gt;For this setup, a group of applications are deployed and interconnected. First, I&amp;rsquo;ll provide information about each application, and then I&amp;rsquo;ll explain how to set it up.&lt;/p&gt;
+&lt;h3 id="jackett"&gt;Jackett&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://github.com/Jackett/Jackett"&gt;Jackett&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/Jackett/Jackett"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;torrent&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Jackett is an open-source application that acts as a middleman between your favorite torrent downloader and various torrent indexing websites. It allows you to search across a vast array of indexing sites from a single, user-friendly interface. Jackett seamlessly integrates with popular torrent downloaders like Sonarr, Radarr, qBittorrent, and many more, eliminating the need to configure individual search settings for each downloader.&lt;/p&gt;
+&lt;p&gt;Jackett acts as a proxy server. When anyone initiates a search through your compatible downloader, Jackett translates the request into a format understandable by the specific torrent indexing site. It then fetches the results, parses them, and delivers them back to your downloader in a standardized format.&lt;/p&gt;
+&lt;p&gt;I mostly use the following indexers for searching torrents:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;YTS :- &lt;a href="https://yts.mx/"&gt;https://yts.mx/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TheRARBG :- &lt;a href="https://therarbg.to/"&gt;https://therarbg.to/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/strong&gt;: It&amp;rsquo;s important to remember that Jackett itself is a legal tool. However, the legality of the content you download using Jackett depends on the copyright laws in your region and the specific content itself. Always ensure you&amp;rsquo;re downloading content that is legally available in your area.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="radarr"&gt;Radarr&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://radarr.video/"&gt;Radarr&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/Radarr/Radarr"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;torrent&lt;/td&gt;
+&lt;td&gt;Sonarr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If you&amp;rsquo;re a movie buff who relies on BitTorrent to build your collection, then Radarr is your new best friend. This open-source software automates the process of finding, downloading, and organizing your movie library and keeps your collection up-to-date. Tell Radarr which movies you want (and in what quality), and it scours the web using your Jackett indexers. Once it finds a match, Radarr automatically downloads the movie for you. You can add upcoming movies to Radarr&amp;rsquo;s watchlist, and it will automatically download them on their release date or whenever they become available on your chosen indexers.&lt;/p&gt;
+&lt;h3 id="plex"&gt;Plex&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://www.plex.tv/"&gt;Plex&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/plexinc/pms-docker"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;torrent&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Plex is a media server application that lets you stream your own collection of movies, TV shows, music, and photos to various devices. It&amp;rsquo;s like a personal streaming service, but with complete control over your content and how you access it. Plex centralizes your media collection, offers flexible streaming options, and provides a user-friendly interface for various devices. Add your movies, TV shows, music, and photos to a server (computer, NAS) running the Plex Media Server software. Then, access that content from any Plex app on various devices like smartphones, tablets, smart TVs, game consoles, and even streaming devices.&lt;/p&gt;
+&lt;h3 id="overseerr"&gt;Overseerr&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://overseerr.dev/"&gt;Overseerr&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/sct/overseerr"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;torrent&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Overseerr is an open-source software application designed to simplify Movie and TV show requests within your Plex media server setup. It integrates seamlessly with Plex, Sonarr (for TV shows), and Radarr (for movies), creating a centralized hub for managing user requests. It provides a user-friendly interface for your Plex users to request movies and TV shows they&amp;rsquo;d like to see added to your library. They can browse through suggestions, search for specific titles, and submit requests with a few clicks.&lt;/p&gt;
+&lt;h3 id="transmission"&gt;Transmission&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://transmissionbt.com/"&gt;Transmission&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/transmission/transmission"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;torrent&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Transmission is an open-source BitTorrent client, known for its simplicity, speed, and cross-platform compatibility. It allows us to download files from the BitTorrent network, a decentralized peer-to-peer file-sharing system.&lt;/p&gt;
+&lt;h2 id="working-of-streaming-setup"&gt;Working of Streaming Setup&lt;/h2&gt;
+&lt;p&gt;After reviewing the information about all the components I used, let&amp;rsquo;s delve into their connectivity.&lt;/p&gt;
+&lt;img src="https://ik.imagekit.io/ruship/RPi-Home-Server/streaming-setup.svg" alt="pat api" class="center" style="border-radius: 8px;" /&gt;
+&lt;ul&gt;
+&lt;li&gt;Movie or TV show requests will come to Radarr with parameters like quality, tags, etc.&lt;/li&gt;
+&lt;li&gt;Radarr will search for the Movie/TV show using the Jackett torrent indexer and fetch torrent information.&lt;/li&gt;
+&lt;li&gt;Once Radarr obtains the torrent information, it sends it to Transmission for downloading and monitors the torrent&amp;rsquo;s download progress.&lt;/li&gt;
+&lt;li&gt;After Transmission completes the download, it saves the content to a specific path.&lt;/li&gt;
+&lt;li&gt;Radarr then moves the downloaded content to the Plex content directory.&lt;/li&gt;
+&lt;li&gt;The content is now accessible on Plex for streaming.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Sometimes, certain TV shows will not be downloaded through Radarr; in such cases, use Sonarr.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;To securely access my home network over the internet, I am using VPN.&lt;/p&gt;
+&lt;p&gt;Initially, I set up the WireGuard VPN with DDNS. However, due to my ISP&amp;rsquo;s use of &lt;a href="https://en.wikipedia.org/wiki/Carrier-grade_NAT"&gt;CGNAT&lt;/a&gt;, I was unable to access the internet.&lt;/p&gt;
+&lt;p&gt;Then, I learned about Tailscale from a friend.&lt;/p&gt;
+&lt;h3 id="tailscale"&gt;Tailscale&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Website&lt;/th&gt;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Similar Apps&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href="https://tailscale.com/"&gt;Tailscale&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href="https://github.com/tailscale/tailscale"&gt;GitHub&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;VPN&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Tailscale is a peer-to-peer VPN service designed to make your devices and applications accessible securely from anywhere in the world. It also utilizes WireGuard VPN in the backend. Tailscale employs a mesh network approach to connect multiple devices, allowing up to 100 devices in the free tier. It is available on all platforms, making device connectivity seamless. Additionally, Tailscale offers useful features such as inviting members to access your network and sharing specific devices.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;As I continue to refine my Raspberry Pi Home Server setup, I&amp;rsquo;m considering changing the streaming components by replacing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plex =&amp;gt; &lt;a href="https://github.com/jellyfin/jellyfin"&gt;Jellyfin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Overseerr =&amp;gt; &lt;a href="https://github.com/Fallenbagel/jellyseerr"&gt;Jellyseer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With only 2 GB of RAM, running all these services simultaneously can be challenging. As a result, I&amp;rsquo;ve opted not to run more resource-intensive services like Immich continuously. Instead, I activate this service when I need to periodically back up my data.&lt;/p&gt;
+&lt;p&gt;Looking ahead, I&amp;rsquo;m contemplating upgrading my Raspberry Pi to a Raspberry Pi 5 with 8 GB of RAM and attaching an SSD to it. This upgrade would provide more power and storage capacity, allowing for smoother operation and greater flexibility in running multiple services concurrently.&lt;/p&gt;
+&lt;p&gt;This concludes my setup for the Raspberry Pi Home Server. Any changes or additional components will be detailed in future posts.&lt;/p&gt;</content></item><item><title>Personal Access Token (PAT)</title><link>/posts/personal-access-token/</link><pubDate>Mon, 06 May 2024 14:32:34 +0530</pubDate><guid>/posts/personal-access-token/</guid><description>&lt;p&gt;I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p&gt;
+&lt;p&gt;For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p&gt;
+&lt;p&gt;This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p&gt;</description><content>&lt;p&gt;I always had a question about how the Personal Access Token works and how it&amp;rsquo;s generated and managed. In this blog, I will cover how to create your own PAT (Personal Access Token) system.&lt;/p&gt;
+&lt;p&gt;For years, logging in to things online relied on usernames and passwords. But sometimes passwords can be a pain! They&amp;rsquo;re easy to forget and even harder to keep truly secure.&lt;/p&gt;
+&lt;p&gt;This is where Personal Access Tokens (PATs) come in. They&amp;rsquo;re a new way to log in to apps and services, and they offer some big advantages over passwords.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s why passwords can be frustrating:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Leaky: Hackers can steal passwords in all sorts of ways, leaving your accounts vulnerable.&lt;/li&gt;
+&lt;li&gt;Forgettable: Who remembers dozens of complex passwords? We all reuse passwords, which is a security risk.&lt;/li&gt;
+&lt;li&gt;Inflexible: Passwords are all-or-nothing. You either have access or you don&amp;rsquo;t.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PATs aim to solve this problems by offering a more secure and flexible way to log in.&lt;/p&gt;
+&lt;h2 id="what-are-pats"&gt;What are PATs?&lt;/h2&gt;
+&lt;p&gt;Personal Access Tokens (PATs) are &lt;strong&gt;&lt;em&gt;long strings of random characters&lt;/em&gt;&lt;/strong&gt; that act as digital credentials, enabling secure access to resources without the need for a password. These tokens are generated and managed by the user, granting them granular control over the scope of access granted to each PAT.&lt;/p&gt;
+&lt;p&gt;These tokens are stored in a database, and their validity is checked by performing a database lookup. But in this blog, I will also explain alternate approaches to checking the validity of a token. To revoke a token, you can simply delete it from the database. Once the token has been revoked, it can no longer be used.&lt;/p&gt;
+&lt;p&gt;PATs also called as &lt;strong&gt;&lt;em&gt;Opaque Access Tokens (OATs)&lt;/em&gt;&lt;/strong&gt; in OAuth 2.0.&lt;/p&gt;
+&lt;p&gt;You can check this &lt;strong&gt;&lt;em&gt;&lt;a href="https://www.ory.sh/docs/oauth2-oidc/jwt-access-token#opaque-access-tokens-versus-jwt"&gt;ORY documentation&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt; to learn more about PATs.&lt;/p&gt;
+&lt;p&gt;example of a PAT:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In above PAT on is divided in two segments with dot operator (.) on left side of dot operator is 32-byte random string with base64 encoding and on right side of dot operator we have cryptographic signature with base64 encoding which generated from 32-byte random string.&lt;/p&gt;
+&lt;h3 id="advantages-and-characteristics"&gt;Advantages and Characteristics&lt;/h3&gt;
+&lt;p&gt;PAT offers several distinct advantages over traditional passwords:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enhanced Security: PATs can be granted specific permissions, limiting the potential damage if compromised.&lt;/li&gt;
+&lt;li&gt;Flexibility: PATs can be tailored to specific tasks or applications, enabling precise control over access privileges.&lt;/li&gt;
+&lt;li&gt;Third-party Integration: PAT facilitates secure integration with third-party tools and applications, eliminating the need to share passwords.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PATs are characterized by several key features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unique Generation: Each PAT is a unique string of characters, preventing unauthorized access.&lt;/li&gt;
+&lt;li&gt;Granular Permission: PATs can be granted specific permissions, limiting their scope of access.&lt;/li&gt;
+&lt;li&gt;Revocability: PATs can be revoked at any time, effectively disabling them in cases of compromise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="working--implementation"&gt;Working &amp;amp; Implementation&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s first understand the how token is formed.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;org_at_QlANllvSYMuPiEw_f0K_GrKW05PGRc29w7V5HZ4434.N0_lECUd927GnG71eEKq1D7p8UagEj4xdf8ivvge5QhjJZcL99HBWvYjkEK8eUaheUfBFYN0tbIqcdafarsZXA
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the above PAT, it is divided into two segments with a dot operator (.). On the left side of the dot operator is a 32-byte random string with base64 encoding, and on the right side of the dot operator, we have a cryptographic signature with base64 encoding, which is generated from a 32-byte random string.&lt;/p&gt;
+&lt;p&gt;At the start, I have appended the &lt;code&gt;org_at_&lt;/code&gt; prefix to the token to identify the organization and token type like here &lt;code&gt;_at_&lt;/code&gt; is stands for &lt;code&gt;Access Token&lt;/code&gt;. It is not mandatory; you can skip this.&lt;/p&gt;
+&lt;h3 id="working-overview"&gt;Working Overview&lt;/h3&gt;
+&lt;img src="https://ik.imagekit.io/ruship/PAT/pat.png" alt="pat api" class="center" style="border-radius: 8px;" /&gt;
+&lt;ul&gt;
+&lt;li&gt;The app will request a PAT with scopes.&lt;/li&gt;
+&lt;li&gt;PAT Generation will do below:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Generate&lt;/strong&gt;: This will generate a token with a random string and sign that token with a cryptographic algorithm, which is HMAC&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;. It will then store the token&amp;rsquo;s name, signature, scope, granted scope against the user ID.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verify&lt;/strong&gt;: Verification will decode the token and again generate the HMAC&lt;sup id="fnref1:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; with the decoded token (left side of the dot) with the signing key. Then it will compare both HMACs&lt;sup id="fnref2:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;; if they are equal, the token is not tampered. If the token is not tampered, it should check in the database if a signature entry exists.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Revoke&lt;/strong&gt;: To revoke a token, we need to delete the token from the database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Database is used to store the token related information.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As we have seen above, for validating/checking if the token is valid, we have to perform a database lookup. Let&amp;rsquo;s examine the database schema for Personal Access Tokens.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;PAT Table&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;token_id&lt;/th&gt;
+&lt;th&gt;user_id&lt;/th&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;signature&lt;/th&gt;
+&lt;th&gt;scope&lt;/th&gt;
+&lt;th&gt;granted_scope&lt;/th&gt;
+&lt;th&gt;active&lt;/th&gt;
+&lt;th&gt;created_at&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;efaeb2c2-8654-4b83-a254-1ab1296614b2&lt;/td&gt;
+&lt;td&gt;6c1acbd1-602b-4235&lt;/td&gt;
+&lt;td&gt;token-name&lt;/td&gt;
+&lt;td&gt;N0_lECUd927GnG71eEKq1&amp;hellip;&lt;/td&gt;
+&lt;td&gt;email name&lt;/td&gt;
+&lt;td&gt;email&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2024-01-24 12:09:22&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="769524831" type="checkbox" /&gt;
+&lt;label for="769524831"&gt;
+&lt;span class="collapsable-code__language"&gt;sql&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;user token table&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-sql" &gt;&lt;code&gt;
 CREATE TABLE user_tokens (
 token_id VARCHAR(36) NOT NULL,
 user_id VARCHAR(36) NOT NULL,
@@ -435,141 +440,141 @@ UNIQUE KEY unique_token (signature) USING BTREE,
 KEY user_id_index (user_id) USING BTREE,
 KEY name_index (name) USING BTREE
 );
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h4 id="pat-generation">PAT Generation&lt;/h4>
-&lt;p>Generation of PAT using HMAC&lt;sup id="fnref3:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>We require 32-byte long secret. We can use one global secret or rotated secret. This secret will be used as signing key in HMAC&lt;sup id="fnref4:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>We can take input for how long token key should be if it is not defined default should be 32-byte.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Using above token entropy, we can generate random bytes of specified length.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>By given token key and signature key we can generate HMAC&lt;sup id="fnref5:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>In HMAC, we can use sha512 or sha256. Using one them, create hash for token key (which is data) and hash key as signature key.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>With above HMAC process, we get signature. We create base64 for signature and random bytes.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Concatenate above both base64 with dot operator as separator. Example &lt;code>token_base64.signature_base64&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.&lt;/p>
-&lt;h5 id="implementation">Implementation&lt;/h5>
-&lt;p>&lt;strong>&lt;em>main.go&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Setting the token entropy to 32-byte for generating random bytes.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Creating context for managing cancellation signals and deadlines across API boundaries.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Generate function generates and encoded token and signature for provided context(request).&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Validate function verifies provided token and signature.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=main.go">&lt;/script>
-&lt;p>&lt;strong>&lt;em>Generate function&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Create a signing key array with a length of 32 bytes and copy the secret into it.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Generate random bytes array of length equal to entropy.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Generate an HMAC signature using the generated random string and the signing key.&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Create a new hasher using SHA512/256.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create a new HMAC instance using the hasher and the provided key.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Write the data into the HMAC.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Sum the HMAC and return the result.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Encode the signature using base64.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Store it in Database for later validation of token.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Concatenate the base64-encoded random string and the encoded signature with a dot.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Return the encoded token, encoded signature, and nil error.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=generateFunction.go">&lt;/script>
-&lt;p>&lt;strong>&lt;em>Validate function&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Decode the base64-encoded token and signature.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Generate the HMAC signature using the decoded token and the signing key.&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Create a new hasher using SHA512/256.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Create a new HMAC instance using the hasher and the provided key.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Write the data into the HMAC.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Sum the HMAC and return the result.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>Encode the signature using base64.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Compare the generated HMAC signature with the encoded signature.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=validateFunction.go">&lt;/script>
-&lt;p>Check out full &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-pat-go">code here&lt;/a>.&lt;/p>
-&lt;h4 id="pat-generation-with-timestamp-including-token-expiry">PAT Generation with Timestamp (including Token Expiry)&lt;/h4>
-&lt;p>PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>We will create a base64 encoded string with generated random bytes and timestamp with a &lt;code>~&lt;/code> sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p>
-&lt;p>This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="896417352" type="checkbox" />
-&lt;label for="896417352">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">timestamp logic&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id="pat-generation"&gt;PAT Generation&lt;/h4&gt;
+&lt;p&gt;Generation of PAT using HMAC&lt;sup id="fnref3:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We require 32-byte long secret. We can use one global secret or rotated secret. This secret will be used as signing key in HMAC&lt;sup id="fnref4:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We can take input for how long token key should be if it is not defined default should be 32-byte.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Using above token entropy, we can generate random bytes of specified length.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;By given token key and signature key we can generate HMAC&lt;sup id="fnref5:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In HMAC, we can use sha512 or sha256. Using one them, create hash for token key (which is data) and hash key as signature key.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With above HMAC process, we get signature. We create base64 for signature and random bytes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Concatenate above both base64 with dot operator as separator. Example &lt;code&gt;token_base64.signature_base64&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you are storing the token in the database, store its signature along with whatever data you want to store in the DB.&lt;/p&gt;
+&lt;h5 id="implementation"&gt;Implementation&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;main.go&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Setting the token entropy to 32-byte for generating random bytes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Creating context for managing cancellation signals and deadlines across API boundaries.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate function generates and encoded token and signature for provided context(request).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Validate function verifies provided token and signature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=main.go"&gt;&lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Generate function&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a signing key array with a length of 32 bytes and copy the secret into it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate random bytes array of length equal to entropy.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate an HMAC signature using the generated random string and the signing key.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new hasher using SHA512/256.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new HMAC instance using the hasher and the provided key.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Write the data into the HMAC.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sum the HMAC and return the result.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Encode the signature using base64.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Store it in Database for later validation of token.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Concatenate the base64-encoded random string and the encoded signature with a dot.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Return the encoded token, encoded signature, and nil error.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=generateFunction.go"&gt;&lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Validate function&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Decode the base64-encoded token and signature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generate the HMAC signature using the decoded token and the signing key.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new hasher using SHA512/256.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new HMAC instance using the hasher and the provided key.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Write the data into the HMAC.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Sum the HMAC and return the result.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Encode the signature using base64.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Compare the generated HMAC signature with the encoded signature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script src="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50.js?file=validateFunction.go"&gt;&lt;/script&gt;
+&lt;p&gt;Check out full &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-pat-go"&gt;code here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id="pat-generation-with-timestamp-including-token-expiry"&gt;PAT Generation with Timestamp (including Token Expiry)&lt;/h4&gt;
+&lt;p&gt;PAT generation remains similar to the process described above, with the addition of token expiry for enhanced security.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We will generate a timestamp and append it with the token key with an expiry of 5 minutes. This will be used to check if the token is expired or not. Token expiry is crucial for security reasons, as it limits the window of opportunity for potential attackers to misuse a stolen token.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We will create a base64 encoded string with generated random bytes and timestamp with a &lt;code&gt;~&lt;/code&gt; sign as a separator. We are adding a separator so it will be easy to find the timestamp at the time of decoding/verification.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By incorporating token expiry into the generation process, we ensure that tokens have a limited lifespan, reducing the risk of unauthorized access if a token is compromised.&lt;/p&gt;
+&lt;p&gt;This addition enhances the security of our token-based authentication system, complementing the cryptographic measures already in place.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="496153287" type="checkbox" /&gt;
+&lt;label for="496153287"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;timestamp logic&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // generate 32-byte random string
 tokenKey, err := RandomBytes(entropy)
 if err != nil {
@@ -584,28 +589,28 @@ tokenContent := fmt.Sprintf(&amp;#34;%s~%s&amp;#34;, b64.EncodeToString(tokenKey
 signature := generateHMAC(ctx, []byte(tokenContent), &amp;amp;signingKey)
 encodingSignature := b64.EncodeToString(signature)
 encodedToken := fmt.Sprintf(&amp;#34;%s.%s&amp;#34;, tokenContent, encodingSignature)
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>An example of token with a timestamp:
-&lt;code>b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code>&lt;/p>
-&lt;p>In the above example, the &lt;code>~&lt;/code> separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p>
-&lt;p>By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.&lt;/p>
-&lt;h5 id="pat-verification">PAT Verification&lt;/h5>
-&lt;p>At time of verification we will:&lt;/p>
-&lt;ul>
-&lt;li>Split the tokenKey with &lt;code>~&lt;/code> and decode it.&lt;/li>
-&lt;li>Decode random bytes and timestamp.&lt;/li>
-&lt;li>Generate HMAC similar to what we did in generation.&lt;/li>
-&lt;li>Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code>tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;div class="collapsable-code">
-&lt;input id="952741836" type="checkbox" />
-&lt;label for="952741836">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">timestamp validation&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;An example of token with a timestamp:
+&lt;code&gt;b-vKxoHTHh5ELdIDeGy4wppKcRb6m4LCZJETAUTjyGw~MTI1Nzg5NDMwMA.MS4upZ9Fr-XhcLriQbt7Q0-ZC6HTPWp4kqG5h8xEJDg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In the above example, the &lt;code&gt;~&lt;/code&gt; separator denotes the timestamp, ensuring easy extraction during token verification. The inclusion of token expiry adds an additional layer of security to our authentication system, safeguarding against potential threats.&lt;/p&gt;
+&lt;p&gt;By implementing token expiry, we ensure that even if a token is intercepted, its usefulness is limited, mitigating the risk of unauthorized access and enhancing overall system security.&lt;/p&gt;
+&lt;h5 id="pat-verification"&gt;PAT Verification&lt;/h5&gt;
+&lt;p&gt;At time of verification we will:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Split the tokenKey with &lt;code&gt;~&lt;/code&gt; and decode it.&lt;/li&gt;
+&lt;li&gt;Decode random bytes and timestamp.&lt;/li&gt;
+&lt;li&gt;Generate HMAC similar to what we did in generation.&lt;/li&gt;
+&lt;li&gt;Check token expiration using the timestamp from the token and current timestamp. And check if it is less than the current timestamp so it is expired. &lt;code&gt;tokenTimestamp &amp;lt; time.Now().Unix()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="769214853" type="checkbox" /&gt;
+&lt;label for="769214853"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;timestamp validation&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 contentSplit := strings.Split(tokenKey, &amp;#34;~&amp;#34;)
 // Extract timestamp from the token content
 if len(contentSplit) != 2 {
@@ -634,90 +639,90 @@ if tokenTimestamp &amp;lt; time.Now().Unix() || isRevoked(tokenSignature) {
 // c.updateActiveFlag(tokenSignature, 0)
 return fmt.Errorf(&amp;#34;Token expired&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Check the full code for PAT with time expiry &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go">here&lt;/a>.&lt;/p>
-&lt;hr>
-&lt;p>This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/">ORY&amp;rsquo;s&lt;/a> OpenSource community and their &lt;a href="https://github.com/ory/fosite">Fosite&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p>
-&lt;p>OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&amp;rsquo;s Fosite project for more details for only token part of &lt;a href="https://github.com/ory/fosite/tree/master/token/hmac">Fosite here&lt;/a>.&lt;/p>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>HMAC: &lt;a href="https://www.okta.com/identity-101/hmac/">https://www.okta.com/identity-101/hmac/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref3:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref4:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref5:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Fosite: &lt;a href="https://github.com/ory/fosite">https://github.com/ory/fosite&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></content></item><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
-&lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p></description><content>&lt;p>After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium">hugo-to-medium&lt;/a> by &lt;a href="https://github.com/pr4k">Prakhar Kaushik&lt;/a>.&lt;/p>
-&lt;p>This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/">shortcodes&lt;/a> to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p>
-&lt;ul>
-&lt;li>Select and replace shortcodes using regex.&lt;/li>
-&lt;li>Remove the frontmatter of YAML, TOML, or JSON formats from the post.&lt;/li>
-&lt;li>Extract the title and tag from the frontmatter.&lt;/li>
-&lt;li>Support both Markdown and Hugo Markdown formats.&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;p>&lt;strong>TL;DR&lt;/strong>: If you want to start creating a GitHub action without a backstory, head over to the &lt;a href="/posts/create-github-action/#creating-a-github-action">Creating a GitHub Action&lt;/a> section.&lt;/p>
-&lt;hr>
-&lt;p>While I was researching on how to create my own or custom GitHub actions, I started with the GitHub &lt;a href="https://docs.github.com/en/actions/creating-actions">documentation&lt;/a> - it was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>&lt;em>Docker container action&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>It packages the entire environment needed for GitHub Actions.&lt;/li>
-&lt;li>They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.&lt;/li>
-&lt;li>This packaging approach ensures consistency and reliability because the consumers of your action don&amp;rsquo;t need to worry about installing the necessary tools or dependencies themselves.&lt;/li>
-&lt;li>It tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.&lt;/li>
-&lt;li>It can only execute on a Linux based operating system. If you&amp;rsquo;re using self-hosted runners&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, they must also be running a Linux based operating system and have Docker installed to execute Docker container actions.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>&lt;em>JavaScript action&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>It runs directly on the runner&lt;sup id="fnref1:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> machine.&lt;/li>
-&lt;li>These actions separate your action&amp;rsquo;s code from the environment used to run that code.&lt;/li>
-&lt;li>It ensure compatibility with all GitHub-hosted runners&lt;sup id="fnref2:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> (including Ubuntu, Windows, and macOS).&lt;/li>
-&lt;li>It uses pure JavaScript and existing runner binaries.&lt;/li>
-&lt;li>GitHub Actions Toolkit offers Node.js packages for faster development.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>&lt;em>Composite action&lt;/em>&lt;/strong>:&lt;/p>
-&lt;ul>
-&lt;li>Composite actions combine multiple workflow steps into one action.&lt;/li>
-&lt;li>Say you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.&lt;/li>
-&lt;li>It simplifies workflows by creating reusable actions.&lt;/li>
-&lt;li>Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.&lt;/li>
-&lt;li>It is great for organizing complex workflows efficiently.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Before we start, let&amp;rsquo;s check what mistakes I have made so you can avoid these mistakes.&lt;/p>
-&lt;h2 id="mistakes-were-made">Mistakes were made&lt;/h2>
-&lt;img src="https://media.tenor.com/uWx_Y53J7gEAAAAC/arrested-development-huge-mistake.gif" alt="mistake" class="center" style="border-radius: 8px; width: 420px; height: 230px;" />
-&lt;p>Be clear about what you want to achieve. When I read the documentation, I was not clear about which action type I should use. I thought &lt;code>composite action&lt;/code> would be the perfect option for me. Let me explain why.&lt;/p>
-&lt;p>I am thinking it will be straight forward that:&lt;/p>
-&lt;ul>
-&lt;li>I will write code or logic in &lt;a href="https://go.dev">Go&lt;/a>&lt;/li>
-&lt;li>Build the program binary with the Linux AMD64 option.&lt;/li>
-&lt;li>At the time of release, add it to the Assets of GitHub Releases.&lt;/li>
-&lt;li>When action runs, it will fetch a binary from assets.&lt;/li>
-&lt;li>Using that binary, I will pass the required arguments.&lt;/li>
-&lt;li>The program will handle everything and post content to Medium.&lt;/li>
-&lt;/ul>
-&lt;p>But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code>action.yml&lt;/code> with &lt;code>composite action&lt;/code> and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p>
-&lt;p>As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code>Go action&lt;/code> step, which will directly install &lt;code>Go&lt;/code> in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="345678192" type="checkbox" />
-&lt;label for="345678192">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__title">action.yml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Check the full code for PAT with time expiry &lt;a href="https://gist.github.com/imrushi/7c5b97e460bbd6c0165852e903498a50#file-patwithtimestamp-go"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This research took lot of time, I am happy to share it with you. I&amp;rsquo;d like to extend my gratitude to &lt;a href="https://www.ory.sh/"&gt;ORY&amp;rsquo;s&lt;/a&gt; OpenSource community and their &lt;a href="https://github.com/ory/fosite"&gt;Fosite&lt;/a&gt;&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt; project, from which I was able to learn about the generation and validation of Opaque Access Tokens.&lt;/p&gt;
+&lt;p&gt;OAuth 2 Opaque Access Tokens are also generated in same way as described above. You check out ORY&amp;rsquo;s Fosite project for more details for only token part of &lt;a href="https://github.com/ory/fosite/tree/master/token/hmac"&gt;Fosite here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;HMAC: &lt;a href="https://www.okta.com/identity-101/hmac/"&gt;https://www.okta.com/identity-101/hmac/&lt;/a&gt;&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref3:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref4:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref5:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Fosite: &lt;a href="https://github.com/ory/fosite"&gt;https://github.com/ory/fosite&lt;/a&gt;&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content></item><item><title>Automate with Precision: Building Custom GitHub Actions</title><link>/posts/create-github-action/</link><pubDate>Wed, 11 Oct 2023 11:10:47 +0530</pubDate><guid>/posts/create-github-action/</guid><description>&lt;p&gt;After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium"&gt;hugo-to-medium&lt;/a&gt; by &lt;a href="https://github.com/pr4k"&gt;Prakhar Kaushik&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/"&gt;shortcodes&lt;/a&gt; to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p&gt;</description><content>&lt;p&gt;After writing my Go Dash blog, I got an idea of whether I could push the same blog to Medium. I started looking for ways to automate this thing. I checked on the GitHub Marketplace for actions that can push content to Medium directly. I found the GitHub action &lt;a href="https://github.com/pr4k/hugo-to-medium"&gt;hugo-to-medium&lt;/a&gt; by &lt;a href="https://github.com/pr4k"&gt;Prakhar Kaushik&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This GitHub action was good, but there were some issues. In Hugo, I mostly use &lt;a href="https://gohugo.io/content-management/shortcodes/"&gt;shortcodes&lt;/a&gt; to showcase the sample codes, figures, and images. Another one is that it doesn’t remove any shortcodes. There was no way for me to remove this from the publishing process. So this issue inspired me to create my own GitHub action, which allows to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Select and replace shortcodes using regex.&lt;/li&gt;
+&lt;li&gt;Remove the frontmatter of YAML, TOML, or JSON formats from the post.&lt;/li&gt;
+&lt;li&gt;Extract the title and tag from the frontmatter.&lt;/li&gt;
+&lt;li&gt;Support both Markdown and Hugo Markdown formats.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: If you want to start creating a GitHub action without a backstory, head over to the &lt;a href="/posts/create-github-action/#creating-a-github-action"&gt;Creating a GitHub Action&lt;/a&gt; section.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;While I was researching on how to create my own or custom GitHub actions, I started with the GitHub &lt;a href="https://docs.github.com/en/actions/creating-actions"&gt;documentation&lt;/a&gt; - it was straight-forward; there were a few steps, but there are three ways to create GitHub Actions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Docker container action&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It packages the entire environment needed for GitHub Actions.&lt;/li&gt;
+&lt;li&gt;They bundle not only your code but also the specific OS, dependencies, tools, and runtime environment.&lt;/li&gt;
+&lt;li&gt;This packaging approach ensures consistency and reliability because the consumers of your action don&amp;rsquo;t need to worry about installing the necessary tools or dependencies themselves.&lt;/li&gt;
+&lt;li&gt;It tends to be slower than JavaScript action due to the time it takes to build and retrieve the container.&lt;/li&gt;
+&lt;li&gt;It can only execute on a Linux based operating system. If you&amp;rsquo;re using self-hosted runners&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;, they must also be running a Linux based operating system and have Docker installed to execute Docker container actions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;JavaScript action&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It runs directly on the runner&lt;sup id="fnref1:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; machine.&lt;/li&gt;
+&lt;li&gt;These actions separate your action&amp;rsquo;s code from the environment used to run that code.&lt;/li&gt;
+&lt;li&gt;It ensure compatibility with all GitHub-hosted runners&lt;sup id="fnref2:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; (including Ubuntu, Windows, and macOS).&lt;/li&gt;
+&lt;li&gt;It uses pure JavaScript and existing runner binaries.&lt;/li&gt;
+&lt;li&gt;GitHub Actions Toolkit offers Node.js packages for faster development.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Composite action&lt;/em&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Composite actions combine multiple workflow steps into one action.&lt;/li&gt;
+&lt;li&gt;Say you have several run commands that you frequently use together in your workflows. With composite actions, you can bundle these commands into a single, well-defined action.&lt;/li&gt;
+&lt;li&gt;It simplifies workflows by creating reusable actions.&lt;/li&gt;
+&lt;li&gt;Using this composite action in your workflow makes your workflow configuration cleaner and more maintainable.&lt;/li&gt;
+&lt;li&gt;It is great for organizing complex workflows efficiently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Before we start, let&amp;rsquo;s check what mistakes I have made so you can avoid these mistakes.&lt;/p&gt;
+&lt;h2 id="mistakes-were-made"&gt;Mistakes were made&lt;/h2&gt;
+&lt;img src="https://media.tenor.com/uWx_Y53J7gEAAAAC/arrested-development-huge-mistake.gif" alt="mistake" class="center" style="border-radius: 8px; width: 420px; height: 230px;" /&gt;
+&lt;p&gt;Be clear about what you want to achieve. When I read the documentation, I was not clear about which action type I should use. I thought &lt;code&gt;composite action&lt;/code&gt; would be the perfect option for me. Let me explain why.&lt;/p&gt;
+&lt;p&gt;I am thinking it will be straight forward that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I will write code or logic in &lt;a href="https://go.dev"&gt;Go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Build the program binary with the Linux AMD64 option.&lt;/li&gt;
+&lt;li&gt;At the time of release, add it to the Assets of GitHub Releases.&lt;/li&gt;
+&lt;li&gt;When action runs, it will fetch a binary from assets.&lt;/li&gt;
+&lt;li&gt;Using that binary, I will pass the required arguments.&lt;/li&gt;
+&lt;li&gt;The program will handle everything and post content to Medium.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But when I have written everything for actions, The program is working as expected and passing unit test cases. I thought now I had to create &lt;code&gt;action.yml&lt;/code&gt; with &lt;code&gt;composite action&lt;/code&gt; and take all inputs and pass them to the binary. I am happy and excited to test it 😁.&lt;/p&gt;
+&lt;p&gt;As expected, it is not going to run on the first try. I got some errors; actions were not able to fetch the binary (I wrote a script for that). To solve this issue, I removed the script and placed the &lt;code&gt;Go action&lt;/code&gt; step, which will directly install &lt;code&gt;Go&lt;/code&gt; in the system. Then I can build a binary and execute it. It sounds simple, so the actions are as follows:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="632517849" type="checkbox" /&gt;
+&lt;label for="632517849"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;action.yml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 name: &amp;#34;Markdown Or Hugo To Medium&amp;#34;
 description: &amp;#34;Push hugo markdown post to medium&amp;#34;
 # declaring input variables for workflow
@@ -770,29 +775,29 @@ shell: bash
 branding:
 icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>This time, I thought everything looked good. But I was getting this error: &lt;code>FATA[2023-09-29T11:17:24Z] repository does not exist&lt;/code> - it was generated from binary; it was not able to find the &lt;code>.git&lt;/code> directory. I was using it to take the latest commit message.&lt;/p>
-&lt;p>The conclusion for me was that I was not going to use the &lt;code>composite actions&lt;/code>. Now I have two options:&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>JavaScript actions&lt;/code>&lt;/li>
-&lt;li>&lt;code>Docker actions&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>If I use &lt;code>JavaScript actions&lt;/code>, I will have to write my logic again in JavaScript, which I have written in &lt;code>Go&lt;/code>. So I decided to use &lt;code>Docker Action&lt;/code>, which was easy to implement.&lt;/p>
-&lt;p>Just need to write &lt;code>Dockerfile&lt;/code> and update &lt;code>action.yml&lt;/code>.&lt;/p>
-&lt;p>What I learn from this mistake is that I will have to do proper planning next time 🤞.&lt;/p>
-&lt;hr>
-&lt;p>Let&amp;rsquo;s check out how to create custom GitHub actions. In this, I am going to create &lt;code>Docker actions&lt;/code>, but action.yml will have an almost similar syntax.&lt;/p>
-&lt;h2 id="creating-a-github-action">Creating a GitHub Action&lt;/h2>
-&lt;p>As we are creating &lt;code>Docker actions&lt;/code>, we need to write a &lt;code>Dockerfile&lt;/code>. In your project root directory, create a new &lt;code>Dockerfile&lt;/code> file. Make sure that your filename is capitalized correctly. &lt;code>D&lt;/code> should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium">markdown-or-hugo-to-medium&lt;/a>.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="641259378" type="checkbox" />
-&lt;label for="641259378">
-&lt;span class="collapsable-code__language">docker&lt;/span>
-&lt;span class="collapsable-code__title">Dockerfile&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-docker" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This time, I thought everything looked good. But I was getting this error: &lt;code&gt;FATA[2023-09-29T11:17:24Z] repository does not exist&lt;/code&gt; - it was generated from binary; it was not able to find the &lt;code&gt;.git&lt;/code&gt; directory. I was using it to take the latest commit message.&lt;/p&gt;
+&lt;p&gt;The conclusion for me was that I was not going to use the &lt;code&gt;composite actions&lt;/code&gt;. Now I have two options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;JavaScript actions&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Docker actions&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If I use &lt;code&gt;JavaScript actions&lt;/code&gt;, I will have to write my logic again in JavaScript, which I have written in &lt;code&gt;Go&lt;/code&gt;. So I decided to use &lt;code&gt;Docker Action&lt;/code&gt;, which was easy to implement.&lt;/p&gt;
+&lt;p&gt;Just need to write &lt;code&gt;Dockerfile&lt;/code&gt; and update &lt;code&gt;action.yml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;What I learn from this mistake is that I will have to do proper planning next time 🤞.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Let&amp;rsquo;s check out how to create custom GitHub actions. In this, I am going to create &lt;code&gt;Docker actions&lt;/code&gt;, but action.yml will have an almost similar syntax.&lt;/p&gt;
+&lt;h2 id="creating-a-github-action"&gt;Creating a GitHub Action&lt;/h2&gt;
+&lt;p&gt;As we are creating &lt;code&gt;Docker actions&lt;/code&gt;, we need to write a &lt;code&gt;Dockerfile&lt;/code&gt;. In your project root directory, create a new &lt;code&gt;Dockerfile&lt;/code&gt; file. Make sure that your filename is capitalized correctly. &lt;code&gt;D&lt;/code&gt; should be capitalized, as shown above. We will be writing it for my &lt;a href="https://github.com/imrushi/markdown-or-hugo-to-medium"&gt;markdown-or-hugo-to-medium&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="159276438" type="checkbox" /&gt;
+&lt;label for="159276438"&gt;
+&lt;span class="collapsable-code__language"&gt;docker&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Dockerfile&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-docker" &gt;&lt;code&gt;
 FROM golang:1.21.1-alpine3.18
 RUN apk add git
 COPY . /home/src
@@ -800,48 +805,48 @@ WORKDIR /home/src
 RUN GOOS=linux GOARCH=amd64 go build -o HugoToMedium main.go
 RUN chmod &amp;#43;x HugoToMedium
 ENTRYPOINT [ &amp;#34;/home/src/HugoToMedium&amp;#34; ]
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>What is going on in the above Dockerfile:&lt;/p>
-&lt;ul>
-&lt;li>We are pulling golang:1.21.1 alpine image&lt;/li>
-&lt;li>Installing git because if a program is required&lt;/li>
-&lt;li>Copying all the required local files into the /home/src folder of the container&lt;/li>
-&lt;li>Changing Working Directory&lt;/li>
-&lt;li>In this golang:1.21.1 alpine image, golang is already installed. We will use that to build out a binary for the Linux OS with the AMD64 architecture.&lt;/li>
-&lt;li>Update the file permissions to execute.&lt;/li>
-&lt;li>After building the image, when it runs, it should directly run the binary, so we have added the ENTRYPOINT for that.&lt;/li>
-&lt;/ul>
-&lt;p>If you want to know more about the Dockerfile instructions for GitHub Action, check out this &lt;a href="https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions#about-dockerfile-instructions">Document&lt;/a>.&lt;/p>
-&lt;h2 id="creating-action-file">Creating Action File&lt;/h2>
-&lt;p>Create a new &lt;code>action.yml&lt;/code> file in the root directory of your project. This action file will contain what inputs we should get, what the output should be, and what it should run&lt;/p>
-&lt;p>There are 7 basic parameters:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>name&lt;/code>* : It will be used to display the name in the Actions tab.&lt;/li>
-&lt;li>&lt;code>author&lt;/code>: Name of the action&amp;rsquo;s author.&lt;/li>
-&lt;li>&lt;code>description&lt;/code>* : A short description of the action.&lt;/li>
-&lt;li>&lt;code>input&lt;/code>: It allows you to specify the data that the action expects to use during runtime.
-&lt;ul>
-&lt;li>&lt;code>input.&amp;lt;input_id&amp;gt;&lt;/code>* : A string identifier to associate with the input. It should be a unique identifier.&lt;/li>
-&lt;li>&lt;code>description&lt;/code>* : A string description of the input parameter.&lt;/li>
-&lt;li>&lt;code>required&lt;/code>: A boolean to indicate whether the action requires the input parameter.&lt;/li>
-&lt;li>&lt;code>default&lt;/code>: A string representing the default value.&lt;/li>
-&lt;li>&lt;code>deprecationMessage&lt;/code>: If the input parameter is used, this string is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>output&lt;/code>: It allows you to declare data that an action sets. Actions that run later in a workflow can use the output data set of previously run actions.&lt;/li>
-&lt;li>&lt;code>runs&lt;/code>*: It specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.&lt;/li>
-&lt;/ul>
-&lt;p>This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions">GitHub Docs&lt;/a>.&lt;/p>
-&lt;p>Below is a sample &lt;code>action.yml&lt;/code> for &lt;code>Docker actions&lt;/code>:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="128947635" type="checkbox" />
-&lt;label for="128947635">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__title">action.yml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;What is going on in the above Dockerfile:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;We are pulling golang:1.21.1 alpine image&lt;/li&gt;
+&lt;li&gt;Installing git because if a program is required&lt;/li&gt;
+&lt;li&gt;Copying all the required local files into the /home/src folder of the container&lt;/li&gt;
+&lt;li&gt;Changing Working Directory&lt;/li&gt;
+&lt;li&gt;In this golang:1.21.1 alpine image, golang is already installed. We will use that to build out a binary for the Linux OS with the AMD64 architecture.&lt;/li&gt;
+&lt;li&gt;Update the file permissions to execute.&lt;/li&gt;
+&lt;li&gt;After building the image, when it runs, it should directly run the binary, so we have added the ENTRYPOINT for that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to know more about the Dockerfile instructions for GitHub Action, check out this &lt;a href="https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actions#about-dockerfile-instructions"&gt;Document&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="creating-action-file"&gt;Creating Action File&lt;/h2&gt;
+&lt;p&gt;Create a new &lt;code&gt;action.yml&lt;/code&gt; file in the root directory of your project. This action file will contain what inputs we should get, what the output should be, and what it should run&lt;/p&gt;
+&lt;p&gt;There are 7 basic parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;* : It will be used to display the name in the Actions tab.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;author&lt;/code&gt;: Name of the action&amp;rsquo;s author.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;description&lt;/code&gt;* : A short description of the action.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;input&lt;/code&gt;: It allows you to specify the data that the action expects to use during runtime.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;input.&amp;lt;input_id&amp;gt;&lt;/code&gt;* : A string identifier to associate with the input. It should be a unique identifier.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;description&lt;/code&gt;* : A string description of the input parameter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;required&lt;/code&gt;: A boolean to indicate whether the action requires the input parameter.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;default&lt;/code&gt;: A string representing the default value.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;deprecationMessage&lt;/code&gt;: If the input parameter is used, this string is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;output&lt;/code&gt;: It allows you to declare data that an action sets. Actions that run later in a workflow can use the output data set of previously run actions.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;runs&lt;/code&gt;*: It specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is just an overview of the parameters; what are they? For more information, you can check out these parameters in detail on &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions"&gt;GitHub Docs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a sample &lt;code&gt;action.yml&lt;/code&gt; for &lt;code&gt;Docker actions&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="281976354" type="checkbox" /&gt;
+&lt;label for="281976354"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;action.yml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 name: &amp;#34;Markdown Or Hugo To Medium&amp;#34;
 description: &amp;#34;Push hugo markdown post to medium&amp;#34;
 # input variables for data that the action expects at runtime
@@ -879,57 +884,57 @@ args:
 branding:
 icon: &amp;#34;book-open&amp;#34;
 color: &amp;#34;blue&amp;#34;
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>In the above &lt;code>action.yml&lt;/code> file, I have specified &lt;code>name&lt;/code> which will be used to show in the Actions tab. On the next line, &lt;code>description&lt;/code> what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, &lt;code>markdown-or-hugo&lt;/code> has its own description of what the variable is or, along with whether this variable should be &lt;code>required&lt;/code> or optional, and also sets the &lt;code>default&lt;/code> value to it. The same is done for the other four inputs.&lt;/p>
-&lt;p>In the &lt;code>runs&lt;/code> section with &lt;code>using&lt;/code> parameter, we specify which type of actions we are using &lt;code>docker&lt;/code>, and we also have to configure which &lt;code>image&lt;/code> to use. If you specify &lt;code>Dockerfile&lt;/code> as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code>docker://image-name:tag&lt;/code>. If your program takes arguments, you can pass them with the &lt;code>args&lt;/code> parameter, and if you want to pass the above-taken input you can use &lt;code>${{ inputs.input_variable_name }}&lt;/code>.&lt;/p>
-&lt;p>I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="846237915" type="checkbox" />
-&lt;label for="846237915">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In the above &lt;code&gt;action.yml&lt;/code&gt; file, I have specified &lt;code&gt;name&lt;/code&gt; which will be used to show in the Actions tab. On the next line, &lt;code&gt;description&lt;/code&gt; what it does. I am taking five inputs, each of which starts with a variable name where the input will be stored. For instance, &lt;code&gt;markdown-or-hugo&lt;/code&gt; has its own description of what the variable is or, along with whether this variable should be &lt;code&gt;required&lt;/code&gt; or optional, and also sets the &lt;code&gt;default&lt;/code&gt; value to it. The same is done for the other four inputs.&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;runs&lt;/code&gt; section with &lt;code&gt;using&lt;/code&gt; parameter, we specify which type of actions we are using &lt;code&gt;docker&lt;/code&gt;, and we also have to configure which &lt;code&gt;image&lt;/code&gt; to use. If you specify &lt;code&gt;Dockerfile&lt;/code&gt; as a value, it will build a docker image and then use it. You can also directly use public Docker registry containers by specifying &lt;code&gt;docker://image-name:tag&lt;/code&gt;. If your program takes arguments, you can pass them with the &lt;code&gt;args&lt;/code&gt; parameter, and if you want to pass the above-taken input you can use &lt;code&gt;${{ inputs.input_variable_name }}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t want to store anything for the output variable. So, I haven&amp;rsquo;t used the output parameter, but if you want to show something you can do like this:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="259163478" type="checkbox" /&gt;
+&lt;label for="259163478"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 outputs:
 output_parameter:
 description: &amp;#39;This will show the output which will be set from container&amp;#39;
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="891645327" type="checkbox" />
-&lt;label for="891645327">
-&lt;span class="collapsable-code__language">bash&lt;/span>
-&lt;span class="collapsable-code__title">entrypoint.sh&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-bash" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Note that if we want to use this approach, we need to update the Dockerfile, and Entrypoint will be a shell script. From that shell script, we can set the output variable.&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="543681972" type="checkbox" /&gt;
+&lt;label for="543681972"&gt;
+&lt;span class="collapsable-code__language"&gt;bash&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;entrypoint.sh&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-bash" &gt;&lt;code&gt;
 #!/bin/sh
 # Run your Go program and set GITHUB_OUTPUT
 program_input=$(your_go_program)
 # Set the output variable
 echo &amp;#34;output_parameter=$program_input&amp;#34; &amp;gt;&amp;gt; $GITHUB_OUTPUT
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>You can check out more about the output &lt;a href="https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs">here&lt;/a>.&lt;/p>
-&lt;p>&lt;code>branding&lt;/code> uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons">here&lt;/a>.&lt;/p>
-&lt;p>Here you have written your first custom github action.&lt;/p>
-&lt;h2 id="testing-the-github-action">Testing the GitHub Action&lt;/h2>
-&lt;p>Before we publish our GitHub Action, we need to test it. It is strange that there is no way to test this GitHub action locally. I think GitHub should have provided something from which we can easily test this.&lt;/p>
-&lt;p>At the time of testing, I faced some problems and wasn&amp;rsquo;t able to understand the &lt;a href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow">testing document&lt;/a> properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.&lt;/p>
-&lt;p>There are two ways to test it:&lt;/p>
-&lt;ul>
-&lt;li>If your repository is public, you can test it by assigning &lt;code>uses&lt;/code> with &lt;code>&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code> in &lt;code>steps&lt;/code>. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code>.github/workflows/filename.yml&lt;/code>.&lt;/li>
-&lt;/ul>
-&lt;div class="collapsable-code">
-&lt;input id="165974283" type="checkbox" />
-&lt;label for="165974283">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You can check out more about the output &lt;a href="https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;branding&lt;/code&gt; uses icons and colors to create a badge to personalize and distinguish your action. Badges are shown next to your action name in the GitHub Marketplace. You can find the icon &lt;a href="https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#omitted-icons"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here you have written your first custom github action.&lt;/p&gt;
+&lt;h2 id="testing-the-github-action"&gt;Testing the GitHub Action&lt;/h2&gt;
+&lt;p&gt;Before we publish our GitHub Action, we need to test it. It is strange that there is no way to test this GitHub action locally. I think GitHub should have provided something from which we can easily test this.&lt;/p&gt;
+&lt;p&gt;At the time of testing, I faced some problems and wasn&amp;rsquo;t able to understand the &lt;a href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#testing-out-your-action-in-a-workflow"&gt;testing document&lt;/a&gt; properly. So I took the wrong way, published the action, and then tested it. Please avoid these mistakes.&lt;/p&gt;
+&lt;p&gt;There are two ways to test it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If your repository is public, you can test it by assigning &lt;code&gt;uses&lt;/code&gt; with &lt;code&gt;&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;@&amp;lt;branch-name&amp;gt;&lt;/code&gt; in &lt;code&gt;steps&lt;/code&gt;. With this method, you can test actions in other repositories as well. This workflow YAML should be located at &lt;code&gt;.github/workflows/filename.yml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="925781346" type="checkbox" /&gt;
+&lt;label for="925781346"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;.github/workflows/publish-medium.yml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 on: [push]
 jobs:
 hello_world_job:
@@ -945,19 +950,19 @@ shortcodes: &amp;#34;./shortcodes.json&amp;#34;
 replaceHyperlinkToLink: false
 frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;ul>
-&lt;li>Second way is to test it in the current repository, you can use &lt;code>./&lt;/code> in &lt;code>uses&lt;/code>. &lt;code>./&lt;/code> syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li>
-&lt;/ul>
-&lt;div class="collapsable-code">
-&lt;input id="235894176" type="checkbox" />
-&lt;label for="235894176">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__title">.github/workflows/publish-medium.yml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Second way is to test it in the current repository, you can use &lt;code&gt;./&lt;/code&gt; in &lt;code&gt;uses&lt;/code&gt;. &lt;code&gt;./&lt;/code&gt; syntax to use an action available in the same repository. This option will work on both public and private repositories.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="967482315" type="checkbox" /&gt;
+&lt;label for="967482315"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;.github/workflows/publish-medium.yml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 on: [push]
 jobs:
 hello_world_job:
@@ -973,48 +978,48 @@ shortcodes: &amp;#34;./shortcodes.json&amp;#34;
 replaceHyperlinkToLink: false
 frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h2 id="publishing-the-github-action">Publishing the GitHub Action&lt;/h2>
-&lt;p>As soon as our action has been tested, it&amp;rsquo;s time to publish it. Let&amp;rsquo;s see how we can do that.&lt;/p>
-&lt;p>To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>First, create a &lt;a href="https://git-scm.com/docs/git-tag">git tag&lt;/a> with the version as per &lt;a href="https://semver.org/">semver&lt;/a>. &lt;code>git tag -a v1.0.0 -m &amp;quot;release message&amp;quot;&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Push the tag to the GitHub repo. &lt;code>git push origin v1.0.0&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>On the GitHub repository, go to Releases -&amp;gt; Create/Draft a new release.&lt;/p>
-&lt;ul>
-&lt;li>Mark with ✔️ Publish this Action to the GitHub Marketplace.&lt;/li>
-&lt;li>It also shows if the required things are done or not.&lt;/li>
-&lt;li>Select the primary category and another category.&lt;/li>
-&lt;li>Choose a tag -&amp;gt; select v1.0.0&lt;/li>
-&lt;li>Give Release title -&amp;gt; v1.0.0&lt;/li>
-&lt;li>Provide Release Notes.&lt;/li>
-&lt;li>If you want to provide any assets, drag and drop in the box.&lt;/li>
-&lt;li>If your action is not production-ready, mark ✔️ Set as a pre-release.&lt;/li>
-&lt;li>✔️ Set as the latest release&lt;/li>
-&lt;li>If everything looks good, Hit the &lt;strong>Publish release&lt;/strong> button.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Congratulations! 🎉 Your action is now available on the GitHub Marketplace!&lt;/p>
-&lt;h2 id="how-to-use-the-github-action">How to Use the GitHub Action&lt;/h2>
-&lt;ul>
-&lt;li>Start by creating a workflow in the .github/workflows directory of your repository (or create the directory if it doesn&amp;rsquo;t exist).&lt;/li>
-&lt;li>Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li>
-&lt;/ul>
-&lt;div class="collapsable-code">
-&lt;input id="987643125" type="checkbox" />
-&lt;label for="987643125">
-&lt;span class="collapsable-code__language">yaml&lt;/span>
-&lt;span class="collapsable-code__title">main.yml&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-yaml" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id="publishing-the-github-action"&gt;Publishing the GitHub Action&lt;/h2&gt;
+&lt;p&gt;As soon as our action has been tested, it&amp;rsquo;s time to publish it. Let&amp;rsquo;s see how we can do that.&lt;/p&gt;
+&lt;p&gt;To publish GitHub Action to the GitHub Marketplace, your action repository should be public. Follow the below steps to make it public:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First, create a &lt;a href="https://git-scm.com/docs/git-tag"&gt;git tag&lt;/a&gt; with the version as per &lt;a href="https://semver.org/"&gt;semver&lt;/a&gt;. &lt;code&gt;git tag -a v1.0.0 -m &amp;quot;release message&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Push the tag to the GitHub repo. &lt;code&gt;git push origin v1.0.0&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the GitHub repository, go to Releases -&amp;gt; Create/Draft a new release.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mark with ✔️ Publish this Action to the GitHub Marketplace.&lt;/li&gt;
+&lt;li&gt;It also shows if the required things are done or not.&lt;/li&gt;
+&lt;li&gt;Select the primary category and another category.&lt;/li&gt;
+&lt;li&gt;Choose a tag -&amp;gt; select v1.0.0&lt;/li&gt;
+&lt;li&gt;Give Release title -&amp;gt; v1.0.0&lt;/li&gt;
+&lt;li&gt;Provide Release Notes.&lt;/li&gt;
+&lt;li&gt;If you want to provide any assets, drag and drop in the box.&lt;/li&gt;
+&lt;li&gt;If your action is not production-ready, mark ✔️ Set as a pre-release.&lt;/li&gt;
+&lt;li&gt;✔️ Set as the latest release&lt;/li&gt;
+&lt;li&gt;If everything looks good, Hit the &lt;strong&gt;Publish release&lt;/strong&gt; button.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Congratulations! 🎉 Your action is now available on the GitHub Marketplace!&lt;/p&gt;
+&lt;h2 id="how-to-use-the-github-action"&gt;How to Use the GitHub Action&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Start by creating a workflow in the .github/workflows directory of your repository (or create the directory if it doesn&amp;rsquo;t exist).&lt;/li&gt;
+&lt;li&gt;Create a YAML file (e.g., main.yml) to define your workflow. Here&amp;rsquo;s an example of a workflow that uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="967285143" type="checkbox" /&gt;
+&lt;label for="967285143"&gt;
+&lt;span class="collapsable-code__language"&gt;yaml&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;main.yml&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-yaml" &gt;&lt;code&gt;
 on:
 push:
 branches:
@@ -1038,99 +1043,99 @@ shortcodes: &amp;#34;./shortcodes.json&amp;#34;
 replaceHyperlinkToLink: false
 frontmatterFormat: &amp;#34;yaml&amp;#34;
 draft: true
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>This workflow is configured to run when changes are pushed to the main branch. It checks out your code, and then it uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action, passing the necessary inputs as specified in the with section.&lt;/p>
-&lt;ul>
-&lt;li>Commit this workflow YAML file to your repository.&lt;/li>
-&lt;li>Your workflow will now be automatically triggered when you push changes to the main branch.&lt;/li>
-&lt;/ul>
-&lt;p>That&amp;rsquo;s it! You&amp;rsquo;ve successfully created, published, and used your custom GitHub Action.&lt;/p>
-&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>In this blog post, we saw how to create a GitHub action using Docker containers. It covers how to prepare and use a Dockerfile and action.yml for GitHub actions.&lt;/p>
-&lt;p>This blog is about my experience, the mistakes I have made while creating my first GitHub action. I will be creating more GitHub actions for my use cases. You can check them out on my GitHub profile here.&lt;/p>
-&lt;p>I hope this blog will help you in making your first GitHub action. If you have any questions, please let me know in the comment section. If you find anything new in this blog, share it with others, and if you find any mistakes in it, please let me know and help me make it better. I will definitely fix it.&lt;/p>
-&lt;p>Thanks for reading! 😊&lt;/p>
-&lt;div class="footnotes" role="doc-endnotes">
-&lt;hr>
-&lt;ol>
-&lt;li id="fn:1">
-&lt;p>&amp;ldquo;Runner&amp;rdquo; refers to a virtual machine or container environment where your GitHub Action workflows are executed.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;/ol>
-&lt;/div></content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>&lt;hr>
-&lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
-&lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p></description><content>&lt;hr>
-&lt;p>If you have read my first blog &lt;a href="/posts/lets-go/">Let&amp;rsquo;s Go&lt;/a>, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/">notes&lt;/a>.&lt;/p>
-&lt;p>As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p>
-&lt;p>Let&amp;rsquo;s find the answer&amp;rsquo;s:&lt;/p>
-&lt;h2 id="history-of-go">History of Go&lt;/h2>
-&lt;p>The Google search engine experienced an issue back in 2007.&lt;/p>
-&lt;ul>
-&lt;li>Programs containing millions of lines of code needed to be maintained.&lt;/li>
-&lt;li>Before they could experiment with any new code changes, they had to compile the program, which took them about an hour at that time.&lt;/li>
-&lt;li>String processing is Google&amp;rsquo;s additional issue.&lt;/li>
-&lt;li>Numerous text files, or web pages, are read and analyzed by Google.&lt;/li>
-&lt;/ul>
-&lt;p>This was obviously not good for the developers because it made them less productive.&lt;/p>
-&lt;p>So Google engineers &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer&lt;/a>, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike&lt;/a>, and &lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson&lt;/a> sketched out some goals for a new language:&lt;/p>
-&lt;ul>
-&lt;li>Fast Compilation (Efficiency)&lt;/li>
-&lt;li>Less cumbersome code (Simplicity)&lt;/li>
-&lt;li>Unused memory freed automatically (Garbage Collection)&lt;/li>
-&lt;li>Easy-to-write software that does several operations simultaneously (Concurrency)&lt;/li>
-&lt;li>Good support for processor with multiple cores&lt;/li>
-&lt;/ul>
-&lt;p>After a couple years of work, Google had created Go: a language that was fast to write code and produced programs that were fast to compile and run. Google built a rich library of string functions into Go, Garbage Collecting makes strings in Go simple to think about, and efficient in ways some other string libraries are not. The project switched to an open source license in 2009. It’s now free for anyone to use.&lt;/p>
-&lt;p>If you&amp;rsquo;re developing a command-line tool in Go, you can generate executable files for Windows, MacOS, and Linux using the same source code. If you&amp;rsquo;re building a web server, Go can assist you in efficiently managing multiple simultaneous user connections. Regardless of your project&amp;rsquo;s nature, Go will aid you in making your code easier to maintain.&lt;/p>
-&lt;hr>
-&lt;p>Let&amp;rsquo;s start with syntax and clean code principles :&lt;/p>
-&lt;h2 id="go-file-layout">Go file layout&lt;/h2>
-&lt;p>Now let’s look at the code and figure out what it actually means…&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="185263947" type="checkbox" />
-&lt;label for="185263947">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Hello World&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This workflow is configured to run when changes are pushed to the main branch. It checks out your code, and then it uses the &amp;ldquo;Markdown Or Hugo To Medium&amp;rdquo; action, passing the necessary inputs as specified in the with section.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commit this workflow YAML file to your repository.&lt;/li&gt;
+&lt;li&gt;Your workflow will now be automatically triggered when you push changes to the main branch.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That&amp;rsquo;s it! You&amp;rsquo;ve successfully created, published, and used your custom GitHub Action.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In this blog post, we saw how to create a GitHub action using Docker containers. It covers how to prepare and use a Dockerfile and action.yml for GitHub actions.&lt;/p&gt;
+&lt;p&gt;This blog is about my experience, the mistakes I have made while creating my first GitHub action. I will be creating more GitHub actions for my use cases. You can check them out on my GitHub profile here.&lt;/p&gt;
+&lt;p&gt;I hope this blog will help you in making your first GitHub action. If you have any questions, please let me know in the comment section. If you find anything new in this blog, share it with others, and if you find any mistakes in it, please let me know and help me make it better. I will definitely fix it.&lt;/p&gt;
+&lt;p&gt;Thanks for reading! 😊&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;&amp;ldquo;Runner&amp;rdquo; refers to a virtual machine or container environment where your GitHub Action workflows are executed.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref1:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href="#fnref2:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content></item><item><title>Go: Basics and a Dash of Clean Code</title><link>/posts/go-basics-and-a-dash-of-clean-code/</link><pubDate>Sun, 03 Sep 2023 19:31:57 +0530</pubDate><guid>/posts/go-basics-and-a-dash-of-clean-code/</guid><description>&lt;hr&gt;
+&lt;p&gt;If you have read my first blog &lt;a href="/posts/lets-go/"&gt;Let&amp;rsquo;s Go&lt;/a&gt;, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/"&gt;notes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p&gt;</description><content>&lt;hr&gt;
+&lt;p&gt;If you have read my first blog &lt;a href="/posts/lets-go/"&gt;Let&amp;rsquo;s Go&lt;/a&gt;, which is not about the Go programming language, go check it out 😅. You can easily tell how much I am obsessed with the Go programming language. After writing my first blog, I have done some thinking, like where to start my Go programming series blog. I have done some research and collected some &lt;a href="/notes/go/"&gt;notes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As you read the heading of the blog, I will cover some of the basics that I think are important for anyone starting a programming language that also follows some of the principles of clean code. The topics that I have covered in this blog are the effective way you write your Go code and questions that arise in my mind when I have studied Golang, like why there are different types of variable declarations. Why have they created the Go programming language?&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s find the answer&amp;rsquo;s:&lt;/p&gt;
+&lt;h2 id="history-of-go"&gt;History of Go&lt;/h2&gt;
+&lt;p&gt;The Google search engine experienced an issue back in 2007.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Programs containing millions of lines of code needed to be maintained.&lt;/li&gt;
+&lt;li&gt;Before they could experiment with any new code changes, they had to compile the program, which took them about an hour at that time.&lt;/li&gt;
+&lt;li&gt;String processing is Google&amp;rsquo;s additional issue.&lt;/li&gt;
+&lt;li&gt;Numerous text files, or web pages, are read and analyzed by Google.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This was obviously not good for the developers because it made them less productive.&lt;/p&gt;
+&lt;p&gt;So Google engineers &lt;a href="https://en.wikipedia.org/wiki/Robert_Griesemer"&gt;Robert Griesemer&lt;/a&gt;, &lt;a href="https://en.wikipedia.org/wiki/Rob_Pike"&gt;Rob Pike&lt;/a&gt;, and &lt;a href="https://en.wikipedia.org/wiki/Ken_Thompson"&gt;Ken Thompson&lt;/a&gt; sketched out some goals for a new language:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fast Compilation (Efficiency)&lt;/li&gt;
+&lt;li&gt;Less cumbersome code (Simplicity)&lt;/li&gt;
+&lt;li&gt;Unused memory freed automatically (Garbage Collection)&lt;/li&gt;
+&lt;li&gt;Easy-to-write software that does several operations simultaneously (Concurrency)&lt;/li&gt;
+&lt;li&gt;Good support for processor with multiple cores&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After a couple years of work, Google had created Go: a language that was fast to write code and produced programs that were fast to compile and run. Google built a rich library of string functions into Go, Garbage Collecting makes strings in Go simple to think about, and efficient in ways some other string libraries are not. The project switched to an open source license in 2009. It’s now free for anyone to use.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re developing a command-line tool in Go, you can generate executable files for Windows, MacOS, and Linux using the same source code. If you&amp;rsquo;re building a web server, Go can assist you in efficiently managing multiple simultaneous user connections. Regardless of your project&amp;rsquo;s nature, Go will aid you in making your code easier to maintain.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Let&amp;rsquo;s start with syntax and clean code principles :&lt;/p&gt;
+&lt;h2 id="go-file-layout"&gt;Go file layout&lt;/h2&gt;
+&lt;p&gt;Now let’s look at the code and figure out what it actually means…&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="432675198" type="checkbox" /&gt;
+&lt;label for="432675198"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Hello World&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 package main
 import &amp;#34;fmt&amp;#34;
 func main() {
 fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Every Go file has three sections:&lt;/p>
-&lt;ol>
-&lt;li>The &lt;code>package&lt;/code> clause&lt;/li>
-&lt;li>Any &lt;code>import&lt;/code> statements&lt;/li>
-&lt;li>The actual &lt;code>code&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;code>Package&lt;/code> : A package in Go is a way to organize and structure code into meaningful units, helping with code organization and reusability. It allows control over visibility, promoting encapsulation and dependency management. The &lt;code>main&lt;/code> package serves as the entry point for Go programs.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>import&lt;/code> : Go files almost always have one or more &lt;code>import&lt;/code> statements. The &lt;code>import&lt;/code> statement is used to bring in external packages that your code relies on. It ensures that your program loads only the necessary packages, making it faster and more efficient than loading everything at once.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>actual code&lt;/code> : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code>function&lt;/code> is a group of code that you &lt;code>call (run)&lt;/code> from other places in your program. When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first, which is why we need this function &lt;code>main&lt;/code>.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>Function&lt;/code> : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Below is the code with what it does in comments:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="671439258" type="checkbox" />
-&lt;label for="671439258">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Hello World&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Every Go file has three sections:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;code&gt;package&lt;/code&gt; clause&lt;/li&gt;
+&lt;li&gt;Any &lt;code&gt;import&lt;/code&gt; statements&lt;/li&gt;
+&lt;li&gt;The actual &lt;code&gt;code&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Package&lt;/code&gt; : A package in Go is a way to organize and structure code into meaningful units, helping with code organization and reusability. It allows control over visibility, promoting encapsulation and dependency management. The &lt;code&gt;main&lt;/code&gt; package serves as the entry point for Go programs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;import&lt;/code&gt; : Go files almost always have one or more &lt;code&gt;import&lt;/code&gt; statements. The &lt;code&gt;import&lt;/code&gt; statement is used to bring in external packages that your code relies on. It ensures that your program loads only the necessary packages, making it faster and more efficient than loading everything at once.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;actual code&lt;/code&gt; : The last part of every Go file is the actual code, which is often split up into one or more functions. A &lt;code&gt;function&lt;/code&gt; is a group of code that you &lt;code&gt;call (run)&lt;/code&gt; from other places in your program. When a Go program is run, it looks for a function named &lt;code&gt;main&lt;/code&gt; and runs that first, which is why we need this function &lt;code&gt;main&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Function&lt;/code&gt; : A function is a group of one or more lines of code that you can call (run) from other places in your program.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below is the code with what it does in comments:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="713968452" type="checkbox" /&gt;
+&lt;label for="713968452"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Hello World&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // This line says the rest of the code in
 // this file belongs to the &amp;#34;main&amp;#34; package
 package main
@@ -1147,113 +1152,114 @@ func main() {
 // from the &amp;#34;fmt&amp;#34; package
 fmt.Println(&amp;#34;Hello, World&amp;#34;)
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;blockquote>
-&lt;p>Note: When a Go program is run, it looks for a function named &lt;code>main&lt;/code> and runs that first.&lt;/p>&lt;/blockquote>
-&lt;h2 id="no-semicolons">No Semicolons&lt;/h2>
-&lt;p>As you can see in our previous program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.&lt;/p>
-&lt;p>Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C&lt;/a>, those semicolons do not appear in the source. Instead, the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis">lexer&lt;/a> uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p>
-&lt;h3 id="how-does-it-know-when-to-add-semicolons">How does it know when to add semicolons?&lt;/h3>
-&lt;p>The rule is: If a line ends with an identifier (for example: words such as &lt;code>int&lt;/code> or &lt;code>float64&lt;/code>), a basic value such as a number or a string, or certain specific tokens such as&lt;/p>
-&lt;p>&lt;code>break continue fallthrough return ++ -- ) }&lt;/code>&lt;/p>
-&lt;p>The Go lexer then adds a semicolon after that token when it encounters a newline, which is &lt;code>\n&lt;/code>.&lt;/p>
-&lt;p>To put it simply, when there&amp;rsquo;s a chance that a newline could end a statement, Go automatically inserts a semicolon.&lt;/p>
-&lt;p>One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code>if&lt;/code>, &lt;code>for&lt;/code>, &lt;code>switch&lt;/code>, or &lt;code>select&lt;/code> on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="875269413" type="checkbox" />
-&lt;label for="875269413">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">if statement&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: When a Go program is run, it looks for a function named &lt;code&gt;main&lt;/code&gt; and runs that first.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="no-semicolons"&gt;No Semicolons&lt;/h2&gt;
+&lt;p&gt;As you can see in our previous program, there are no semicolons to separate statements in Go; we can use semicolons, but it’s not required (in fact, it’s generally frowned upon). This design choice was made to enhance code readability and reduce the potential for common programming errors.&lt;/p&gt;
+&lt;p&gt;Like &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29"&gt;C&lt;/a&gt;, Go&amp;rsquo;s formal grammar uses semicolons to terminate statements, but unlike &lt;a href="https://en.wikipedia.org/wiki/C_%28programming_language%29"&gt;C&lt;/a&gt;, those semicolons do not appear in the source. Instead, the &lt;a href="https://en.wikipedia.org/wiki/Lexical_analysis"&gt;lexer&lt;/a&gt; uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.&lt;/p&gt;
+&lt;h3 id="how-does-it-know-when-to-add-semicolons"&gt;How does it know when to add semicolons?&lt;/h3&gt;
+&lt;p&gt;The rule is: If a line ends with an identifier (for example: words such as &lt;code&gt;int&lt;/code&gt; or &lt;code&gt;float64&lt;/code&gt;), a basic value such as a number or a string, or certain specific tokens such as&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;break continue fallthrough return ++ -- ) }&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The Go lexer then adds a semicolon after that token when it encounters a newline, which is &lt;code&gt;\n&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To put it simply, when there&amp;rsquo;s a chance that a newline could end a statement, Go automatically inserts a semicolon.&lt;/p&gt;
+&lt;p&gt;One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure like &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt;, or &lt;code&gt;select&lt;/code&gt; on the new line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. So write them similar to below:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="248357961" type="checkbox" /&gt;
+&lt;label for="248357961"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;if statement&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 if i &amp;lt; f() {
 g()
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>not like this:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="768341925" type="checkbox" />
-&lt;label for="768341925">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">bad if statement&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;not like this:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="598347216" type="checkbox" /&gt;
+&lt;label for="598347216"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;bad if statement&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 if i &amp;lt; f() // wrong!
 { // wrong!
 g()
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;h2 id="formatting">Formatting&lt;/h2>
-&lt;p>Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if they are not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.&lt;/p>
-&lt;p>Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called &lt;code>go fmt&lt;/code>. This tool reads a program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.&lt;/p>
-&lt;p>Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With &lt;strong>&lt;em>Go, all you have to do is run &lt;code>go fmt&lt;/code>&lt;/em>&lt;/strong>.&lt;/p>
-&lt;p>If you want to try its simple version, head over to the &lt;a href="https://go.dev/play">Go playground&lt;/a>, write some unformatted code, and hit the &lt;code>format&lt;/code> button.&lt;/p>
-&lt;h2 id="comments">Comments&lt;/h2>
-&lt;p>In Go, developers write text annotations within the source code as comments. These annotations are not executed by the program but serve as notes, explanations, or documentation. Comments are essential for providing context, making code more understandable, and documenting code for future reference.&lt;/p>
-&lt;p>Go provides C-style &lt;code>/* */&lt;/code> block comments and C++-style &lt;code>//&lt;/code> line comments.&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Single-line comments&lt;/strong>: Single-line comments start with two slashes &lt;code>//&lt;/code> and continue until the end of the line. They are used for adding brief explanations or clarity to a specific line of code.&lt;/li>
-&lt;/ol>
-&lt;div class="collapsable-code">
-&lt;input id="261479385" type="checkbox" />
-&lt;label for="261479385">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Single-line comment&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h2 id="formatting"&gt;Formatting&lt;/h2&gt;
+&lt;p&gt;Formatting issues are the most contentious but the least important. People may prefer different formatting styles, so when another developer or person reads the same code, it may take some time for them to grasp if they are not accustomed to the same formatting style. It will be easier if everyone formats their documents the same way.&lt;/p&gt;
+&lt;p&gt;Go takes an unusual approach and lets the machine take care of most formatting issues. The Go compiler comes with a standard formatting tool called &lt;code&gt;go fmt&lt;/code&gt;. This tool reads a program and automatically formats it with consistent indentation, alignment, and comment retention or adjustment to match a standard style.&lt;/p&gt;
+&lt;p&gt;Next time, whenever you share your code, other Go developers will expect it to be in the standard Go format. With &lt;strong&gt;&lt;em&gt;Go, all you have to do is run &lt;code&gt;go fmt&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to try its simple version, head over to the &lt;a href="https://go.dev/play"&gt;Go playground&lt;/a&gt;, write some unformatted code, and hit the &lt;code&gt;format&lt;/code&gt; button.&lt;/p&gt;
+&lt;h2 id="comments"&gt;Comments&lt;/h2&gt;
+&lt;p&gt;In Go, developers write text annotations within the source code as comments. These annotations are not executed by the program but serve as notes, explanations, or documentation. Comments are essential for providing context, making code more understandable, and documenting code for future reference.&lt;/p&gt;
+&lt;p&gt;Go provides C-style &lt;code&gt;/* */&lt;/code&gt; block comments and C++-style &lt;code&gt;//&lt;/code&gt; line comments.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Single-line comments&lt;/strong&gt;: Single-line comments start with two slashes &lt;code&gt;//&lt;/code&gt; and continue until the end of the line. They are used for adding brief explanations or clarity to a specific line of code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="876459132" type="checkbox" /&gt;
+&lt;label for="876459132"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Single-line comment&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // This is a single-line comment in Go.
 var x int // This comment explains the purpose of the variable.
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;ol start="2">
-&lt;li>&lt;strong>Multi-line comments&lt;/strong>: Multi-line comments are enclosed within &lt;code>/*&lt;/code> and &lt;code>*/&lt;/code> and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.&lt;/li>
-&lt;/ol>
-&lt;div class="collapsable-code">
-&lt;input id="713469825" type="checkbox" />
-&lt;label for="713469825">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Multi-line comment&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;Multi-line comments&lt;/strong&gt;: Multi-line comments are enclosed within &lt;code&gt;/*&lt;/code&gt; and &lt;code&gt;*/&lt;/code&gt; and can span multiple lines. They are commonly used for documenting larger sections of code, writing package-level documentation, or providing more detailed explanations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="867125349" type="checkbox" /&gt;
+&lt;label for="867125349"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Multi-line comment&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 /*
 This is a multi-line comment in Go.
 It can span multiple lines and is useful for providing
 detailed explanations or comments for larger code blocks.
 */
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>Go also has a convention for documenting exported (public) identifiers and packages using special comments, often referred to as &amp;ldquo;comment annotations&amp;rdquo; or &amp;ldquo;comments for the &lt;code>godoc&lt;/code> tool&amp;rdquo;. These comments are structured in a way that allows the godoc tool to automatically generate documentation based on them.&lt;/p>
-&lt;p>For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="249861573" type="checkbox" />
-&lt;label for="249861573">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Sample Go Doc Comment&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Go also has a convention for documenting exported (public) identifiers and packages using special comments, often referred to as &amp;ldquo;comment annotations&amp;rdquo; or &amp;ldquo;comments for the &lt;code&gt;godoc&lt;/code&gt; tool&amp;rdquo;. These comments are structured in a way that allows the godoc tool to automatically generate documentation based on them.&lt;/p&gt;
+&lt;p&gt;For documenting exported identifiers, you can use a comment placed directly before the identifier, starting with the identifier name and a brief description:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="394758261" type="checkbox" /&gt;
+&lt;label for="394758261"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Sample Go Doc Comment&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // MyFunction is a public function that performs a specific task.
 func MyFunction() {
 // Function implementation...
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>For package-level documentation, you can include a comment at the top of the file:&lt;/p>
-&lt;div class="collapsable-code">
-&lt;input id="349126578" type="checkbox" />
-&lt;label for="349126578">
-&lt;span class="collapsable-code__language">go&lt;/span>
-&lt;span class="collapsable-code__title">Package level doc comment&lt;/span>
-&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide">&lt;/span>
-&lt;/label>
-&lt;pre class="language-go" >&lt;code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;For package-level documentation, you can include a comment at the top of the file:&lt;/p&gt;
+&lt;div class="collapsable-code"&gt;
+&lt;input id="197326854" type="checkbox" /&gt;
+&lt;label for="197326854"&gt;
+&lt;span class="collapsable-code__language"&gt;go&lt;/span&gt;
+&lt;span class="collapsable-code__title"&gt;Package level doc comment&lt;/span&gt;
+&lt;span class="collapsable-code__toggle" data-label-expand="Show" data-label-collapse="Hide"&gt;&lt;/span&gt;
+&lt;/label&gt;
+&lt;pre class="language-go" &gt;&lt;code&gt;
 // Package mypackage provides functionality for...
 package mypackage
 import &amp;#34;fmt&amp;#34;
@@ -1261,121 +1267,124 @@ import &amp;#34;fmt&amp;#34;
 func ExportedFunction() {
 // Function implementation...
 }
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;p>To generate documentation from these comments, you can use the godoc command-line tool. Running godoc on your Go code will produce documentation that includes your comments, making it easier for others to understand and use your code. Properly documented code is not only more understandable but also encourages collaboration and code maintenance.&lt;/p>
-&lt;h2 id="names">Names&lt;/h2>
-&lt;img src="https://media0.giphy.com/media/3orieQcuSiWouzdHq0/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" />
-&lt;p>Names are as important in Go as in any other language. When coding, we should consider naming variables, functions, arguments, classes, packages, source files, and directories that contain those source files.&lt;/p>
-&lt;blockquote>
-&lt;p>According to the book &lt;code>Clean Code&lt;/code> by &lt;code>Robert C. Martin&lt;/code>, there are some standards for naming:&lt;/p>
-&lt;ol>
-&lt;li>Choose descriptive and unambiguous names.&lt;/li>
-&lt;li>Make a meaningful distinction.&lt;/li>
-&lt;li>Use pronounceable names.&lt;/li>
-&lt;li>Use searchable names.&lt;/li>
-&lt;li>Replace magic numbers with named constants.&lt;/li>
-&lt;li>Avoid encodings. Don&amp;rsquo;t append prefixes or type information.&lt;/li>
-&lt;/ol>
-&lt;p>You can check this points in detail in this &lt;a href="https://medium.com/@pabashani.herath/clean-code-naming-conventions-4cac223de3c6">blog&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p>
-&lt;ul>
-&lt;li>A name must begin with a letter and can have any number of additional letters and numbers.&lt;/li>
-&lt;li>The following points determine the visibility of a name (variable, function, and type names) outside a package:
-&lt;ul>
-&lt;li>If the name of a variable, function, or type begins with a &lt;strong>&lt;em>Capital letter&lt;/em>&lt;/strong>, it is considered as &lt;strong>&lt;em>Exported&lt;/em>&lt;/strong> and can be accessed from a package outside the current one.&lt;/li>
-&lt;li>Example - As you have seen in the above &lt;a href="/posts/go-basics-and-a-dash-of-clean-code/#go-file-layout">hello world program&lt;/a>. The &lt;code>P&lt;/code> in &lt;code>fmt.Println&lt;/code> is capitalized: so it can be used from the main package or any other.&lt;/li>
-&lt;li>If the name begins with a &lt;strong>&lt;em>Lowercase letter&lt;/em>&lt;/strong>, it is considered &lt;strong>&lt;em>Unexported&lt;/em>&lt;/strong> and can only be accessed within the current package.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Above are the only rules that are enforced in Go language. But &lt;code>Go Community&lt;/code> follows some additional conventions as well:&lt;/p>
-&lt;ul>
-&lt;li>When naming something in Go, for instance a variable or a function, use &lt;a href="https://en.wikipedia.org/wiki/Camel_case">CamelCase&lt;/a>. This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces.&lt;/li>
-&lt;li>For example, &lt;code>topRank&lt;/code> and &lt;code>RetryConnection&lt;/code> are in CamelCase, which looks like camel humps.&lt;/li>
-&lt;li>If a name&amp;rsquo;s meaning is clear from the context, it&amp;rsquo;s common to use abbreviations such as &lt;code> i&lt;/code> for &lt;code>index&lt;/code> or &lt;code>max&lt;/code> for &lt;code>maximum&lt;/code> to keep the code concise and easy to read.&lt;/li>
-&lt;/ul>
-&lt;h3 id="mixedcaps">MixedCaps&lt;/h3>
-&lt;p>The convention in Go is to use &lt;code>MixedCaps&lt;/code> or &lt;code>mixedCaps&lt;/code> rather than underscores to write multi-word names.&lt;/p>
-&lt;h3 id="package-name">Package Name&lt;/h3>
-&lt;p>Good package names make code better. A package’s name provides context for its contents, making it easier for the developer or user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p>
-&lt;h4 id="package-name-guideline">Package Name Guideline&lt;/h4>
-&lt;p>To make a Go package easy to use, it&amp;rsquo;s best to give it a short, clear, and meaningful single-word name. Packages typically have lowercase names without &lt;code>under_scores&lt;/code> or &lt;code>mixed capital&lt;/code> letters. These names are often simple nouns, for example:&lt;/p>
-&lt;ul>
-&lt;li>time (provides functionality for measuring and displaying time)&lt;/li>
-&lt;li>list (implements a doubly linked list)&lt;/li>
-&lt;li>http (provides HTTP client and server implementations)&lt;/li>
-&lt;/ul>
-&lt;p>Below are examples of bad naming styles in Go:&lt;/p>
-&lt;ul>
-&lt;li>computeServiceClient&lt;/li>
-&lt;li>priority_queue&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>&lt;em>Abbreviate judiciously&lt;/em>&lt;/strong>. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely used packages often have compressed names:&lt;/p>
-&lt;ul>
-&lt;li>strconv (string conversion)&lt;/li>
-&lt;li>syscall (system call)&lt;/li>
-&lt;li>fmt (formatted I/O)&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p>&lt;/blockquote>
-&lt;p>Another convention is that the package name is the base name of its source directory; the package in &lt;code>src/encoding/base64&lt;/code> is imported as &lt;code>&amp;quot;encoding/base64&amp;quot;&lt;/code> but has the name &lt;code>base64&lt;/code>, not &lt;code>encoding_base64&lt;/code> and not &lt;code>encodingBase64&lt;/code>.&lt;/p>
-&lt;p>Another short example is &lt;code>once.Do&lt;/code>; &lt;code>once.Do(setup)&lt;/code> reads well and would not be improved by writing &lt;code>once.DoOrWaitUntilDone(setup)&lt;/code>. &lt;em>Long names don&amp;rsquo;t automatically make things more readable.&lt;/em> A helpful doc comment can often be more valuable than an extra-long name.&lt;/p>
-&lt;h3 id="interface-names">Interface Names&lt;/h3>
-&lt;p>By convention, one-method interfaces are named by the &lt;code>method name&lt;/code> plus an &lt;code>-er&lt;/code> suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p>
-&lt;h2 id="variable-declaration">Variable Declaration&lt;/h2>
-&lt;p>In Go, a &lt;code>variable&lt;/code> is a piece of storage containing a value. You can give a variable a name by using a &lt;code>variable declaration&lt;/code>. Just use the &lt;code>var&lt;/code> keyword, followed by the desired name and the type of values the variable will hold.&lt;/p>
-&lt;p>Variable declaration syntax:&lt;/p>
-&lt;p>&lt;code>var name string&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>var&lt;/code> :- A keyword.&lt;/li>
-&lt;li>&lt;code>name&lt;/code> :- A variable name that you want to access in your program.&lt;/li>
-&lt;li>&lt;code>string&lt;/code> :- Any datatype that the variable will hold data for. (Go-supported datatype)&lt;/li>
-&lt;/ul>
-&lt;p>Once you declare a variable, you can assign any value of that type to it with the &lt;code>=&lt;/code> sign.&lt;/p>
-&lt;p>&lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/p>
-&lt;p>You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code>=&lt;/code>, and the same number of values on the right side, separated with commas (&lt;code>,&lt;/code>).&lt;/p>
-&lt;p>Syntax for assigning multiple variables at once:&lt;/p>
-&lt;p>&lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/p>
-&lt;p>You can assign new values to existing variables, but they need to be values of the same type, for example: when you assign an &lt;code>int&lt;/code> variable value to a &lt;code>string&lt;/code> type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p>
-&lt;h2 id="short-variable-declaration">Short Variable Declaration&lt;/h2>
-&lt;p>As we saw in the above section, we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a &lt;code>short variable declaration&lt;/code>. Instead of explicitly declaring the type of the variable and later assigning it with &lt;code>=&lt;/code>, you do both at once using &lt;code>:=&lt;/code>.&lt;/p>
-&lt;p>Here are our previous examples with short variable declarations :&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>name := jerry&lt;/code> instead of &lt;code>var name string = &amp;quot;Jerry&amp;quot;&lt;/code>&lt;/li>
-&lt;li>&lt;code>length, width := 1.2, 2.4&lt;/code> instead of &lt;code>var length, width float64 = 1.2, 2.4&lt;/code>&lt;/li>
-&lt;/ol>
-&lt;p>There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p>
-&lt;p>Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p>
-&lt;h2 id="thanks">Thanks!!!&lt;/h2>
-&lt;p>In this blog, we&amp;rsquo;ve delved into Go&amp;rsquo;s intriguing history, exploring its origins and essential conventions such as formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.&lt;/p>
-&lt;p>If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you&amp;rsquo;ve spotted any errors or have additional insights, please don&amp;rsquo;t hesitate to leave a comment below. Let&amp;rsquo;s engage in discussions and learn together.&lt;/p>
-&lt;p>Once again, a big thank you for joining me on this journey. 🥳&lt;/p>
-&lt;img src="https://media1.giphy.com/media/xuAq1gW0hwlREbbMU7/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" />
-&lt;h2 id="references">References&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://www.oreilly.com/library/view/head-first-go/9781491969540/">Head First GO&lt;/a> - Jay McGavren&lt;/li>
-&lt;li>&lt;a href="https://go.dev/doc/effective_go">Effective Go&lt;/a> - Go Doc&lt;/li>
-&lt;li>&lt;a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/">Clean Code&lt;/a> - Robert C. Martin&lt;/li>
-&lt;/ul></content></item><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>&lt;h2 id="begin">Begin&lt;/h2>
-&lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p></description><content>&lt;h2 id="begin">Begin&lt;/h2>
-&lt;p>This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797">first blog&lt;/a>). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/">Notes section&lt;/a>.&lt;/p>
-&lt;h2 id="plan-and-present">Plan and Present&lt;/h2>
-&lt;p>As of now, I don’t have a full plan for what I am going to write, which topics I will cover, or where it will go. But I remember a quote that says to &lt;code>go with the flow and be more concerned with the journey than the destination&lt;/code>.&lt;/p>
-&lt;blockquote>
-&lt;p>&amp;ldquo;A good traveler has no fixed plans, and is not intent on arriving.&amp;rdquo; - Lao Tzu&lt;/p>&lt;/blockquote>
-&lt;p>To start with, I will be writing blogs about &lt;a href="https://go.dev/">Golang&lt;/a>, which I am currently obsessed with.&lt;/p>
-&lt;p>As said, I am currently obsessed with Golang, like how it internally works and all. I will start with its basics, and as I go along with my research, I will dig down into how Golang works internally. I am more curious to do research on its internal workings and its concurrency. I will try to explain all the things in an easy way (I hope so 😬).&lt;/p>
-&lt;p>As I go with blogs, I will create YouTube videos for the same on my channel. I have lots of project ideas that I will create as an example, and if it is an interesting idea or helpful, I will make it open-source, or you guys can start contributing your ideas to the project.&lt;/p>
-&lt;p>From my contribution, I have remembered how I struggled with starting to contribute to open-source projects. So definitely, I will write a blog about how to get started with open source. Also,share my experience with it. As of now,I am contributing to &lt;a href="https://github.com/ory/cli-vscode-extension">vscode-extension&lt;/a> for &lt;a href="https://ory.sh">ORY&lt;/a> organization, which mostly provides solutions in the areas of authentication, authorization, access control, and zero-trust networking with their open-source projects. I will create a new tab where I can keep track of the ideas.&lt;/p>
-&lt;p>So my plan will be, in short:&lt;/p>
-&lt;ul>
-&lt;li>Research on the topic&lt;/li>
-&lt;li>Add to &lt;a href="/notes/">Notes&lt;/a>&lt;/li>
-&lt;li>Write blog&lt;/li>
-&lt;li>Make YouTube Videos&lt;/li>
-&lt;/ul>
-&lt;h2 id="lets-go">Let&amp;rsquo;s Go&lt;/h2>
-&lt;p>Let us begin this journey and learn as we go. The start may not be great, but you have to start to be great.&lt;/p>
-&lt;hr>
-&lt;p>If you are interested, I created a track 7 years ago called &lt;a href="https://soundcloud.com/rex_official/lets-go-rex">Let&amp;rsquo;s Go&lt;/a>&lt;/p></content></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;To generate documentation from these comments, you can use the godoc command-line tool. Running godoc on your Go code will produce documentation that includes your comments, making it easier for others to understand and use your code. Properly documented code is not only more understandable but also encourages collaboration and code maintenance.&lt;/p&gt;
+&lt;h2 id="names"&gt;Names&lt;/h2&gt;
+&lt;img src="https://media0.giphy.com/media/3orieQcuSiWouzdHq0/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" /&gt;
+&lt;p&gt;Names are as important in Go as in any other language. When coding, we should consider naming variables, functions, arguments, classes, packages, source files, and directories that contain those source files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;According to the book &lt;code&gt;Clean Code&lt;/code&gt; by &lt;code&gt;Robert C. Martin&lt;/code&gt;, there are some standards for naming:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Choose descriptive and unambiguous names.&lt;/li&gt;
+&lt;li&gt;Make a meaningful distinction.&lt;/li&gt;
+&lt;li&gt;Use pronounceable names.&lt;/li&gt;
+&lt;li&gt;Use searchable names.&lt;/li&gt;
+&lt;li&gt;Replace magic numbers with named constants.&lt;/li&gt;
+&lt;li&gt;Avoid encodings. Don&amp;rsquo;t append prefixes or type information.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can check this points in detail in this &lt;a href="https://medium.com/@pabashani.herath/clean-code-naming-conventions-4cac223de3c6"&gt;blog&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Go has one simple set of rules that apply to the names of variables, functions, and types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A name must begin with a letter and can have any number of additional letters and numbers.&lt;/li&gt;
+&lt;li&gt;The following points determine the visibility of a name (variable, function, and type names) outside a package:
+&lt;ul&gt;
+&lt;li&gt;If the name of a variable, function, or type begins with a &lt;strong&gt;&lt;em&gt;Capital letter&lt;/em&gt;&lt;/strong&gt;, it is considered as &lt;strong&gt;&lt;em&gt;Exported&lt;/em&gt;&lt;/strong&gt; and can be accessed from a package outside the current one.&lt;/li&gt;
+&lt;li&gt;Example - As you have seen in the above &lt;a href="/posts/go-basics-and-a-dash-of-clean-code/#go-file-layout"&gt;hello world program&lt;/a&gt;. The &lt;code&gt;P&lt;/code&gt; in &lt;code&gt;fmt.Println&lt;/code&gt; is capitalized: so it can be used from the main package or any other.&lt;/li&gt;
+&lt;li&gt;If the name begins with a &lt;strong&gt;&lt;em&gt;Lowercase letter&lt;/em&gt;&lt;/strong&gt;, it is considered &lt;strong&gt;&lt;em&gt;Unexported&lt;/em&gt;&lt;/strong&gt; and can only be accessed within the current package.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Above are the only rules that are enforced in Go language. But &lt;code&gt;Go Community&lt;/code&gt; follows some additional conventions as well:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When naming something in Go, for instance a variable or a function, use &lt;a href="https://en.wikipedia.org/wiki/Camel_case"&gt;CamelCase&lt;/a&gt;. This means that if the name has more than one word, start with a lowercase letter for the first word and then capitalize the first letter of each following word without using spaces.&lt;/li&gt;
+&lt;li&gt;For example, &lt;code&gt;topRank&lt;/code&gt; and &lt;code&gt;RetryConnection&lt;/code&gt; are in CamelCase, which looks like camel humps.&lt;/li&gt;
+&lt;li&gt;If a name&amp;rsquo;s meaning is clear from the context, it&amp;rsquo;s common to use abbreviations such as &lt;code&gt; i&lt;/code&gt; for &lt;code&gt;index&lt;/code&gt; or &lt;code&gt;max&lt;/code&gt; for &lt;code&gt;maximum&lt;/code&gt; to keep the code concise and easy to read.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="mixedcaps"&gt;MixedCaps&lt;/h3&gt;
+&lt;p&gt;The convention in Go is to use &lt;code&gt;MixedCaps&lt;/code&gt; or &lt;code&gt;mixedCaps&lt;/code&gt; rather than underscores to write multi-word names.&lt;/p&gt;
+&lt;h3 id="package-name"&gt;Package Name&lt;/h3&gt;
+&lt;p&gt;Good package names make code better. A package’s name provides context for its contents, making it easier for the developer or user to understand what the package is for and how to use it. The name also helps package maintainers determine what does and does not belong in the package as it evolves. Well-named packages make it easier to find the code you need.&lt;/p&gt;
+&lt;h4 id="package-name-guideline"&gt;Package Name Guideline&lt;/h4&gt;
+&lt;p&gt;To make a Go package easy to use, it&amp;rsquo;s best to give it a short, clear, and meaningful single-word name. Packages typically have lowercase names without &lt;code&gt;under_scores&lt;/code&gt; or &lt;code&gt;mixed capital&lt;/code&gt; letters. These names are often simple nouns, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;time (provides functionality for measuring and displaying time)&lt;/li&gt;
+&lt;li&gt;list (implements a doubly linked list)&lt;/li&gt;
+&lt;li&gt;http (provides HTTP client and server implementations)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below are examples of bad naming styles in Go:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;computeServiceClient&lt;/li&gt;
+&lt;li&gt;priority_queue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Abbreviate judiciously&lt;/em&gt;&lt;/strong&gt;. Package names may be abbreviated when the abbreviation is familiar to the programmer. Widely used packages often have compressed names:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;strconv (string conversion)&lt;/li&gt;
+&lt;li&gt;syscall (system call)&lt;/li&gt;
+&lt;li&gt;fmt (formatted I/O)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note:- If abbreviating a package name makes it ambiguous or unclear, don’t do it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Another convention is that the package name is the base name of its source directory; the package in &lt;code&gt;src/encoding/base64&lt;/code&gt; is imported as &lt;code&gt;&amp;quot;encoding/base64&amp;quot;&lt;/code&gt; but has the name &lt;code&gt;base64&lt;/code&gt;, not &lt;code&gt;encoding_base64&lt;/code&gt; and not &lt;code&gt;encodingBase64&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Another short example is &lt;code&gt;once.Do&lt;/code&gt;; &lt;code&gt;once.Do(setup)&lt;/code&gt; reads well and would not be improved by writing &lt;code&gt;once.DoOrWaitUntilDone(setup)&lt;/code&gt;. &lt;em&gt;Long names don&amp;rsquo;t automatically make things more readable.&lt;/em&gt; A helpful doc comment can often be more valuable than an extra-long name.&lt;/p&gt;
+&lt;h3 id="interface-names"&gt;Interface Names&lt;/h3&gt;
+&lt;p&gt;By convention, one-method interfaces are named by the &lt;code&gt;method name&lt;/code&gt; plus an &lt;code&gt;-er&lt;/code&gt; suffix or similar modification to construct an agent noun; Reader, Writer, Formatter, CloseNotifier etc.&lt;/p&gt;
+&lt;h2 id="variable-declaration"&gt;Variable Declaration&lt;/h2&gt;
+&lt;p&gt;In Go, a &lt;code&gt;variable&lt;/code&gt; is a piece of storage containing a value. You can give a variable a name by using a &lt;code&gt;variable declaration&lt;/code&gt;. Just use the &lt;code&gt;var&lt;/code&gt; keyword, followed by the desired name and the type of values the variable will hold.&lt;/p&gt;
+&lt;p&gt;Variable declaration syntax:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var name string&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt; :- A keyword.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt; :- A variable name that you want to access in your program.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string&lt;/code&gt; :- Any datatype that the variable will hold data for. (Go-supported datatype)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you declare a variable, you can assign any value of that type to it with the &lt;code&gt;=&lt;/code&gt; sign.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var name string = &amp;quot;Jerry&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can assign values to multiple variables in the same statement. Just place multiple variable names on the left side of &lt;code&gt;=&lt;/code&gt;, and the same number of values on the right side, separated with commas (&lt;code&gt;,&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Syntax for assigning multiple variables at once:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;var length, width float64 = 1.2, 2.4&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can assign new values to existing variables, but they need to be values of the same type, for example: when you assign an &lt;code&gt;int&lt;/code&gt; variable value to a &lt;code&gt;string&lt;/code&gt; type variable. Go’s static typing ensures you don’t accidentally assign the wrong kind of value to a variable.&lt;/p&gt;
+&lt;h2 id="short-variable-declaration"&gt;Short Variable Declaration&lt;/h2&gt;
+&lt;p&gt;As we saw in the above section, we can declare variables and assign them values on the same line. But if you know what the initial value of a variable is going to be as soon as you declare it, it’s more typical to use a &lt;code&gt;short variable declaration&lt;/code&gt;. Instead of explicitly declaring the type of the variable and later assigning it with &lt;code&gt;=&lt;/code&gt;, you do both at once using &lt;code&gt;:=&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here are our previous examples with short variable declarations :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;name := jerry&lt;/code&gt; instead of &lt;code&gt;var name string = &amp;quot;Jerry&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;length, width := 1.2, 2.4&lt;/code&gt; instead of &lt;code&gt;var length, width float64 = 1.2, 2.4&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;There’s no need to explicitly declare the variable’s type; the type of the value assigned to the variable becomes the type of that variable.&lt;/p&gt;
+&lt;p&gt;Because short variable declarations are so convenient and concise, they’re used more often than regular declarations. You’ll still see both forms occasionally, though, so it’s important to be familiar with both.&lt;/p&gt;
+&lt;h2 id="thanks"&gt;Thanks!!!&lt;/h2&gt;
+&lt;p&gt;In this blog, we&amp;rsquo;ve delved into Go&amp;rsquo;s intriguing history, exploring its origins and essential conventions such as formatting, comments with the godoc tool, and naming guidelines. We also demystified the absence of semicolons in Go and how they are automatically inserted.&lt;/p&gt;
+&lt;p&gt;If you found this blog helpful or discovered something new, please consider sharing it with your connections who may benefit from a clearer understanding. If you&amp;rsquo;ve spotted any errors or have additional insights, please don&amp;rsquo;t hesitate to leave a comment below. Let&amp;rsquo;s engage in discussions and learn together.&lt;/p&gt;
+&lt;p&gt;Once again, a big thank you for joining me on this journey. 🥳&lt;/p&gt;
+&lt;img src="https://media1.giphy.com/media/xuAq1gW0hwlREbbMU7/giphy.webp" alt="names" class="center" style="border-radius: 8px; width: 320px; height: 230px;" /&gt;
+&lt;h2 id="references"&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.oreilly.com/library/view/head-first-go/9781491969540/"&gt;Head First GO&lt;/a&gt; - Jay McGavren&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://go.dev/doc/effective_go"&gt;Effective Go&lt;/a&gt; - Go Doc&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.oreilly.com/library/view/clean-code-a/9780136083238/"&gt;Clean Code&lt;/a&gt; - Robert C. Martin&lt;/li&gt;
+&lt;/ul&gt;</content></item><item><title>Let's Go</title><link>/posts/lets-go/</link><pubDate>Fri, 25 Aug 2023 09:05:10 +0530</pubDate><guid>/posts/lets-go/</guid><description>&lt;h2 id="begin"&gt;Begin&lt;/h2&gt;
+&lt;p&gt;This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797"&gt;first blog&lt;/a&gt;). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/"&gt;Notes section&lt;/a&gt;.&lt;/p&gt;</description><content>&lt;h2 id="begin"&gt;Begin&lt;/h2&gt;
+&lt;p&gt;This is the new beginning and also my second blog, which is also a non-technical blog (&lt;a href="https://rushipanchariya.medium.com/how-to-use-face-api-js-for-face-detection-in-video-or-image-using-angular-fca1e4bef797"&gt;first blog&lt;/a&gt;). I have decided to start writing blogs so that I can share my thoughts and knowledge and improve my writing skills. I will be writing blogs about mostly technical stuff and sometimes non-technical stuff. In technical blogs, I will cover whatever research I have done, and while doing research, I will keep my notes in the &lt;a href="/notes/"&gt;Notes section&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="plan-and-present"&gt;Plan and Present&lt;/h2&gt;
+&lt;p&gt;As of now, I don’t have a full plan for what I am going to write, which topics I will cover, or where it will go. But I remember a quote that says to &lt;code&gt;go with the flow and be more concerned with the journey than the destination&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;A good traveler has no fixed plans, and is not intent on arriving.&amp;rdquo; - Lao Tzu&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To start with, I will be writing blogs about &lt;a href="https://go.dev/"&gt;Golang&lt;/a&gt;, which I am currently obsessed with.&lt;/p&gt;
+&lt;p&gt;As said, I am currently obsessed with Golang, like how it internally works and all. I will start with its basics, and as I go along with my research, I will dig down into how Golang works internally. I am more curious to do research on its internal workings and its concurrency. I will try to explain all the things in an easy way (I hope so 😬).&lt;/p&gt;
+&lt;p&gt;As I go with blogs, I will create YouTube videos for the same on my channel. I have lots of project ideas that I will create as an example, and if it is an interesting idea or helpful, I will make it open-source, or you guys can start contributing your ideas to the project.&lt;/p&gt;
+&lt;p&gt;From my contribution, I have remembered how I struggled with starting to contribute to open-source projects. So definitely, I will write a blog about how to get started with open source. Also,share my experience with it. As of now,I am contributing to &lt;a href="https://github.com/ory/cli-vscode-extension"&gt;vscode-extension&lt;/a&gt; for &lt;a href="https://ory.sh"&gt;ORY&lt;/a&gt; organization, which mostly provides solutions in the areas of authentication, authorization, access control, and zero-trust networking with their open-source projects. I will create a new tab where I can keep track of the ideas.&lt;/p&gt;
+&lt;p&gt;So my plan will be, in short:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Research on the topic&lt;/li&gt;
+&lt;li&gt;Add to &lt;a href="/notes/"&gt;Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Write blog&lt;/li&gt;
+&lt;li&gt;Make YouTube Videos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="lets-go"&gt;Let&amp;rsquo;s Go&lt;/h2&gt;
+&lt;p&gt;Let us begin this journey and learn as we go. The start may not be great, but you have to start to be great.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;If you are interested, I created a track 7 years ago called &lt;a href="https://soundcloud.com/rex_official/lets-go-rex"&gt;Let&amp;rsquo;s Go&lt;/a&gt;&lt;/p&gt;</content></item></channel></rss>
